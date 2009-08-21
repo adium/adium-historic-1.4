@@ -16,12 +16,12 @@ LIBGMODULE=libgmodule-2.0.0
 MEANWHILE=libmeanwhile.1
 GADU=libgadu.3.7.0
 SASL=libsasl2.2
-JSONGLIB=libjson-glib-1.0
+JSONGLIB=libjson-glib-1.0.0
 
 # vv
 # I'm not sure what to do to universalize the vv libs, especially the gst-plugins
 
-PURPLE_VERSION=0.6.0
+PURPLE_VERSION=0.6.2
 
 LIBPURPLE=libpurple.$PURPLE_VERSION
 PURPLE_FOLDER=libpurple-$PURPLE_VERSION
