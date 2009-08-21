@@ -39,7 +39,7 @@ UNIVERSAL_DIR="$BUILDDIR/universal"
 LOGDIR="$BUILDDIR"
 
 if [ "x$PIDGIN_SOURCE" = "x" ] ; then
-	export PIDGIN_SOURCE="$SOURCEDIR/im.pidgin.adium"
+	export PIDGIN_SOURCE="$SOURCEDIR/im.pidgin.adium.1-4"
 fi
 
 # Compiler options
