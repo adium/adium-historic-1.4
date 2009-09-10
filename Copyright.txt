@@ -75,5 +75,7 @@ Mike Timm
 Ngan Pham
 Jay Weatherstone
 Robby Weinberg
+Andreas Monitzer
+Kevin Glowacz
 
 If you have contributed to Adium and are not on this list, please contact us.
