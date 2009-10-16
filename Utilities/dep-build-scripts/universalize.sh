@@ -21,7 +21,7 @@ JSONGLIB=libjson-glib-1.0.0
 # vv
 # I'm not sure what to do to universalize the vv libs, especially the gst-plugins
 
-PURPLE_VERSION=0.6.2
+PURPLE_VERSION=0.6.3
 
 LIBPURPLE=libpurple.$PURPLE_VERSION
 PURPLE_FOLDER=libpurple-$PURPLE_VERSION
