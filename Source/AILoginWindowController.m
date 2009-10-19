@@ -253,7 +253,11 @@
 #endif
 
     //Select the login they used last
+#if DEBUG_BUILD
+	lastLogin = [loginDict objectForKey:LOGIN_LAST_USER_DEBUG];
+#else
     lastLogin = [loginDict objectForKey:LOGIN_LAST_USER];
+#endif
 	NSIndexSet *rowIndex;
     if (lastLogin != nil && [lastLogin length] != 0 && [userArray indexOfObject:lastLogin] != NSNotFound) {
         rowIndex = [NSIndexSet indexSetWithIndex:[userArray indexOfObject:lastLogin]];
