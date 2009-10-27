@@ -12530,6 +12530,11 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 63C7E2080FAFAA4700B310AC /* Spotlight Importer.xcconfig */;
 			buildSettings = {
+				ARCHS = (
+					ppc,
+					i386,
+					x86_64,
+				);
 			};
 			name = Release;
 		};
@@ -12537,6 +12542,11 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 63C7E2080FAFAA4700B310AC /* Spotlight Importer.xcconfig */;
 			buildSettings = {
+				ARCHS = (
+					ppc,
+					i386,
+					x86_64,
+				);
 			};
 			name = "Release-Debug";
 		};
