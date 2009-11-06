@@ -73,7 +73,13 @@
 }
 
 - (void) addAttribute:(NSString *)property withValue:(NSString *)value {
-    [attributes setObject:value forKey:property];
+	if (value && property)
+		[attributes setObject:value forKey:property];
+	else {
+		NSLog(@"WARNING: %@ attempted to set %@ for %@", self, value, property);
+		AILogWithSignature(@"WARNING: %@ attempted to set %@ for %@", self, value, property);
+	}
+
 }
 
 - (NSString *)name {

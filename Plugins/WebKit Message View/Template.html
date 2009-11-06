@@ -28,6 +28,10 @@
 			this.isConsecutive = undefined;
 			this.shouldScroll = undefined;
 			
+			var appendElement = function (elem) {
+				document.getElementById("Chat").appendChild(elem);
+			};
+			
 			function outputHTML() {
 				var insert = document.getElementById("insert");
 				if(!!insert && self.isConsecutive) {
@@ -36,7 +40,7 @@
 					if(insert)
 						insert.parentNode.removeChild(insert);
 					// insert the documentFragment into the live DOM
-					document.getElementById("Chat").appendChild(self.fragment);
+					appendElement(self.fragment);
 				}
 				alignChat(self.shouldScroll);
 				
@@ -62,6 +66,18 @@
 					insert.parentNode.removeChild(insert);
 			}
 			
+			function setShouldScroll(flag) {
+				if(flag && undefined === self.shouldScroll)
+					self.shouldScroll = flag;
+			}
+			
+			// hook in a custom method to append new data
+			// to the chat.
+			this.setAppendElementMethod = function (func) {
+				if(typeof func === 'function')
+					appendElement = func;
+			}
+						
 			// (re)start the coalescing timer.
 			//   we wait 25ms for a new message to come in.
 			//   If we get one, restart the timer and wait another 10ms.
@@ -102,7 +118,7 @@
 				
 				node = null;
 
-				if(shouldScroll) self.shouldScroll = shouldScroll;
+				setShouldScroll(shouldScroll);
 				self.coalesce();
 			}
 			
@@ -117,8 +133,7 @@
 					self.fragment.appendChild(node);
 				}
 				node = null;
-				if(shouldScroll)
-					self.shouldScroll = shouldScroll;
+				setShouldScroll(shouldScroll);
 				self.coalesce();
 			}
 			
@@ -128,8 +143,7 @@
 				var lastMessage = self.fragment.lastChild;
 				lastMessage.parentNode.replaceChild(node, lastMessage);
 				node = null;
-				if(shouldScroll)
-					self.shouldScroll = shouldScroll;
+				setShouldScroll(shouldScroll);
 			}
 		}
 		var coalescedHTML;
@@ -294,9 +308,10 @@
 			alignChat(true/*nearBottom()*/); //nearBottom buggy with inactive tabs
 		}
 		
-		function adiumOnLoad() {
+		function initStyle() {
 			alignChat(true);
-			coalescedHTML = new CoalescedHTML();
+			if(!coalescedHTML)
+				coalescedHTML = new CoalescedHTML();
 		}
 	</script>
 
@@ -304,9 +319,8 @@
 		.actionMessageUserName { display:none; }
 		.actionMessageBody:before { content:"*"; }
 		.actionMessageBody:after { content:"*"; }
-		hr#focus { border: 0; border-bottom: 1px solid red; width: 25%%; margin: 0 auto 0 auto; }
 		* { word-wrap:break-word; }
-		img.scaledToFitImage { height: auto; width: 100%%; }
+		img.scaledToFitImage { height: auto; max-width: 100%%; }
 	</style>
 
 	<!-- This style is shared by all variants. !-->
@@ -320,7 +334,7 @@
 	</style>
 
 </head>
-<body onload="adiumOnLoad();" style="==bodyBackground==">
+<body onload="initStyle();" style="==bodyBackground==">
 %@
 <div id="Chat">
 </div>

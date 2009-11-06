@@ -31,7 +31,7 @@
     return @"AIMentionAdvancedPreferences";
 }
 - (NSImage *)image{
-	return [NSImage imageNamed:@"pref-events" forClass:[AIPreferenceWindowController class]];
+	return [NSImage imageNamed:@"pref-mention" forClass:[AIPreferenceWindowController class]];
 }
 
 - (void)saveTerms
@@ -79,7 +79,7 @@
  */
 - (void)viewDidLoad
 {
-	[label_explanation setLocalizedString:AILocalizedString(@"Messages are highlighted when the following terms are spoken. Your username is always highlighted.", nil)];
+	[label_explanation setStringValue:AILocalizedString(@"Messages are highlighted when the following terms are spoken. Your username is always highlighted.", nil)];
 	
 	mentionTerms = [[NSMutableArray alloc] initWithArray:[adium.preferenceController preferenceForKey:PREF_KEY_MENTIONS group:PREF_GROUP_GENERAL]];
 	
