@@ -153,6 +153,8 @@ static AIHTMLDecoder	*encoderGroupChat = nil;
 	purple_account_set_bool(account, "use_ssl", [[self preferenceForKey:PREFERENCE_SSL_CONNECTION
 																  group:GROUP_ACCOUNT_STATUS] boolValue]);
 	
+	purple_account_set_bool(account, "use_clientlogin", FALSE);
+	
 }
 
 - (BOOL)encrypted

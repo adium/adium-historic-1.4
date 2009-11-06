@@ -211,10 +211,10 @@
 	[menuItem release];
 	
 	// Authorization requests menu item
-	menuItem = [[NSMenuItem alloc] initWithTitle:AUTHORIZATION_REQUESTS
-													   target:self
-													   action:@selector(openAuthorizationWindow:)
-												keyEquivalent:@""];
+	menuItem = [[NSMenuItem alloc] initWithTitle:AILocalizedStringFromTableInBundle(@"Authorization Requests",nil, [NSBundle bundleForClass:[AIAuthorizationRequestsWindowController class]], nil)
+										  target:self
+										  action:@selector(openAuthorizationWindow:)
+								   keyEquivalent:@""];
 	
 	[adium.menuController addMenuItem:menuItem toLocation:LOC_Window_Auxiliary];
 	[menuItem release];
@@ -1777,6 +1777,8 @@ withAttributedDescription:[[[NSAttributedString alloc] initWithString:inDesc
 		if (!fontPanelAccessoryView) {
 			[NSBundle loadNibNamed:@"FontPanelAccessoryView" owner:self];
 			[fontPanel setAccessoryView:fontPanelAccessoryView];
+			
+			[button_fontPanelSetAsDefault setLocalizedString:AILocalizedString(@"Save This Setting As My Default Font", "Appears in the Format > Show Fonts window. You are limited for horizontal space, so try to keep it at most the length of the English string.")];
 		}
 		
 		[fontPanel orderFront:self]; 

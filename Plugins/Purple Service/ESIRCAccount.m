@@ -285,6 +285,14 @@ static PurpleConversation *fakeConversation(PurpleAccount *account)
 	return dict;
 }
 
+/*!
+ * @brief Should an autoreply be sent to this message?
+ */
+- (BOOL)shouldSendAutoreplyToMessage:(AIContentMessage *)message
+{
+	return NO;
+}
+
 #pragma mark Server contacts (NickServ, ChanServ)
 /*!
  * @brief Sends a raw command to identify for the nickname
@@ -322,13 +330,6 @@ BOOL contactUIDIsServerContact(NSString *contactUID)
 	return contactUIDIsServerContact(inContact.UID);
 }
 
-/*!
- * @brief Don't autoreply to server contacts (services) or FreeNode's stupidity.
- */
-- (BOOL)shouldSendAutoreplyToMessage:(AIContentMessage *)message
-{
-	return !contactUIDIsServerContact(message.source.UID);
-}
 
 /*!
  * @brief Don't log server contacts (services) or FreeNode's stupidity.
@@ -453,24 +454,27 @@ BOOL contactUIDIsServerContact(NSString *contactUID)
 {
 	AIOperationRequirement req = menuItem.tag;
 	AIChat *chat = adium.interfaceController.activeChat;
-	
-	if (!chat.chatContainer.messageViewController.selectedListObjects.count) {
-		return NO;
-	}
-	
+	BOOL anySelected = chat.chatContainer.messageViewController.selectedListObjects.count > 0;
+		
 	AIGroupChatFlags flags = [self flagsInChat:chat];
 	
 	switch (req) {
 		case AIRequiresHalfop:
-			return ((flags & AIGroupChatOp) == AIGroupChatOp || (flags & AIGroupChatHalfOp) == AIGroupChatHalfOp);
+			return (anySelected && ((flags & AIGroupChatOp) == AIGroupChatOp || (flags & AIGroupChatHalfOp) == AIGroupChatHalfOp));
 			break;
 			
 		case AIRequiresOp:
-			return ((flags & AIGroupChatOp) == AIGroupChatOp);
+			return (anySelected && ((flags & AIGroupChatOp) == AIGroupChatOp));
+			break;
+			
+		case AIRequiresNoLevel:
+			return anySelected;
+			break;
+			
+		default:
+			return YES;
 			break;
 	}
-	
-	return NO;
 }
 
 #pragma mark Action Menu's Actions
