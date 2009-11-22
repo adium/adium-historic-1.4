@@ -220,8 +220,8 @@
 		
 	} else {
 		//Moved somewhere in the middle.  New index is the average of the next largest and smallest index
-		AIListObject	*previousObject = [container.containedObjects objectAtIndex:index-1];
-		AIListObject	*nextObject = [container.containedObjects objectAtIndex:index];
+		AIListObject	*previousObject = [container.visibleContainedObjects objectAtIndex:index-1];
+		AIListObject	*nextObject = [container.visibleContainedObjects objectAtIndex:index];
 		CGFloat nextLowest = [container orderIndexForObject:previousObject];
 		CGFloat nextHighest = [container orderIndexForObject:nextObject];
 		
