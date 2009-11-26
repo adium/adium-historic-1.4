@@ -58,7 +58,7 @@ extern enum LMXParseResult LMXParseResultFromString(NSString *result);
 	char attributeQuoteChar; //One of '"', '\'', or '\0'
 }
 
-//How to get autoreleased parser in only one message instead of three:
+//How to get an autoreleased parser in only one message instead of three:
 + parser;
 
 - initWithData:(NSData *)data;
