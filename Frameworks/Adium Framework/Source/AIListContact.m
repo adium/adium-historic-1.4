@@ -873,6 +873,11 @@
 		containerSpecifier:containerRef key:@"contacts" name:self.UID] autorelease];
 }
 
+- (NSArray *)groupsAsArray
+{
+	return self.groups.allObjects;
+}
+
 - (BOOL)scriptingBlocked
 {
 	return [self isBlocked];
