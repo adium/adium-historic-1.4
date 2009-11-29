@@ -206,6 +206,7 @@ for ARCH in ${ARCHES[@]} ; do
 		$PIDGIN_SOURCE/libpurple/protocols/jabber/si.h \
 		$PIDGIN_SOURCE/libpurple/protocols/jabber/jabber.h \
 		$PIDGIN_SOURCE/libpurple/protocols/jabber/iq.h \
+		$PIDGIN_SOURCE/libpurple/protocols/jabber/namespaces.h \
 		$TARGET_DIR/include/libpurple
 done
 
