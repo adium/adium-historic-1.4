@@ -226,6 +226,8 @@
  */
 - (void)updateFriendlyNameAfterConnect
 {
+#warning Re-enable before 1.4 if libpurple fixes MSN display names
+#if 0
 	const char			*displayName = NULL;
 	
 	if (account) {
@@ -295,8 +297,11 @@
 	}
 	
 	if (shouldUpdateDisplayNameImmediately) {
+#endif
 		[self updateStatusForKey:KEY_ACCOUNT_DISPLAY_NAME];
+#if 0
 	}
+#endif
 }
 
 - (void)gotFilteredFriendlyName:(NSAttributedString *)filteredFriendlyName context:(NSDictionary *)infoDict
