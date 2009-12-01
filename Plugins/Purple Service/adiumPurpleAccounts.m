@@ -50,6 +50,7 @@ static void *adiumPurpleAccountRequestAuthorize(PurpleAccount *account, const ch
 										void *user_data)
 {
 	NSMutableDictionary	*infoDict = [NSMutableDictionary dictionaryWithObjectsAndKeys:
+ 		accountLookup(account), @"Account",
 		[NSString stringWithUTF8String:remote_user], @"Remote Name",
 		[NSValue valueWithPointer:authorize_cb], @"authorizeCB",
 		[NSValue valueWithPointer:deny_cb], @"denyCB",
