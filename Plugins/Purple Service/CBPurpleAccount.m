@@ -718,8 +718,7 @@ static SLPurpleCocoaAdapter *purpleAdapter = nil;
 
 - (id)authorizationRequestWithDict:(NSDictionary*)dict
 {
-	// We retain this in case libpurple wants to close the request early. It is freed below.
-	return [[AdiumAuthorization showAuthorizationRequestWithDict:dict forAccount:self] retain];
+	return [AdiumAuthorization showAuthorizationRequestWithDict:dict forAccount:self];
 }
 
 - (void)authorizationWithDict:(NSDictionary *)infoDict response:(AIAuthorizationResponse)authorizationResponse
@@ -742,14 +741,8 @@ static SLPurpleCocoaAdapter *purpleAdapter = nil;
 		//libpurple will remove its reference to the handle for this request, which is inDict, in response to this callback invocation
 		if (callback) {
 			[purpleAdapter doAuthRequestCbValue:callback withUserDataValue:[[[infoDict objectForKey:@"userData"] retain] autorelease]];
-
-			/* Retained in -[self authorizationRequestWithDict:].  We kept it around before now in case libpurle wanted us to close it early, such as because the
-			 * account disconnected.
-			 */
-			[infoDict release];
 		} else {
 			[purpleAdapter closeAuthRequestWithHandle:infoDict];
-			
 		}
 	}
 }

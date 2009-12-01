@@ -48,7 +48,6 @@ static AdiumAuthorization *sharedInstance;
 		// Always ignore requests from blocked contacts. Don't even show it to the user.
 		AILogWithSignature(@"Authorization request with dict %@ ignored due to %@ being blocked", inDict, listContact);
 		[inAccount authorizationWithDict:inDict response:AIAuthorizationNoResponse];
-		
 		return nil;
 	}
 	
@@ -58,22 +57,15 @@ static AdiumAuthorization *sharedInstance;
 									 forListObject:(AIListObject *)listContact
 										  userInfo:nil
 					  previouslyPerformedActionIDs:nil];
-	
-	NSMutableDictionary *dictWithAccount = [inDict mutableCopy];
-	
-	[dictWithAccount setObject:inAccount forKey:@"Account"];
 
-	[[AIAuthorizationRequestsWindowController sharedController] addRequestWithDict:dictWithAccount];
-
-	// We intentionally continue to retain the dictWithAccount so we can possibly remove it later.
-	return dictWithAccount;
+	[[AIAuthorizationRequestsWindowController sharedController] addRequestWithDict:inDict];
+	
+	return inDict;
 }
 
 + (void)closeAuthorizationForUIHandle:(id)handle
 {
 	[[AIAuthorizationRequestsWindowController sharedController] removeRequest:handle];
-	
-	[handle release];
 }
 
 #pragma mark Event descriptions
