@@ -1025,6 +1025,10 @@
 		updateAfterSend = [[prefDict objectForKey:TWITTER_PREFERENCE_UPDATE_AFTER_SEND] boolValue];
 		retweetLink = [[prefDict objectForKey:TWITTER_PREFERENCE_RETWEET_SPAM] boolValue];
 		
+#if 0
+		/*
+		 Temporarily disabled for 1.4b18, since I don't have the time to fix the cursor iteration on user pages yet.
+		 */
 		if ([key isEqualToString:TWITTER_PREFERENCE_LOAD_CONTACTS] && self.online) {
 			if ([[prefDict objectForKey:TWITTER_PREFERENCE_LOAD_CONTACTS] boolValue]) {
 				// Delay updates when loading our contacts list.
@@ -1041,6 +1045,7 @@
 				[self removeAllContacts];
 			}
 		}
+#endif
 	}	
 }
 
