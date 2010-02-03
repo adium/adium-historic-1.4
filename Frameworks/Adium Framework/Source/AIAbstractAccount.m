@@ -1422,6 +1422,12 @@
  */
 - (void)setLastDisconnectionError:(NSString *)inError
 {
+    // If we already have an error, ignore the new one, unless
+    // we're resetting to nil.
+    if (lastDisconnectionError && inError) {
+        return;
+    }
+        
 	if (lastDisconnectionError != inError) {
 		[lastDisconnectionError release];
 		lastDisconnectionError = [inError retain];
