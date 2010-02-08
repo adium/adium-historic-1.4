@@ -115,11 +115,4 @@
 	[self removeObjectAtIndex:currentIndex];
 }
 
-//just a better name for an existing NSMutableArray method.
-//this makes it uniform in style with -[NSMutableDictionary setObject:forKey:].
-- (void)setObject:(id)object atIndex:(unsigned)index
-{
-	[self replaceObjectAtIndex:index withObject:object];
-}
-
 @end
