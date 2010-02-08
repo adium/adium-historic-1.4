@@ -115,7 +115,7 @@
 	NSString *identifier = tableColumn.identifier;
 	
 	if ([identifier isEqualToString:@"text"]) {
-		[mentionTerms setObject:object atIndex:row];
+		[mentionTerms replaceObjectAtIndex:row withObject:object];
 		[self saveTerms];
 	}
 }
