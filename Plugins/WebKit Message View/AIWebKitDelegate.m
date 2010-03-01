@@ -45,6 +45,7 @@ static AIWebKitDelegate *AISharedWebKitDelegate;
 	[webView setUIDelegate:self];
 	[webView setDraggingDelegate:self];
 	[webView setEditingDelegate:self];
+	[webView setResourceLoadDelegate:self];
 	
 //	[[webView windowScriptObject] setValue:self forKey:@"client"];
 }
@@ -56,6 +57,8 @@ static AIWebKitDelegate *AISharedWebKitDelegate;
 	[webView setPolicyDelegate:nil];
 	[webView setUIDelegate:nil];
 	[webView setDraggingDelegate:nil];
+	[webView setEditingDelegate:nil];
+	[webView setResourceLoadDelegate:nil];
 	
 	[mapping removeObjectForKey:[NSValue valueWithPointer:webView]];
 }
@@ -205,4 +208,10 @@ static AIWebKitDelegate *AISharedWebKitDelegate;
 	return YES;
 }
 
+- (NSURLRequest *)webView:(WebView *)sender resource:(id)identifier willSendRequest:(NSURLRequest *)request redirectResponse:(NSURLResponse *)redirectResponse fromDataSource:(WebDataSource *)dataSource
+{
+	NSMutableURLRequest *newRequest = [request mutableCopy];
+	[newRequest setHTTPShouldHandleCookies:NO];
+	return [newRequest autorelease];
+}
 @end
