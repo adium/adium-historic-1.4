@@ -97,6 +97,8 @@ typedef enum {
 	IBOutlet	AIFilterBarView				*filterBarView;
 	IBOutlet	NSSearchField				*searchField;
 	IBOutlet	AIRolloverButton			*button_cancelFilterBar;
+	
+	BOOL									typeToFindEnabled;
 }
 
 // Create additional windows
