@@ -595,6 +595,7 @@
 		348C47170D3B20BE00FB6E7A /* AIMessageWindowOutgoingScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 348C47160D3B20BE00FB6E7A /* AIMessageWindowOutgoingScrollView.m */; };
 		348F57940936F3CC00288E41 /* ESEditStatusGroupWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 348F57920936F3CC00288E41 /* ESEditStatusGroupWindowController.m */; };
 		348F579E0936FA6D00288E41 /* EditStatusGroup.nib in Resources */ = {isa = PBXBuildFile; fileRef = 348F579D0936FA6D00288E41 /* EditStatusGroup.nib */; };
+		3490615D127F70B100FC313F /* TemporaryIRCAccountWindow.nib in Resources */ = {isa = PBXBuildFile; fileRef = 3490615C127F70B100FC313F /* TemporaryIRCAccountWindow.nib */; };
 		349195660C9662AA00595A04 /* AIListBookmark.m in Sources */ = {isa = PBXBuildFile; fileRef = 349195640C9662AA00595A04 /* AIListBookmark.m */; };
 		349195670C9662AA00595A04 /* AIListBookmark.h in Headers */ = {isa = PBXBuildFile; fileRef = 349195650C9662AA00595A04 /* AIListBookmark.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		3496A8C207CE6B880055BBAB /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3496A8C107CE6B880055BBAB /* InfoPlist.strings */; };
@@ -3217,6 +3218,7 @@
 		348F579D0936FA6D00288E41 /* EditStatusGroup.nib */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = EditStatusGroup.nib; path = Resources/EditStatusGroup.nib; sourceTree = "<group>"; };
 		348FF83E09128BEB00A942A8 /* CBPurpleAccount.m */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.objc; name = CBPurpleAccount.m; path = "Plugins/Purple Service/CBPurpleAccount.m"; sourceTree = "<group>"; };
 		348FF84909128D6300A942A8 /* AccountDefaults.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist; name = AccountDefaults.plist; path = "Frameworks/Adium Framework/AccountDefaults.plist"; sourceTree = "<group>"; };
+		3490615C127F70B100FC313F /* TemporaryIRCAccountWindow.nib */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = TemporaryIRCAccountWindow.nib; path = Resources/TemporaryIRCAccountWindow.nib; sourceTree = "<group>"; };
 		349195640C9662AA00595A04 /* AIListBookmark.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AIListBookmark.m; path = "Frameworks/Adium Framework/Source/AIListBookmark.m"; sourceTree = "<group>"; };
 		349195650C9662AA00595A04 /* AIListBookmark.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AIListBookmark.h; path = "Frameworks/Adium Framework/Source/AIListBookmark.h"; sourceTree = "<group>"; };
 		34943DEE07BAD918000F2A03 /* AccountPrivacy.nib */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = AccountPrivacy.nib; path = "Frameworks/Adium Framework/Resources/AccountPrivacy.nib"; sourceTree = "<group>"; };
@@ -4681,6 +4683,9 @@
 		6FB330A20C7235BF00B001A8 /* EKEzvIncomingFileTransfer.m */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.objc; name = EKEzvIncomingFileTransfer.m; path = Plugins/Bonjour/libezv/Classes/EKEzvIncomingFileTransfer.m; sourceTree = SOURCE_ROOT; };
 		6FB330A30C7235BF00B001A8 /* EKEzvOutgoingFileTransfer.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = EKEzvOutgoingFileTransfer.h; path = Plugins/Bonjour/libezv/Classes/EKEzvOutgoingFileTransfer.h; sourceTree = SOURCE_ROOT; };
 		6FB330A40C7235BF00B001A8 /* EKEzvOutgoingFileTransfer.m */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.objc; name = EKEzvOutgoingFileTransfer.m; path = Plugins/Bonjour/libezv/Classes/EKEzvOutgoingFileTransfer.m; sourceTree = SOURCE_ROOT; };
+		76A9989C1177A597009192B6 /* AITemporaryIRCAccountWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AITemporaryIRCAccountWindowController.h; path = Source/AITemporaryIRCAccountWindowController.h; sourceTree = "<group>"; };
+		76A9989D1177A597009192B6 /* AITemporaryIRCAccountWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AITemporaryIRCAccountWindowController.m; path = Source/AITemporaryIRCAccountWindowController.m; sourceTree = "<group>"; };
+		76A998D51177B457009192B6 /* TemporaryIRCAccountWindow.nib */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = TemporaryIRCAccountWindow.nib; path = Resources/TemporaryIRCAccountWindow.nib; sourceTree = "<group>"; };
 		77D903500B78CF1000B86C42 /* zhm */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.executable"; name = zhm; path = "Plugins/Purple Service/zhm"; sourceTree = "<group>"; };
 		7E1E8176063A3EEC00EB00F7 /* AIContextMenuTextView.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = AIContextMenuTextView.h; path = "Frameworks/Adium Framework/Source/AIContextMenuTextView.h"; sourceTree = "<group>"; };
 		7E1E8177063A3EEC00EB00F7 /* AIContextMenuTextView.m */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.objc; name = AIContextMenuTextView.m; path = "Frameworks/Adium Framework/Source/AIContextMenuTextView.m"; sourceTree = "<group>"; };
@@ -6498,6 +6503,8 @@
 			children = (
 				F57938EF033E745F01A8010A /* AIAccountController.h */,
 				F57938AA033E737001A8010A /* AIAccountController.m */,
+				76A9989C1177A597009192B6 /* AITemporaryIRCAccountWindowController.h */,
+				76A9989D1177A597009192B6 /* AITemporaryIRCAccountWindowController.m */,
 				F5B53FBF0333ABA701A8010A /* Accounts Preferences */,
 				F510B76D03339ED501A8010A /* Account Menu */,
 				34C188A006CAB36400FF5FF9 /* Account Network Connectivity */,
@@ -8619,6 +8626,7 @@
 				3474DFFC08254F3500BF30F0 /* Copyright.txt */,
 				4B191D880611C10800E8A4E7 /* License.txt */,
 				3474DFFF082550FD00BF30F0 /* Credits.rtf */,
+				76A998D51177B457009192B6 /* TemporaryIRCAccountWindow.nib */,
 				34107B5509E992DA001CC042 /* GuestAccountWindow.nib */,
 				34F849520A4AEFA00002A017 /* LogFileUpgrade.nib */,
 				34483A980BC869680083723B /* AdvancedPreferences.nib */,
@@ -8656,6 +8664,7 @@
 		F50A325A03B5798301A8010A /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				3490615C127F70B100FC313F /* TemporaryIRCAccountWindow.nib */,
 				11C97DFC0F7D26C200E8DD37 /* dsa_pub.pem */,
 				34D8326107CBD598006466F2 /* AccountPrefs.plist */,
 				340E9B1F0E34EB900032BEA6 /* Info.plist */,
@@ -9994,6 +10003,7 @@
 				1130EA9D109B445D00FB3454 /* pref-mention.png in Resources */,
 				1130EA9E109B445D00FB3454 /* pref-messagealerts.png in Resources */,
 				11AE5555109CC88C0074BDC2 /* pref-confirmations.png in Resources */,
+				3490615D127F70B100FC313F /* TemporaryIRCAccountWindow.nib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
