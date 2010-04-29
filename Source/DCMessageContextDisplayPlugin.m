@@ -293,6 +293,7 @@
 			[outerFoundContentContexts replaceObjectsInRange:NSMakeRange(0, 0) withObjectsFromArray:foundMessages];
 			linesLeftToFind -= [outerFoundContentContexts count];
 		}
+	}
 
 	if (linesLeftToFind > 0) {
 		AILogWithSignature(@"Unable to find %d logs for %@", linesLeftToFind, chat);
