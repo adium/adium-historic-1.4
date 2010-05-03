@@ -198,6 +198,7 @@ for ARCH in ${ARCHES[@]} ; do
 		$PIDGIN_SOURCE/libpurple/protocols/gg/buddylist.h \
 		$PIDGIN_SOURCE/libpurple/protocols/gg/gg.h \
 		$PIDGIN_SOURCE/libpurple/protocols/gg/search.h \
+		$PIDGIN_SOURCE/libpurple/protocols/jabber/auth.h \
 		$PIDGIN_SOURCE/libpurple/protocols/jabber/bosh.h \
 		$PIDGIN_SOURCE/libpurple/protocols/jabber/buddy.h \
 		$PIDGIN_SOURCE/libpurple/protocols/jabber/caps.h \
