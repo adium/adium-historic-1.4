@@ -35,7 +35,6 @@
 	windowControllers = [[NSMutableDictionary alloc] init];
 	uploadInstances = [[NSMutableDictionary alloc] init];
 	
-	[uploaders addObject:[AIPicImImageUploader class]];
 	[uploaders addObject:[AIImageShackImageUploader class]];
 	
 	NSMenuItem *menuItem;
