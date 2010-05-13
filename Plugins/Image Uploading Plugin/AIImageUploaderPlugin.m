@@ -7,7 +7,6 @@
 //
 
 #import "AIImageUploaderPlugin.h"
-#import "AIPicImImageUploader.h"
 #import "AIImageShackImageUploader.h"
 #import "AIImageUploaderWindowController.h"
 
