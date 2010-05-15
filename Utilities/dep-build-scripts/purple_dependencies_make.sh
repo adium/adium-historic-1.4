@@ -67,39 +67,6 @@ pushd "$SOURCEDIR/$MEANWHILE" > /dev/null 2>&1
 	done
 popd > /dev/null 2>&1
 
-# Gadu-gadu
-for ARCH in ppc i386 ; do
-	echo "Building Gadu-Gadu for $ARCH"
-
-	export CFLAGS="$BASE_CFLAGS -arch $ARCH"
-	export CXXFLAGS="$CFLAGS"
-	export LDFLAGS="$BASE_LDFLAGS -arch $ARCH"
-	
-	case $ARCH in
-		ppc) HOST=powerpc-apple-darwin9
-			 export PATH="$PATH_PPC"
-			 TARGET_DIR="$TARGET_DIR_PPC"
-			 export PKG_CONFIG_PATH="$TARGET_DIR_PPC/lib/pkgconfig";;
-		i386) HOST=i686-apple-darwin9
-  		      TARGET_DIR="$TARGET_DIR_I386"
-			  export PATH="$PATH_I386"
-			  export PKG_CONFIG_PATH="$TARGET_DIR_I386/lib/pkgconfig";;
-	esac
-	
-	mkdir gadu-$ARCH || true
-	cd gadu-$ARCH
-
-	echo '  Configuring...'
-	"$SOURCEDIR/$GADU/configure" \
-		--prefix=$TARGET_DIR \
-	    --enable-shared \
-	    --host=$HOST >> $LOG_FILE 2>&1
-
-	echo '  make && make install'
-	make -j $NUMBER_OF_CORES >> $LOG_FILE 2>&1 && make install >> $LOG_FILE 2>&1
-	cd ..
-done
-
 # intltool so pidgin will configure
 # need a native intltool in both ppc and i386
 for ARCH in ppc i386 ; do

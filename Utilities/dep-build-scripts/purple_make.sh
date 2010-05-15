@@ -107,8 +107,6 @@ for ARCH in ${ARCHES[@]} ; do
 		# we don't need pkg-config for this
 		export LIBXML_CFLAGS='-I/usr/include/libxml2' 
 		export LIBXML_LIBS='-lxml2'
-		export GADU_CFLAGS="-I$TARGET_DIR/include"
-		export GADU_LIBS="-lgadu"
 		export MEANWHILE_CFLAGS="-I$TARGET_DIR/include/meanwhile -I$TARGET_DIR/include/glib-2.0 -I$TARGET_DIR/lib/glib-2.0/include"
 		export MEANWHILE_LIBS="-lmeanwhile -lglib-2.0 -liconv"
 		
