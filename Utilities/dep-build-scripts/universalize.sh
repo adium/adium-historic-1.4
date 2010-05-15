@@ -14,7 +14,6 @@ LIBGMODULE=libgmodule-2.0.0
 
 # "purple" deps
 MEANWHILE=libmeanwhile.1
-GADU=libgadu.3.7.0
 SASL=libsasl2.2
 JSONGLIB=libjson-glib-1.0.0
 
@@ -60,16 +59,12 @@ cp -R $TARGET_DIR_I386/include/json-glib-1.0/json-glib $UNIVERSAL_DIR/include/li
 
 rm -rf $UNIVERSAL_DIR/include/$PURPLE_FOLDER
 cp -R $TARGET_DIR_I386/include/libpurple $UNIVERSAL_DIR/include/$PURPLE_FOLDER
-# Another hack: we need libgadu.h
-cp $TARGET_DIR_I386/include/libgadu.h $UNIVERSAL_DIR/include/$PURPLE_FOLDER/libgadu-i386.h
-cp $TARGET_DIR_PPC/include/libgadu.h $UNIVERSAL_DIR/include/$PURPLE_FOLDER/libgadu-ppc.h
-cp $SCRIPT_DIR/libgadu.h $UNIVERSAL_DIR/include/$PURPLE_FOLDER/
 cd ..
 
 cd $UNIVERSAL_DIR
 
 for lib in $LIBINTL $LIBGLIB $LIBGOBJECT $LIBGTHREAD $LIBGMODULE $MEANWHILE $JSONGLIB \
-           $GADU $LIBPURPLE; do
+           $LIBPURPLE; do
 	echo "Making $lib universal..."
 	python $SCRIPT_DIR/framework_maker/universalize.py \
 	  i386:$TARGET_DIR_I386/lib/$lib.dylib \
