@@ -1029,10 +1029,6 @@
 		updateAfterSend = [[prefDict objectForKey:TWITTER_PREFERENCE_UPDATE_AFTER_SEND] boolValue];
 		retweetLink = [[prefDict objectForKey:TWITTER_PREFERENCE_RETWEET_SPAM] boolValue];
 		
-#if 0
-		/*
-		 Temporarily disabled for 1.4b18, since I don't have the time to fix the cursor iteration on user pages yet.
-		 */
 		if ([key isEqualToString:TWITTER_PREFERENCE_LOAD_CONTACTS] && self.online) {
 			if ([[prefDict objectForKey:TWITTER_PREFERENCE_LOAD_CONTACTS] boolValue]) {
 				// Delay updates when loading our contacts list.
@@ -1057,8 +1053,7 @@
 				[self removeAllContacts];
 			}
 		}
-#endif
-	}	
+	}
 }
 
 #pragma mark Periodic update scheduler
@@ -2437,10 +2432,6 @@ NSInteger queuedDMSort(id dm1, id dm2, void *context)
 		if([self requestTypeForRequestID:identifier] == AITwitterValidateCredentials) {
 			// Our UID is definitely set; grab our friends.
 			
-#if 0
-			/*
-				Temporarily disabled for 1.4b18, since I don't have the time to fix the cursor iteration on user pages yet.
-			 */
 			if ([[self preferenceForKey:TWITTER_PREFERENCE_LOAD_CONTACTS group:TWITTER_PREFERENCE_GROUP_UPDATES] boolValue]) {
 				// If we load our follows as contacts, do so now.
 				
@@ -2458,12 +2449,9 @@ NSInteger queuedDMSort(id dm1, id dm2, void *context)
 					[self didDisconnect];
 				}
 			} else {
-#endif
 				// If we don't load follows as contacts, we've finished connecting (fast, wasn't it?)
 				[self didConnect];
-#if 0
 			}
-#endif
 		}
 	} else if ([self requestTypeForRequestID:identifier] == AITwitterNotificationEnable ||
 			   [self requestTypeForRequestID:identifier] == AITwitterNotificationDisable) {
