@@ -326,6 +326,11 @@
 	}
 }
 
+- (void)scrollWheel:(NSEvent *)anEvent
+{
+	[self.enclosingScrollView scrollWheel:anEvent];
+}
+
 //Text changed
 - (void)textDidChange:(NSNotification *)notification
 {
