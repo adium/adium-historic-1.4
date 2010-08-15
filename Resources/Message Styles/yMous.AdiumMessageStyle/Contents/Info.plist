@@ -8,8 +8,10 @@
 	<string>1.4</string>
 	<key>XtraBundleVersion</key>
 	<string>1</string>
+	<key>OriginalAuthor</key>
+	<string>mathuaerknedam</string>
 	<key>CFBundleIdentifier</key>
-	<string>mathuaerknedam.yMous.style</string>
+	<string>im.adium.yMous.style</string>
 	<key>CFBundleName</key>
 	<string>yMous</string>
 	<key>MessageViewVersion</key>
