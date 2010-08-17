@@ -157,7 +157,7 @@
 
 - (NSAttributedString *)readData:(NSData *)xmlData withOptions:(NSDictionary *)options retrying:(BOOL)reentrancyFlag
 {
-    if (!data) {
+    if (!xmlData) {
         return [[[NSAttributedString alloc] initWithString:@""] autorelease];
     }
     AINameFormat nameFormat;
