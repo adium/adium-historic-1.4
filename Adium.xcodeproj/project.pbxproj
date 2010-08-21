@@ -4214,6 +4214,50 @@
 		5A764F8711E051E500E5E0AF /* sk_SK */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = sk_SK; path = "Plugins/Twitter Plugin/sk_SK.lproj/AITwitterAccountView.nib"; sourceTree = "<group>"; };
 		5A764F8811E0521800E5E0AF /* sk_SK */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = sk_SK; path = "Frameworks/Adium Framework/Resources/sk_SK.lproj/EditStateSheet.nib"; sourceTree = "<group>"; };
 		5A764F8C11E0526E00E5E0AF /* sk_SK */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = sk_SK; path = sk_SK.lproj/Localizable.strings; sourceTree = "<group>"; };
+		5A80CF32121F60DF00D0670A /* uk_UA */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = uk_UA; path = Resources/uk_UA.lproj/AccountProxy.nib; sourceTree = "<group>"; };
+		5A80CF33121F60DF00D0670A /* uk_UA */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = uk_UA; path = Resources/uk_UA.lproj/AIAdvancedInspectorPane.nib; sourceTree = "<group>"; };
+		5A80CF34121F60DF00D0670A /* uk_UA */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = uk_UA; path = "Plugins/Twitter Plugin/uk_UA.lproj/AITwitterAccountView.nib"; sourceTree = "<group>"; };
+		5A80CF35121F60DF00D0670A /* uk_UA */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = uk_UA; path = Resources/uk_UA.lproj/AppearancePrefs.nib; sourceTree = "<group>"; };
+		5A80CF36121F60DF00D0670A /* uk_UA */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = uk_UA; path = Resources/uk_UA.lproj/Buttons.strings; sourceTree = "<group>"; };
+		5A80CF37121F60E000D0670A /* uk_UA */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = uk_UA; path = "Plugins/Purple Service/uk_UA.lproj/DCPurpleJabberJoinChatView.nib"; sourceTree = "<group>"; };
+		5A80CF38121F60E000D0670A /* uk_UA */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = uk_UA; path = "Plugins/Purple Service/uk_UA.lproj/DCPurpleMeanwhileJoinChatView.nib"; sourceTree = "<group>"; };
+		5A80CF39121F60E000D0670A /* uk_UA */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = uk_UA; path = "Plugins/Purple Service/uk_UA.lproj/DCPurpleOscarJoinChatView.nib"; sourceTree = "<group>"; };
+		5A80CF3A121F60E000D0670A /* uk_UA */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = uk_UA; path = "Plugins/Purple Service/uk_UA.lproj/DCPurpleYahooJoinChatView.nib"; sourceTree = "<group>"; };
+		5A80CF3B121F60E000D0670A /* uk_UA */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = uk_UA; path = "Plugins/Purple Service/uk_UA.lproj/DCPurpleZephyrJoinChatView.nib"; sourceTree = "<group>"; };
+		5A80CF3C121F60E000D0670A /* uk_UA */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = uk_UA; path = Resources/uk_UA.lproj/DualWindowMessageAdvanced.nib; sourceTree = "<group>"; };
+		5A80CF3D121F60E000D0670A /* uk_UA */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = uk_UA; path = "Frameworks/Adium Framework/Resources/uk_UA.lproj/EditStateSheet.nib"; sourceTree = "<group>"; };
+		5A80CF3E121F60E000D0670A /* uk_UA */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = uk_UA; path = "Frameworks/Adium Framework/Resources/uk_UA.lproj/EmoticonNames.strings"; sourceTree = "<group>"; };
+		5A80CF3F121F60E000D0670A /* uk_UA */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = uk_UA; path = Resources/uk_UA.lproj/ESFileTransferProgressView.nib; sourceTree = "<group>"; };
+		5A80CF40121F60E000D0670A /* uk_UA */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = uk_UA; path = "Plugins/Purple Service/uk_UA.lproj/ESIRCAccountView.nib"; sourceTree = "<group>"; };
+		5A80CF41121F60E000D0670A /* uk_UA */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = uk_UA; path = "Plugins/Purple Service/uk_UA.lproj/ESPurpleAIMAccountView.nib"; sourceTree = "<group>"; };
+		5A80CF42121F60E000D0670A /* uk_UA */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = uk_UA; path = "Plugins/Purple Service/uk_UA.lproj/ESPurpleGaduGaduAccountView.nib"; sourceTree = "<group>"; };
+		5A80CF43121F60E000D0670A /* uk_UA */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = uk_UA; path = "Plugins/Purple Service/uk_UA.lproj/ESPurpleICQAccountView.nib"; sourceTree = "<group>"; };
+		5A80CF44121F60E000D0670A /* uk_UA */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = uk_UA; path = "Plugins/Purple Service/uk_UA.lproj/ESPurpleJabberAccountView.nib"; sourceTree = "<group>"; };
+		5A80CF45121F60E000D0670A /* uk_UA */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = uk_UA; path = "Plugins/Purple Service/uk_UA.lproj/ESPurpleMeanwhileAccountView.nib"; sourceTree = "<group>"; };
+		5A80CF46121F60E000D0670A /* uk_UA */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = uk_UA; path = "Plugins/Purple Service/uk_UA.lproj/ESPurpleMSNAccountView.nib"; sourceTree = "<group>"; };
+		5A80CF47121F60E000D0670A /* uk_UA */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = uk_UA; path = "Plugins/Purple Service/uk_UA.lproj/ESPurpleNovellAccountView.nib"; sourceTree = "<group>"; };
+		5A80CF48121F60E000D0670A /* uk_UA */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = uk_UA; path = "Plugins/Purple Service/uk_UA.lproj/ESPurpleSimpleAccountView.nib"; sourceTree = "<group>"; };
+		5A80CF49121F60E000D0670A /* uk_UA */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = uk_UA; path = "Plugins/Purple Service/uk_UA.lproj/ESPurpleYahooAccountView.nib"; sourceTree = "<group>"; };
+		5A80CF4A121F60E000D0670A /* uk_UA */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = uk_UA; path = "Plugins/Purple Service/uk_UA.lproj/ESPurpleZephyrAccountView.nib"; sourceTree = "<group>"; };
+		5A80CF4B121F60E000D0670A /* uk_UA */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = uk_UA; path = Resources/uk_UA.lproj/GeneralPreferences.nib; sourceTree = "<group>"; };
+		5A80CF4C121F60E000D0670A /* uk_UA */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = uk_UA; path = Resources/uk_UA.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		5A80CF4D121F60E000D0670A /* uk_UA */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = uk_UA; path = Resources/uk_UA.lproj/ListLayoutSheet.nib; sourceTree = "<group>"; };
+		5A80CF4E121F60E000D0670A /* uk_UA */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = uk_UA; path = Resources/uk_UA.lproj/ListThemeSheet.nib; sourceTree = "<group>"; };
+		5A80CF4F121F60E000D0670A /* uk_UA */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = uk_UA; path = uk_UA.lproj/Localizable.strings; sourceTree = "<group>"; };
+		5A80CF50121F60E000D0670A /* uk_UA */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = uk_UA; path = Resources/uk_UA.lproj/Localizable.strings; sourceTree = "<group>"; };
+		5A80CF51121F60E000D0670A /* uk_UA */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = uk_UA; path = "Frameworks/Adium Framework/Resources/uk_UA.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		5A80CF52121F60E000D0670A /* uk_UA */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = uk_UA; path = "Plugins/Purple Service/uk_UA.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		5A80CF53121F60E100D0670A /* uk_UA */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = uk_UA; path = Resources/uk_UA.lproj/MessageHistoryConfiguration.nib; sourceTree = "<group>"; };
+		5A80CF54121F60E100D0670A /* uk_UA */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = uk_UA; path = Resources/uk_UA.lproj/OTRPrefs.nib; sourceTree = "<group>"; };
+		5A80CF55121F60E100D0670A /* uk_UA */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = uk_UA; path = Resources/uk_UA.lproj/PasswordPrompt.nib; sourceTree = "<group>"; };
+		5A80CF56121F60E100D0670A /* uk_UA */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = uk_UA; path = Resources/uk_UA.lproj/PersonalPreferences.nib; sourceTree = "<group>"; };
+		5A80CF57121F60E100D0670A /* uk_UA */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = uk_UA; path = Resources/uk_UA.lproj/ProxyPasswordPrompt.nib; sourceTree = "<group>"; };
+		5A80CF58121F60E100D0670A /* uk_UA */ = {isa = PBXFileReference; lastKnownFileType = folder; name = uk_UA; path = "Resources/uk_UA.lproj/Shared Dock Icon Images"; sourceTree = "<group>"; };
+		5A80CF59121F60E100D0670A /* uk_UA */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = uk_UA; path = Resources/uk_UA.lproj/ShortcutRecorder.strings; sourceTree = "<group>"; };
+		5A80CF5A121F60E100D0670A /* uk_UA */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = uk_UA; path = Resources/uk_UA.lproj/Statuses.strings; sourceTree = "<group>"; };
+		5A80CF5B121F60E100D0670A /* uk_UA */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = uk_UA; path = Resources/uk_UA.lproj/StatusPreferences.nib; sourceTree = "<group>"; };
+		5A80CF5C121F60E100D0670A /* uk_UA */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = uk_UA; path = Resources/uk_UA.lproj/StatusSortConfiguration.nib; sourceTree = "<group>"; };
+		5A80CF5D121F60E100D0670A /* uk_UA */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = uk_UA; path = "Plugins/WebKit Message View/uk_UA.lproj/WebKitPreferencesView.nib"; sourceTree = "<group>"; };
 		63093C2D0892143500F118D3 /* newContentThreeDigits.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = newContentThreeDigits.png; sourceTree = "<group>"; };
 		63093C2E0892143500F118D3 /* newContentTwoDigits.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = newContentTwoDigits.png; sourceTree = "<group>"; };
 		6311F46F0E340DD2004234B8 /* AISharedAdium.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AISharedAdium.h; path = "Frameworks/Adium Framework/Source/AISharedAdium.h"; sourceTree = "<group>"; };
@@ -9507,6 +9551,7 @@
 				English,
 				gy,
 				sk_SK,
+				uk_UA,
 			);
 			mainGroup = 29B97314FDCFA39411CA2CEA /* CocAIMe2 */;
 			projectDirPath = "";
@@ -10936,6 +10981,7 @@
 				346C9C1B0E70E1F8002314EE /* hu */,
 				34B1FCE50F112BF700C7E952 /* el_GR */,
 				5A764A4511E04DDB00E5E0AF /* sk_SK */,
+				5A80CF58121F60E100D0670A /* uk_UA */,
 			);
 			name = "Shared Dock Icon Images";
 			sourceTree = "<group>";
@@ -11004,6 +11050,7 @@
 				1150A9AF0FBE491500E0BD31 /* zh_CN */,
 				1150A9B00FBE491700E0BD31 /* zh_TW */,
 				5A764A2E11E04DDB00E5E0AF /* sk_SK */,
+				5A80CF40121F60E000D0670A /* uk_UA */,
 			);
 			name = ESIRCAccountView.nib;
 			sourceTree = "<group>";
@@ -11038,6 +11085,7 @@
 				11D135F20FBE4CA9000B0A5E /* zh_TW */,
 				11D135F30FBE4CB6000B0A5E /* en */,
 				5A764F8711E051E500E5E0AF /* sk_SK */,
+				5A80CF34121F60DF00D0670A /* uk_UA */,
 			);
 			name = AITwitterAccountView.nib;
 			sourceTree = "<group>";
@@ -11072,6 +11120,7 @@
 				346C9C030E70E1F7002314EE /* hu */,
 				34B1FCCE0F112BF500C7E952 /* el_GR */,
 				5A764A2D11E04DDB00E5E0AF /* sk_SK */,
+				5A80CF3F121F60E000D0670A /* uk_UA */,
 			);
 			name = ESFileTransferProgressView.nib;
 			sourceTree = "<group>";
@@ -11106,6 +11155,7 @@
 				346C9C1A0E70E1F7002314EE /* hu */,
 				34B1FCE40F112BF700C7E952 /* el_GR */,
 				5A764A4411E04DDB00E5E0AF /* sk_SK */,
+				5A80CF57121F60E100D0670A /* uk_UA */,
 			);
 			name = ProxyPasswordPrompt.nib;
 			sourceTree = "<group>";
@@ -11140,6 +11190,7 @@
 				346C9C180E70E1F7002314EE /* hu */,
 				34B1FCE20F112BF700C7E952 /* el_GR */,
 				5A764A4211E04DDB00E5E0AF /* sk_SK */,
+				5A80CF55121F60E100D0670A /* uk_UA */,
 			);
 			name = PasswordPrompt.nib;
 			sourceTree = "<group>";
@@ -11174,6 +11225,7 @@
 				346C9C130E70E1F7002314EE /* hu */,
 				34B1FCDF0F112BF600C7E952 /* el_GR */,
 				5A764A3D11E04DDB00E5E0AF /* sk_SK */,
+				5A80CF50121F60E000D0670A /* uk_UA */,
 			);
 			name = Localizable.strings;
 			sourceTree = "<group>";
@@ -11207,6 +11259,7 @@
 				346C9C150E70E1F7002314EE /* hu */,
 				34B1FCDE0F112BF600C7E952 /* el_GR */,
 				5A764A3F11E04DDB00E5E0AF /* sk_SK */,
+				5A80CF52121F60E000D0670A /* uk_UA */,
 			);
 			name = Localizable.strings;
 			sourceTree = "<group>";
@@ -11241,6 +11294,7 @@
 				346C9C000E70E1F7002314EE /* hu */,
 				34B1FCCD0F112BF500C7E952 /* el_GR */,
 				5A764A2B11E04DDB00E5E0AF /* sk_SK */,
+				5A80CF3C121F60E000D0670A /* uk_UA */,
 			);
 			name = DualWindowMessageAdvanced.nib;
 			sourceTree = "<group>";
@@ -11275,6 +11329,7 @@
 				346C9C120E70E1F7002314EE /* hu */,
 				34B1FB620F112AC800C7E952 /* el_GR */,
 				5A764A3E11E04DDB00E5E0AF /* sk_SK */,
+				5A80CF51121F60E000D0670A /* uk_UA */,
 			);
 			name = Localizable.strings;
 			sourceTree = "<group>";
@@ -11307,6 +11362,7 @@
 				346C9C170E70E1F7002314EE /* hu */,
 				34B1FCE10F112BF700C7E952 /* el_GR */,
 				5A764A4111E04DDB00E5E0AF /* sk_SK */,
+				5A80CF54121F60E100D0670A /* uk_UA */,
 			);
 			name = OTRPrefs.nib;
 			sourceTree = "<group>";
@@ -11341,6 +11397,7 @@
 				346C9C010E70E1F7002314EE /* hu */,
 				34B1FB600F112AC800C7E952 /* el_GR */,
 				5A764F8811E0521800E5E0AF /* sk_SK */,
+				5A80CF3D121F60E000D0670A /* uk_UA */,
 			);
 			name = EditStateSheet.nib;
 			sourceTree = "<group>";
@@ -11375,6 +11432,7 @@
 				346C9BF70E70E1F7002314EE /* hu */,
 				34B1FCC40F112BF400C7E952 /* el_GR */,
 				5A764A2211E04DDA00E5E0AF /* sk_SK */,
+				5A80CF32121F60DF00D0670A /* uk_UA */,
 			);
 			name = AccountProxy.nib;
 			sourceTree = "<group>";
@@ -11408,6 +11466,7 @@
 				346C9C090E70E1F7002314EE /* hu */,
 				34B1FCD40F112BF500C7E952 /* el_GR */,
 				5A764A3511E04DDB00E5E0AF /* sk_SK */,
+				5A80CF47121F60E000D0670A /* uk_UA */,
 			);
 			name = ESPurpleNovellAccountView.nib;
 			sourceTree = "<group>";
@@ -11442,6 +11501,7 @@
 				346C9BF90E70E1F7002314EE /* hu */,
 				34B1FCC60F112BF400C7E952 /* el_GR */,
 				5A764A2411E04DDB00E5E0AF /* sk_SK */,
+				5A80CF35121F60DF00D0670A /* uk_UA */,
 			);
 			name = AppearancePrefs.nib;
 			sourceTree = "<group>";
@@ -11475,6 +11535,7 @@
 				346C9C040E70E1F7002314EE /* hu */,
 				34B1FCCF0F112BF500C7E952 /* el_GR */,
 				5A764A3011E04DDB00E5E0AF /* sk_SK */,
+				5A80CF42121F60E000D0670A /* uk_UA */,
 			);
 			name = ESPurpleGaduGaduAccountView.nib;
 			sourceTree = "<group>";
@@ -11508,6 +11569,7 @@
 				346C9C080E70E1F7002314EE /* hu */,
 				34B1FCD30F112BF500C7E952 /* el_GR */,
 				5A764A3411E04DDB00E5E0AF /* sk_SK */,
+				5A80CF46121F60E000D0670A /* uk_UA */,
 			);
 			name = ESPurpleMSNAccountView.nib;
 			sourceTree = "<group>";
@@ -11541,6 +11603,7 @@
 				346C9BFF0E70E1F7002314EE /* hu */,
 				34B1FCCC0F112BF400C7E952 /* el_GR */,
 				5A764A2A11E04DDB00E5E0AF /* sk_SK */,
+				5A80CF3B121F60E000D0670A /* uk_UA */,
 			);
 			name = DCPurpleZephyrJoinChatView.nib;
 			sourceTree = "<group>";
@@ -11574,6 +11637,7 @@
 				346C9BFD0E70E1F7002314EE /* hu */,
 				34B1FCCA0F112BF400C7E952 /* el_GR */,
 				5A764A2811E04DDB00E5E0AF /* sk_SK */,
+				5A80CF39121F60E000D0670A /* uk_UA */,
 			);
 			name = DCPurpleOscarJoinChatView.nib;
 			sourceTree = "<group>";
@@ -11607,6 +11671,7 @@
 				346C9BFE0E70E1F7002314EE /* hu */,
 				34B1FCCB0F112BF400C7E952 /* el_GR */,
 				5A764A2911E04DDB00E5E0AF /* sk_SK */,
+				5A80CF3A121F60E000D0670A /* uk_UA */,
 			);
 			name = DCPurpleYahooJoinChatView.nib;
 			sourceTree = "<group>";
@@ -11640,6 +11705,7 @@
 				346C9C0D0E70E1F7002314EE /* hu */,
 				34B1FCD80F112BF600C7E952 /* el_GR */,
 				5A764A3811E04DDB00E5E0AF /* sk_SK */,
+				5A80CF4A121F60E000D0670A /* uk_UA */,
 			);
 			name = ESPurpleZephyrAccountView.nib;
 			sourceTree = "<group>";
@@ -11673,6 +11739,7 @@
 				346C9BFC0E70E1F7002314EE /* hu */,
 				34B1FCC90F112BF400C7E952 /* el_GR */,
 				5A764A2711E04DDB00E5E0AF /* sk_SK */,
+				5A80CF38121F60E000D0670A /* uk_UA */,
 			);
 			name = DCPurpleMeanwhileJoinChatView.nib;
 			sourceTree = "<group>";
@@ -11706,6 +11773,7 @@
 				346C9C1F0E70E1F8002314EE /* hu */,
 				34B1FCE90F112BF700C7E952 /* el_GR */,
 				5A764A4911E04DDB00E5E0AF /* sk_SK */,
+				5A80CF5C121F60E100D0670A /* uk_UA */,
 			);
 			name = StatusSortConfiguration.nib;
 			sourceTree = "<group>";
@@ -11739,6 +11807,7 @@
 				346C9BFB0E70E1F7002314EE /* hu */,
 				34B1FCC80F112BF400C7E952 /* el_GR */,
 				5A764A2611E04DDB00E5E0AF /* sk_SK */,
+				5A80CF37121F60E000D0670A /* uk_UA */,
 			);
 			name = DCPurpleJabberJoinChatView.nib;
 			sourceTree = "<group>";
@@ -11772,6 +11841,7 @@
 				346C9C050E70E1F7002314EE /* hu */,
 				34B1FCD00F112BF500C7E952 /* el_GR */,
 				5A764A3111E04DDB00E5E0AF /* sk_SK */,
+				5A80CF43121F60E000D0670A /* uk_UA */,
 			);
 			name = ESPurpleICQAccountView.nib;
 			sourceTree = "<group>";
@@ -11805,6 +11875,7 @@
 				346C9C0A0E70E1F7002314EE /* hu */,
 				34B1FCD50F112BF500C7E952 /* el_GR */,
 				5A764A2F11E04DDB00E5E0AF /* sk_SK */,
+				5A80CF41121F60E000D0670A /* uk_UA */,
 			);
 			name = ESPurpleAIMAccountView.nib;
 			sourceTree = "<group>";
@@ -11838,6 +11909,7 @@
 				346C9C070E70E1F7002314EE /* hu */,
 				34B1FCD20F112BF500C7E952 /* el_GR */,
 				5A764A3311E04DDB00E5E0AF /* sk_SK */,
+				5A80CF45121F60E000D0670A /* uk_UA */,
 			);
 			name = ESPurpleMeanwhileAccountView.nib;
 			sourceTree = "<group>";
@@ -11871,6 +11943,7 @@
 				346C9C0C0E70E1F7002314EE /* hu */,
 				34B1FCD70F112BF600C7E952 /* el_GR */,
 				5A764A3711E04DDB00E5E0AF /* sk_SK */,
+				5A80CF49121F60E000D0670A /* uk_UA */,
 			);
 			name = ESPurpleYahooAccountView.nib;
 			sourceTree = "<group>";
@@ -11904,6 +11977,7 @@
 				346C9C060E70E1F7002314EE /* hu */,
 				34B1FCD10F112BF500C7E952 /* el_GR */,
 				5A764A3211E04DDB00E5E0AF /* sk_SK */,
+				5A80CF44121F60E000D0670A /* uk_UA */,
 			);
 			name = ESPurpleJabberAccountView.nib;
 			sourceTree = "<group>";
@@ -11938,6 +12012,7 @@
 				346C9C110E70E1F7002314EE /* hu */,
 				34B1FCDC0F112BF600C7E952 /* el_GR */,
 				5A764A3C11E04DDB00E5E0AF /* sk_SK */,
+				5A80CF4E121F60E000D0670A /* uk_UA */,
 			);
 			name = ListThemeSheet.nib;
 			sourceTree = "<group>";
@@ -11972,6 +12047,7 @@
 				346C9C100E70E1F7002314EE /* hu */,
 				34B1FCDB0F112BF600C7E952 /* el_GR */,
 				5A764A3B11E04DDB00E5E0AF /* sk_SK */,
+				5A80CF4D121F60E000D0670A /* uk_UA */,
 			);
 			name = ListLayoutSheet.nib;
 			sourceTree = "<group>";
@@ -12005,6 +12081,7 @@
 				346C9C0B0E70E1F7002314EE /* hu */,
 				34B1FCD60F112BF500C7E952 /* el_GR */,
 				5A764A3611E04DDB00E5E0AF /* sk_SK */,
+				5A80CF48121F60E000D0670A /* uk_UA */,
 			);
 			name = ESPurpleSimpleAccountView.nib;
 			sourceTree = "<group>";
@@ -12039,6 +12116,7 @@
 				346C9C1D0E70E1F8002314EE /* hu */,
 				34B1FCE70F112BF700C7E952 /* el_GR */,
 				5A764A4711E04DDB00E5E0AF /* sk_SK */,
+				5A80CF5A121F60E100D0670A /* uk_UA */,
 			);
 			name = Statuses.strings;
 			sourceTree = "<group>";
@@ -12073,6 +12151,7 @@
 				346C9C160E70E1F7002314EE /* hu */,
 				34B1FCE00F112BF600C7E952 /* el_GR */,
 				5A764A4011E04DDB00E5E0AF /* sk_SK */,
+				5A80CF53121F60E100D0670A /* uk_UA */,
 			);
 			name = MessageHistoryConfiguration.nib;
 			sourceTree = "<group>";
@@ -12107,6 +12186,7 @@
 				346C9C1C0E70E1F8002314EE /* hu */,
 				34B1FCE60F112BF700C7E952 /* el_GR */,
 				5A764A4611E04DDB00E5E0AF /* sk_SK */,
+				5A80CF59121F60E100D0670A /* uk_UA */,
 			);
 			name = ShortcutRecorder.strings;
 			sourceTree = "<group>";
@@ -12141,6 +12221,7 @@
 				346C9C1E0E70E1F8002314EE /* hu */,
 				34B1FCE80F112BF700C7E952 /* el_GR */,
 				5A764A4811E04DDB00E5E0AF /* sk_SK */,
+				5A80CF5B121F60E100D0670A /* uk_UA */,
 			);
 			name = StatusPreferences.nib;
 			sourceTree = "<group>";
@@ -12174,6 +12255,7 @@
 				346C9C200E70E1F8002314EE /* hu */,
 				34B1FCEA0F112BF800C7E952 /* el_GR */,
 				5A764A4A11E04DDB00E5E0AF /* sk_SK */,
+				5A80CF5D121F60E100D0670A /* uk_UA */,
 			);
 			name = WebKitPreferencesView.nib;
 			sourceTree = "<group>";
@@ -12208,6 +12290,7 @@
 				346C9C0F0E70E1F7002314EE /* hu */,
 				34B1FCDA0F112BF600C7E952 /* el_GR */,
 				5A764A3A11E04DDB00E5E0AF /* sk_SK */,
+				5A80CF4C121F60E000D0670A /* uk_UA */,
 			);
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
@@ -12242,6 +12325,7 @@
 				346C9BFA0E70E1F7002314EE /* hu */,
 				34B1FCC70F112BF400C7E952 /* el_GR */,
 				5A764A2511E04DDB00E5E0AF /* sk_SK */,
+				5A80CF36121F60DF00D0670A /* uk_UA */,
 			);
 			name = Buttons.strings;
 			sourceTree = "<group>";
@@ -12276,6 +12360,7 @@
 				346C9BF80E70E1F7002314EE /* hu */,
 				34B1FCC50F112BF400C7E952 /* el_GR */,
 				5A764A2311E04DDB00E5E0AF /* sk_SK */,
+				5A80CF33121F60DF00D0670A /* uk_UA */,
 			);
 			name = AIAdvancedInspectorPane.nib;
 			sourceTree = "<group>";
@@ -12310,6 +12395,7 @@
 				346C9C0E0E70E1F7002314EE /* hu */,
 				34B1FCD90F112BF600C7E952 /* el_GR */,
 				5A764A3911E04DDB00E5E0AF /* sk_SK */,
+				5A80CF4B121F60E000D0670A /* uk_UA */,
 			);
 			name = GeneralPreferences.nib;
 			sourceTree = "<group>";
@@ -12344,6 +12430,7 @@
 				346C9C190E70E1F7002314EE /* hu */,
 				34B1FCE30F112BF700C7E952 /* el_GR */,
 				5A764A4311E04DDB00E5E0AF /* sk_SK */,
+				5A80CF56121F60E100D0670A /* uk_UA */,
 			);
 			name = PersonalPreferences.nib;
 			sourceTree = "<group>";
@@ -12378,6 +12465,7 @@
 				346C9C020E70E1F7002314EE /* hu */,
 				34B1FB610F112AC800C7E952 /* el_GR */,
 				5A764A2C11E04DDB00E5E0AF /* sk_SK */,
+				5A80CF3E121F60E000D0670A /* uk_UA */,
 			);
 			name = EmoticonNames.strings;
 			sourceTree = "<group>";
@@ -12470,6 +12558,7 @@
 				63A3A98B0F9C35D3006C9CB0 /* zh_CN */,
 				63A3A98C0F9C35D3006C9CB0 /* zh_TW */,
 				5A764F8C11E0526E00E5E0AF /* sk_SK */,
+				5A80CF4F121F60E000D0670A /* uk_UA */,
 			);
 			name = Localizable.strings;
 			sourceTree = "<group>";
