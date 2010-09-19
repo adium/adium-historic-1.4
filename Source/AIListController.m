@@ -700,9 +700,12 @@
 		
 		[[AIContactObserverManager sharedManager] delayListObjectNotifications];
 
+		AILogWithSignature(@"Dropping into %@ (%@)", item, item.listObject);
+
 		//Move the list object to its new location
 		if ([item.listObject isKindOfClass:[AIListGroup class]]) {
 			/* Can't drop into the offline group */
+
 			if (item.listObject != adium.contactController.offlineGroup) {
 				AIListGroup *group = (AIListGroup *)(item.listObject);
 				
@@ -737,6 +740,8 @@
 
 							// Contact being moved to a new group.
 							// Holding option copies into the new group (like in Finder)
+							
+							AILogWithSignature(@"Moving %@ from %@ to %@", listObject, sourceGroups, group);
 							[adium.contactController moveContact:(AIListContact *)listObject
 													  fromGroups:sourceGroups
 													  intoGroups:[NSSet setWithObject:group]];
@@ -750,6 +755,9 @@
 												 toContactList:(AIContactList *)group];
 						}
 					}
+					
+					AILogWithSignature(@"%@: moveContainedObject %@ to %f", group, listObject, index);
+
 					
 					[group moveContainedObject:listObject toIndex:index];
 					[adium.contactController sortListObject:listObject];
