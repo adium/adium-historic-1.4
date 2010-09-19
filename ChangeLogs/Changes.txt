@@ -25,18 +25,18 @@ Version 1.4 (X/X/XXX)
  Group Chats
   * When you are mentioned in a group chat, the color of the tab's message count changes to red.
   * Set a shortcut of ⌘⌥/ for the "Toggle User List" menu item.
-  * Added a "Swap User List Side" menu item, defaulting to the user list being on the right.	(#8689)
+  * Added a "Toggle User List Side" menu item, defaulting to the user list being on the right. (#8689)
   * Double-clicking a contact in the group chat user list opens a chat with them.
   * When double-clicking the resize widget in the user list, don't show a few pixels of it on the left of the chat.
   * Respect the "show recent messages" preference for group chats.
   * Prevent a duplicate separator item in group chat context menus. (#11674)
-  * Add context menus for group chats, including "Add Bookmark", "Get Info on Bookmark", "Toggle User List", and "View Chat Transcripts".
+  * Added context menus for group chats, including "Add Bookmark", "Get Info on Bookmark", "Toggle User List", and "View Chat Transcripts".
   * Support opening chat transcripts for the group chats like a normal chat.
-  * Add a menu item for group chat user lists to add as a contact.
+  * Added a menu item for group chat user lists to add as a contact.
   * The group chat user list is now sorted by, and displays, operator status in the channels.
   * The user list remembers its open or closed status per room.
   * Messages which mention you are no longer grouped with messages from the same user which do not.
-  * Add support for chat topics. Note that message styles must support the feature for them to show up.
+  * Added support for chat topics. Note that message styles must support the feature for them to show up.
   * Group chats now display online or offline based on their account's status.
   * Growl notifications for group chats are now prefixed by the chat's name.
   * Added an Advanced Status preference to "Only count number of unread mentions for group chats" (for the Status Menu Item and Dock icon)
@@ -51,7 +51,7 @@ Version 1.4 (X/X/XXX)
   * Set appropriate icons and coloring for bookmarks based on their associated chat information, such as the unviewed content background or flashing.
   * Fixed bookmarks appearing in groups when groups are disabled, or disappearing.
   * Bookmarks can now be removed.
-  * Add an option to the Get Info window to auto-join a group chat bookmark when its account connects.
+  * Added an option to the Get Info window to auto-join a group chat bookmark when its account connects.
   * When opening the "Add Contact" window, don't fill in the username with the name of a bookmark if it selected.
   * Stops the "retrieving information" spinner from going off for bookmarks.
   * A group bookmark's status message now reflects how many unread mentions or messages are in the chat.
@@ -67,7 +67,7 @@ Version 1.4 (X/X/XXX)
     * The authorization requests window has add, ignore, and deny toolbar and context menu items.
   * Fixed deleting a group not removing its contents.
   * Corrected adding contacts to multiple accounts. The "Add Contact" window was only adding to the existing account.
-  * Add account-specific menu items (such as "Initiate Multi-User Chat" or "Initiate Direct IM") to the main menu's Contact menu.
+  * Added account-specific menu items (such as "Initiate Multi-User Chat" or "Initiate Direct IM") to the main menu's Contact menu.
   * Corrected a bug where a combined contact would be "always visible" and toggling the preference would not unset it.
   * Reduced complexity when determining what account is preferred for messaging a given contact. (#10547)
   * The tune tooltip is now displayed for any contact in a meta contact which supports it.
@@ -86,9 +86,9 @@ Version 1.4 (X/X/XXX)
   * Corrected a few bugs where contacts were hidden as offline when online, or placed in the offline group incorrectly.
   * Combined contacts now show the information in the contact list for the first available user. (#11007)
   * Improved speed of searching in contact list for larger lists.
-  * Fix a small white line at the top of the contact list when "size to fit vertically" is set. (#11119)
-  * Add "Sort Groups Alphabetically" option to the status sort.
-  * Add "Hide Away Contacts" and "Hide Contacts for Account" to the view options.
+  * Fixed a small white line at the top of the contact list when "size to fit vertically" is set. (#11119)
+  * Added "Sort Groups Alphabetically" option to the status sort.
+  * Added "Hide Away Contacts" and "Hide Contacts for Account" to the view options.
   * Fixed a bug where the view menu would show incorrect settings.
   * Status message is no longer searched when searching the contact list.
   * Fixed a lot of drag and drop bugs, such as being able to drag a group into another group.
@@ -169,56 +169,39 @@ Version 1.4 (X/X/XXX)
   * Fixed support for a proxy auto-config (PAC) file. (#224, #11364)
   * Disabled the "Show # recent messages in new chats" option when "Log messages" is off. (#11359)
   * Menu items such as “Show Offline Contacts” now always use the “Show” verb, with a checkbox indicating that they're currently shown. Previous versions indicated that by changing the verb to “Hide”. #4740.
-  * Add "Contact went mobile" and "Contact returns from mobile" events. (#3248)
+  * Added "Contact went mobile" and "Contact returns from mobile" events. (#3248)
   * Fixed AppleScript erroring when creating a new status object. (#8863)
   * Greatly reduced memory usage when receiving lots of messages while Adium is not being interacted with
   * Idle contacts now resort immediately
   * The Downloads stack now bounces when a file transfer completes.
   * Moved dock icon and status menu item controls to a new "Message Alerts" advanced preferences.
   * Updated to Sparkle 1.5
+  
 
-Version 1.3.6 (8/18/2009)
- * Updated to libpurple 2.5.9
-	* Fix a crash via a specially crafted MSN message (CVE-2009-2694).
-	* Fix a crash in Bonjour, MSN, and XMPP when trying to transfer files with
-	  NULL names.
-    * Numerous fixes from libpurple 2.5.8 (http://developer.pidgin.im/wiki/ChangeLog)
- * Updated to pidgin-facebook 1.6.0 from 1.5.1
-    * Fixed issues with dropped & missed messages
-    * Fixed retrieval of profile information
-    * Fixed retrieval of buddy icons
-    * Fixed messaging with Facebook users whose user IDs are very large
-    * Numerous other fixes (http://code.google.com/p/pidgin-facebookchat/wiki/Changelog)
- * Added option to control Facebook mail checking
-
-Version 1.3.5 (6/22/2009)
- * Updated to libpurple 2.5.7
-    * Fixes for problems connecting to Yahoo.
-    * Only display the AIM "Unable to Retrieve Buddy List" message once per connection.
-    * Blocking MSN users not on your buddy list no longer disconnects you.
-    * MSN fixes for adding/removing and getting disconnected.
- * Updated to pidgin-facebook 1.5.1, fixing several issues
-
-== Version 1.3.10 (01/12/2010) ==
+Version 1.3.10 (01/12/2010)
  * Disabled the Facebook CAPTCHA, updated the Facebook plugin.
  * Updated libjson-glib, fixing some 64-bit issues.
 
-== Version 1.3.9 (01/11/2010) ==
+
+Version 1.3.9 (01/11/2010)
  * Updated libpurple to fix a security issue with custom emoticons.
  * Corrected user icons not updating correctly on Snow Leopard.
 
-== Version 1.3.8 (11/04/2009) ==
+
+Version 1.3.8 (11/04/2009)
  * Updated pidgin-facebook chat, fixing login.
  * Corrected the Events preferences not displaying the correct list on Snow Leopard.
 
-== Version 1.3.7 (10/16/2009) ==
+
+Version 1.3.7 (10/16/2009)
  * Updated libpurple
    * Fix a crash when some clients send contacts in a format we don't understand on ICQ.
    * Fix blocking and other privacy lists on AIM/ICQ.
    * Fixed CAPTCHA not working properly on Facebook.
  * Fixed iChat emoticons on Snow Leopard.
 
-== Version 1.3.6 (8/20/2009) ==
+
+Version 1.3.6 (8/20/2009)
  * Updated to libpurple 2.5.9
    * Fix a crash via a specially crafted MSN message (CVE-2009-2694).
    * Fix a crash in Bonjour, MSN, and XMPP when trying to transfer files with NULL names.
@@ -232,14 +215,16 @@ Version 1.3.5 (6/22/2009)
    * Note: Facebook contact group support is currently disabled
  * Added option to control Facebook mail checking
  * Merged down the space dust
+ 
 
 Version 1.3.5 (6/22/2009)
  * Updated to libpurple 2.5.7
-   * Fixes for problems connecting to Yahoo.
-   * Only display the AIM �Unable to Retrieve Buddy List� message once per connection.
-   * Blocking MSN users not on your buddy list no longer disconnects you.
-   * MSN fixes for adding/removing and getting disconnected.
+    * Fixes for problems connecting to Yahoo.
+    * Only display the AIM "Unable to Retrieve Buddy List" message once per connection.
+    * Blocking MSN users not on your buddy list no longer disconnects you.
+    * MSN fixes for adding/removing and getting disconnected.
  * Updated to pidgin-facebook 1.5.1, fixing several issues
+ 
 
 Version 1.3.4 (5/7/2009)
  * Facebook fixes
@@ -249,6 +234,7 @@ Version 1.3.4 (5/7/2009)
  * Fixed a crash when loading Jabber/XMPP account preferences when the computer's host name is not set (#11246)
  * Fixed a display issue in message windows when running Safari 4.
  * Updated to libpurple 2.5.6
+
 
 Version 1.3.3 (2/19/2009)
  * Major changes
@@ -296,6 +282,7 @@ Version 1.3.3 (2/19/2009)
     * Updated the Russian localization (#11590, #11220)
     * Updated the Slovenian localization
 
+
 Version 1.3.2 (10/9/2008)
  * Updated to MSNp15 via libpurple (from MSNp12 via msn-pecan)
    * Display pictures on MSN now work again
@@ -315,6 +302,7 @@ Version 1.3.2 (10/9/2008)
  * Added new Add Group Chat Bookmark and File Transfer icons (#11030)
  * Fixed drop shadow in Stockholm and Gone Dark message styles (#9178, #9480)
  * Fixed visual artifacts in Smooth Operator message style (#10101)
+
 
 Version 1.3.1 (9/7/2008)
  * Fixed import wizard failing during import of inline images (#10912)
@@ -341,6 +329,7 @@ Version 1.3.1 (9/7/2008)
  * Edges between multiple displays no longer trigger showing hidden contact list (#10204)
  * Removed $$ emoticon (#10949)
  * Update Danish, German, and Hungarian localizations
+
 
 Version 1.3 (8/25/2008)
 == Major Changes ==
@@ -451,7 +440,6 @@ Version 1.3 (8/25/2008)
    * Fixed persistent drag highlights after finishing a drag & drop operation (#10195)
    * We now recollapse items automatically expanded in the contact list during a drag & drop operation (#10254)
    * Fixed issues with contact list ordering, including a 10.4 bug in which contacts could not be ordered immediately below combined contacts (#10255)
-
 
 == Chats and Messages ==
  * Multiple consecutive status messages in the message view will now only display the latest update for your account or your contact (#8904) (#8957)
@@ -575,10 +563,12 @@ Version 1.3 (8/25/2008)
  * Added Italian-localized Dock-icon overlays for Away and Idle (#9975)
  * Updated all localizations
 
+
 Version 1.2.7 (7/4/2008)
  * Fixed sending of invalid XML when asked for our version information in XMPP, which effectively broke XMPP connectivity. (Bug introduced in 1.2.6) (#10324)
  * Improved handling of invalid XML over XMPP (#10347, #10353)
  * Hopefully fixed a bug which caused an XMPP contact to infinitely flip between two groups shortly after authorization (#8834)
+
 
 Version 1.2.6 (7/1/2008)
  * Updated to libpurple 2.4.3
@@ -591,6 +581,7 @@ Version 1.2.6 (7/1/2008)
  * Fixed an ancient bug in which the wrong event would be displayed for a contact status change, such as "Contact Came Back" when the contact disconnected. (#468, #5551)
  * Fixed a crash which could occur when a contact changed status while a new chat window was open with that contact (#9425)
  * Fixed saving/restoring message window positioning on 10.4
+
 
 Version 1.2.5 (4/28/2008)
  * Fixed Yahoo! Japan connectivity
@@ -617,6 +608,7 @@ Version 1.2.5 (4/28/2008)
  * Fixed the Import from iChat button in the first run wizard (#9678)
  * Fixed receiving of empty XMPP message stanzas (#4161)
  * Danish, French, French Canadian, and Brazilian Portuguese translation updates
+
 
 Version 1.2.4 (3/30/2008)
  * Updated to libpurple 2.4.1 (pidgin.im), which includes AIM offline message support, fast Yahoo file transfers, viewing of ICQ status notes, setting Google Talk buddy icons, and a fix for an issue which could make you appear offline to MSN users
@@ -647,6 +639,7 @@ Version 1.2.4 (3/30/2008)
  * Fixed printing from the message window
  * Brazilian Portuguese and French Canadian localization updates
 
+
 Version 1.2.3 (2/25/08)
  * Fixed logging in for certain Yahoo! Messenger accounts
  * Fixed opening chats when using certain message styles (#9224)
@@ -657,6 +650,7 @@ Version 1.2.3 (2/25/08)
  * We now treat 'Busy' as 'Do Not Disturb' for XMPP accounts (#9051)
  * Catalan and Russian translation updates
  
+
 Version 1.2.2 (2/18/08)
  * Fixed incorrect behavior (including seemingly random changes in selection) in the account/contact selector at the top of chats when multiple sources or destinations are possible (#9013) 
  * XMPP & Google Talk
@@ -688,6 +682,7 @@ Version 1.2.2 (2/18/08)
  * Fixed saving of Status preferences, which previously would fail to save in some situations (#225)
  * Updated Firewall instructions in Adium Help for 10.5
  * Czech, Danish, French Canadian, German, Simplified Chinese, Swedish, and Traditional Chinese localization updates
+
 
 Version 1.2.1 (1/18/2008)
  * Group chats now reconnect automatically when their accounts reconnect after being disconnected (#1880)
@@ -736,6 +731,7 @@ Version 1.2.1 (1/18/2008)
  * Fixed several localization issues
  * Updated Norwegian localization
  * Added Slovenian localization
+
 
 Version 1.2 (1/5/2008)
  * Improved Group Chat interface
@@ -818,6 +814,7 @@ Version 1.2 (1/5/2008)
  * Got David a gerbil (#7278)
  * Major localization updates: Catalan, Czech, Danish, Dutch, Chinese (Simplified), Chinese (Traditional), English (Australian), Finnish, French, French Canadian, German, Italian, Japanese, Norwegian, Polish, Russian, Spanish, Swedish, and Turkish
 
+
 Version 1.1.4 (11/5/2007)
  * Compatibility updates for Mac OS X 10.5:
    * Removed the ability for the contact list to ignore exposé, fixing a number of issues with Spaces (#7862)
@@ -844,6 +841,7 @@ Version 1.1.4 (11/5/2007)
  * Localization updates
  * Updated to Growl 1.1.2 (http://growl.info)
 
+
 Version 1.1.3 (9/30/2007)
  * Fixed a crash when canceling addition of a Bonjour account (#7523)
  * Added support for serverside aliases in Yahoo
@@ -866,6 +864,7 @@ Version 1.1.3 (9/30/2007)
    * Fixed multiple memory leaks
    * Fixed an issue with idle status and time for AIM and ICQ accounts
  * French, Dutch, and Swedish updates
+
  
 Version 1.1.2 (9/3/2007)
  * Added preference to turn off the contact list animations (Preferences->Advanced->Contact List)
@@ -900,8 +899,10 @@ Version 1.1.2 (9/3/2007)
  * Fixed display of AdiumLibpurplePlugins as bundles
  * Updated to libpurple 2.1.1
 
+
 Version 1.1.1 (8/13/2007)
  * Fixed a problem with the version checking system (Sparkle) which caused a crash when the minimum system requirements were specified in the appcast.
+
 
 Version 1.1 (8/12/2007)
 Note: Adium now requires Mac OS X 10.4.0 or later.
@@ -1021,6 +1022,7 @@ Version 1.0.5 (7/9/2007)
    * Fix Open Hotmail Inbox for MSN to work more reliably
    * Google Talk accounts will not import buddies from your Gmail address
      book
+
 
 Version 1.0.4 (5/20/2007)
  * Fixed a crash introduced in 1.0.3 which could occur when accounts disconnected or status changed
@@ -1797,6 +1799,7 @@ Version 0.74 (05 January 2005)
  * (Jabber) Fixed several issues with group chat
  * (Sametime) Fixed issues with preferences for contacts with '/' in their LDAP strings
  * Improved emoticon display in preferences and menus to sort emoticons alphabetically
+
 
 Version 0.73 (26 December 2004)
  * Fixed issues with leading/trailing newlines for contact list Extended Status display
