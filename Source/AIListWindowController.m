@@ -288,7 +288,6 @@ NSInteger levelForAIWindowLevel(AIWindowLevel windowLevel)
 
 - (void)setWindowLevel:(NSInteger)level
 {
-	AILogWithSignature(@"Setting to %i", level);
 	[[self window] setLevel:level];
 }
 
