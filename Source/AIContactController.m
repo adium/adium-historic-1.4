@@ -69,13 +69,15 @@
 #define SERVICE_ID_KEY					@"ServiceID"
 #define UID_KEY							@"UID"
 
+//#define CONTACT_MOVEMENT_DEBUG
+
 @interface AIListObject ()
 @property (readwrite, nonatomic) CGFloat orderIndex;
 @end
 
 @interface AIMetaContact ()
-- (void)removeObject:(AIListObject *)inObject;
 - (BOOL)addObject:(AIListObject *)inObject;
+- (BOOL)removeObject:(AIListObject *)inObject;
 - (AIListContact *)preferredContactForContentType:(NSString *)inType;
 @end
 
@@ -286,16 +288,22 @@
 		if (existingObject) {
 			//If an object exists in this group with the same UID and serviceID, create a MetaContact
 			//for the two.
-			[self groupContacts:[NSArray arrayWithObjects:listContact,existingObject,nil]];
+			AIMetaContact *metaContact = [self groupContacts:[NSArray arrayWithObjects:listContact,existingObject,nil]];
+			
+			AILogWithSignature(@"%@ and %@ match; grouped into %@",
+							   listContact, existingObject, metaContact);
+			
 			performedGrouping = YES;
 			
 		} else {
 			AIMetaContact	*metaContact = [contactToMetaContactLookupDict objectForKey:listContact.internalObjectID];
 			
-			//If no object exists in this group which matches, we should check if there is already
-			//a MetaContact holding a matching ListContact, since we should include this contact in it
-			//If we found a metaContact to which we should add, do it.
+			/* If no object exists in this group which matches, we should check if there is already
+			 * a MetaContact holding a matching ListContact, since we should include this contact in it
+			 * If we found a metaContact to which we should add, do it.
+			 */
 			if (metaContact) {
+				AILogWithSignature(@"%@: Add %@", metaContact, listContact);
 				[self addContact:listContact toMetaContact:metaContact];
 				performedGrouping = YES;
 			}
@@ -317,22 +325,31 @@
 - (void)_moveContactLocally:(AIListContact *)listContact fromGroups:(NSSet *)oldGroups toGroups:(NSSet *)groups
 {
 	//Protect with a retain while we are removing and adding the contact to our arrays
-	[listContact retain];
-	
-	[contactPropertiesObserverManager delayListObjectNotifications];
-	
-	//Remove this object from any local groups we have it in currently
-	for (AIListGroup *group in oldGroups) {
-		[group removeObject:listContact];
-		[self _didChangeContainer:group object:listContact];
+	if (![oldGroups isEqualToSet:groups]) {
+		[listContact retain];
+		
+		[contactPropertiesObserverManager delayListObjectNotifications];
+		
+#ifdef CONTACT_MOVEMENT_DEBUG
+		AILogWithSignature(@"%@: %@ --> %@", 
+						   listContact,
+						   (oldGroups.count ? oldGroups : nil), 
+						   (groups.count ? (groups.count == 1 ? [groups anyObject] ? groups) : nil));
+#endif
+		
+		//Remove this object from any local groups we have it in currently
+		for (AIListGroup *group in oldGroups) {
+			[group removeObject:listContact];
+			[self _didChangeContainer:group object:listContact];
+		}
+		
+		for (AIListGroup *group in groups)
+			[self _addContactLocally:listContact toGroup:group];
+		
+		[contactPropertiesObserverManager endListObjectNotificationsDelay];
+		
+		[listContact release];
 	}
-	
-	for (AIListGroup *group in groups)
-		[self _addContactLocally:listContact toGroup:group];
-	
-	[contactPropertiesObserverManager endListObjectNotificationsDelay];
-	
-	[listContact release];
 }
 
 //Post a list grouping changed notification for the object and containing object
@@ -569,27 +586,57 @@
 	}
 	
 	if (inContact == metaContact) return;
-	
+
+	AILogWithSignature(@"%@ will add %@", metaContact, inContact);
+
 	//If listObject contains other contacts, perform addContact:toMetaContact: recursively
 	if ([inContact conformsToProtocol:@protocol(AIContainingObject)]) {
+		AILogWithSignature(@"Adding recursively (%@)", ((AIListObject<AIContainingObject> *)inContact).containedObjects);
 		for (AIListContact *someObject in ((AIListObject<AIContainingObject> *)inContact).containedObjects) {
 			[self addContact:someObject toMetaContact:metaContact];
 		}
 		
 	} else {
 		//Obtain any metaContact this listObject is currently within, so we can remove it later
-		AIMetaContact *oldMetaContact = [contactToMetaContactLookupDict objectForKey:[inContact internalObjectID]];
+		AIMetaContact *oldMetaContact;
 		
-		if ([self _performAddContact:inContact toMetaContact:metaContact] && metaContact != oldMetaContact) {
-			//If this listObject was not in this metaContact in any form before, store the change
-			//Remove the list object from any other metaContact it is in at present
-			if (oldMetaContact)
-				[self removeContact:inContact fromMetaContact:oldMetaContact];
-			
-			[self _storeListObject:inContact inMetaContact:metaContact];
+		/* First, look for a metaContact which is -properly- associated with inContact, already.
+		 * That is, a metaContact that has current ownership but which should be disassociated, in faovr of the new
+		 * metaContact.
+		 */
+		oldMetaContact = [contactToMetaContactLookupDict objectForKey:[inContact internalObjectID]];
+		
+		if (metaContact == oldMetaContact) {
+			/* According to contactToMetaContactLookupDict, inContact is within metaContact already.
+			 * However, a single UID/serviceID pair can have multiple AIListContacts (for multiple accounts).
+			 * If Account A and Account B both have a contact like inContact, and we are looking at Account B's
+			 * contact now, we'll have already made a reassignment.  This contact does still need to be removed from
+			 * its parent, however.
+			 */
+			if ((inContact.parentContact != inContact) &&
+				([inContact.parentContact isKindOfClass:[AIMetaContact class]])) {
+				oldMetaContact = (AIMetaContact *)(inContact.parentContact);
+			}
+		}
+		
+		if ([self _performAddContact:inContact toMetaContact:metaContact]) {
+			if (metaContact != oldMetaContact) {
+				AILogWithSignature(@"oldMetaContact for %@ is %@", inContact.internalObjectID, oldMetaContact);
 
-			//Do the update thing
-			[contactPropertiesObserverManager _updateAllAttributesOfObject:metaContact];
+				//If this listObject was not in this metaContact in any form before, store the change
+				//Remove the list object from any other metaContact it is in at present
+				if (oldMetaContact)
+					[self removeContact:inContact fromMetaContact:oldMetaContact];
+				
+				[self _storeListObject:inContact inMetaContact:metaContact];
+				
+				//Do the update thing
+				[contactPropertiesObserverManager _updateAllAttributesOfObject:metaContact];
+			} else {
+				AILogWithSignature(@"The old metacontact was the same as the new metacontact");
+			}
+		} else {
+			AILogWithSignature(@"Failed to add %@ to %@", inContact, metaContact);
 		}
 	}
 }
@@ -633,21 +680,35 @@
 		
 		[adium.contactAlertsController mergeAndMoveContactAlertsFromListObject:listObject
 																  intoListObject:metaContact];
+		
+		AILogWithSignature(@"Updated %@'s containedContactsArray: %@", metaContact, containedContactsArray);
 	}
 	
 	[allMetaContactsDict release];
 	[containedContactsArray release];
 }
 
-//Actually adds a list contact to a meta contact. No preferences are changed.
-//Attempts to add the list object, causing group reassignment and updates our contactToMetaContactLookupDict
-//for quick lookup of the MetaContact given a AIListContact uniqueObjectID if successful.
+/*!
+ * @brief Makes the associations between an AIListContact and an AIMetaContact within memory
+ *
+ * No preferences are changed; this is an internal step during the process of moving a contact into a metacontact.
+ *
+ * Attempts to add the list object, causing group reassignment and updates our contactToMetaContactLookupDict
+ * for quick lookup of the MetaContact given a AIListContact uniqueObjectID if successful.
+ *
+ * @result YES if a change was made; NO if inContact is already contained by metaContact
+ */
 - (BOOL)_performAddContact:(AIListContact *)inContact toMetaContact:(AIMetaContact *)metaContact
 {
+	if (inContact.metaContact == metaContact) {
+		AILogWithSignature(@"%@'s metaContact is already %@", inContact, metaContact);
+		return NO;
+	}
+
 	//we only allow group->meta->contact, not group->meta->meta->contact
 	NSParameterAssert([metaContact canContainObject:inContact]);
-
-	BOOL								success;
+	
+	BOOL success;
 	
 	//Remove the object from its previous containing groups
 	[self _moveContactLocally:inContact fromGroups:inContact.groups toGroups:[NSSet set]];
@@ -667,6 +728,8 @@
 
 - (void)removeContact:(AIListContact *)inContact fromMetaContact:(AIMetaContact *)metaContact
 {
+	AILogWithSignature(@"%@: Remove %@", metaContact, inContact);
+
 	//we only allow group->meta->contact, not group->meta->meta->contact
 	NSParameterAssert(![inContact conformsToProtocol:@protocol(AIContainingObject)]);
 	
@@ -709,13 +772,19 @@
 		[newContainedContactsArray release];
 		[newAllMetaContactsDict release];
 	}
-	
-	//The listObject can be within the metaContact without us finding a containedContactDict if we are removing multiple
-	//listContacts referring to the same UID & serviceID combination - that is, on multiple accounts on the same service.
-	//We therefore request removal of the object regardless of the if (containedContactDict) check above.
-	[metaContact removeObject:inContact];
-	
-	[self _didChangeContainer:metaContact object:inContact];
+
+	/* Remove all contacts matching this service/UID from the metacontact */
+	[contactPropertiesObserverManager delayListObjectNotifications];
+
+	for (AIListContact *matchingContact in [self allContactsWithService:inContact.service UID:inContact.UID]) {
+		if ([metaContact removeObject:matchingContact]) {
+			[contactPropertiesObserverManager _updateAllAttributesOfObject:inContact];
+			[self _didChangeContainer:metaContact object:inContact];
+		}		
+	}
+
+	[contactPropertiesObserverManager _updateAllAttributesOfObject:metaContact];
+	[contactPropertiesObserverManager endListObjectNotificationsDelay];
 }
 
 /*!
@@ -838,8 +907,10 @@
 
 	//Create a new metaContact is we didn't find one.
 	if (!metaContact) {
-		AILogWithSignature(@"New metacontact to group %@", contactsToGroupArray);
 		metaContact = [self metaContactWithObjectID:nil];
+		AILogWithSignature(@"Created new metacontact %@ for grouping %@", metaContact, contactsToGroupArray);
+	} else {
+		AILogWithSignature(@"Existing metacontact %@ will now gain %@", metaContact, contactsToGroupArray);
 	}
 	
 	/* Add all these contacts to our MetaContact.
@@ -849,6 +920,8 @@
 		[self addContact:listContact toMetaContact:metaContact];
 	}
 	
+	AILogWithSignature(@"Completed groupContacts; metaContact is %@", metaContact);
+
 	return metaContact;
 }
 
@@ -1453,15 +1526,18 @@ NSInteger contactDisplayNameSort(AIListObject *objectA, AIListObject *objectB, v
 
 - (void)moveContact:(AIListContact *)contact fromGroups:(NSSet *)oldGroups intoGroups:(NSSet *)groups
 {
+	AILogWithSignature(@"moveContact %@ [meta=%p; contained by %@; %@] from %@ into %@", 
+					   contact, 
+					   contact.metaContact, contact.containingObjects, (contact.existsServerside ? @"exists serverside" : @"does NOT exist serverside"),
+					   oldGroups,groups);
+
 	[contactPropertiesObserverManager delayListObjectNotifications];
 	if (contact.metaContact) {
 		AIMetaContact *meta = contact.metaContact;
 		//Remove from the contactToMetaContactLookupDict first so we don't try to reinsert into this metaContact
 		[contactToMetaContactLookupDict removeObjectForKey:contact.internalObjectID];
 		
-		for (AIListContact *matchingContact in [self allContactsWithService:contact.service UID:contact.UID]) {
-			[self removeContact:matchingContact fromMetaContact:meta];
-		}
+		[self removeContact:contact fromMetaContact:meta];
 	}
 	
 	if (contact.existsServerside) {
