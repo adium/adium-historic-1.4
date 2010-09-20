@@ -24,11 +24,9 @@
 #import <Adium/AIMetaContact.h>
 #import <Adium/AISortController.h>
 
-/*
- #ifdef DEBUG_BUILD
+#ifdef DEBUG_BUILD
  #define CONTACT_OBSERVER_MEMORY_MANAGEMENT_DEBUG	TRUE
- #endif
- */
+#endif
 
 #ifdef CONTACT_OBSERVER_MEMORY_MANAGEMENT_DEBUG
 	#import <Foundation/NSDebug.h>
