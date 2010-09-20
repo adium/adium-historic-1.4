@@ -51,8 +51,6 @@
 - (void)initAccount
 {
 	[super initAccount];
-
-	adhocServer = [[AMPurpleJabberAdHocServer alloc] initWithAccount:self];
 }
 
 /*!
@@ -181,6 +179,9 @@
 	 * This preference and the changes for it are added via the "libpurple_jabber_avoid_sasl_option_hack.diff" patch we apply during the build process.
 	 */
 	purple_prefs_set_bool("/plugins/prpl/jabber/avoid_sasl_for_plain_auth", YES);
+	
+	if (!adhocServer)
+		adhocServer = [[AMPurpleJabberAdHocServer alloc] initWithAccount:self];
 }
 
 - (NSString *)serverSuffix
