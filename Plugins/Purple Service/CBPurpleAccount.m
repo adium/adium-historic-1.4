@@ -810,6 +810,8 @@ static SLPurpleCocoaAdapter *purpleAdapter = nil;
 	for (NSDictionary *user in users) {
 		AIListContact *contact = [self contactWithUID:[user objectForKey:@"UID"]];
 		
+		AILogWithSignature(@"%@ join %@", chat, contact);
+		
 		[contact setOnline:YES notify:NotifyNever silently:YES];
 		
 		[newListObjects addObject:contact];
