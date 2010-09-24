@@ -48,6 +48,11 @@
 
 @implementation ESPurpleJabberAccount
 
+- (void)initAccount
+{
+	[super initAccount];
+}
+
 /*!
  * @brief The UID will be changed. The account has a chance to perform modifications
  *
@@ -97,6 +102,8 @@
 {
 	[xmlConsoleController close];
 	[xmlConsoleController release];
+	[adhocServer release];
+	[gateways release];
 
 	[super dealloc];
 }
@@ -172,6 +179,9 @@
 	 * This preference and the changes for it are added via the "libpurple_jabber_avoid_sasl_option_hack.diff" patch we apply during the build process.
 	 */
 	purple_prefs_set_bool("/plugins/prpl/jabber/avoid_sasl_for_plain_auth", YES);
+	
+	if (!adhocServer)
+		adhocServer = [[AMPurpleJabberAdHocServer alloc] initWithAccount:self];
 }
 
 - (NSString *)serverSuffix
@@ -502,19 +512,19 @@
 #pragma mark Menu items
 - (NSString *)titleForContactMenuLabel:(const char *)label forContact:(AIListContact *)inContact
 {
-	if (strcmp(label, "Un-hide From") == 0) {
+	if (strcmp(label, _("Un-hide From")) == 0) {
 		return [NSString stringWithFormat:AILocalizedString(@"Un-hide From %@",nil),inContact.formattedUID];
 
-	} else if (strcmp(label, "Temporarily Hide From") == 0) {
+	} else if (strcmp(label, _("Temporarily Hide From")) == 0) {
 		return [NSString stringWithFormat:AILocalizedString(@"Temporarily Hide From %@",nil),inContact.formattedUID];
 
-	} else if (strcmp(label, "Unsubscribe") == 0) {
+	} else if (strcmp(label, _("Unsubscribe")) == 0) {
 		return [NSString stringWithFormat:AILocalizedString(@"Unsubscribe %@",nil),inContact.formattedUID];
 
-	} else if (strcmp(label, "(Re-)Request authorization") == 0) {
+	} else if (strcmp(label, _("(Re-)Request authorization")) == 0) {
 		return [NSString stringWithFormat:AILocalizedString(@"Re-request Authorization from %@",nil),inContact.formattedUID];
 
-	} else if (strcmp(label,  "Cancel Presence Notification") == 0) {
+	} else if (strcmp(label,  _("Cancel Presence Notification")) == 0) {
 		return [NSString stringWithFormat:AILocalizedString(@"Cancel Presence Notification to %@",nil),inContact.formattedUID];	
 		
 	} else if (strcmp(label,  _("Ping")) == 0) {
@@ -527,16 +537,16 @@
 
 - (NSString *)titleForAccountActionMenuLabel:(const char *)label
 {	
-	if (strcmp(label, "Set User Info...") == 0) {
+	if (strcmp(label, _("Set User Info...")) == 0) {
 		return [AILocalizedString(@"Set User Info", nil) stringByAppendingEllipsis];
 		
-	} else 	if (strcmp(label, "Search for Users...") == 0) {
+	} else 	if (strcmp(label, _("Search for Users...")) == 0) {
 		return [AILocalizedString(@"Search for Users", nil) stringByAppendingEllipsis];
 		
-	} else 	if (strcmp(label, "Set Mood...") == 0) {
+	} else 	if (strcmp(label, _("Set Mood...")) == 0) {
 		return [AILocalizedString(@"Set Mood", nil) stringByAppendingEllipsis];
 		
-	} else 	if (strcmp(label, "Set Nickname...") == 0) {
+	} else 	if (strcmp(label, _("Set Nickname...")) == 0) {
 		return [AILocalizedString(@"Set Nickname", nil) stringByAppendingEllipsis];
 	} 
 	
@@ -730,8 +740,6 @@
 	[gateways release];
 	gateways = [[NSMutableArray alloc] init];
 
-	[adhocServer release];
-	adhocServer = [[AMPurpleJabberAdHocServer alloc] initWithAccount:self];
 	[adhocServer addCommand:@"ping" delegate:(id<AMPurpleJabberAdHocServerDelegate>)[AMPurpleJabberAdHocPing class] name:@"Ping"];
 	
     [super didConnect];
