@@ -574,6 +574,12 @@ static PurpleConversationUiOps adiumPurpleConversationOps = {
 	adiumPurpleConvCustomSmileyClose,
 
 	/* send_confirm */
+	NULL,
+	
+	/* reserved */
+	NULL,
+	NULL,
+	NULL,
 	NULL
 };
 
