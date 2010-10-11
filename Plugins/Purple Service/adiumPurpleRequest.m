@@ -395,7 +395,11 @@ static PurpleRequestUiOps adiumPurpleRequestOps = {
     adiumPurpleRequestFields,
 	adiumPurpleRequestFile,
     adiumPurpleRequestClose,
-	adiumPurpleRequestFolder
+	adiumPurpleRequestFolder,
+	NULL, /* reserved */
+	NULL, /* reserved */
+	NULL, /* reserved */
+	NULL  /* reserved */
 };
 
 PurpleRequestUiOps *adium_purple_request_get_ui_ops()
