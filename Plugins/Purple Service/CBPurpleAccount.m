@@ -667,6 +667,7 @@ static SLPurpleCocoaAdapter *purpleAdapter = nil;
 
 	//Move the objects to it
 	for (AIListContact *contact in objects) {
+		AILogWithSignature(@"Moving %@ from %@ to %@; we know it's in %@ previously", contact, oldGroups, groups, contact.remoteGroups);
 		if (![contact.remoteGroups intersectsSet:oldGroups] && oldGroups.count) {
 			continue;
 		}
