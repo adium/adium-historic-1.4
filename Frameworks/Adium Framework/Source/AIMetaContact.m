@@ -30,9 +30,16 @@
 
 #define	OBJECT_STATUS_CACHE			@"Object Status Cache"
 
-/* If META_TYPE_DEBUG is defined, metaContacts and uniqueMetaContacts are given an 
- * identifying suffix to their formattedUID in the contact list */
-//#define META_TYPE_DEBUG TRUE
+#ifdef DEBUG_BUILD
+	/* If META_GROUPING_DEBUG is defined, debug logging becomes much noisier regarding
+	* changes to the group assignments of a metacontact and its contained contacts.
+	*/
+	#define META_GROUPING_DEBUG TRUE
+
+	/* If META_TYPE_DEBUG is defined, metaContacts and uniqueMetaContacts are given an 
+	 * identifying suffix to their formattedUID in the contact list */
+	//#define META_TYPE_DEBUG TRUE
+#endif
 
 @interface AIListContact ()
 @property (readwrite, nonatomic, assign) AIMetaContact *metaContact;
@@ -147,7 +154,16 @@ NSComparisonResult containedContactSort(AIListContact *objectA, AIListContact *o
 			[targetGroups addObject:adium.contactController.offlineGroup];
 		else {
 			for (AIListContact *containedContact in self.uniqueContainedObjects) {
-				[targetGroups unionSet:containedContact.remoteGroups];
+#ifdef META_GROUPING_DEBUG
+				if (![containedContact.remoteGroups isSubsetOfSet:targetGroups]) {
+					/* containedContact is in 1 or more remote groups that we're not yet in. */
+					AILog(@"%@: %@ groups us into %@", self, containedContact, containedContact.remoteGroups);
+					[targetGroups unionSet:containedContact.remoteGroups];
+					
+				}
+#else
+				[targetGroups unionSet:containedContact.remoteGroups];			
+#endif
 			}
 		}
 	} else {
@@ -631,7 +647,7 @@ NSComparisonResult containedContactSort(AIListContact *objectA, AIListContact *o
 - (void)updateRemoteGroupingOfContact:(AIListContact *)inListContact;
 {
 #ifdef META_GROUPING_DEBUG
-	AILog(@"AIMetaContact: Remote grouping of %@ changed to %@",inListObject,inListObject.remoteGroupNames);
+	AILog(@"AIMetaContact: Remote grouping of %@ changed to %@", inListContact, inListContact.remoteGroupNames);
 #endif
 	
 	//When a contact has its remote grouping changed, this may mean it is now listed on an online account.
