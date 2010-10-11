@@ -66,7 +66,11 @@ static PurpleXferUiOps adiumPurpleFileTransferOps = {
     adiumPurpleAddXfer,
     adiumPurpleUpdateProgress,
     adiumPurpleCancelLocal,
-    adiumPurpleCancelRemote
+    adiumPurpleCancelRemote,
+	NULL, /* gssize (*ui_write)(PurpleXfer *xfer, const guchar *buffer, gssize size); */
+	NULL, /* gssize (*ui_read)(PurpleXfer *xfer, guchar **buffer, gssize size); */
+	NULL, /* void (*data_not_sent)(PurpleXfer *xfer, const guchar *buffer, gsize size); */
+	NULL  /* reserved1 */
 };
 
 PurpleXferUiOps *adium_purple_xfers_get_ui_ops()

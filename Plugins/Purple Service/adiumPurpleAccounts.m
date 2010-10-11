@@ -84,7 +84,11 @@ static PurpleAccountUiOps adiumPurpleAccountOps = {
 	&adiumPurpleAccountStatusChanged,
 	&adiumPurpleAccountRequestAdd,
 	&adiumPurpleAccountRequestAuthorize,
-	&adiumPurpleAccountRequestClose
+	&adiumPurpleAccountRequestClose,
+	NULL, /* reserved */
+	NULL, /* reserved */
+	NULL, /* reserved */
+	NULL  /* reserved */
 };
 
 PurpleAccountUiOps *adium_purple_accounts_get_ui_ops(void)

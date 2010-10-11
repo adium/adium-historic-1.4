@@ -607,9 +607,9 @@ static PurplePluginInfo info = {
 	N_("CDSA"),					/* name */
 	"0.1",					/* version */
 
+	N_("Provides SSL support through CDSA."),	/* summary */
 	N_("Provides SSL support through CDSA."),	/* description */
-	N_("Provides SSL support through CDSA."),
-	"CDSA",
+	"CDSA",										/* author */
 	"http://www.opengroup.org/security/l2-cdsa.htm",						/* homepage */
 
 	plugin_load,					/* load */
@@ -619,7 +619,12 @@ static PurplePluginInfo info = {
 	NULL,						/* ui_info */
 	NULL,						/* extra_info */
 	NULL,						/* prefs_info */
-	NULL						/* actions */
+	NULL,						/* actions */
+
+	NULL, /* reserved */
+	NULL, /* reserved */
+	NULL, /* reserved */
+	NULL  /* reserved */
 };
 
 static void
