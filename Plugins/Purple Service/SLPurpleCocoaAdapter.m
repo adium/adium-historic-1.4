@@ -1017,6 +1017,7 @@ static void purpleUnregisterCb(PurpleAccount *account, gboolean success, void *u
 	for (NSString *groupName in groupNames) {
 		if (!oldGroups.count) {
 			// If we don't have any source groups, silently turn this into an add.
+			AILog(@"Move of %@ failed because we have no oldGroups; adding instead", objectUID);
 			[self addUID:objectUID onAccount:adiumAccount toGroup:groupName withAlias:alias];
 			continue;
 		}
@@ -1038,6 +1039,7 @@ static void purpleUnregisterCb(PurpleAccount *account, gboolean success, void *u
 				
 				if ((buddy = purple_find_buddy_in_group(account, [objectUID UTF8String], oldGroup))) {
 					// Perform the add to the new group. This will turn into a move, and will update serverside.
+					AILog(@"Buddy %p (%@) moving serverside to %@", buddy, objectUID, sourceGroupName);
 					purple_blist_add_buddy(buddy, NULL, group, NULL);
 					// Continue so we avoid the "add to group" code below.
 					continue;
@@ -1045,6 +1047,7 @@ static void purpleUnregisterCb(PurpleAccount *account, gboolean success, void *u
 			}
 			
 			// If we got this far, the move failed; turn into an add.
+			AILog(@"Move of %@ failed; adding instead", objectUID);
 			[self addUID:objectUID onAccount:adiumAccount toGroup:groupName withAlias:alias];
 		}
 	}
