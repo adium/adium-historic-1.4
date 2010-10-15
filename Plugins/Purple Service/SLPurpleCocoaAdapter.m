@@ -1039,7 +1039,7 @@ static void purpleUnregisterCb(PurpleAccount *account, gboolean success, void *u
 				
 				if ((buddy = purple_find_buddy_in_group(account, [objectUID UTF8String], oldGroup))) {
 					// Perform the add to the new group. This will turn into a move, and will update serverside.
-					AILog(@"Buddy %p (%@) moving serverside to %@", buddy, objectUID, sourceGroupName);
+					AILog(@"Buddy %p (%@) moving serverside to %@", buddy, objectUID, groupName);
 					purple_blist_add_buddy(buddy, NULL, group, NULL);
 					// Continue so we avoid the "add to group" code below.
 					continue;
