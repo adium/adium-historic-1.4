@@ -5,7 +5,7 @@ Version 1.4 (X/X/XXX)
  * Added Twitter
  * Added IRC
  * Greatly improved group chats and group chat bookmarks
- * Updated to libpurple 2.6.0
+ * Updated to libpurple 2.6.6 with added fixes
  * Mind-bogglingly large number of enhancements and bug fixes
  
  Twitter 
@@ -64,7 +64,7 @@ Version 1.4 (X/X/XXX)
     * Hold option when dragging to add a contact to a secondary group.
     * Contact info inspector is now more focused on groups per contact than before.
   * Created a new Authorization Requests window
-    * Authorization requests no longer create one alert panel per request
+    * Authorization requests no longer create one alert panel per request.
     * The authorization requests window has add, ignore, and deny toolbar and context menu items.
   * Fixed deleting a group not removing its contents.
   * Corrected adding contacts to multiple accounts. The "Add Contact" window was only adding to the existing account.
@@ -103,8 +103,8 @@ Version 1.4 (X/X/XXX)
  Message Styles
   * You can now specify a different style for group chats, and customize all of the preferences independently of a regular chat. (#87)
   * Messages containing unordered lists are now displayed using bullets.
-  * Improved the appearance and function of built-in message styles
-  * Corrected sorting of message styles in the preferences (#9498)
+  * Improved the appearance and function of built-in message styles.
+  * Corrected sorting of message styles in the preferences. (#9498)
   * Numerous improvements for style developers: 
     * Styles now fall back to root level files for Status.html and Content.html. (#10868)
     * %message% is now replaced in a loop as we do other keywords. (#9672)
@@ -130,9 +130,9 @@ Version 1.4 (X/X/XXX)
   * Fixed clicking service links with message text when the link appears in the window it would open.
   * When a new file transfer arrives which requires confirmation, the chat's unviewed content count is increased.
   * A new message no longer unminimizes the chat window. (#52)
-  * Added an "only count number of unread mentions" for group chat tabs in the Messages advanced preferences
+  * Added an "only count number of unread mentions" for group chat tabs in the Messages advanced preferences.
   * Added an optional confirmation when closing a window which has multiple tabs, either always or when at least one has unviewed messages. (#12006)
-  * Message styles can now be updated without relaunching Adium
+  * Message styles can now be updated without relaunching Adium.
   * Nudge and buzz messages now appear as events in the window instead of messages from the contact.
   * Fixed logging in St. John's Newfoundland's time zone. (#9557)
   * Fixed detecting Right-to-Left status for a number of languages, including Arabic. (#13612) 
@@ -151,7 +151,7 @@ Version 1.4 (X/X/XXX)
   * Bonjour accounts now disconnect if we receive an error message.
  
  XMPP (Jabber, Google Talk, etc.)
-  * Updated XMPP server list when registering
+  * Updated XMPP server list when registering.
   * History from persistent group chats is now displayed as such and does not trigger events. (#6787)
   * Group chats which are not anonymous now display the actual contact in the user list. (#11841)
   * Fixed receiving colors and fonts from iChat. (#1323)
@@ -169,7 +169,7 @@ Version 1.4 (X/X/XXX)
   * Enabled server-side storing of contact aliases. (#11802)
   * Fixed displaying what message was unable to be sent when an error occurs. (#11796)
   * Moved the "display custom emoticons" to an account preference from the advanced preferences window.
-  * Updated libpurple to fix a vulnerability in MSN (http://www.coresecurity.com/content/libpurple-arbitrary-write)
+  * Updated libpurple to fix a vulnerability in MSN. (http://www.coresecurity.com/content/libpurple-arbitrary-write)
  
  AIM, ICQ, and MobileMe
   * Added "Connect using SSL" as a default option for AIM and ICQ. (#9553) You can get information on the certificate by right-clicking the account in the Accounts preferences.
@@ -179,16 +179,16 @@ Version 1.4 (X/X/XXX)
   * Added support for msim links. (#8036)
  
  Yahoo
-  * Fixed a wide variety of service errors
+  * Fixed a wide variety of service errors.
 
  QQ
-  * Restored connectivity
+  * Restored connectivity.
   
  Zephyr
   * Disabled Zephyr. As an unsupported protocol, we require patches to maintain it in working order. At this point in time, it just crashes. If you would like to contribute and maintain working Zephyr support, please contact us.
 
  Chat Transcripts
-  * Added a confirmation before removing logs with the delete key (#13097)
+  * Added a confirmation before removing logs with the delete key. (#13097)
   * Fixed incorrectly logging links containing ampersands (&) which caused logs to appear blank in the log viewer.
 
  Miscellaneous
@@ -204,7 +204,7 @@ Version 1.4 (X/X/XXX)
   * Added "Contact went mobile" and "Contact returns from mobile" events. (#3248)
   * Fixed AppleScript erroring when creating a new status object. (#8863)
   * Greatly reduced memory usage when receiving lots of messages while Adium is inactive
-  * Idle contacts now resort immediately
+  * Idle contacts now resort immediately.
   * Fixed the uptime script for single-user logins. (#10747)
   * The Downloads stack now bounces when a file transfer completes.
   * Moved dock icon and status menu item controls to a new "Message Alerts" advanced preferences.
