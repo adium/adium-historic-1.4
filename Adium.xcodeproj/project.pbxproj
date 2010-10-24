@@ -3548,6 +3548,8 @@
 		34BD0DB408D31479000BE2C0 /* AdiumChatEvents.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AdiumChatEvents.m; path = Source/AdiumChatEvents.m; sourceTree = "<group>"; };
 		34BD9DA9053146CC000AB133 /* Adium.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Adium.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		34BD9DE105314751000AB133 /* Adium.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Adium.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		34BEA8FA12748E840098E9C8 /* pt_PT */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = pt_PT; path = Resources/pt_PT.lproj/OTRPrefs.nib; sourceTree = "<group>"; };
+		34BEA91812748EAB0098E9C8 /* pt */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = pt; path = Resources/pt.lproj/OTRPrefs.nib; sourceTree = "<group>"; };
 		34BFD7F207E6A22700AD984D /* ESPresetManagementController.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = ESPresetManagementController.h; path = "Frameworks/Adium Framework/Source/ESPresetManagementController.h"; sourceTree = "<group>"; };
 		34BFD7F307E6A22700AD984D /* PresetManagement.nib */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = PresetManagement.nib; path = "Frameworks/Adium Framework/Resources/PresetManagement.nib"; sourceTree = "<group>"; };
 		34BFD7F407E6A22700AD984D /* ESPresetManagementController.m */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.objc; name = ESPresetManagementController.m; path = "Frameworks/Adium Framework/Source/ESPresetManagementController.m"; sourceTree = "<group>"; };
@@ -4504,8 +4506,8 @@
 		633D50F20F9D31BD004F491E /* da */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = da; path = da.lproj/schema.strings; sourceTree = "<group>"; };
 		633D50F30F9D31BD004F491E /* de */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		633D50F40F9D31BD004F491E /* de */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/schema.strings; sourceTree = "<group>"; };
-		633D50F50F9D31BD004F491E /* English */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = English; path = English.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		633D50F60F9D31BD004F491E /* English */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = English; path = English.lproj/schema.strings; sourceTree = "<group>"; };
+		633D50F50F9D31BD004F491E /* English */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = English; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		633D50F60F9D31BD004F491E /* English */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = English; path = en.lproj/schema.strings; sourceTree = "<group>"; };
 		633D50F70F9D31BD004F491E /* fi */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = fi; path = fi.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		633D50F80F9D31BD004F491E /* fi */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = fi; path = fi.lproj/schema.strings; sourceTree = "<group>"; };
 		633D50F90F9D31BD004F491E /* fr */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/InfoPlist.strings; sourceTree = "<group>"; };
@@ -9514,6 +9516,7 @@
 			};
 			buildConfigurationList = DADE8E3A085507450062B664 /* Build configuration list for PBXProject "Adium" */;
 			compatibilityVersion = "Xcode 3.1";
+			developmentRegion = English;
 			hasScannedForEncodings = 1;
 			knownRegions = (
 				en,
@@ -9552,6 +9555,7 @@
 				gy,
 				sk_SK,
 				uk_UA,
+				pt_PT,
 			);
 			mainGroup = 29B97314FDCFA39411CA2CEA /* CocAIMe2 */;
 			projectDirPath = "";
@@ -11363,6 +11367,8 @@
 				34B1FCE10F112BF700C7E952 /* el_GR */,
 				5A764A4111E04DDB00E5E0AF /* sk_SK */,
 				5A80CF54121F60E100D0670A /* uk_UA */,
+				34BEA8FA12748E840098E9C8 /* pt_PT */,
+				34BEA91812748EAB0098E9C8 /* pt */,
 			);
 			name = OTRPrefs.nib;
 			sourceTree = "<group>";
