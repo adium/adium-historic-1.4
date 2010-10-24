@@ -1183,8 +1183,10 @@ NSString* serviceIDForJabberUID(NSString *UID)
 				NSDictionary *dict = [adium.preferenceController preferenceForKey:KEY_AB_TO_METACONTACT_DICT
 																			  group:PREF_GROUP_ADDRESSBOOK];
 				NSNumber *metaContactObjectID = [dict objectForKey:uniqueId];
-				if (metaContactObjectID)
+				if (metaContactObjectID) {
 					metaContactHint = [adium.contactController metaContactWithObjectID:metaContactObjectID];
+					AILogWithSignature(@"Hint: %@", metaContactHint);
+				}
 			}
 				
 			metaContact = [adium.contactController groupUIDs:UIDsArray 
@@ -1205,7 +1207,7 @@ NSString* serviceIDForJabberUID(NSString *UID)
 					[dict setObject:[metaContact objectID]
 							 forKey:uniqueId];
 					[adium.preferenceController setPreference:dict
-														 forKey:@"UniqueIDToMetaContactObjectIDDictionary"
+														 forKey:KEY_AB_TO_METACONTACT_DICT
 														  group:PREF_GROUP_ADDRESSBOOK];
 				}
 			}
