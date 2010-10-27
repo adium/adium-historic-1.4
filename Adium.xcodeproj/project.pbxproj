@@ -4506,7 +4506,6 @@
 		633D50F20F9D31BD004F491E /* da */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = da; path = da.lproj/schema.strings; sourceTree = "<group>"; };
 		633D50F30F9D31BD004F491E /* de */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		633D50F40F9D31BD004F491E /* de */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/schema.strings; sourceTree = "<group>"; };
-		633D50F50F9D31BD004F491E /* English */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = English; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		633D50F60F9D31BD004F491E /* English */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = English; path = en.lproj/schema.strings; sourceTree = "<group>"; };
 		633D50F70F9D31BD004F491E /* fi */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = fi; path = fi.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		633D50F80F9D31BD004F491E /* fi */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = fi; path = fi.lproj/schema.strings; sourceTree = "<group>"; };
@@ -12482,7 +12481,6 @@
 				633D50EE0F9D31BD004F491E /* cs */,
 				633D50F10F9D31BD004F491E /* da */,
 				633D50F30F9D31BD004F491E /* de */,
-				633D50F50F9D31BD004F491E /* English */,
 				633D50F70F9D31BD004F491E /* fi */,
 				633D50F90F9D31BD004F491E /* fr */,
 				633D50FB0F9D31BD004F491E /* fr_CA */,
@@ -12778,7 +12776,9 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 63C7E02A0FAF9BA800B310AC /* Debug.xcconfig */;
 			buildSettings = {
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				GCC_WARN_ABOUT_MISSING_FIELD_INITIALIZERS = YES;
+				RUN_CLANG_STATIC_ANALYZER = NO;
 			};
 			name = Debug;
 		};
@@ -12786,6 +12786,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 63C7E02B0FAF9BA800B310AC /* Release.xcconfig */;
 			buildSettings = {
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				MACOSX_DEPLOYMENT_TARGET = 10.5;
 			};
@@ -12795,6 +12796,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 63C7E02C0FAF9BA800B310AC /* Release-Debug.xcconfig */;
 			buildSettings = {
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				GCC_WARN_ABOUT_MISSING_FIELD_INITIALIZERS = YES;
 				IBC_STRIP_NIBS = NO;
 			};
