@@ -49,9 +49,13 @@
 - (void)updateUnreadCount;
 - (void)updateOpenChats;
 - (void)updateStatusItemLength;
+
+@property (nonatomic, retain) NSMenuItem *contactsMenuItem;
 @end
 
 @implementation CBStatusMenuItemController
+
+@synthesize contactsMenuItem;
 
 + (CBStatusMenuItemController *)statusMenuItemController
 {
@@ -75,9 +79,6 @@
 		mainMenu = [[NSMenu alloc] init];
 		[mainMenu setDelegate:self];
 
-		mainContactsMenu = [[NSMenu alloc] init];
-		[mainContactsMenu setDelegate:self];
-
 		mainAccountsMenu = [[NSMenu alloc] init];
 		[mainAccountsMenu setDelegate:self];
 		
@@ -86,13 +87,11 @@
 
 		// Set the main menu as the status item's menu
 		statusItemView.menu = mainMenu;
-		statusItemView.alternateMenu = mainContactsMenu;
 		
 		// Create the caches for our menu items
 		accountMenuItemsArray = [[NSMutableArray alloc] init];
 		stateMenuItemsArray = [[NSMutableArray alloc] init];
 		openChatsArray = [[NSMutableArray alloc] init];
-		contactMenuItemsArray = [[NSMutableArray alloc] init];
 
 		// Flag all the menus as needing updates
 		mainMenuNeedsUpdate = YES;
@@ -100,6 +99,11 @@
 		accountsMenuNeedsUpdate = YES;
 		optionsMenuNeedsUpdate = YES;
 		
+		self.contactsMenuItem = [[NSMenuItem allocWithZone:[NSMenu menuZone]] initWithTitle:AILocalizedString(@"Contacts",nil)
+																					 target:self
+																					 action:nil
+																			  keyEquivalent:@""];
+
 		NSNotificationCenter *notificationCenter = [NSNotificationCenter defaultCenter];
 		//Register to recieve chat opened and chat closed notifications
 		[notificationCenter addObserver:self
@@ -185,11 +189,9 @@
 	[accountMenuItemsArray release];
 	[stateMenuItemsArray release];
 	[openChatsArray release];
-	[contactMenuItemsArray release];
 	
 	// The menus
 	[mainMenu release];
-	[mainContactsMenu release];
 	[mainAccountsMenu release];
 	[mainOptionsMenu release];
 	
@@ -513,17 +515,22 @@
 /*!
  * @brief AIContactMenu delegate method
  */
-- (void)contactMenu:(AIContactMenu *)inContactMenu didRebuildMenuItems:(NSArray *)menuItems
+- (void)contactMenuDidRebuild:(AIContactMenu *)inContactMenu 
 {
+	NSMenu *menu = inContactMenu.menu;
+
+	NSInteger newNumberOfMenuItems = menu.numberOfItems;
+
 	// Going from or to 0 contacts requires a main menu update
-	if ([contactMenuItemsArray count] == 0 || [menuItems count] == 0)
+	if (currentContactMenuItemsCount == 0 || newNumberOfMenuItems == 0)
 		mainMenuNeedsUpdate = YES;
 
-	[contactMenuItemsArray release];
-	contactMenuItemsArray = [menuItems retain];
+	currentContactMenuItemsCount = 	menu.numberOfItems;
 	
-	// Update the next time we're clicked.
-	contactsMenuNeedsUpdate = YES;
+	/* The alternate menu is what shows if you option-click the menu item */
+	statusItemView.alternateMenu = menu;
+	
+	[self.contactsMenuItem setSubmenu:menu];
 }
 
 /*!
@@ -582,6 +589,11 @@
  * @brief AIContactMenu delegate method
  */
 - (BOOL)contactMenuShouldSetTooltip:(AIContactMenu *)inContactMenu
+{
+	return YES;
+}
+
+- (BOOL) contactMenuShouldIncludeContactListMenuItem:(AIContactMenu *)inContactMenu
 {
 	return YES;
 }
@@ -689,16 +701,11 @@
 		[menu removeAllItems];
 		
 		// Show the contacts menu if we have any contacts to display
-		if ([contactMenuItemsArray count] > 0) {
+		if ([contactMenu.menu numberOfItems] > 0) {
 			// Add contacts
-			menuItem = [[NSMenuItem allocWithZone:[NSMenu menuZone]] initWithTitle:AILocalizedString(@"Contacts",nil)
-																			target:self
-																			action:nil
-																	 keyEquivalent:@""];
-			
-			[menuItem setSubmenu:mainContactsMenu];
-			[menu addItem:menuItem];
+			[menu addItem:self.contactsMenuItem];
 			[menuItem release];
+
 		} else {
 			[menu addItemWithTitle:[AILocalizedString(@"Contact List", nil) stringByAppendingEllipsis]
 							target:adium.interfaceController
@@ -774,31 +781,6 @@
 		
 		//Only update next time if we need to
 		mainMenuNeedsUpdate = NO;
-	// Contacts menu
-	} else if (menu == mainContactsMenu && contactsMenuNeedsUpdate) {
-		NSMenuItem      *menuItem;
-		
-		// Remove previous menu items.
-		[menu removeAllItems];
-		
-		contactsMenuNeedsUpdate = NO;
-	
-		[menu addItemWithTitle:[AILocalizedString(@"Contact List", nil) stringByAppendingEllipsis]
-						target:adium.interfaceController
-						action:@selector(toggleContactList:)
-				 keyEquivalent:@""];
-		
-		if ([contactMenuItemsArray count] > 0)
-			[menu addItem:[NSMenuItem separatorItem]];
-		
-		for (menuItem in contactMenuItemsArray) {
-			[menu addItem:menuItem];
-			
-			//Validate the menu items as they are added since they weren't previously validated when the menu was clicked
-			if ([[menuItem target] respondsToSelector:@selector(validateMenuItem:)]) {
-				[[menuItem target] validateMenuItem:menuItem];
-			}
-		}
 	// Accounts menu
 	} else if (menu == mainAccountsMenu && accountsMenuNeedsUpdate) {
 		NSMenuItem      *menuItem;

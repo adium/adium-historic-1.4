@@ -14,10 +14,11 @@
 #import <Adium/AIListContact.h>
 #import <Adium/AIListGroup.h>
 #import <Adium/AIContactList.h>
+#import <AIUtilities/AIStringAdditions.h>
 
 @interface AIContactMenu ()
 - (id)initWithDelegate:(id<AIContactMenuDelegate>)inDelegate forContactsInObject:(AIListObject *)inContainingObject;
-- (NSArray *)contactMenusForListObjects:(NSArray *)listObjects;
+- (NSMutableArray *)contactMenusForListObjects:(NSArray *)listObjects;
 - (NSArray *)listObjectsForMenuFromArrayOfListObjects:(NSArray *)listObjects;
 - (void)_updateMenuItem:(NSMenuItem *)menuItem;
 @end
@@ -114,7 +115,7 @@
 	delegate = inDelegate;
 	
 	//Ensure the the delegate implements all required selectors and remember which optional selectors it supports.
-	if (delegate) NSParameterAssert([delegate respondsToSelector:@selector(contactMenu:didRebuildMenuItems:)]);
+	if (delegate) NSParameterAssert([delegate respondsToSelector:@selector(contactMenuDidRebuild:)]);
 	delegateRespondsToDidSelectContact = [delegate respondsToSelector:@selector(contactMenu:didSelectContact:)];
 	delegateRespondsToShouldIncludeContact = [delegate respondsToSelector:@selector(contactMenu:shouldIncludeContact:)];
 	delegateRespondsToValidateContact = [delegate respondsToSelector:@selector(contactMenu:validateContact:)];
@@ -130,6 +131,10 @@
 	
 	shouldSetTooltip = ([delegate respondsToSelector:@selector(contactMenuShouldSetTooltip:)] &&
 								 [delegate contactMenuShouldSetTooltip:self]);	
+	
+	shouldIncludeContactListMenuItem = ([delegate respondsToSelector:@selector(contactMenuShouldIncludeContactListMenuItem:)] &&
+										  [delegate contactMenuShouldIncludeContactListMenuItem:self]);	
+	
 }
 - (id<AIContactMenuDelegate>	)delegate
 {
@@ -150,7 +155,7 @@
 	shouldDisplayGroupHeaders = ([delegate respondsToSelector:@selector(contactMenuShouldDisplayGroupHeaders:)] &&
 								 [delegate contactMenuShouldDisplayGroupHeaders:self]);
 	
-	[delegate contactMenu:self didRebuildMenuItems:[self menuItems]];
+	[delegate contactMenuDidRebuild:self];
 }
 
 /*!
@@ -196,7 +201,23 @@
 	}
 	
 	// Create menus for them
-	return [self contactMenusForListObjects:listObjects];
+	NSMutableArray *contactMenus = [self contactMenusForListObjects:listObjects];
+	
+	if (shouldIncludeContactListMenuItem) {
+		BOOL needsSeparator = (contactMenus.count > 0);
+			
+		NSMenuItem	*aMenuItem = [[[NSMenuItem alloc] initWithTitle:[AILocalizedString(@"Contact List", nil) stringByAppendingEllipsis]
+															 action:@selector(toggleContactList:)
+													  keyEquivalent:@""] autorelease];
+		[aMenuItem setTarget:adium.interfaceController];
+		[contactMenus insertObject:aMenuItem atIndex:0];
+		 
+		if (needsSeparator) {
+			[contactMenus insertObject:[NSMenuItem separatorItem] atIndex:1];
+		}
+	}
+	
+	return contactMenus;
 }
 
 /*!
@@ -229,7 +250,7 @@
 /*!
 * @brief Creates an array of NSMenuItems for each AIListObject
  */
-- (NSArray *)contactMenusForListObjects:(NSArray *)listObjects
+- (NSMutableArray *)contactMenusForListObjects:(NSArray *)listObjects
 {
 	NSMutableArray	*menuItemArray = [NSMutableArray array];
 	
@@ -249,13 +270,15 @@
 
 				// The group isn't clickable.
 				[menuItem setEnabled:NO];
-				[self _updateMenuItem:menuItem];
 				
 				// Add the group and contained objects to the array.
 				[menuItemArray addObject:menuItem];
 				[menuItemArray addObjectsFromArray:[self contactMenusForListObjects:containedListObjects]];
 				
 				[menuItem release];
+				
+				/* Note that we'll call _updateMenuItem before the item is actually displayed, to set
+				 * the title, image, etc. */
 			}
 		} else {
 			// Just add the menu item.
@@ -264,9 +287,11 @@
 																						action:@selector(selectContactMenuItem:)
 																				 keyEquivalent:@""
 																			 representedObject:listObject];
-			[self _updateMenuItem:menuItem];
 			[menuItemArray addObject:menuItem];
 			[menuItem release];
+			
+			/* Note that we'll call _updateMenuItem before the item is actually displayed, to set
+			 * the title, image, etc. */
 		}
 
 	}
@@ -303,6 +328,30 @@
 	}
 }
 
+- (NSInteger)numberOfItemsInMenu:(NSMenu *)inMenu
+{
+	/* We manage the number of items in the menu as it changes, live (mostly because of laziness - it's already
+	 * implemented as of this optimization to use menu:updateItem:atIndex:shouldCancel: and works just fine.
+	 */
+	return inMenu.numberOfItems;
+}
+	 
+- (BOOL)menu:(NSMenu *)inMenu updateItem:(NSMenuItem *)menuItem atIndex:(NSInteger)index shouldCancel:(BOOL)shouldCancel
+{
+	if (shouldCancel)
+		return NO;
+
+	[self _updateMenuItem:menuItem];
+	
+	//Validate the menu items as they are added since they weren't previously validated when the menu was clicked
+	//XXX Is this needed? Maintained from CBStatusMenuItemController. Won't hurt.
+	if ([menuItem.target respondsToSelector:@selector(validateMenuItem:)]) {
+		[menuItem.target validateMenuItem:menuItem];
+	}
+	
+	return YES;
+}
+
 /*!
  * @brief Update menu when a contact's status changes
  */
@@ -335,11 +384,7 @@
 					} else {
 						[self rebuildMenu];
 					}
-				} else { 
-					[self _updateMenuItem:menuItem];
 				}
-			} else {
-				[self _updateMenuItem:menuItem];
 			}
 		}
 	}
