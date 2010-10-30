@@ -99,10 +99,10 @@
 		accountsMenuNeedsUpdate = YES;
 		optionsMenuNeedsUpdate = YES;
 		
-		self.contactsMenuItem = [[NSMenuItem allocWithZone:[NSMenu menuZone]] initWithTitle:AILocalizedString(@"Contacts",nil)
-																					 target:self
-																					 action:nil
-																			  keyEquivalent:@""];
+		self.contactsMenuItem = [[[NSMenuItem allocWithZone:[NSMenu menuZone]] initWithTitle:AILocalizedString(@"Contacts",nil)
+																					  target:self
+																					  action:nil
+																			   keyEquivalent:@""] autorelease];
 
 		NSNotificationCenter *notificationCenter = [NSNotificationCenter defaultCenter];
 		//Register to recieve chat opened and chat closed notifications
@@ -518,7 +518,6 @@
 - (void)contactMenuDidRebuild:(AIContactMenu *)inContactMenu 
 {
 	NSMenu *menu = inContactMenu.menu;
-
 	NSInteger newNumberOfMenuItems = menu.numberOfItems;
 
 	// Going from or to 0 contacts requires a main menu update
@@ -594,6 +593,11 @@
 }
 
 - (BOOL) contactMenuShouldIncludeContactListMenuItem:(AIContactMenu *)inContactMenu
+{
+	return YES;
+}
+
+- (BOOL)contactMenuShouldPopulateMenuLazily:(AIContactMenu *)inContactMenu
 {
 	return YES;
 }
@@ -704,7 +708,6 @@
 		if ([contactMenu.menu numberOfItems] > 0) {
 			// Add contacts
 			[menu addItem:self.contactsMenuItem];
-			[menuItem release];
 
 		} else {
 			[menu addItemWithTitle:[AILocalizedString(@"Contact List", nil) stringByAppendingEllipsis]
