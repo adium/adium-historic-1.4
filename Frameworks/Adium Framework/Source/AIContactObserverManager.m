@@ -147,8 +147,6 @@ static AIContactObserverManager *sharedObserverManager = nil;
 		
 		[self.delayedUpdateTimer invalidate]; self.delayedUpdateTimer = nil;
 
-		NSLog(@"endListObjectNotificationsDelaysImmediately");
-
 		[self _performDelayedUpdates:nil];
 		
 		/* After immediately performing updates as requested, go back to delaying until inactivity if that was the
@@ -165,7 +163,6 @@ static AIContactObserverManager *sharedObserverManager = nil;
 //know when they have finished connecting but still want to mute events.
 - (void)delayListObjectNotificationsUntilInactivity
 {
-	NSLog(@"*** Begin grouping delay ***");
     if (!delayedUpdateTimer) {
 		updatesAreDelayedUntilInactivity = YES;
 		self.delayedUpdateTimer = [NSTimer scheduledTimerWithTimeInterval:UPDATE_CLUMP_INTERVAL
@@ -255,7 +252,6 @@ static AIContactObserverManager *sharedObserverManager = nil;
 																nil)];
 	 
 	if (!shouldDelay) {
-		NSLog(@"Immediate ListObject_AttributeChangesComplete for %@", inObject);
 		/* Note that we completed 1 or more delayed attribute changes */
 		[[NSNotificationCenter defaultCenter] postNotificationName:ListObject_AttributeChangesComplete
 															object:inObject
@@ -269,9 +265,6 @@ static AIContactObserverManager *sharedObserverManager = nil;
 {
 	BOOL	updatesOccured = (delayedStatusChanges || delayedAttributeChanges || delayedContactChanges);
 	
-	static int updatesDone = 0;
-	NSLog(@"_performDelayedUpdates %p: %i", timer, ++updatesDone);
-
 	//Send out global attribute & status changed notifications (to cover any delayed updates)
 	if (updatesOccured) {
 		BOOL shouldSort = NO;
@@ -317,9 +310,7 @@ static AIContactObserverManager *sharedObserverManager = nil;
 		if (delayedUpdateTimer && (quietDelayedUpdatePeriodsRemaining-- <= 0)) {
 			[delayedUpdateTimer invalidate];
 			self.delayedUpdateTimer = nil;
-			updatesAreDelayedUntilInactivity = NO;
-			
-			NSLog(@"The delayedUpdateTimer has EXPIRED");
+			updatesAreDelayedUntilInactivity = NO;			
 		}
     }
 
