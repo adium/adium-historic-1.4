@@ -317,7 +317,7 @@
 			[inModifiedKeys containsObject:@"IdleSince"] ||
 			[inModifiedKeys containsObject:@"StatusType"]) {
 
-			//Note that this will return nil if we don't ahve a menu item for inObject
+			//Note that this will return nil if we don't have a menu item for inObject
 			NSMenuItem	*menuItem = [self existingMenuItemForContact:(AIListContact *)inObject];
 
 			//Update the changed menu item (or rebuild the entire menu if this item should be removed or added)
