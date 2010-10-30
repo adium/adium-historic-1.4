@@ -1162,8 +1162,8 @@ static NSArray *draggedTypes = nil;
 			//We're the first one to get to this object!  We get to delete the old path and remove the reference to it
 			[[NSFileManager defaultManager] removeItemAtPath:currentIconPath error:NULL];
 			[iconSourceObject setValue:nil
-									   forProperty:KEY_WEBKIT_USER_ICON
-									   notify:NotifyNever];
+						   forProperty:KEY_WEBKIT_USER_ICON
+								notify:NotifyNever];
 		} else {
 			/* Some other instance beat us to the punch. The object's KEY_WEBKIT_USER_ICON is right, since it doesn't match our
 			 * internally tracked path.
@@ -1243,6 +1243,7 @@ static NSArray *draggedTypes = nil;
 	if (userIcon) {
 		if ([messageStyle userIconMask]) {
 			//Apply the mask if the style has one
+			AILogWithSignature(@"Masking %@'s icon", inObject);
 			//XXX Using multiple styles at once, one of which has a user icon mask, would lead to odd behavior
 			webKitUserIcon = [[[messageStyle userIconMask] copy] autorelease];
 			[webKitUserIcon lockFocus];
@@ -1258,7 +1259,6 @@ static NSArray *draggedTypes = nil;
 
 		oldWebKitUserIconPath = [objectIconPathDict objectForKey:iconSourceObject.internalObjectID];		
 		webKitUserIconPath = [iconSourceObject valueForProperty:KEY_WEBKIT_USER_ICON];
-		
 		if (!webKitUserIconPath) {
 			/* If the image doesn't know a path to use, write it out and set it.
 			 *
@@ -1277,6 +1277,8 @@ static NSArray *draggedTypes = nil;
 				AILogWithSignature(@"Warning: Could not write out icon to %@", webKitUserIconPath);
 			}
 		}
+
+		AILogWithSignature(@"%@'s oldWebKitUserIconPath %@, webKitUserIconPath now %@", inObject, oldWebKitUserIconPath, webKitUserIconPath);
 
 		//Make sure it's known that this user has been handled
 		if (![objectsWithUserIconsArray containsObjectIdenticalTo:iconSourceObject]) {
