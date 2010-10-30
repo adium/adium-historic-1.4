@@ -96,8 +96,8 @@ static NSString *AIWebURLsWithTitlesPboardType = @"WebURLsWithTitlesPboardType";
 										 object:nil];
 		
 		[[NSNotificationCenter defaultCenter] addObserver:self
-									   selector:@selector(listObjectAttributesChanged:)
-										   name:ListObject_AttributesChanged
+									   selector:@selector(listObjectAttributeChangesComplete:)
+										   name:ListObject_AttributeChangesComplete
 										 object:nil];
 		
 		[[NSNotificationCenter defaultCenter] addObserver:self
@@ -577,12 +577,12 @@ static NSString *AIWebURLsWithTitlesPboardType = @"WebURLsWithTitlesPboardType";
  *
  * Redisplay the object in question
  */
-- (void)listObjectAttributesChanged:(NSNotification *)notification
+- (void)listObjectAttributeChangesComplete:(NSNotification *)notification
 {
     AIListObject	*object = [notification object];
 
 	static int listObjectAttributesChangedNum = 0;
-	NSLog(@"listObjectAttributesChanged #%i: %@ [%@]",
+	NSLog(@"listObjectAttributeChangesComplete #%i: %@ [%@]",
 		  ++listObjectAttributesChangedNum,
 		  object, [[notification userInfo] objectForKey:@"Keys"]);
 
