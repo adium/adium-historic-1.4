@@ -170,9 +170,12 @@ createfolder:
 	cp -R "$(ADIUM_BUILD_DIR)/Adium.app" $(ADIUM_DIR)
 
 	@# copy the text files
-	cp $(SRC_DIR)/ChangeLogs/Changes.txt $(ADIUM_DIR)
+	cp $(SRC_DIR)/ChangeLogs/Changes.txt $(ADIUM_DIR)	
 	cp $(SRC_DIR)/License.txt $(ADIUM_DIR)
 	
+	@# TextEdit doesn't read the UTF-8 BOM properly; set the encoding manually
+	xattr -w com.apple.TextEncoding 'UTF-8;134217984' $(ADIUM_DIR)/Changes.txt
+
 	@# symlink /Applications
 	./mkalias -r /Applications $(ADIUM_DIR)/Applications
 
