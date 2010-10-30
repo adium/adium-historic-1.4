@@ -24,16 +24,12 @@
 //Redisplay an item (passing nil is the same as requesting a redisplay of the entire list)
 - (void)redisplayItem:(id)item
 {
-	static int redisplayNumber = 0;
-
 	if (item) {
 		int row = [self rowForItem:item];
 		if (row >= 0 && row < [self numberOfRows]) {
-			NSLog(@"Redisplay #%i  %@", ++redisplayNumber, item);
 			[self setNeedsDisplayInRect:[self rectOfRow:row]];
 		}
 	} else {
-		NSLog(@"Redisplay #%i  %@", ++redisplayNumber, item);
 		[self setNeedsDisplay:YES];
 	}
 }
