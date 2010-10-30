@@ -1,6 +1,6 @@
 				Adium Version History
 				-----------------------
-Version 1.4 (X/X/XXX)
+Version 1.4 (10/31/2010)
  * Requires Mac OS X 10.5 or later
  * Added Twitter
  * Added IRC
@@ -15,7 +15,6 @@ Version 1.4 (X/X/XXX)
   * Settings to customize: Update interval, Adium status updating, retweet links, and contact display in the contact list.
   * Getting info on a Twitter contact displays all of their information and their latest 20 tweets.
   * "Reply to a Tweet" window allows for pasting twitter.com URLs to easily respond to a tweet.
- 
   * Also includes support for StatusNet servers, such as Identi.ca
   
  IRC
@@ -192,6 +191,7 @@ Version 1.4 (X/X/XXX)
   * Fixed incorrectly logging links containing ampersands (&) which caused logs to appear blank in the log viewer.
 
  Miscellaneous
+  * Improved launch time
   * You can now define which applications should be the default for different services in the Advanced preferences. (#158)
   * Updated the look of the file transfer window. Added a keyboard shortcut of CMD+. to stop the selected transfer.
   * Improved multiple icons throughout Adium
@@ -210,7 +210,7 @@ Version 1.4 (X/X/XXX)
   * Moved dock icon and status menu item controls to a new "Message Alerts" advanced preferences.
   * Added throttling to Growl messages. Instead of, for example, posting 296 messages, Adium will Growl "296 messages".
   * Cleaned up the look of the advanced preferences list.
-  * Updated to Sparkle 1.5
+  * Updated to Sparkle 1.5 for improved notification and installation of future updates
 
  Localization
   * Added Ukrainian and Slovakian translations
