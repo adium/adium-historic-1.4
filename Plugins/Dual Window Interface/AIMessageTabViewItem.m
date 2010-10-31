@@ -100,6 +100,8 @@
 
 - (void)dealloc
 {
+	AILogWithSignature(@"");
+	
     [[NSNotificationCenter defaultCenter] removeObserver:self];
 
 	[tabViewItemImage release]; tabViewItemImage = nil;
