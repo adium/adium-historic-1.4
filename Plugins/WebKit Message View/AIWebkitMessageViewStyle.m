@@ -393,9 +393,8 @@
 {
 	NSMutableString *mutableTemplate = [[self templateForContent:content similar:contentIsSimilar] mutableCopy];
 	
-	if (mutableTemplate) {
-		mutableTemplate = [self fillKeywords:mutableTemplate forContent:content similar:contentIsSimilar];
-	}
+	if (mutableTemplate)
+		[self fillKeywords:mutableTemplate forContent:content similar:contentIsSimilar];
 	
 	return [mutableTemplate autorelease];
 }
