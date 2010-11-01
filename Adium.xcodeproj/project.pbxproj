@@ -6593,6 +6593,7 @@
 				34F1022A0734499600890D3B /* XtraProgressWindow.nib */,
 				34906171127F742200FC313F /* AITemporaryIRCAccountWindowController.h */,
 				34906172127F742200FC313F /* AITemporaryIRCAccountWindowController.m */,
+				3490615C127F70B100FC313F /* TemporaryIRCAccountWindow.nib */,
 			);
 			name = "URL and Xtras Installation handling";
 			sourceTree = "<group>";
@@ -8669,7 +8670,6 @@
 		F50A325A03B5798301A8010A /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				3490615C127F70B100FC313F /* TemporaryIRCAccountWindow.nib */,
 				11C97DFC0F7D26C200E8DD37 /* dsa_pub.pem */,
 				34D8326107CBD598006466F2 /* AccountPrefs.plist */,
 				340E9B1F0E34EB900032BEA6 /* Info.plist */,
