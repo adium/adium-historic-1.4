@@ -14,6 +14,7 @@
 #import "AIServiceMenu.h"
 #import <AIUtilities/AIStringAdditions.h>
 #import <AIUtilities/AIStringFormatter.h>
+#import <Adium/AIChatControllerProtocol.h>
 
 @implementation AITemporaryIRCAccountWindowController
 
