@@ -31,6 +31,7 @@
 #import <AIUtilities/AIAttributedStringAdditions.h>
 #import <AIUtilities/AIDictionaryAdditions.h>
 #import <AIUtilities/AIStringAdditions.h>
+#import <libpurple/chat.h>
 #import <libpurple/presence.h>
 #import <libpurple/si.h>
 #import <SystemConfiguration/SystemConfiguration.h>

@@ -268,8 +268,6 @@
 
 - (void)drawRect:(NSRect)rect
 {	
-	static int timesDrawn = 0;
-
 	[super drawRect:rect];
 	
 	/*	#################### Crappy Code ###################
