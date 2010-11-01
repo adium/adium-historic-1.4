@@ -80,6 +80,10 @@ export PATH="$PATH:$SCRIPT_DIR/rtool"
 echo "Making a framework for $PURPLE_FOLDER and all dependencies..."
 python $SCRIPT_DIR/framework_maker/frameworkize.py $UNIVERSAL_DIR/$LIBPURPLE.dylib $PWD/Frameworks
 
+echo "Adding subfolders from the Libpurple framework headers"
+cp -R $UNIVERSAL_DIR/include/$PURPLE_FOLDER/ $PWD/Frameworks/libpurple.subproj/libpurple.framework/Headers
+
+
 echo "Adding the Adium framework header."
 cp $SCRIPT_DIR/libpurple-full.h $PWD/Frameworks/libpurple.subproj/libpurple.framework/Headers/libpurple.h
 
