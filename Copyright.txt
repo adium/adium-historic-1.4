@@ -39,6 +39,7 @@ Jasper Hauser
 Arno Hautala
 Joe Hildebrand
 Stephen Holt
+Tim Horton
 Peter Hosey
 Alan Humpherys
 Adam Iser

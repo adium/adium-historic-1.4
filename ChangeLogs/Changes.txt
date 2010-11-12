@@ -3,8 +3,8 @@
 Version 1.4.1 (XX/XX/2010)
  * Updated to libpurple 2.7.5
    * Support for MSN direct connections, enabling faster file transfers, smiley and buddy icon loading
-   * A bunch of fixes for ICQ encoding problems.
-   * Corrected hostnames (server settings) for ICQ connections.
+   * A bunch of fixes for ICQ encoding problems
+   * Corrected hostnames (server settings) for ICQ connections
 
  IRC
   * Added handling of irc:// URIs by creating guest accounts if required. (#12339)
@@ -19,8 +19,11 @@ Version 1.4.1 (XX/XX/2010)
   * Fixed contact status background colors updating in the contact list, including both static and flashing statuses. (#14534, #14493)
   * Add the "@" sign for Twitter's tabcomplete. (#13987) (Moses Lei)
   * Distinguish StatusNet accounts with same username on different servers. (#13604) (Brion Vibber)
+  * Fixed a long-standing bug preventing a minimum text size preferences smaller than 9pt to take effect. (#49) (Tim Horton)
+  * Blacklist PSD and PDFs as "images" to be sent as such for Direct IM.
   * Fixed alignment and clipping issues in the "About" box. (#13541)
   * Fixed overlapping buttons in "Reply to a Tweet" dialogue. (#14017)
+  * Fixed minor issues in Adium Help documentation.
 
 Version 1.4 (10/31/2010)
  * Requires Mac OS X 10.5 or later
