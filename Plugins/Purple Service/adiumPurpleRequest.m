@@ -148,8 +148,8 @@ static void *adiumPurpleRequestActionWithIcon(const char *title, const char *pri
 								  PurpleAccount *account, const char *who,
 								  PurpleConversation *conv, 
 								  gconstpointer icon_data, gsize icon_size,
-								  void *user_data,
-								  size_t action_count, va_list actions);
+								  void *userData,
+								  size_t actionCount, va_list actions)
 {
     NSString			*titleString = (title ? [NSString stringWithUTF8String:title] : @"");
 	NSString			*primaryString = (primary ? [NSString stringWithUTF8String:primary] : nil);
@@ -255,9 +255,6 @@ static void *adiumPurpleRequestActionWithIcon(const char *title, const char *pri
 	return requestController;
 }
 
-
-}
-
 //Purple requests the user take an action such as accept or deny a buddy's attempt to add us to her list 
 static void *adiumPurpleRequestAction(const char *title, const char *primary,
 									  const char *secondary, int default_action,
@@ -266,14 +263,14 @@ static void *adiumPurpleRequestAction(const char *title, const char *primary,
 									  void *userData,
 									  size_t actionCount, va_list actions)
 {
-	adiumPurpleRequestActionWithIcon(title, primary,
-									 secondary, default_action,
-									 account, who,
-									 conv,
-									 /* iconData */ NULL, /* iconSize */ 0,
-									 userData,
-									 actionCount, actions);
-								 
+	return adiumPurpleRequestActionWithIcon(title, primary,
+											secondary, default_action,
+											account, who,
+											conv,
+											/* iconData */ NULL, /* iconSize */ 0,
+											userData,
+											actionCount, actions);
+	
 }
 
 static void *adiumPurpleRequestFields(const char *title, const char *primary,
@@ -427,7 +424,6 @@ static PurpleRequestUiOps adiumPurpleRequestOps = {
     adiumPurpleRequestClose,
 	adiumPurpleRequestFolder,
 	adiumPurpleRequestActionWithIcon,
-	NULL, /* reserved */
 	NULL, /* reserved */
 	NULL, /* reserved */
 	NULL  /* reserved */
