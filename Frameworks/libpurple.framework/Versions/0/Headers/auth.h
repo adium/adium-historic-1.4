@@ -59,6 +59,9 @@ JabberSaslMech *jabber_auth_get_cyrus_mech(void);
 #endif
 JabberSaslMech *jabber_auth_get_fb_mech(void);
 
+void jabber_auth_add_mech(JabberSaslMech *);
+void jabber_auth_remove_mech(JabberSaslMech *);
+
 void jabber_auth_init(void);
 void jabber_auth_uninit(void);
 
