@@ -12,7 +12,7 @@ Version 1.4.1 (XX/XX/2010)
      * Fixed sending messages to AIM chat rooms
    * Yahoo
      * Fixed sending SMS messages
-     * Some filet transfer improvements
+     * Some file transfer improvements
    * XMPP
      * Improved connectivity to servers that do not offer Stream ID
      * Fixed detected file transfer proxies
