@@ -11,7 +11,15 @@
 @class AIListObject, AIListContact, AIChat;
 @protocol AIContainingObject;
 
+/* Posted for a single object whose attributes changed.
+ * Must be used for observing only! Only the contact controller should post this notification. */
 #define ListObject_AttributesChanged			@"ListObject_AttributesChanged"
+
+/* Called when one or more ListObject_AttributesChanged notifications are done and all delays have cleared.
+ * We're ready to update the display at this point.
+ * Must be used for observing only! Only the contact controller should post this notification. */
+#define ListObject_AttributeChangesComplete			@"ListObject_AttributeChangesComplete"
+
 #define ListObject_StatusChanged				@"ListObject_StatusChanged"
 #define Contact_OrderChanged					@"Contact_OrderChanged"
 #define Contact_ListChanged						@"Contact_ListChanged"

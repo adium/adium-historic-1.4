@@ -77,13 +77,18 @@ static PurpleBlistUiOps adiumPurpleBlistOps = {
     adiumPurpleBlistNewList,
     adiumPurpleBlistNewNode,
     adiumPurpleBlistShow,
-    NULL,
+    NULL, /* void (*update)(PurpleBuddyList *list, PurpleBlistNode *node); */
+
     adiumPurpleBlistRemove,
     adiumPurpleBlistDestroy,
     adiumPurpleBlistSetVisible,
     adiumPurpleBlistRequestAddBuddy,
     adiumPurpleBlistRequestAddChat,
-    adiumPurpleBlistRequestAddGroup
+    adiumPurpleBlistRequestAddGroup,
+	NULL, /* void (*save_node)(PurpleBlistNode *node) - could suppress blist.xml activity? */
+	NULL, /* void (*remove_node)(PurpleBlistNode *node) */
+	NULL, /* void (*save_account)(PurpleAccount *account) - could suppress accounts.xml activity? */
+	NULL /* void (*_purple_reserved1)(void) */
 };
 
 PurpleBlistUiOps *adium_purple_blist_get_ui_ops(void)

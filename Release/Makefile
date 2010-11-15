@@ -17,7 +17,7 @@
 # - make all
 ###########
 
-VERSION=1.4b18
+VERSION=1.4.1b1
 BUILD_IN_DEBUG_MODE?=TRUE
 BETA?=TRUE
 OFFICIAL_BUILD?=TRUE
@@ -170,7 +170,7 @@ createfolder:
 	cp -R "$(ADIUM_BUILD_DIR)/Adium.app" $(ADIUM_DIR)
 
 	@# copy the text files
-	cp $(SRC_DIR)/ChangeLogs/Changes.txt $(ADIUM_DIR)
+	cp $(SRC_DIR)/ChangeLogs/Changes.txt $(ADIUM_DIR)	
 	cp $(SRC_DIR)/License.txt $(ADIUM_DIR)
 	
 	@# symlink /Applications

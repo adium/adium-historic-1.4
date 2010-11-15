@@ -178,8 +178,7 @@
 	NSString		*alias = [userInfo objectForKey:@"Alias"];
 	if (!alias) {
 		alias = [object preferenceForKey:@"Alias"
-								   group:PREF_GROUP_ALIASES 
-				  ];
+								   group:PREF_GROUP_ALIASES];
 	}
 	
 	[self _applyAlias:alias

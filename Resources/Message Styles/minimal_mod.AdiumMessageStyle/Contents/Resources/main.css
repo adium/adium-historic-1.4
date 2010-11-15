@@ -183,6 +183,17 @@ img.scaledToFitImage
 	color: #999999;
 }
 
+#topic
+{
+	opacity: 1;
+	-webkit-transition: opacity .1s linear;
+}
+
+#topic:hover
+{
+	opacity: .1;
+}
+
 #x-header
 {
 	position: fixed;
@@ -197,13 +208,12 @@ img.scaledToFitImage
 	font-size: 1em;
 	background: rgba(0, 0, 0, .75);
 	z-index: 999;
-	opacity: 1;
-	-webkit-transition: opacity .1s linear;
 }
 
-#x-header:hover
+#x-header:hover #topicEdit
 {
-	opacity: .1;
+	min-height: 1em;
+	display: block;
 }
 
 #x-header a
@@ -245,6 +255,7 @@ img.scaledToFitImage
 	background:
 		-webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, .75)), to(rgba(0, 0, 0, .75))) 0px 0px no-repeat,
 		url("./images/vert.png") repeat;
+	-webkit-background-size: 10px 100%, 2px 100%;
 }
 
 .history.mention

@@ -39,7 +39,6 @@
 
 #pragma mark Debug
 // Debug ------------------------------------------------------------------------------------------------------
-#if (PURPLE_DEBUG)
 static void adiumPurpleDebugPrint(PurpleDebugLevel level, const char *category, const char *debug_msg)
 {
 	//Log error
@@ -48,14 +47,18 @@ static void adiumPurpleDebugPrint(PurpleDebugLevel level, const char *category, 
 }
 
 static PurpleDebugUiOps adiumPurpleDebugOps = {
-    adiumPurpleDebugPrint
+    adiumPurpleDebugPrint,
+	NULL, /* gboolean (*is_enabled)(PurpleDebugLevel level, const char *category) */
+	NULL, /* reserved1 */
+	NULL, /* reserved2 */
+	NULL, /* reserved3 */
+	NULL  /* reserved4 */	
 };
 
 PurpleDebugUiOps *adium_purple_debug_get_ui_ops(void)
 {
 	return &adiumPurpleDebugOps;
 }
-#endif
 
 // Core ------------------------------------------------------------------------------------------------------
 
@@ -131,10 +134,10 @@ static void adiumPurplePrefsInit(void)
 
 static void adiumPurpleCoreDebugInit(void)
 {
-#if (PURPLE_DEBUG)
 	AILog(@"adiumPurpleCoreDebugInit()");
     purple_debug_set_ui_ops(adium_purple_debug_get_ui_ops());
-#endif	
+
+	purple_debug_set_enabled(AIDebugLoggingIsEnabled());
 }
 
 static void associateLibpurpleAccounts(void)
@@ -263,7 +266,10 @@ static PurpleCoreUiOps adiumPurpleCoreOps = {
     adiumPurpleCoreDebugInit,
     adiumPurpleCoreUiInit,
     adiumPurpleCoreQuit,
-	adiumPurpleCoreGetUiInfo
+	adiumPurpleCoreGetUiInfo,
+	NULL,
+	NULL,
+	NULL
 };
 
 PurpleCoreUiOps *adium_purple_core_get_ops(void)

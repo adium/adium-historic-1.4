@@ -436,7 +436,10 @@ static PurpleEventLoopUiOps adiumEventLoopUiOps = {
     adium_input_add,
     adium_source_remove,
 	adium_input_get_error,
-	/* timeout_add_seconds */ NULL
+	/* timeout_add_seconds */ NULL,
+	NULL,
+	NULL,
+	NULL
 };
 
 PurpleEventLoopUiOps *adium_purple_eventloop_get_ui_ops(void)

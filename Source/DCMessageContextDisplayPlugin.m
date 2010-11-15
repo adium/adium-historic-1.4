@@ -290,6 +290,7 @@
 			[file closeFile];
 			
 			//Add our locals to the outer array; we're probably looping again.
+			AILog(@"Context: %i messages from %@: %@", foundMessages.count, [xmlFilePath lastPathComponent], foundMessages);
 			[outerFoundContentContexts replaceObjectsInRange:NSMakeRange(0, 0) withObjectsFromArray:foundMessages];
 			linesLeftToFind -= [outerFoundContentContexts count];
 		}

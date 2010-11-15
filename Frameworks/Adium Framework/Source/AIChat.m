@@ -44,6 +44,8 @@
 - (id)initForAccount:(AIAccount *)inAccount;
 - (void)clearUniqueChatID;
 - (void)clearListObjectStatuses;
+
+- (AIListContact *)visibleObjectAtIndex:(NSUInteger)index;
 @end
 
 @implementation AIChat
@@ -431,7 +433,7 @@ NSComparisonResult userListSort (id objectA, id objectB, void *context)
 - (AIListContact *)listObject
 {
 	if (self.countOfContainedObjects == 1 && !self.isGroupChat) {
-		return [self.containedObjects objectAtIndex:0];
+		return [self visibleObjectAtIndex:0];
 	}
 
 	return nil;
@@ -624,7 +626,7 @@ NSComparisonResult userListSort (id objectA, id objectB, void *context)
 	return [participatingContacts containsObjectIdenticalTo:inObject];
 }
 
-- (id)visibleObjectAtIndex:(NSUInteger)index
+- (AIListContact *)visibleObjectAtIndex:(NSUInteger)index
 {
 	return [participatingContacts objectAtIndex:index];
 }
@@ -669,7 +671,10 @@ NSComparisonResult userListSort (id objectA, id objectB, void *context)
 		if (contact.isStranger &&
 			![adium.chatController allGroupChatsContainingContact:contact.parentContact].count &&
 			![adium.chatController existingChatWithContact:contact.parentContact]) {
+			
+			[[AIContactObserverManager sharedManager] delayListObjectNotifications];
 			[adium.contactController accountDidStopTrackingContact:contact];
+			[[AIContactObserverManager sharedManager] endListObjectNotificationsDelaysImmediately];
 		}
 		
 		[inObject release];

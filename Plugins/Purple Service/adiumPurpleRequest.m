@@ -99,7 +99,7 @@ static void *adiumPurpleRequestInput(
 	NSString			*primaryString = (primary ? [NSString stringWithUTF8String:primary] : nil);
 	
 	//Ignore purple trying to get an account's password; we'll feed it the password and reconnect if it gets here, somehow.
-	if ([primaryString rangeOfString:@"Enter password for "].location != NSNotFound) return [NSNull null];
+	if (primaryString && [primaryString rangeOfString:@"Enter password for "].location != NSNotFound) return [NSNull null];
 	
 	NSMutableDictionary *infoDict;
 	NSString			*okButtonText = processButtonText([NSString stringWithUTF8String:okText]);
@@ -142,12 +142,14 @@ static void *adiumPurpleRequestChoice(const char *title, const char *primary,
 	return nil;
 }
 
-//Purple requests the user take an action such as accept or deny a buddy's attempt to add us to her list 
-static void *adiumPurpleRequestAction(const char *title, const char *primary,
-									const char *secondary, int default_action,
-									PurpleAccount *account, const char *who, PurpleConversation *conv,
-									void *userData,
-									size_t actionCount, va_list actions)
+/** @see purple_request_action_with_icon_varg(). */
+static void *adiumPurpleRequestActionWithIcon(const char *title, const char *primary,
+								  const char *secondary, int default_action,
+								  PurpleAccount *account, const char *who,
+								  PurpleConversation *conv, 
+								  gconstpointer icon_data, gsize icon_size,
+								  void *userData,
+								  size_t actionCount, va_list actions)
 {
     NSString			*titleString = (title ? [NSString stringWithUTF8String:title] : @"");
 	NSString			*primaryString = (primary ? [NSString stringWithUTF8String:primary] : nil);
@@ -240,10 +242,35 @@ static void *adiumPurpleRequestAction(const char *title, const char *primary,
 			[infoDict setObject:[NSString stringWithUTF8String:who] forKey:@"who"];
 		}
 
+		if (icon_data && (icon_size > 0)) {
+			NSData *imageData = [NSData dataWithBytes:icon_data length:icon_size];
+			NSImage *image = [[[NSImage alloc] initWithData:imageData] autorelease];
+			if (image) 
+				[infoDict setObject:image forKey:@"Image"];
+		}
+
 		requestController = [ESPurpleRequestActionController showActionWindowWithDict:infoDict];
 	}
 
 	return requestController;
+}
+
+//Purple requests the user take an action such as accept or deny a buddy's attempt to add us to her list 
+static void *adiumPurpleRequestAction(const char *title, const char *primary,
+									  const char *secondary, int default_action,
+									  PurpleAccount *account, const char *who,
+									  PurpleConversation *conv,
+									  void *userData,
+									  size_t actionCount, va_list actions)
+{
+	return adiumPurpleRequestActionWithIcon(title, primary,
+											secondary, default_action,
+											account, who,
+											conv,
+											/* iconData */ NULL, /* iconSize */ 0,
+											userData,
+											actionCount, actions);
+	
 }
 
 static void *adiumPurpleRequestFields(const char *title, const char *primary,
@@ -395,7 +422,11 @@ static PurpleRequestUiOps adiumPurpleRequestOps = {
     adiumPurpleRequestFields,
 	adiumPurpleRequestFile,
     adiumPurpleRequestClose,
-	adiumPurpleRequestFolder
+	adiumPurpleRequestFolder,
+	adiumPurpleRequestActionWithIcon,
+	NULL, /* reserved */
+	NULL, /* reserved */
+	NULL  /* reserved */
 };
 
 PurpleRequestUiOps *adium_purple_request_get_ui_ops()
@@ -417,7 +448,7 @@ PurpleRequestUiOps *adium_purple_request_get_ui_ops()
 	PurpleRequestFields *fields = [[dict objectForKey:@"fields"] pointerValue];
 	void *userData = [[dict objectForKey:@"userData"] pointerValue];
 
-	PurpleRequestFieldsCb cb;
+	PurpleRequestFieldsCb cb = NULL;
 
 	switch (returnCode) {
 		case AIPasswordPromptOKReturn:
@@ -434,7 +465,8 @@ PurpleRequestUiOps *adium_purple_request_get_ui_ops()
 			break;
 	}
 	
-	cb(userData, fields);
+	if (cb)
+		cb(userData, fields);
 }
 
 @end

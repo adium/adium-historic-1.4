@@ -31,6 +31,7 @@
 #import <AIUtilities/AIAttributedStringAdditions.h>
 #import <AIUtilities/AIDictionaryAdditions.h>
 #import <AIUtilities/AIStringAdditions.h>
+#import <libpurple/chat.h>
 #import <libpurple/presence.h>
 #import <libpurple/si.h>
 #import <SystemConfiguration/SystemConfiguration.h>
@@ -47,6 +48,11 @@
 @end
 
 @implementation ESPurpleJabberAccount
+
+- (void)initAccount
+{
+	[super initAccount];
+}
 
 /*!
  * @brief The UID will be changed. The account has a chance to perform modifications
@@ -97,6 +103,8 @@
 {
 	[xmlConsoleController close];
 	[xmlConsoleController release];
+	[adhocServer release];
+	[gateways release];
 
 	[super dealloc];
 }
@@ -144,14 +152,24 @@
 	if (ftProxies.length) {
 		purple_account_set_string(account, "ft_proxies", [ftProxies UTF8String]);
 	}
-	
-	//Force old SSL usage? (off by default)
-	forceOldSSL = [[self preferenceForKey:KEY_JABBER_FORCE_OLD_SSL group:GROUP_ACCOUNT_STATUS] boolValue];
-	purple_account_set_bool(account, "old_ssl", forceOldSSL);
 
-	//Require SSL or TLS? (off by default)
+	/* We have 2 checkboxes in Adium 1.4.1 which combine to provide a single setting within libpurple, for historical reasons.
+	 * A later update should have new strings to describe this with a single drop-down labeled "Connection Security"
+	 *
+	 * Libpurple defaults to require_tls; we default to opportunistic_tls. Should we require it? -evands
+	 */
+	char *connectionSecurity;
+	forceOldSSL = [[self preferenceForKey:KEY_JABBER_FORCE_OLD_SSL group:GROUP_ACCOUNT_STATUS] boolValue];
 	requireTLS = [[self preferenceForKey:KEY_JABBER_REQUIRE_TLS group:GROUP_ACCOUNT_STATUS] boolValue];
-	purple_account_set_bool(account, "require_tls", requireTLS);
+	
+	if (requireTLS)
+		connectionSecurity = "require_tls";
+	else if (forceOldSSL)
+		connectionSecurity = "old_ssl";
+	else 
+		connectionSecurity = "opportunistic_tls";
+
+	purple_account_set_string(account, "connection_security", connectionSecurity);
 
 	//Allow plaintext authorization over an unencrypted connection? Purple will prompt if this is NO and is needed.
 	allowPlaintext = [[self preferenceForKey:KEY_JABBER_ALLOW_PLAINTEXT group:GROUP_ACCOUNT_STATUS] boolValue];
@@ -172,6 +190,9 @@
 	 * This preference and the changes for it are added via the "libpurple_jabber_avoid_sasl_option_hack.diff" patch we apply during the build process.
 	 */
 	purple_prefs_set_bool("/plugins/prpl/jabber/avoid_sasl_for_plain_auth", YES);
+	
+	if (!adhocServer)
+		adhocServer = [[AMPurpleJabberAdHocServer alloc] initWithAccount:self];
 }
 
 - (NSString *)serverSuffix
@@ -502,19 +523,19 @@
 #pragma mark Menu items
 - (NSString *)titleForContactMenuLabel:(const char *)label forContact:(AIListContact *)inContact
 {
-	if (strcmp(label, "Un-hide From") == 0) {
+	if (strcmp(label, _("Un-hide From")) == 0) {
 		return [NSString stringWithFormat:AILocalizedString(@"Un-hide From %@",nil),inContact.formattedUID];
 
-	} else if (strcmp(label, "Temporarily Hide From") == 0) {
+	} else if (strcmp(label, _("Temporarily Hide From")) == 0) {
 		return [NSString stringWithFormat:AILocalizedString(@"Temporarily Hide From %@",nil),inContact.formattedUID];
 
-	} else if (strcmp(label, "Unsubscribe") == 0) {
+	} else if (strcmp(label, _("Unsubscribe")) == 0) {
 		return [NSString stringWithFormat:AILocalizedString(@"Unsubscribe %@",nil),inContact.formattedUID];
 
-	} else if (strcmp(label, "(Re-)Request authorization") == 0) {
+	} else if (strcmp(label, _("(Re-)Request authorization")) == 0) {
 		return [NSString stringWithFormat:AILocalizedString(@"Re-request Authorization from %@",nil),inContact.formattedUID];
 
-	} else if (strcmp(label,  "Cancel Presence Notification") == 0) {
+	} else if (strcmp(label,  _("Cancel Presence Notification")) == 0) {
 		return [NSString stringWithFormat:AILocalizedString(@"Cancel Presence Notification to %@",nil),inContact.formattedUID];	
 		
 	} else if (strcmp(label,  _("Ping")) == 0) {
@@ -527,16 +548,16 @@
 
 - (NSString *)titleForAccountActionMenuLabel:(const char *)label
 {	
-	if (strcmp(label, "Set User Info...") == 0) {
+	if (strcmp(label, _("Set User Info...")) == 0) {
 		return [AILocalizedString(@"Set User Info", nil) stringByAppendingEllipsis];
 		
-	} else 	if (strcmp(label, "Search for Users...") == 0) {
+	} else 	if (strcmp(label, _("Search for Users...")) == 0) {
 		return [AILocalizedString(@"Search for Users", nil) stringByAppendingEllipsis];
 		
-	} else 	if (strcmp(label, "Set Mood...") == 0) {
+	} else 	if (strcmp(label, _("Set Mood...")) == 0) {
 		return [AILocalizedString(@"Set Mood", nil) stringByAppendingEllipsis];
 		
-	} else 	if (strcmp(label, "Set Nickname...") == 0) {
+	} else 	if (strcmp(label, _("Set Nickname...")) == 0) {
 		return [AILocalizedString(@"Set Nickname", nil) stringByAppendingEllipsis];
 	} 
 	
@@ -730,8 +751,6 @@
 	[gateways release];
 	gateways = [[NSMutableArray alloc] init];
 
-	[adhocServer release];
-	adhocServer = [[AMPurpleJabberAdHocServer alloc] initWithAccount:self];
 	[adhocServer addCommand:@"ping" delegate:(id<AMPurpleJabberAdHocServerDelegate>)[AMPurpleJabberAdHocPing class] name:@"Ping"];
 	
     [super didConnect];

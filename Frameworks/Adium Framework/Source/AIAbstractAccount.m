@@ -195,11 +195,26 @@
 {
 	NSData	*userIconData = nil;
 
-	// If we locally have an icon set, or we're not temporary and a global one is set, use that.
 	if ([[self preferenceForKey:KEY_USE_USER_ICON group:GROUP_ACCOUNT_STATUS] boolValue]) {
+		/* If this account is set to use an account-specific icon, load it */
 		userIconData = [self preferenceForKey:KEY_USER_ICON group:GROUP_ACCOUNT_STATUS];		
+
+		/* Note that we don't load KEY_DEFAULT_USER_ICON; if the user chooses to have an account-specific icon, then
+		 * deletes that icon, this indicates that no icon at all should be used for the account.
+		 */		
 	} else if (!isTemporary && [[adium.preferenceController preferenceForKey:KEY_USE_USER_ICON group:GROUP_ACCOUNT_STATUS] boolValue]) {
+		/* For non-temporary accounts, load the global icon if it is to be used. The user may have set a global icon, then selected
+		 * not to send an icon at all, so we must check the boolean preference first.
+		 */
 		userIconData = [adium.preferenceController preferenceForKey:KEY_USER_ICON group:GROUP_ACCOUNT_STATUS];
+		
+		/* If there isn't an icon set manually at the global level, we still need to check for one under KEY_DEFAULT_USER_ICON.
+		 * KEY_DEFAULT_USER_ICON is used by a fallback icon source (e.g. via the Address Book 'me' card via the AB plugin)
+		 * and stored under a separate key so that it can be distinguished from a manually specified icon.
+		 */
+		if (!userIconData)
+			userIconData = [adium.preferenceController preferenceForKey:KEY_DEFAULT_USER_ICON
+																  group:GROUP_ACCOUNT_STATUS];
 	}
 
 	return userIconData;
@@ -1071,6 +1086,20 @@
 	return nil;
 }
 
+/*!
+ * @brief How should deletion of a particular group be handled?
+ *
+ * If the account returns AIAccountGroupDeletionShouldRemoveContacts, then each contact will be removed from the contact list
+ * If instead AIAccountGroupDeletionShouldIgnoreContacts is returned, the group is removed from the contact list's display
+ *   but contacts are not affected.  In this case, the account should take action to avoid redisplaying the group in
+ *   the future. This is used for, for example, the Twitter timeline; a deletion is unlikely to mean the user actually
+ *   wanted to stop following all contained contacts.
+ */
+- (AIAccountGroupDeletionResponse)willDeleteGroup:(AIListGroup *)group
+{
+	return AIAccountGroupDeletionShouldRemoveContacts;
+}
+
 //Connectivity ---------------------------------------------------------------------------------------------------------
 #pragma mark Connectivity
 
@@ -1273,17 +1302,12 @@
 		[self removePropertyValuesFromContact:listContact silently:YES];
 	}
 
-	[[AIContactObserverManager sharedManager] endListObjectNotificationsDelay];
- 
-	[[AIContactObserverManager sharedManager] delayListObjectNotifications];
-
-	//Stop track only afer notifying
 	for (AIListContact *listContact in myContacts) {
 		if (![adium.chatController existingChatWithContact:[listContact parentContact]])
 			[adium.contactController accountDidStopTrackingContact:listContact];
 	}
-
-	[[AIContactObserverManager sharedManager] endListObjectNotificationsDelay];
+	
+ 	[[AIContactObserverManager sharedManager] endListObjectNotificationsDelaysImmediately];
 }
 
 /*!

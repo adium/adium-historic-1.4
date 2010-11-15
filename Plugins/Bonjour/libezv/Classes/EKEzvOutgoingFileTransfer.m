@@ -451,7 +451,7 @@ typedef struct AppleSingleFinderInfo AppleSingleFinderInfo;
 	offset += nameLength;
 	unsigned long long newSize;
 	if ([self isDirectory]) {
-		newSize = [singleSize unsignedLongLongValue];
+		newSize = (singleSize ? [singleSize unsignedLongLongValue] : 0);
 	} else {
 		newSize = [self size];
 	}
@@ -477,7 +477,7 @@ typedef struct AppleSingleFinderInfo AppleSingleFinderInfo;
 		data = [(NSString *)[urlData valueForKey:path] retain];
 		[urlData removeObjectForKey:path];
 	}
-	return data;
+	return [data autorelease];
 }
 
 - (NSString *)posixFlagsForPath:(NSString *)filePath
