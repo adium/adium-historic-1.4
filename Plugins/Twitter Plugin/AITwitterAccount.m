@@ -156,6 +156,12 @@
 	
 	if (self.useOAuth) {
 		if (!self.passwordWhileConnected.length) {
+			/* If we weren't able to retrieve the 'password', we can't proceed with oauth - we stored the oauth
+			 * http response body in the keychain as the password.
+			 *
+			 * Note that this can happen not only if Adium isn't authorized but also if it *is* authorized but the
+			 * keychain was inaccessible - e.g. keychain access wasn't allowed after an upgrade. Hm.
+			 */
 			[self setLastDisconnectionError:TWITTER_OAUTH_NOT_AUTHORIZED];
 			
 			[[NSNotificationCenter defaultCenter] postNotificationName:@"AIEditAccount"
@@ -203,12 +209,15 @@
 	//Clear any previous disconnection error
 	[self setLastDisconnectionError:nil];
 	
-	// Creating the fake timeline account.
+	// Creating the timeline chat's bookmark.
 	AIListBookmark *timelineBookmark = [adium.contactController existingBookmarkForChatName:self.timelineChatName
 																				  onAccount:self
 																		   chatCreationInfo:nil];
 	
-	if(!timelineBookmark) {
+	if (timelineBookmark) {
+		[timelineBookmark restoreGrouping];
+
+	} else {
 		AIChat *newTimelineChat = [adium.chatController chatWithName:self.timelineChatName
 														  identifier:nil
 														   onAccount:self 
@@ -216,11 +225,14 @@
 		
 		[newTimelineChat setDisplayName:self.timelineChatName];
 		
-		timelineBookmark = [adium.contactController bookmarkForChat:newTimelineChat inGroup:[adium.contactController groupWithUID:TWITTER_REMOTE_GROUP_NAME]];
+		timelineBookmark = [adium.contactController bookmarkForChat:newTimelineChat
+															inGroup:[adium.contactController groupWithUID:self.timelineGroupName]];
 		
 		
 		if(!timelineBookmark) {
-			AILog(@"%@ Timeline bookmark is nil! Tried checking for existing bookmark for chat name %@, and creating a bookmark for chat %@ in group %@", self.timelineChatName, newTimelineChat, [adium.contactController groupWithUID:TWITTER_REMOTE_GROUP_NAME]);
+			AILog(@"%@ Timeline bookmark is nil! Tried checking for existing bookmark for chat name %@, and creating a bookmark for chat %@ in group %@",
+				  self.timelineChatName, newTimelineChat,
+				  [adium.contactController groupWithUID:self.timelineGroupName]);
 		}
 	}
 	
@@ -813,6 +825,14 @@
 }
 
 /*!
+ * @brief The remote group name we'll stuff the timeline into
+ */
+- (NSString *)timelineGroupName
+{
+	return TWITTER_REMOTE_GROUP_NAME;
+}
+
+/*!
  * @brief Our timeline chat
  *
  * If the timeline chat is not already active, it is created.
@@ -914,6 +934,30 @@
 		}	
 	}
 }
+
+/*!
+ * @brief How should deletion of a particular group be handled?
+ *
+ * If the account returns AIAccountGroupDeletionShouldRemoveContacts, then each contact will be removed from the contact list
+ * If instead AIAccountGroupDeletionShouldIgnoreContacts is returned, the group is removed from the contact list's display
+ *   but contacts are not affected.  In this case, the account should take action to avoid redisplaying the group in
+ *   the future. This is used for, for example, the Twitter timeline; a deletion is unlikely to mean the user actually
+ *   wanted to stop following all contained contacts.
+ */
+- (AIAccountGroupDeletionResponse)willDeleteGroup:(AIListGroup *)group
+{
+	if ([group.UID isEqualToString:self.timelineGroupName]) {
+		/* Hide the group by no longer loading Twitter contacts */
+		[self setPreference:[NSNumber numberWithBool:NO]
+					 forKey:TWITTER_PREFERENCE_LOAD_CONTACTS 
+					  group:TWITTER_PREFERENCE_GROUP_UPDATES];
+		return AIAccountGroupDeletionShouldIgnoreContacts;
+
+	} else {
+		return AIAccountGroupDeletionShouldRemoveContacts;
+	}
+}
+
 
 /*!
  * @brief Follow the requested contact, trigger an information pull for them.
@@ -1027,7 +1071,6 @@
 		}
 		
 		updateAfterSend = [[prefDict objectForKey:TWITTER_PREFERENCE_UPDATE_AFTER_SEND] boolValue];
-		retweetLink = [[prefDict objectForKey:TWITTER_PREFERENCE_RETWEET_SPAM] boolValue];
 		
 		if ([key isEqualToString:TWITTER_PREFERENCE_LOAD_CONTACTS] && self.online) {
 			if ([[prefDict objectForKey:TWITTER_PREFERENCE_LOAD_CONTACTS] boolValue]) {
@@ -1425,39 +1468,44 @@
 			
 			if(![self.UID isCaseInsensitivelyEqualToString:userID]) {
 				// A message from someone other than ourselves. RT and @ is permissible.
-				if (retweetLink) {				
-					if(commaNeeded) {
-						[mutableMessage appendString:@", " withAttributes:nil];
-					}
-					
-					linkAddress = [self addressForLinkType:AITwitterLinkRetweet
-													userID:userID
-												  statusID:tweetID
-												   context:nil];
-					
-					// If the account doesn't support retweets, it returns nil.
-					if (linkAddress) {
-						[mutableMessage appendAttributedString:[self attributedStringWithLinkLabel:@"RT"
-																				   linkDestination:linkAddress
-																						 linkClass:AITwitterRetweetClassName]];
-						
-						[mutableMessage appendString:@", " withAttributes:nil];
-					}
-					
-					linkAddress = [self addressForLinkType:AITwitterLinkQuote
-													userID:userID
-												  statusID:tweetID
-												   context:[inMessage stringByAddingPercentEscapesForAllCharacters]];
-					
-#define PILCROW_SIGN @"\u00B6"
-					
-					[mutableMessage appendAttributedString:[self attributedStringWithLinkLabel:PILCROW_SIGN
-																			   linkDestination:linkAddress
-																					 linkClass:AITwitterQuoteClassName]];					
-					
-					commaNeeded = YES;
+				
+				/* Add the retweet link, if the account supports retweets */
+				if(commaNeeded) {
+					[mutableMessage appendString:@", " withAttributes:nil];
 				}
 				
+				linkAddress = [self addressForLinkType:AITwitterLinkRetweet
+												userID:userID
+											  statusID:tweetID
+											   context:nil];
+				
+				// If the account doesn't support retweets, it returns nil.
+				if (linkAddress) {
+					[mutableMessage appendAttributedString:[self attributedStringWithLinkLabel:@"RT"
+																			   linkDestination:linkAddress
+																					 linkClass:AITwitterRetweetClassName]];
+					commaNeeded = YES;
+				}
+
+				/* Next add the quote link */
+				if(commaNeeded) {
+					[mutableMessage appendString:@", " withAttributes:nil];
+				}
+				
+				linkAddress = [self addressForLinkType:AITwitterLinkQuote
+												userID:userID
+											  statusID:tweetID
+											   context:[inMessage stringByAddingPercentEscapesForAllCharacters]];
+				
+#define PILCROW_SIGN @"\u00B6"
+				
+				[mutableMessage appendAttributedString:[self attributedStringWithLinkLabel:PILCROW_SIGN
+																		   linkDestination:linkAddress
+																				 linkClass:AITwitterQuoteClassName]];					
+				
+				commaNeeded = YES;
+				
+				/* Now add the reply link */
 				if (commaNeeded) {
 					[mutableMessage appendString:@", " withAttributes:nil];
 				}			
@@ -2276,7 +2324,7 @@ NSInteger queuedDMSort(id dm1, id dm2, void *context)
 						
 						// If the user isn't in a group, set them in the Twitter group.
 						if (listContact.countOfRemoteGroupNames == 0) {
-							[listContact addRemoteGroupName:TWITTER_REMOTE_GROUP_NAME];
+							[listContact addRemoteGroupName:self.timelineGroupName];
 						}
 						
 						// Grab the Twitter display name and set it as the remote alias.

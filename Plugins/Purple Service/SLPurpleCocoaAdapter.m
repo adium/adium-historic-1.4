@@ -31,7 +31,9 @@
 #import <Adium/AIContentTyping.h>
 #import <Adium/AIHTMLDecoder.h>
 #import <Adium/AIListContact.h>
+#import <Adium/AIContactObserverManager.h>
 #import <Adium/AIUserIcons.h>
+#import <Adium/AIContactObserverManager.h>
 #import <AIUtilities/AIImageAdditions.h>
 
 #import <CoreFoundation/CoreFoundation.h>
@@ -161,8 +163,18 @@ static void ZombieKiller_Signal(int i)
 	purple_signal_emit(purple_network_get_handle(), "network-configuration-changed", NULL);
 }
 
+- (void)debugLoggingIsEnabledDidChange:(NSNotification *)inNotification
+{
+	purple_debug_set_enabled(AIDebugLoggingIsEnabled());
+}
+
 - (void)initLibPurple
 {
+	/* Initializing libpurple may result in loading a ton of buddies if our permit and deny lists are large; that, in
+	 * turn, would create and update a ton of contacts.
+	 */
+	[[AIContactObserverManager sharedManager] delayListObjectNotifications];
+	
 	//Set the gaim user directory to be within this user's directory
 	if (![[NSUserDefaults standardUserDefaults] boolForKey:@"Adium 1.0.3 moved to libpurple"]) {
 		//Remove old icons cache
@@ -219,6 +231,21 @@ static void ZombieKiller_Signal(int i)
 								   selector:@selector(networkDidChange:)
 									   name:AINetworkDidChangeNotification
 									 object:nil];
+
+	/* Be sure to enable debug logging if it is turned on after launch */
+	[[NSNotificationCenter defaultCenter] addObserver:self
+											 selector:@selector(debugLoggingIsEnabledDidChange:)
+												 name:AIDebugLoggingEnabledNotification
+											   object:nil];
+
+	
+	/* For any behaviors which occur on the next run loop, provide a buffer time of continued expectation of 
+	 * heavy activity.
+	 */
+	[[AIContactObserverManager sharedManager] delayListObjectNotificationsUntilInactivity];
+	
+	[[AIContactObserverManager sharedManager] endListObjectNotificationsDelay];
+
 }
 
 #pragma mark Lookup functions
@@ -496,7 +523,7 @@ PurpleConversation* convLookupFromChat(AIChat *chat, id adiumAccount)
 					}
 
 					//In debug mode, verify we didn't miss any required values
-					if (PURPLE_DEBUG) {
+					if (AIDebugLoggingIsEnabled()) {
 						/* Get the chat_info for our desired account.  This will be a GList of proto_chat_entry
 						 * objects, each of which has a label and identifier.  Each may also have is_int, with a minimum
 						 * and a maximum integer value.
@@ -682,37 +709,41 @@ NSString *processPurpleImages(NSString* inString, AIAccount* adiumAccount)
 			return NULL;
 		}
 
-	} else if ([primaryString rangeOfString: @"did not get sent"].location != NSNotFound) {
+	} 
+	
+	if ([primaryString rangeOfString: @"did not get sent"].location != NSNotFound) {
 		//Oscar send error
 		//This may not ever occur as of libpurple 2.4.0; I can't find the phrase 'did not get sent' in any of the code. -evands
 		NSString *targetUserName = [[[[primaryString componentsSeparatedByString:@" message to "] objectAtIndex:1] componentsSeparatedByString:@" did not get "] objectAtIndex:0];
 		
 		errorMessage = [NSString stringWithFormat:AILocalizedString(@"Your message to %@ did not get sent",nil),targetUserName];
 		
-		if ([secondaryString rangeOfString:[NSString stringWithUTF8String:_("Rate")]].location != NSNotFound) {
-			description = AILocalizedString(@"You are sending messages too quickly; wait a moment and try again.",nil);
-		} else if ([secondaryString rangeOfString:[NSString stringWithUTF8String:_("Service unavailable")]].location != NSNotFound ||
-				   [secondaryString rangeOfString:[NSString stringWithUTF8String:_("Not logged in")]].location != NSNotFound) {
-			description = AILocalizedString(@"Connection error.",nil);
-
-		} else if ([secondaryString rangeOfString:[NSString stringWithUTF8String:_("Refused by client")]].location != NSNotFound) {
-			description = AILocalizedString(@"Your message was refused by the other user.",nil);
-
-		} else if ([secondaryString rangeOfString:[NSString stringWithUTF8String:_("Reply too big")]].location != NSNotFound) {
-			description = AILocalizedString(@"Your message was too big.",nil);
-
-		} else if ([secondaryString rangeOfString:[NSString stringWithUTF8String:_("In local permit/deny")]].location != NSNotFound) {
-			description = AILocalizedString(@"The other user is in your deny list.",nil);
-
-		} else if ([secondaryString rangeOfString:[NSString stringWithUTF8String:_("Too evil")]].location != NSNotFound) {
-			description = AILocalizedString(@"Warning level is too high.",nil);
-
-		} else if ([secondaryString rangeOfString:[NSString stringWithUTF8String:_("User temporarily unavailable")]].location != NSNotFound) {
-			description = AILocalizedString(@"The other user is temporarily unavailable.",nil);
-
-		} else {
-			description = AILocalizedString(@"No reason was given.",nil);
+		if (secondaryString) {
+			if ([secondaryString rangeOfString:[NSString stringWithUTF8String:_("Rate")]].location != NSNotFound) {
+				description = AILocalizedString(@"You are sending messages too quickly; wait a moment and try again.",nil);
+			} else if ([secondaryString rangeOfString:[NSString stringWithUTF8String:_("Service unavailable")]].location != NSNotFound ||
+					   [secondaryString rangeOfString:[NSString stringWithUTF8String:_("Not logged in")]].location != NSNotFound) {
+				description = AILocalizedString(@"Connection error.",nil);
+				
+			} else if ([secondaryString rangeOfString:[NSString stringWithUTF8String:_("Refused by client")]].location != NSNotFound) {
+				description = AILocalizedString(@"Your message was refused by the other user.",nil);
+				
+			} else if ([secondaryString rangeOfString:[NSString stringWithUTF8String:_("Reply too big")]].location != NSNotFound) {
+				description = AILocalizedString(@"Your message was too big.",nil);
+				
+			} else if ([secondaryString rangeOfString:[NSString stringWithUTF8String:_("In local permit/deny")]].location != NSNotFound) {
+				description = AILocalizedString(@"The other user is in your deny list.",nil);
+				
+			} else if ([secondaryString rangeOfString:[NSString stringWithUTF8String:_("Too evil")]].location != NSNotFound) {
+				description = AILocalizedString(@"Warning level is too high.",nil);
+				
+			} else if ([secondaryString rangeOfString:[NSString stringWithUTF8String:_("User temporarily unavailable")]].location != NSNotFound) {
+				description = AILocalizedString(@"The other user is temporarily unavailable.",nil);
+			}
 		}
+		
+		if (!description)
+			description = AILocalizedString(@"No reason was given.",nil);
     }
 	
 	//If we didn't grab a translated version, at least display the English version Purple supplied
@@ -1017,6 +1048,7 @@ static void purpleUnregisterCb(PurpleAccount *account, gboolean success, void *u
 	for (NSString *groupName in groupNames) {
 		if (!oldGroups.count) {
 			// If we don't have any source groups, silently turn this into an add.
+			AILog(@"Move of %@ failed because we have no oldGroups; adding instead", objectUID);
 			[self addUID:objectUID onAccount:adiumAccount toGroup:groupName withAlias:alias];
 			continue;
 		}
@@ -1038,6 +1070,34 @@ static void purpleUnregisterCb(PurpleAccount *account, gboolean success, void *u
 				
 				if ((buddy = purple_find_buddy_in_group(account, [objectUID UTF8String], oldGroup))) {
 					// Perform the add to the new group. This will turn into a move, and will update serverside.
+
+					if (strcmp(purple_account_get_protocol_id(account), "prpl-yahoo") == 0) {
+						/* XXX File a bug report with the need for this special-case w/ libpurple -evands 10/14/10 */
+
+						/* Work around a Yahoo! bug in which buddies in multiple groups can't be moved properly.
+						 *
+						 * Traverse all buddies on this account.
+						 * If the buddy is in the old group (it must be, for us to reach this point given the if
+						 * statement above) and is also in another group, we need to remove it from the old group before
+						 * this move. Otherwise, it won't work. However, if we remove it from the old group and it *isn't* in 
+						 * another group already, Yahoo will force reauthorization, which is ugly.  */
+						GSList	*buddies = purple_find_buddies(account, [objectUID UTF8String]);
+						
+						BOOL isInGroupBesidesOldGroup = NO;
+						for (GSList	*bb = buddies; bb != NULL; bb = bb->next) {
+							PurpleBuddy *aBuddy = (PurpleBuddy *)bb->data;
+							if (purple_buddy_get_group(aBuddy) != oldGroup) {
+								isInGroupBesidesOldGroup = YES;
+							}
+						}
+	
+						if (isInGroupBesidesOldGroup) {
+							purple_account_remove_buddy(account, buddy, oldGroup);
+							AILog(@"Removed because it met the Yahoo! workaround criteria");
+						}
+
+					}
+					
 					purple_blist_add_buddy(buddy, NULL, group, NULL);
 					// Continue so we avoid the "add to group" code below.
 					continue;
@@ -1045,6 +1105,7 @@ static void purpleUnregisterCb(PurpleAccount *account, gboolean success, void *u
 			}
 			
 			// If we got this far, the move failed; turn into an add.
+			AILog(@"Move of %@ failed; adding instead", objectUID);
 			[self addUID:objectUID onAccount:adiumAccount toGroup:groupName withAlias:alias];
 		}
 	}

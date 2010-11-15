@@ -538,7 +538,6 @@ static SLPurpleCocoaAdapter *purpleAdapter = nil;
 - (void)delayedUpdateContactStatus:(AIListContact *)inContact
 {
     //Request profile
-	AILogWithSignature(@"");
 	[purpleAdapter getInfoFor:inContact.UID onAccount:self];
 }
 
@@ -668,6 +667,7 @@ static SLPurpleCocoaAdapter *purpleAdapter = nil;
 
 	//Move the objects to it
 	for (AIListContact *contact in objects) {
+		AILogWithSignature(@"Moving %@ from %@ to %@; we know it's in %@ previously", contact, oldGroups, groups, contact.remoteGroups);
 		if (![contact.remoteGroups intersectsSet:oldGroups] && oldGroups.count) {
 			continue;
 		}
@@ -810,6 +810,8 @@ static SLPurpleCocoaAdapter *purpleAdapter = nil;
 	
 	for (NSDictionary *user in users) {
 		AIListContact *contact = [self contactWithUID:[user objectForKey:@"UID"]];
+		
+		AILogWithSignature(@"%@ join %@", chat, contact);
 		
 		[contact setOnline:YES notify:NotifyNever silently:YES];
 		
@@ -1199,6 +1201,8 @@ static SLPurpleCocoaAdapter *purpleAdapter = nil;
 
 - (void)_receivedMessage:(NSAttributedString *)attributedMessage inChat:(AIChat *)chat fromListContact:(AIListContact *)sourceContact flags:(PurpleMessageFlags)flags date:(NSDate *)date
 {
+	AILogWithSignature(@"Message: %@ inChat: %@ fromListContact: %@ flags: %d date: %@", attributedMessage, chat, sourceContact, flags, date);
+	
 	if ((flags & PURPLE_MESSAGE_DELAYED) == PURPLE_MESSAGE_DELAYED) {
 		// Display delayed messages as context.
 
@@ -2381,6 +2385,7 @@ static void prompt_host_ok_cb(CBPurpleAccount *self, const char *host) {
 	 * if we just have a 'now playing' status, the dynamic stats update will call
 	 * -[self setStatusState:usingStatusMessage:] in a moment.
 	 */	 
+	/* XXX Need to rate limit this on MSN, at least */
 	[purpleAdapter setSongInformation:(shouldIncludeNowPlayingInformationInAllStatuses ? [self purpleSongInfoDictionary] : nil) onAccount:self];
 }
 
@@ -2776,12 +2781,17 @@ static void prompt_host_ok_cb(CBPurpleAccount *self, const char *host) {
 //Subclasses may override to provide a localized label and/or prevent a specified label from being shown
 - (NSString *)titleForContactMenuLabel:(const char *)label forContact:(AIListContact *)inContact
 {
-	/* Remove the underscore 'hints' which libpurple includes for gtk usage */
-	return [[NSString stringWithUTF8String:label] stringByReplacingOccurrencesOfString:@"_" withString:@""];
+	if ((strcmp(label, _("Initiate Chat")) == 0) || (strcmp(label, _("Initiate _Chat")) == 0)) {
+		return [NSString stringWithFormat:AILocalizedString(@"Initiate Multiuser Chat with %@",nil), inContact.formattedUID];
+
+	} else {
+		/* Remove the underscore 'hints' which libpurple includes for gtk usage */
+		return [[NSString stringWithUTF8String:label] stringByReplacingOccurrencesOfString:@"_" withString:@""];
+	}
 }
 
 /*!
-* @brief Menu items for the account's actions
+ * @brief Menu items for the account's actions
  *
  * Returns an array of menu items for account-specific actions.  This is the best place to add protocol-specific
  * actions that aren't otherwise supported by Adium.  It will only be queried if the account is online.

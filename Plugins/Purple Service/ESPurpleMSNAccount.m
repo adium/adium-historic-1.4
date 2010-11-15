@@ -16,9 +16,6 @@
 
 #import "ESPurpleMSNAccount.h"
 
-#import <libpurple/state.h>
-#import <libpurple/msn.h>
-
 #import <Adium/AIAccountControllerProtocol.h>
 #import <Adium/AIContactControllerProtocol.h>
 #import <Adium/AIContentControllerProtocol.h>
@@ -226,7 +223,7 @@
  */
 - (void)updateFriendlyNameAfterConnect
 {
-#warning Re-enable before 1.4 if libpurple fixes MSN display names
+#warning I do not know if this code should be enabled or not. -evands
 #if 0
 	const char			*displayName = NULL;
 	
@@ -347,9 +344,10 @@
 
 			/*
 			 * The MSN display name will be URL encoded via purple_url_encode().  The maximum length of the _encoded_ string is
-			 * BUDDY_ALIAS_MAXLEN (387 characters as of purple 2.0.0). We can't simply encode and truncate as we might end up with
+			 * BUDDY_ALIAS_MAXLEN (387 characters as of purple 2.7.5). We can't simply encode and truncate as we might end up with
 			 * part of an encoded character being cut off, so we instead truncate to smaller and smaller strings and encode, until it fits
 			 */
+			#define BUDDY_ALIAS_MAXLEN 387
 			const char *friendlyNameUTF8String = [friendlyName UTF8String];
 			int currentMaxNumberOfPreEncodedCharacters = BUDDY_ALIAS_MAXLEN;
 
@@ -364,9 +362,8 @@
 				currentMaxNumberOfPreEncodedCharacters -= 10;
 			}
 
-			
 			if (friendlyNameUTF8String && friendlyNameUTF8String[0])
-				msn_act_id(purple_account_get_connection(account), friendlyNameUTF8String);
+				purple_account_set_public_alias(account, friendlyNameUTF8String, NULL, NULL);
 
 			[lastFriendlyNameChange release];
 			lastFriendlyNameChange = [now retain];
@@ -531,10 +528,7 @@
 #pragma mark Contact List Menu Items
 - (NSString *)titleForContactMenuLabel:(const char *)label forContact:(AIListContact *)inContact
 {
-	if ((strcmp(label, _("Initiate Chat")) == 0) || (strcmp(label, _("Initiate _Chat")) == 0)) {
-		return [NSString stringWithFormat:AILocalizedString(@"Initiate Multiuser Chat with %@",nil),inContact.formattedUID];
-
-	} else if (strcmp(label, _("Send to Mobile")) == 0) {
+	if (strcmp(label, _("Send to Mobile")) == 0) {
 		return [NSString stringWithFormat:AILocalizedString(@"Send to %@'s Mobile",nil),inContact.formattedUID];
 	}
 	

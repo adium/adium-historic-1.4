@@ -34,6 +34,7 @@
 #import <Adium/AIContactList.h>
 #import <Adium/AIListOutlineView.h>
 #import <Adium/AIMenuControllerProtocol.h>
+#import <Adium/AIUserIcons.h>
 #import <Adium/AIService.h>
 #import <AIUtilities/AIAutoScrollView.h>
 #import <AIUtilities/AIColorAdditions.h>
@@ -95,8 +96,8 @@ static NSString *AIWebURLsWithTitlesPboardType = @"WebURLsWithTitlesPboardType";
 										 object:nil];
 		
 		[[NSNotificationCenter defaultCenter] addObserver:self
-									   selector:@selector(listObjectAttributesChanged:)
-										   name:ListObject_AttributesChanged
+									   selector:@selector(listObjectAttributeChangesComplete:)
+										   name:ListObject_AttributeChangesComplete
 										 object:nil];
 		
 		[[NSNotificationCenter defaultCenter] addObserver:self
@@ -576,10 +577,10 @@ static NSString *AIWebURLsWithTitlesPboardType = @"WebURLsWithTitlesPboardType";
  *
  * Redisplay the object in question
  */
-- (void)listObjectAttributesChanged:(NSNotification *)notification
+- (void)listObjectAttributeChangesComplete:(NSNotification *)notification
 {
     AIListObject	*object = [notification object];
-	
+
 	//Redraw the modified object (or the whole list, if object is nil)
 	if (object) {
 		for (AIProxyListObject *proxyObject in [[object.proxyObjects copy] autorelease]) {
@@ -673,13 +674,29 @@ static NSString *AIWebURLsWithTitlesPboardType = @"WebURLsWithTitlesPboardType";
 
 - (BOOL)outlineView:(NSOutlineView *)outlineView isGroup:(AIProxyListObject *)item
 {
+#ifdef DEBUG_BUILD
+	if (NSIsFreedObject(item)) {
+		NSLog(@"Attempting to use a freed listobject proxy in %@", NSStringFromSelector(_cmd));
+	}
+#endif
 	return (!item || ([item.listObject isKindOfClass:[AIListGroup class]]));
 }
 
 - (void)outlineView:(NSOutlineView *)outlineView setExpandState:(BOOL)state ofItem:(AIProxyListObject *)item
 {
 	/* XXX Should note the combination of item and item's parent for expansion tracking */
-    [(id<AIContainingObject>)(item.listObject) setExpanded:state];
+	id<AIContainingObject> containingObject = item.listObject;
+    [containingObject setExpanded:state];
+
+	if (!state) {
+		/* If the item is collapsed, clear cached data which was being used while it was displayed */
+		for (AIListObject *listObject in (containingObject.visibleContainedObjects)) {
+			[AIUserIcons flushCacheForObject:listObject];
+			
+			[listObject removeProxyObject:[AIProxyListObject existingProxyListObjectForListObject:listObject
+																					 inListObject:containingObject]];
+		}
+	}
 }
 
 - (BOOL)outlineView:(NSOutlineView *)outlineView expandStateOfItem:(AIProxyListObject *)item

@@ -90,8 +90,6 @@
 
 -(IBAction)cardSelected:(id)sender
 {
-	//This method will be different during Adium integration, until then we simply print out some details about the ABPerson
-	//that has been selected. Pretty simple.
 	NSArray *selectedCards = [addressBookPicker selectedRecords];
 	
 	if ([selectedCards count]) {

@@ -180,6 +180,7 @@
  */
 - (void)dealloc
 {   
+	AILogWithSignature(@"");
 	AIListContact	*contact = chat.listObject;
 	
 	[adium.preferenceController unregisterPreferenceObserver:self];
@@ -214,6 +215,9 @@
 	//Release the views for which we are responsible (because we loaded them via -[NSBundle loadNibNamed:owner])
 	[nibrootView_messageView release];
 	[nibrootView_shelfVew release];
+	AILogWithSignature(@"Releasing %@ (%@, %i)", nibrootView_userList, [nibrootView_userList superview], [nibrootView_userList retainCount]);
+		AILogWithSignature(@"scrollView_userList %@ (%@, %i)", scrollView_userList, [scrollView_userList superview], [scrollView_userList retainCount]);
+	
 	[nibrootView_userList release];
 
 	//Release the hidden user list view
@@ -1028,20 +1032,20 @@
 	NSMutableArray *contacts = [NSMutableArray array];
 	
 	for (AIListContact *listContact in self.chat) {
-		if ([listContact.UID rangeOfString:partialWord
-								   options:(NSDiacriticInsensitiveSearch | NSCaseInsensitiveSearch | NSAnchoredSearch)].location != NSNotFound ||
-			[listContact.formattedUID rangeOfString:partialWord
-											options:(NSDiacriticInsensitiveSearch | NSCaseInsensitiveSearch | NSAnchoredSearch)].location != NSNotFound ||
-			[listContact.displayName rangeOfString:partialWord
-										   options:(NSDiacriticInsensitiveSearch | NSCaseInsensitiveSearch | NSAnchoredSearch)].location != NSNotFound) {
-				[contacts addObject:listContact];
+		// Add to the list if it matches: (1) The display name for the chat (alias fallback to default display name), 
+		// (2) The UID, or (3) the display name
+		if ([[self.chat displayNameForContact:listContact] rangeOfString:partialWord options:(NSDiacriticInsensitiveSearch | NSCaseInsensitiveSearch | NSAnchoredSearch)].location != NSNotFound
+			|| [listContact.UID rangeOfString:partialWord options:(NSDiacriticInsensitiveSearch | NSCaseInsensitiveSearch | NSAnchoredSearch)].location != NSNotFound
+			|| [listContact.displayName rangeOfString:partialWord options:(NSDiacriticInsensitiveSearch | NSCaseInsensitiveSearch | NSAnchoredSearch)].location != NSNotFound) {
+			[contacts addObject:listContact];
+			AILogWithSignature(@"Added match %@ with nick %@; UID: %@; formattedUID: %@; displayName: %@", listContact, [self.chat aliasForContact:listContact], listContact.UID, listContact.formattedUID, listContact.displayName);
 		}
 	}
 	
 	return contacts;
 }
 
-- (NSArray *)textView:(NSTextView *)textView completions:(NSArray *)words forPartialWordRange:(NSRange)charRange indexOfSelectedItem:(NSInteger *)index
+- (NSArray *)textView:(NSTextView *)textView completions:(NSArray *)words forPartialWordRange:(NSRange)charRange indexOfSelectedItem:(NSInteger *)idx
 {
 	NSMutableArray	*completions = nil;
 	
@@ -1057,29 +1061,26 @@
 		
 		completions = [NSMutableArray array];
 		
+		// For each matching contact:
 		for (AIListContact *listContact in [self contactsMatchingBeginningString:partialWord]) {
-			// For each matching contact: if chatShouldAutoCompleteUID, then use the formattedUID
-			// else use the displayName
-			NSString *completion = autoCompleteUID ? listContact.formattedUID : listContact.displayName;
+			// Complete the chat alias.
+			NSString *completion = [self.chat aliasForContact:listContact];
+
+			// Otherwise, complete the UID (if we're completing UIDs for this chat) or the display name.
+			if (!completion)
+				completion = autoCompleteUID ? listContact.formattedUID : listContact.displayName;
 			
-			// Check the displayNameForContact (either the alias or, if it doesn't exist, the displayName).
-			// If it is the same as the completion except for case, use it (makes it complete in pretty case).
-			// We must check to see if it exists before running a string comparison on it.
-			NSString *aliasOrDisplayName = [self.chat displayNameForContact:listContact];
-			if (aliasOrDisplayName && [aliasOrDisplayName caseInsensitiveCompare:completion] == NSOrderedSame) {
-				completion = aliasOrDisplayName;
-			}
-			
-			// Add what we came up with to the completions list (with suffix if at beginning of line)
 			[completions addObject:(suffix ? [completion stringByAppendingString:suffix] : completion)];
 		}
 		
+		// Add the name of this chat to the completions if it matches.
 		if ([self.chat.displayName rangeOfString:partialWord options:(NSDiacriticInsensitiveSearch | NSCaseInsensitiveSearch | NSAnchoredSearch)].location != NSNotFound) {
 			[completions addObject:self.chat.displayName];
 		}
 
+		// Select the first completion by default.
 		if ([completions count]) {			
-			*index = 0;
+			*idx = 0;
 		}
 	}
 

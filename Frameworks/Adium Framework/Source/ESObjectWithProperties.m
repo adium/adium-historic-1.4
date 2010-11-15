@@ -45,18 +45,23 @@
 	return self;
 }
 
+- (void)clearProxyObjects
+{
+	for (AIProxyListObject *proxy in proxyObjects)
+		[AIProxyListObject releaseProxyObject:proxy];
+	[proxyObjects release]; proxyObjects = nil;	
+}
+
 /*!
  * @brief Deallocate
  */
 - (void)dealloc
 {
+	[self clearProxyObjects];
+
 	[propertiesDictionary release]; propertiesDictionary = nil;
 	[changedProperties release]; changedProperties = nil;
 	[displayDictionary release]; displayDictionary = nil;
-	
-	for (AIProxyListObject *proxy in proxyObjects)
-		[AIProxyListObject releaseProxyObject:proxy];
-	[proxyObjects release]; proxyObjects = nil;
 
 	[super dealloc];
 }
@@ -328,7 +333,10 @@
  */
 - (void)removeProxyObject:(id)proxyObject
 {
-	[proxyObjects removeObject:proxyObject];
+	if (proxyObject) {
+		[AIProxyListObject releaseProxyObject:proxyObject];
+		[proxyObjects removeObject:proxyObject];
+	}
 }
 
 @end

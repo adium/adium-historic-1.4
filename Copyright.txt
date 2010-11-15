@@ -11,6 +11,7 @@ Max Bertrand
 Adam Betts
 Graham Booker
 William Bowling
+'Ili Butterfield
 Jorge Salvador Caffarena
 Wesley Campaigne
 Ariel Chinn
@@ -26,6 +27,7 @@ Augie Fackler
 Ken Ferry
 Christopher Forsythe
 Brian Ganninger
+Thomas Gibson-Robinson
 Kevin Glowacz
 Ryan Govostes
 Asher Haig
@@ -37,14 +39,17 @@ Jasper Hauser
 Arno Hautala
 Joe Hildebrand
 Stephen Holt
+Tim Horton
 Peter Hosey
 Alan Humpherys
 Adam Iser
 Daniel M. Jordan
 Severin Klaus
+Eitan Konigsburg
 Alexander Kolov
 Ian Krieg
 Thomas Kunze
+Gayle Laakmann
 Scott Lamb
 Moses Lei
 Adam Leonard
@@ -53,6 +58,7 @@ Paul R. Livesey
 Daniel Ljungborg
 Casey Lutz
 Sam McCandlish
+Pietro Modi
 Nicola Del Monaco
 Andreas Monitzer
 Yan Morissette
@@ -68,6 +74,7 @@ Ngan Pham
 Stephen Poprocki
 Xavid Pretzer
 Eric Richie
+Eion Robb
 Jesse Rusak
 Jordan Schelew
 Evan Schoenberg
@@ -82,6 +89,7 @@ Mike Timm
 Wesley Underwood
 Vinay Venkatesh
 Brion Vibber
+Matt Watson
 Zachary West
 Jay Weatherstone
 Robby Weinberg

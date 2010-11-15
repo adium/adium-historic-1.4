@@ -595,6 +595,8 @@
 		348C47170D3B20BE00FB6E7A /* AIMessageWindowOutgoingScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 348C47160D3B20BE00FB6E7A /* AIMessageWindowOutgoingScrollView.m */; };
 		348F57940936F3CC00288E41 /* ESEditStatusGroupWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 348F57920936F3CC00288E41 /* ESEditStatusGroupWindowController.m */; };
 		348F579E0936FA6D00288E41 /* EditStatusGroup.nib in Resources */ = {isa = PBXBuildFile; fileRef = 348F579D0936FA6D00288E41 /* EditStatusGroup.nib */; };
+		3490615D127F70B100FC313F /* TemporaryIRCAccountWindow.nib in Resources */ = {isa = PBXBuildFile; fileRef = 3490615C127F70B100FC313F /* TemporaryIRCAccountWindow.nib */; };
+		34906190127F78F200FC313F /* AITemporaryIRCAccountWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 34906172127F742200FC313F /* AITemporaryIRCAccountWindowController.m */; };
 		349195660C9662AA00595A04 /* AIListBookmark.m in Sources */ = {isa = PBXBuildFile; fileRef = 349195640C9662AA00595A04 /* AIListBookmark.m */; };
 		349195670C9662AA00595A04 /* AIListBookmark.h in Headers */ = {isa = PBXBuildFile; fileRef = 349195650C9662AA00595A04 /* AIListBookmark.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		3496A8C207CE6B880055BBAB /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3496A8C107CE6B880055BBAB /* InfoPlist.strings */; };
@@ -3217,6 +3219,9 @@
 		348F579D0936FA6D00288E41 /* EditStatusGroup.nib */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = EditStatusGroup.nib; path = Resources/EditStatusGroup.nib; sourceTree = "<group>"; };
 		348FF83E09128BEB00A942A8 /* CBPurpleAccount.m */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.objc; name = CBPurpleAccount.m; path = "Plugins/Purple Service/CBPurpleAccount.m"; sourceTree = "<group>"; };
 		348FF84909128D6300A942A8 /* AccountDefaults.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist; name = AccountDefaults.plist; path = "Frameworks/Adium Framework/AccountDefaults.plist"; sourceTree = "<group>"; };
+		3490615C127F70B100FC313F /* TemporaryIRCAccountWindow.nib */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = TemporaryIRCAccountWindow.nib; path = Resources/TemporaryIRCAccountWindow.nib; sourceTree = "<group>"; };
+		34906171127F742200FC313F /* AITemporaryIRCAccountWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AITemporaryIRCAccountWindowController.h; path = Source/AITemporaryIRCAccountWindowController.h; sourceTree = "<group>"; };
+		34906172127F742200FC313F /* AITemporaryIRCAccountWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AITemporaryIRCAccountWindowController.m; path = Source/AITemporaryIRCAccountWindowController.m; sourceTree = "<group>"; };
 		349195640C9662AA00595A04 /* AIListBookmark.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AIListBookmark.m; path = "Frameworks/Adium Framework/Source/AIListBookmark.m"; sourceTree = "<group>"; };
 		349195650C9662AA00595A04 /* AIListBookmark.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AIListBookmark.h; path = "Frameworks/Adium Framework/Source/AIListBookmark.h"; sourceTree = "<group>"; };
 		34943DEE07BAD918000F2A03 /* AccountPrivacy.nib */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = AccountPrivacy.nib; path = "Frameworks/Adium Framework/Resources/AccountPrivacy.nib"; sourceTree = "<group>"; };
@@ -3548,6 +3553,8 @@
 		34BD0DB408D31479000BE2C0 /* AdiumChatEvents.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AdiumChatEvents.m; path = Source/AdiumChatEvents.m; sourceTree = "<group>"; };
 		34BD9DA9053146CC000AB133 /* Adium.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Adium.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		34BD9DE105314751000AB133 /* Adium.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Adium.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		34BEA8FA12748E840098E9C8 /* pt_PT */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = pt_PT; path = Resources/pt_PT.lproj/OTRPrefs.nib; sourceTree = "<group>"; };
+		34BEA91812748EAB0098E9C8 /* pt */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = pt; path = Resources/pt.lproj/OTRPrefs.nib; sourceTree = "<group>"; };
 		34BFD7F207E6A22700AD984D /* ESPresetManagementController.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = ESPresetManagementController.h; path = "Frameworks/Adium Framework/Source/ESPresetManagementController.h"; sourceTree = "<group>"; };
 		34BFD7F307E6A22700AD984D /* PresetManagement.nib */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = PresetManagement.nib; path = "Frameworks/Adium Framework/Resources/PresetManagement.nib"; sourceTree = "<group>"; };
 		34BFD7F407E6A22700AD984D /* ESPresetManagementController.m */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.objc; name = ESPresetManagementController.m; path = "Frameworks/Adium Framework/Source/ESPresetManagementController.m"; sourceTree = "<group>"; };
@@ -4214,6 +4221,50 @@
 		5A764F8711E051E500E5E0AF /* sk_SK */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = sk_SK; path = "Plugins/Twitter Plugin/sk_SK.lproj/AITwitterAccountView.nib"; sourceTree = "<group>"; };
 		5A764F8811E0521800E5E0AF /* sk_SK */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = sk_SK; path = "Frameworks/Adium Framework/Resources/sk_SK.lproj/EditStateSheet.nib"; sourceTree = "<group>"; };
 		5A764F8C11E0526E00E5E0AF /* sk_SK */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = sk_SK; path = sk_SK.lproj/Localizable.strings; sourceTree = "<group>"; };
+		5A80CF32121F60DF00D0670A /* uk_UA */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = uk_UA; path = Resources/uk_UA.lproj/AccountProxy.nib; sourceTree = "<group>"; };
+		5A80CF33121F60DF00D0670A /* uk_UA */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = uk_UA; path = Resources/uk_UA.lproj/AIAdvancedInspectorPane.nib; sourceTree = "<group>"; };
+		5A80CF34121F60DF00D0670A /* uk_UA */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = uk_UA; path = "Plugins/Twitter Plugin/uk_UA.lproj/AITwitterAccountView.nib"; sourceTree = "<group>"; };
+		5A80CF35121F60DF00D0670A /* uk_UA */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = uk_UA; path = Resources/uk_UA.lproj/AppearancePrefs.nib; sourceTree = "<group>"; };
+		5A80CF36121F60DF00D0670A /* uk_UA */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = uk_UA; path = Resources/uk_UA.lproj/Buttons.strings; sourceTree = "<group>"; };
+		5A80CF37121F60E000D0670A /* uk_UA */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = uk_UA; path = "Plugins/Purple Service/uk_UA.lproj/DCPurpleJabberJoinChatView.nib"; sourceTree = "<group>"; };
+		5A80CF38121F60E000D0670A /* uk_UA */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = uk_UA; path = "Plugins/Purple Service/uk_UA.lproj/DCPurpleMeanwhileJoinChatView.nib"; sourceTree = "<group>"; };
+		5A80CF39121F60E000D0670A /* uk_UA */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = uk_UA; path = "Plugins/Purple Service/uk_UA.lproj/DCPurpleOscarJoinChatView.nib"; sourceTree = "<group>"; };
+		5A80CF3A121F60E000D0670A /* uk_UA */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = uk_UA; path = "Plugins/Purple Service/uk_UA.lproj/DCPurpleYahooJoinChatView.nib"; sourceTree = "<group>"; };
+		5A80CF3B121F60E000D0670A /* uk_UA */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = uk_UA; path = "Plugins/Purple Service/uk_UA.lproj/DCPurpleZephyrJoinChatView.nib"; sourceTree = "<group>"; };
+		5A80CF3C121F60E000D0670A /* uk_UA */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = uk_UA; path = Resources/uk_UA.lproj/DualWindowMessageAdvanced.nib; sourceTree = "<group>"; };
+		5A80CF3D121F60E000D0670A /* uk_UA */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = uk_UA; path = "Frameworks/Adium Framework/Resources/uk_UA.lproj/EditStateSheet.nib"; sourceTree = "<group>"; };
+		5A80CF3E121F60E000D0670A /* uk_UA */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = uk_UA; path = "Frameworks/Adium Framework/Resources/uk_UA.lproj/EmoticonNames.strings"; sourceTree = "<group>"; };
+		5A80CF3F121F60E000D0670A /* uk_UA */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = uk_UA; path = Resources/uk_UA.lproj/ESFileTransferProgressView.nib; sourceTree = "<group>"; };
+		5A80CF40121F60E000D0670A /* uk_UA */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = uk_UA; path = "Plugins/Purple Service/uk_UA.lproj/ESIRCAccountView.nib"; sourceTree = "<group>"; };
+		5A80CF41121F60E000D0670A /* uk_UA */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = uk_UA; path = "Plugins/Purple Service/uk_UA.lproj/ESPurpleAIMAccountView.nib"; sourceTree = "<group>"; };
+		5A80CF42121F60E000D0670A /* uk_UA */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = uk_UA; path = "Plugins/Purple Service/uk_UA.lproj/ESPurpleGaduGaduAccountView.nib"; sourceTree = "<group>"; };
+		5A80CF43121F60E000D0670A /* uk_UA */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = uk_UA; path = "Plugins/Purple Service/uk_UA.lproj/ESPurpleICQAccountView.nib"; sourceTree = "<group>"; };
+		5A80CF44121F60E000D0670A /* uk_UA */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = uk_UA; path = "Plugins/Purple Service/uk_UA.lproj/ESPurpleJabberAccountView.nib"; sourceTree = "<group>"; };
+		5A80CF45121F60E000D0670A /* uk_UA */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = uk_UA; path = "Plugins/Purple Service/uk_UA.lproj/ESPurpleMeanwhileAccountView.nib"; sourceTree = "<group>"; };
+		5A80CF46121F60E000D0670A /* uk_UA */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = uk_UA; path = "Plugins/Purple Service/uk_UA.lproj/ESPurpleMSNAccountView.nib"; sourceTree = "<group>"; };
+		5A80CF47121F60E000D0670A /* uk_UA */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = uk_UA; path = "Plugins/Purple Service/uk_UA.lproj/ESPurpleNovellAccountView.nib"; sourceTree = "<group>"; };
+		5A80CF48121F60E000D0670A /* uk_UA */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = uk_UA; path = "Plugins/Purple Service/uk_UA.lproj/ESPurpleSimpleAccountView.nib"; sourceTree = "<group>"; };
+		5A80CF49121F60E000D0670A /* uk_UA */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = uk_UA; path = "Plugins/Purple Service/uk_UA.lproj/ESPurpleYahooAccountView.nib"; sourceTree = "<group>"; };
+		5A80CF4A121F60E000D0670A /* uk_UA */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = uk_UA; path = "Plugins/Purple Service/uk_UA.lproj/ESPurpleZephyrAccountView.nib"; sourceTree = "<group>"; };
+		5A80CF4B121F60E000D0670A /* uk_UA */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = uk_UA; path = Resources/uk_UA.lproj/GeneralPreferences.nib; sourceTree = "<group>"; };
+		5A80CF4C121F60E000D0670A /* uk_UA */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = uk_UA; path = Resources/uk_UA.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		5A80CF4D121F60E000D0670A /* uk_UA */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = uk_UA; path = Resources/uk_UA.lproj/ListLayoutSheet.nib; sourceTree = "<group>"; };
+		5A80CF4E121F60E000D0670A /* uk_UA */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = uk_UA; path = Resources/uk_UA.lproj/ListThemeSheet.nib; sourceTree = "<group>"; };
+		5A80CF4F121F60E000D0670A /* uk_UA */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = uk_UA; path = uk_UA.lproj/Localizable.strings; sourceTree = "<group>"; };
+		5A80CF50121F60E000D0670A /* uk_UA */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = uk_UA; path = Resources/uk_UA.lproj/Localizable.strings; sourceTree = "<group>"; };
+		5A80CF51121F60E000D0670A /* uk_UA */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = uk_UA; path = "Frameworks/Adium Framework/Resources/uk_UA.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		5A80CF52121F60E000D0670A /* uk_UA */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = uk_UA; path = "Plugins/Purple Service/uk_UA.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		5A80CF53121F60E100D0670A /* uk_UA */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = uk_UA; path = Resources/uk_UA.lproj/MessageHistoryConfiguration.nib; sourceTree = "<group>"; };
+		5A80CF54121F60E100D0670A /* uk_UA */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = uk_UA; path = Resources/uk_UA.lproj/OTRPrefs.nib; sourceTree = "<group>"; };
+		5A80CF55121F60E100D0670A /* uk_UA */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = uk_UA; path = Resources/uk_UA.lproj/PasswordPrompt.nib; sourceTree = "<group>"; };
+		5A80CF56121F60E100D0670A /* uk_UA */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = uk_UA; path = Resources/uk_UA.lproj/PersonalPreferences.nib; sourceTree = "<group>"; };
+		5A80CF57121F60E100D0670A /* uk_UA */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = uk_UA; path = Resources/uk_UA.lproj/ProxyPasswordPrompt.nib; sourceTree = "<group>"; };
+		5A80CF58121F60E100D0670A /* uk_UA */ = {isa = PBXFileReference; lastKnownFileType = folder; name = uk_UA; path = "Resources/uk_UA.lproj/Shared Dock Icon Images"; sourceTree = "<group>"; };
+		5A80CF59121F60E100D0670A /* uk_UA */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = uk_UA; path = Resources/uk_UA.lproj/ShortcutRecorder.strings; sourceTree = "<group>"; };
+		5A80CF5A121F60E100D0670A /* uk_UA */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = uk_UA; path = Resources/uk_UA.lproj/Statuses.strings; sourceTree = "<group>"; };
+		5A80CF5B121F60E100D0670A /* uk_UA */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = uk_UA; path = Resources/uk_UA.lproj/StatusPreferences.nib; sourceTree = "<group>"; };
+		5A80CF5C121F60E100D0670A /* uk_UA */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = uk_UA; path = Resources/uk_UA.lproj/StatusSortConfiguration.nib; sourceTree = "<group>"; };
+		5A80CF5D121F60E100D0670A /* uk_UA */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = uk_UA; path = "Plugins/WebKit Message View/uk_UA.lproj/WebKitPreferencesView.nib"; sourceTree = "<group>"; };
 		63093C2D0892143500F118D3 /* newContentThreeDigits.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = newContentThreeDigits.png; sourceTree = "<group>"; };
 		63093C2E0892143500F118D3 /* newContentTwoDigits.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = newContentTwoDigits.png; sourceTree = "<group>"; };
 		6311F46F0E340DD2004234B8 /* AISharedAdium.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AISharedAdium.h; path = "Frameworks/Adium Framework/Source/AISharedAdium.h"; sourceTree = "<group>"; };
@@ -4460,8 +4511,7 @@
 		633D50F20F9D31BD004F491E /* da */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = da; path = da.lproj/schema.strings; sourceTree = "<group>"; };
 		633D50F30F9D31BD004F491E /* de */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		633D50F40F9D31BD004F491E /* de */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/schema.strings; sourceTree = "<group>"; };
-		633D50F50F9D31BD004F491E /* English */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = English; path = English.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		633D50F60F9D31BD004F491E /* English */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = English; path = English.lproj/schema.strings; sourceTree = "<group>"; };
+		633D50F60F9D31BD004F491E /* English */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = English; path = en.lproj/schema.strings; sourceTree = "<group>"; };
 		633D50F70F9D31BD004F491E /* fi */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = fi; path = fi.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		633D50F80F9D31BD004F491E /* fi */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = fi; path = fi.lproj/schema.strings; sourceTree = "<group>"; };
 		633D50F90F9D31BD004F491E /* fr */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/InfoPlist.strings; sourceTree = "<group>"; };
@@ -4636,6 +4686,9 @@
 		6FB330A20C7235BF00B001A8 /* EKEzvIncomingFileTransfer.m */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.objc; name = EKEzvIncomingFileTransfer.m; path = Plugins/Bonjour/libezv/Classes/EKEzvIncomingFileTransfer.m; sourceTree = SOURCE_ROOT; };
 		6FB330A30C7235BF00B001A8 /* EKEzvOutgoingFileTransfer.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = EKEzvOutgoingFileTransfer.h; path = Plugins/Bonjour/libezv/Classes/EKEzvOutgoingFileTransfer.h; sourceTree = SOURCE_ROOT; };
 		6FB330A40C7235BF00B001A8 /* EKEzvOutgoingFileTransfer.m */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.objc; name = EKEzvOutgoingFileTransfer.m; path = Plugins/Bonjour/libezv/Classes/EKEzvOutgoingFileTransfer.m; sourceTree = SOURCE_ROOT; };
+		76A9989C1177A597009192B6 /* AITemporaryIRCAccountWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AITemporaryIRCAccountWindowController.h; path = Source/AITemporaryIRCAccountWindowController.h; sourceTree = "<group>"; };
+		76A9989D1177A597009192B6 /* AITemporaryIRCAccountWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AITemporaryIRCAccountWindowController.m; path = Source/AITemporaryIRCAccountWindowController.m; sourceTree = "<group>"; };
+		76A998D51177B457009192B6 /* TemporaryIRCAccountWindow.nib */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = TemporaryIRCAccountWindow.nib; path = Resources/TemporaryIRCAccountWindow.nib; sourceTree = "<group>"; };
 		77D903500B78CF1000B86C42 /* zhm */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.executable"; name = zhm; path = "Plugins/Purple Service/zhm"; sourceTree = "<group>"; };
 		7E1E8176063A3EEC00EB00F7 /* AIContextMenuTextView.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = AIContextMenuTextView.h; path = "Frameworks/Adium Framework/Source/AIContextMenuTextView.h"; sourceTree = "<group>"; };
 		7E1E8177063A3EEC00EB00F7 /* AIContextMenuTextView.m */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.objc; name = AIContextMenuTextView.m; path = "Frameworks/Adium Framework/Source/AIContextMenuTextView.m"; sourceTree = "<group>"; };
@@ -6453,6 +6506,8 @@
 			children = (
 				F57938EF033E745F01A8010A /* AIAccountController.h */,
 				F57938AA033E737001A8010A /* AIAccountController.m */,
+				76A9989C1177A597009192B6 /* AITemporaryIRCAccountWindowController.h */,
+				76A9989D1177A597009192B6 /* AITemporaryIRCAccountWindowController.m */,
 				F5B53FBF0333ABA701A8010A /* Accounts Preferences */,
 				F510B76D03339ED501A8010A /* Account Menu */,
 				34C188A006CAB36400FF5FF9 /* Account Network Connectivity */,
@@ -6536,6 +6591,9 @@
 				34F1023A073449D500890D3B /* XtrasInstaller.h */,
 				34F10239073449D500890D3B /* XtrasInstaller.m */,
 				34F1022A0734499600890D3B /* XtraProgressWindow.nib */,
+				34906171127F742200FC313F /* AITemporaryIRCAccountWindowController.h */,
+				34906172127F742200FC313F /* AITemporaryIRCAccountWindowController.m */,
+				3490615C127F70B100FC313F /* TemporaryIRCAccountWindow.nib */,
 			);
 			name = "URL and Xtras Installation handling";
 			sourceTree = "<group>";
@@ -8574,6 +8632,7 @@
 				3474DFFC08254F3500BF30F0 /* Copyright.txt */,
 				4B191D880611C10800E8A4E7 /* License.txt */,
 				3474DFFF082550FD00BF30F0 /* Credits.rtf */,
+				76A998D51177B457009192B6 /* TemporaryIRCAccountWindow.nib */,
 				34107B5509E992DA001CC042 /* GuestAccountWindow.nib */,
 				34F849520A4AEFA00002A017 /* LogFileUpgrade.nib */,
 				34483A980BC869680083723B /* AdvancedPreferences.nib */,
@@ -9470,6 +9529,7 @@
 			};
 			buildConfigurationList = DADE8E3A085507450062B664 /* Build configuration list for PBXProject "Adium" */;
 			compatibilityVersion = "Xcode 3.1";
+			developmentRegion = English;
 			hasScannedForEncodings = 1;
 			knownRegions = (
 				en,
@@ -9507,6 +9567,8 @@
 				English,
 				gy,
 				sk_SK,
+				uk_UA,
+				pt_PT,
 			);
 			mainGroup = 29B97314FDCFA39411CA2CEA /* CocAIMe2 */;
 			projectDirPath = "";
@@ -9946,6 +10008,7 @@
 				1130EA9D109B445D00FB3454 /* pref-mention.png in Resources */,
 				1130EA9E109B445D00FB3454 /* pref-messagealerts.png in Resources */,
 				11AE5555109CC88C0074BDC2 /* pref-confirmations.png in Resources */,
+				3490615D127F70B100FC313F /* TemporaryIRCAccountWindow.nib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -10609,6 +10672,7 @@
 				112939100FD5AE1400FA8F53 /* AIConfirmationsAdvancedPreferences.m in Sources */,
 				11D915720FFC100700B39713 /* AIGenericMultipartImageUploader.m in Sources */,
 				11000D041098863B0096A1E2 /* AIDefaultFontRemovalPlugin.m in Sources */,
+				34906190127F78F200FC313F /* AITemporaryIRCAccountWindowController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -10936,6 +11000,7 @@
 				346C9C1B0E70E1F8002314EE /* hu */,
 				34B1FCE50F112BF700C7E952 /* el_GR */,
 				5A764A4511E04DDB00E5E0AF /* sk_SK */,
+				5A80CF58121F60E100D0670A /* uk_UA */,
 			);
 			name = "Shared Dock Icon Images";
 			sourceTree = "<group>";
@@ -11004,6 +11069,7 @@
 				1150A9AF0FBE491500E0BD31 /* zh_CN */,
 				1150A9B00FBE491700E0BD31 /* zh_TW */,
 				5A764A2E11E04DDB00E5E0AF /* sk_SK */,
+				5A80CF40121F60E000D0670A /* uk_UA */,
 			);
 			name = ESIRCAccountView.nib;
 			sourceTree = "<group>";
@@ -11038,6 +11104,7 @@
 				11D135F20FBE4CA9000B0A5E /* zh_TW */,
 				11D135F30FBE4CB6000B0A5E /* en */,
 				5A764F8711E051E500E5E0AF /* sk_SK */,
+				5A80CF34121F60DF00D0670A /* uk_UA */,
 			);
 			name = AITwitterAccountView.nib;
 			sourceTree = "<group>";
@@ -11072,6 +11139,7 @@
 				346C9C030E70E1F7002314EE /* hu */,
 				34B1FCCE0F112BF500C7E952 /* el_GR */,
 				5A764A2D11E04DDB00E5E0AF /* sk_SK */,
+				5A80CF3F121F60E000D0670A /* uk_UA */,
 			);
 			name = ESFileTransferProgressView.nib;
 			sourceTree = "<group>";
@@ -11106,6 +11174,7 @@
 				346C9C1A0E70E1F7002314EE /* hu */,
 				34B1FCE40F112BF700C7E952 /* el_GR */,
 				5A764A4411E04DDB00E5E0AF /* sk_SK */,
+				5A80CF57121F60E100D0670A /* uk_UA */,
 			);
 			name = ProxyPasswordPrompt.nib;
 			sourceTree = "<group>";
@@ -11140,6 +11209,7 @@
 				346C9C180E70E1F7002314EE /* hu */,
 				34B1FCE20F112BF700C7E952 /* el_GR */,
 				5A764A4211E04DDB00E5E0AF /* sk_SK */,
+				5A80CF55121F60E100D0670A /* uk_UA */,
 			);
 			name = PasswordPrompt.nib;
 			sourceTree = "<group>";
@@ -11174,6 +11244,7 @@
 				346C9C130E70E1F7002314EE /* hu */,
 				34B1FCDF0F112BF600C7E952 /* el_GR */,
 				5A764A3D11E04DDB00E5E0AF /* sk_SK */,
+				5A80CF50121F60E000D0670A /* uk_UA */,
 			);
 			name = Localizable.strings;
 			sourceTree = "<group>";
@@ -11207,6 +11278,7 @@
 				346C9C150E70E1F7002314EE /* hu */,
 				34B1FCDE0F112BF600C7E952 /* el_GR */,
 				5A764A3F11E04DDB00E5E0AF /* sk_SK */,
+				5A80CF52121F60E000D0670A /* uk_UA */,
 			);
 			name = Localizable.strings;
 			sourceTree = "<group>";
@@ -11241,6 +11313,7 @@
 				346C9C000E70E1F7002314EE /* hu */,
 				34B1FCCD0F112BF500C7E952 /* el_GR */,
 				5A764A2B11E04DDB00E5E0AF /* sk_SK */,
+				5A80CF3C121F60E000D0670A /* uk_UA */,
 			);
 			name = DualWindowMessageAdvanced.nib;
 			sourceTree = "<group>";
@@ -11275,6 +11348,7 @@
 				346C9C120E70E1F7002314EE /* hu */,
 				34B1FB620F112AC800C7E952 /* el_GR */,
 				5A764A3E11E04DDB00E5E0AF /* sk_SK */,
+				5A80CF51121F60E000D0670A /* uk_UA */,
 			);
 			name = Localizable.strings;
 			sourceTree = "<group>";
@@ -11307,6 +11381,9 @@
 				346C9C170E70E1F7002314EE /* hu */,
 				34B1FCE10F112BF700C7E952 /* el_GR */,
 				5A764A4111E04DDB00E5E0AF /* sk_SK */,
+				5A80CF54121F60E100D0670A /* uk_UA */,
+				34BEA8FA12748E840098E9C8 /* pt_PT */,
+				34BEA91812748EAB0098E9C8 /* pt */,
 			);
 			name = OTRPrefs.nib;
 			sourceTree = "<group>";
@@ -11341,6 +11418,7 @@
 				346C9C010E70E1F7002314EE /* hu */,
 				34B1FB600F112AC800C7E952 /* el_GR */,
 				5A764F8811E0521800E5E0AF /* sk_SK */,
+				5A80CF3D121F60E000D0670A /* uk_UA */,
 			);
 			name = EditStateSheet.nib;
 			sourceTree = "<group>";
@@ -11375,6 +11453,7 @@
 				346C9BF70E70E1F7002314EE /* hu */,
 				34B1FCC40F112BF400C7E952 /* el_GR */,
 				5A764A2211E04DDA00E5E0AF /* sk_SK */,
+				5A80CF32121F60DF00D0670A /* uk_UA */,
 			);
 			name = AccountProxy.nib;
 			sourceTree = "<group>";
@@ -11408,6 +11487,7 @@
 				346C9C090E70E1F7002314EE /* hu */,
 				34B1FCD40F112BF500C7E952 /* el_GR */,
 				5A764A3511E04DDB00E5E0AF /* sk_SK */,
+				5A80CF47121F60E000D0670A /* uk_UA */,
 			);
 			name = ESPurpleNovellAccountView.nib;
 			sourceTree = "<group>";
@@ -11442,6 +11522,7 @@
 				346C9BF90E70E1F7002314EE /* hu */,
 				34B1FCC60F112BF400C7E952 /* el_GR */,
 				5A764A2411E04DDB00E5E0AF /* sk_SK */,
+				5A80CF35121F60DF00D0670A /* uk_UA */,
 			);
 			name = AppearancePrefs.nib;
 			sourceTree = "<group>";
@@ -11475,6 +11556,7 @@
 				346C9C040E70E1F7002314EE /* hu */,
 				34B1FCCF0F112BF500C7E952 /* el_GR */,
 				5A764A3011E04DDB00E5E0AF /* sk_SK */,
+				5A80CF42121F60E000D0670A /* uk_UA */,
 			);
 			name = ESPurpleGaduGaduAccountView.nib;
 			sourceTree = "<group>";
@@ -11508,6 +11590,7 @@
 				346C9C080E70E1F7002314EE /* hu */,
 				34B1FCD30F112BF500C7E952 /* el_GR */,
 				5A764A3411E04DDB00E5E0AF /* sk_SK */,
+				5A80CF46121F60E000D0670A /* uk_UA */,
 			);
 			name = ESPurpleMSNAccountView.nib;
 			sourceTree = "<group>";
@@ -11541,6 +11624,7 @@
 				346C9BFF0E70E1F7002314EE /* hu */,
 				34B1FCCC0F112BF400C7E952 /* el_GR */,
 				5A764A2A11E04DDB00E5E0AF /* sk_SK */,
+				5A80CF3B121F60E000D0670A /* uk_UA */,
 			);
 			name = DCPurpleZephyrJoinChatView.nib;
 			sourceTree = "<group>";
@@ -11574,6 +11658,7 @@
 				346C9BFD0E70E1F7002314EE /* hu */,
 				34B1FCCA0F112BF400C7E952 /* el_GR */,
 				5A764A2811E04DDB00E5E0AF /* sk_SK */,
+				5A80CF39121F60E000D0670A /* uk_UA */,
 			);
 			name = DCPurpleOscarJoinChatView.nib;
 			sourceTree = "<group>";
@@ -11607,6 +11692,7 @@
 				346C9BFE0E70E1F7002314EE /* hu */,
 				34B1FCCB0F112BF400C7E952 /* el_GR */,
 				5A764A2911E04DDB00E5E0AF /* sk_SK */,
+				5A80CF3A121F60E000D0670A /* uk_UA */,
 			);
 			name = DCPurpleYahooJoinChatView.nib;
 			sourceTree = "<group>";
@@ -11640,6 +11726,7 @@
 				346C9C0D0E70E1F7002314EE /* hu */,
 				34B1FCD80F112BF600C7E952 /* el_GR */,
 				5A764A3811E04DDB00E5E0AF /* sk_SK */,
+				5A80CF4A121F60E000D0670A /* uk_UA */,
 			);
 			name = ESPurpleZephyrAccountView.nib;
 			sourceTree = "<group>";
@@ -11673,6 +11760,7 @@
 				346C9BFC0E70E1F7002314EE /* hu */,
 				34B1FCC90F112BF400C7E952 /* el_GR */,
 				5A764A2711E04DDB00E5E0AF /* sk_SK */,
+				5A80CF38121F60E000D0670A /* uk_UA */,
 			);
 			name = DCPurpleMeanwhileJoinChatView.nib;
 			sourceTree = "<group>";
@@ -11706,6 +11794,7 @@
 				346C9C1F0E70E1F8002314EE /* hu */,
 				34B1FCE90F112BF700C7E952 /* el_GR */,
 				5A764A4911E04DDB00E5E0AF /* sk_SK */,
+				5A80CF5C121F60E100D0670A /* uk_UA */,
 			);
 			name = StatusSortConfiguration.nib;
 			sourceTree = "<group>";
@@ -11739,6 +11828,7 @@
 				346C9BFB0E70E1F7002314EE /* hu */,
 				34B1FCC80F112BF400C7E952 /* el_GR */,
 				5A764A2611E04DDB00E5E0AF /* sk_SK */,
+				5A80CF37121F60E000D0670A /* uk_UA */,
 			);
 			name = DCPurpleJabberJoinChatView.nib;
 			sourceTree = "<group>";
@@ -11772,6 +11862,7 @@
 				346C9C050E70E1F7002314EE /* hu */,
 				34B1FCD00F112BF500C7E952 /* el_GR */,
 				5A764A3111E04DDB00E5E0AF /* sk_SK */,
+				5A80CF43121F60E000D0670A /* uk_UA */,
 			);
 			name = ESPurpleICQAccountView.nib;
 			sourceTree = "<group>";
@@ -11805,6 +11896,7 @@
 				346C9C0A0E70E1F7002314EE /* hu */,
 				34B1FCD50F112BF500C7E952 /* el_GR */,
 				5A764A2F11E04DDB00E5E0AF /* sk_SK */,
+				5A80CF41121F60E000D0670A /* uk_UA */,
 			);
 			name = ESPurpleAIMAccountView.nib;
 			sourceTree = "<group>";
@@ -11838,6 +11930,7 @@
 				346C9C070E70E1F7002314EE /* hu */,
 				34B1FCD20F112BF500C7E952 /* el_GR */,
 				5A764A3311E04DDB00E5E0AF /* sk_SK */,
+				5A80CF45121F60E000D0670A /* uk_UA */,
 			);
 			name = ESPurpleMeanwhileAccountView.nib;
 			sourceTree = "<group>";
@@ -11871,6 +11964,7 @@
 				346C9C0C0E70E1F7002314EE /* hu */,
 				34B1FCD70F112BF600C7E952 /* el_GR */,
 				5A764A3711E04DDB00E5E0AF /* sk_SK */,
+				5A80CF49121F60E000D0670A /* uk_UA */,
 			);
 			name = ESPurpleYahooAccountView.nib;
 			sourceTree = "<group>";
@@ -11904,6 +11998,7 @@
 				346C9C060E70E1F7002314EE /* hu */,
 				34B1FCD10F112BF500C7E952 /* el_GR */,
 				5A764A3211E04DDB00E5E0AF /* sk_SK */,
+				5A80CF44121F60E000D0670A /* uk_UA */,
 			);
 			name = ESPurpleJabberAccountView.nib;
 			sourceTree = "<group>";
@@ -11938,6 +12033,7 @@
 				346C9C110E70E1F7002314EE /* hu */,
 				34B1FCDC0F112BF600C7E952 /* el_GR */,
 				5A764A3C11E04DDB00E5E0AF /* sk_SK */,
+				5A80CF4E121F60E000D0670A /* uk_UA */,
 			);
 			name = ListThemeSheet.nib;
 			sourceTree = "<group>";
@@ -11972,6 +12068,7 @@
 				346C9C100E70E1F7002314EE /* hu */,
 				34B1FCDB0F112BF600C7E952 /* el_GR */,
 				5A764A3B11E04DDB00E5E0AF /* sk_SK */,
+				5A80CF4D121F60E000D0670A /* uk_UA */,
 			);
 			name = ListLayoutSheet.nib;
 			sourceTree = "<group>";
@@ -12005,6 +12102,7 @@
 				346C9C0B0E70E1F7002314EE /* hu */,
 				34B1FCD60F112BF500C7E952 /* el_GR */,
 				5A764A3611E04DDB00E5E0AF /* sk_SK */,
+				5A80CF48121F60E000D0670A /* uk_UA */,
 			);
 			name = ESPurpleSimpleAccountView.nib;
 			sourceTree = "<group>";
@@ -12039,6 +12137,7 @@
 				346C9C1D0E70E1F8002314EE /* hu */,
 				34B1FCE70F112BF700C7E952 /* el_GR */,
 				5A764A4711E04DDB00E5E0AF /* sk_SK */,
+				5A80CF5A121F60E100D0670A /* uk_UA */,
 			);
 			name = Statuses.strings;
 			sourceTree = "<group>";
@@ -12073,6 +12172,7 @@
 				346C9C160E70E1F7002314EE /* hu */,
 				34B1FCE00F112BF600C7E952 /* el_GR */,
 				5A764A4011E04DDB00E5E0AF /* sk_SK */,
+				5A80CF53121F60E100D0670A /* uk_UA */,
 			);
 			name = MessageHistoryConfiguration.nib;
 			sourceTree = "<group>";
@@ -12107,6 +12207,7 @@
 				346C9C1C0E70E1F8002314EE /* hu */,
 				34B1FCE60F112BF700C7E952 /* el_GR */,
 				5A764A4611E04DDB00E5E0AF /* sk_SK */,
+				5A80CF59121F60E100D0670A /* uk_UA */,
 			);
 			name = ShortcutRecorder.strings;
 			sourceTree = "<group>";
@@ -12141,6 +12242,7 @@
 				346C9C1E0E70E1F8002314EE /* hu */,
 				34B1FCE80F112BF700C7E952 /* el_GR */,
 				5A764A4811E04DDB00E5E0AF /* sk_SK */,
+				5A80CF5B121F60E100D0670A /* uk_UA */,
 			);
 			name = StatusPreferences.nib;
 			sourceTree = "<group>";
@@ -12174,6 +12276,7 @@
 				346C9C200E70E1F8002314EE /* hu */,
 				34B1FCEA0F112BF800C7E952 /* el_GR */,
 				5A764A4A11E04DDB00E5E0AF /* sk_SK */,
+				5A80CF5D121F60E100D0670A /* uk_UA */,
 			);
 			name = WebKitPreferencesView.nib;
 			sourceTree = "<group>";
@@ -12208,6 +12311,7 @@
 				346C9C0F0E70E1F7002314EE /* hu */,
 				34B1FCDA0F112BF600C7E952 /* el_GR */,
 				5A764A3A11E04DDB00E5E0AF /* sk_SK */,
+				5A80CF4C121F60E000D0670A /* uk_UA */,
 			);
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
@@ -12242,6 +12346,7 @@
 				346C9BFA0E70E1F7002314EE /* hu */,
 				34B1FCC70F112BF400C7E952 /* el_GR */,
 				5A764A2511E04DDB00E5E0AF /* sk_SK */,
+				5A80CF36121F60DF00D0670A /* uk_UA */,
 			);
 			name = Buttons.strings;
 			sourceTree = "<group>";
@@ -12276,6 +12381,7 @@
 				346C9BF80E70E1F7002314EE /* hu */,
 				34B1FCC50F112BF400C7E952 /* el_GR */,
 				5A764A2311E04DDB00E5E0AF /* sk_SK */,
+				5A80CF33121F60DF00D0670A /* uk_UA */,
 			);
 			name = AIAdvancedInspectorPane.nib;
 			sourceTree = "<group>";
@@ -12310,6 +12416,7 @@
 				346C9C0E0E70E1F7002314EE /* hu */,
 				34B1FCD90F112BF600C7E952 /* el_GR */,
 				5A764A3911E04DDB00E5E0AF /* sk_SK */,
+				5A80CF4B121F60E000D0670A /* uk_UA */,
 			);
 			name = GeneralPreferences.nib;
 			sourceTree = "<group>";
@@ -12344,6 +12451,7 @@
 				346C9C190E70E1F7002314EE /* hu */,
 				34B1FCE30F112BF700C7E952 /* el_GR */,
 				5A764A4311E04DDB00E5E0AF /* sk_SK */,
+				5A80CF56121F60E100D0670A /* uk_UA */,
 			);
 			name = PersonalPreferences.nib;
 			sourceTree = "<group>";
@@ -12378,6 +12486,7 @@
 				346C9C020E70E1F7002314EE /* hu */,
 				34B1FB610F112AC800C7E952 /* el_GR */,
 				5A764A2C11E04DDB00E5E0AF /* sk_SK */,
+				5A80CF3E121F60E000D0670A /* uk_UA */,
 			);
 			name = EmoticonNames.strings;
 			sourceTree = "<group>";
@@ -12388,7 +12497,6 @@
 				633D50EE0F9D31BD004F491E /* cs */,
 				633D50F10F9D31BD004F491E /* da */,
 				633D50F30F9D31BD004F491E /* de */,
-				633D50F50F9D31BD004F491E /* English */,
 				633D50F70F9D31BD004F491E /* fi */,
 				633D50F90F9D31BD004F491E /* fr */,
 				633D50FB0F9D31BD004F491E /* fr_CA */,
@@ -12470,6 +12578,7 @@
 				63A3A98B0F9C35D3006C9CB0 /* zh_CN */,
 				63A3A98C0F9C35D3006C9CB0 /* zh_TW */,
 				5A764F8C11E0526E00E5E0AF /* sk_SK */,
+				5A80CF4F121F60E000D0670A /* uk_UA */,
 			);
 			name = Localizable.strings;
 			sourceTree = "<group>";
@@ -12683,6 +12792,9 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 63C7E02A0FAF9BA800B310AC /* Debug.xcconfig */;
 			buildSettings = {
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_WARN_ABOUT_MISSING_FIELD_INITIALIZERS = YES;
+				RUN_CLANG_STATIC_ANALYZER = NO;
 			};
 			name = Debug;
 		};
@@ -12690,6 +12802,8 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 63C7E02B0FAF9BA800B310AC /* Release.xcconfig */;
 			buildSettings = {
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				MACOSX_DEPLOYMENT_TARGET = 10.5;
 			};
 			name = Release;
@@ -12698,6 +12812,9 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 63C7E02C0FAF9BA800B310AC /* Release-Debug.xcconfig */;
 			buildSettings = {
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_WARN_ABOUT_MISSING_FIELD_INITIALIZERS = YES;
+				IBC_STRIP_NIBS = NO;
 			};
 			name = "Release-Debug";
 		};

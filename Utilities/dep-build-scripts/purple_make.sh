@@ -191,7 +191,6 @@ for ARCH in ${ARCHES[@]} ; do
 		$PIDGIN_SOURCE/libpurple/protocols/oscar/peer.h \
 		$PIDGIN_SOURCE/libpurple/cmds.h \
 		$PIDGIN_SOURCE/libpurple/internal.h \
-		$PIDGIN_SOURCE/libpurple/protocols/msn/*.h \
 		$PIDGIN_SOURCE/libpurple/protocols/yahoo/*.h \
 		$PIDGIN_SOURCE/libpurple/protocols/gg/buddylist.h \
 		$PIDGIN_SOURCE/libpurple/protocols/gg/gg.h \
@@ -200,6 +199,7 @@ for ARCH in ${ARCHES[@]} ; do
 		$PIDGIN_SOURCE/libpurple/protocols/jabber/bosh.h \
 		$PIDGIN_SOURCE/libpurple/protocols/jabber/buddy.h \
 		$PIDGIN_SOURCE/libpurple/protocols/jabber/caps.h \
+		$PIDGIN_SOURCE/libpurple/protocols/jabber/chat.h \
 		$PIDGIN_SOURCE/libpurple/protocols/jabber/jutil.h \
 		$PIDGIN_SOURCE/libpurple/protocols/jabber/presence.h \
 		$PIDGIN_SOURCE/libpurple/protocols/jabber/si.h \

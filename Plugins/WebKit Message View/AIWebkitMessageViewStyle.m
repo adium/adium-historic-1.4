@@ -128,7 +128,7 @@
 
 + (id)messageViewStyleFromPath:(NSString *)path
 {
-	NSBundle *styleBundle = [NSBundle bundleWithPath:path];
+	NSBundle *styleBundle = [NSBundle bundleWithPath:[path stringByExpandingBundlePath]];
 	if(styleBundle)
 		return [[[self alloc] initWithBundle:styleBundle] autorelease];
 	return nil;
@@ -393,9 +393,8 @@
 {
 	NSMutableString *mutableTemplate = [[self templateForContent:content similar:contentIsSimilar] mutableCopy];
 	
-	if (mutableTemplate) {
-		mutableTemplate = [self fillKeywords:mutableTemplate forContent:content similar:contentIsSimilar];
-	}
+	if (mutableTemplate)
+		[self fillKeywords:mutableTemplate forContent:content similar:contentIsSimilar];
 	
 	return [mutableTemplate autorelease];
 }
