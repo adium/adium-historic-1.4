@@ -14,6 +14,15 @@
  * write to the Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
  */
 
+
+typedef enum{
+	XML_STATE_NONE,
+	XML_STATE_CHAT,
+	XML_STATE_MESSAGE,
+	XML_STATE_EVENT_MESSAGE,
+	XML_STATE_STATUS_MESSAGE
+} chatLogState;
+
 /*!
  *	@brief Different ways of formatting display names
  */
@@ -28,12 +37,34 @@ typedef enum {
 @class AIHTMLDecoder;
 
 @interface AIXMLChatlogConverter : NSObject {
-	NSDateFormatter *dateFormatter;	
+	CFXMLParserRef	parser;
+	NSString		*inputFileString;
+	NSDictionary	*eventTranslate;
+	
+	NSDateFormatter *dateFormatter;
+	
+	chatLogState	state;
+	NSString		*sender;
+	NSString		*senderAlias;
+	NSString		*mySN;
+	NSString		*service;
+	NSString		*myDisplayName;
+	NSCalendarDate	*date;
+	NSInteger				messageStart;
+	BOOL			autoResponse;
+	BOOL			showTimestamps;
+	BOOL			showEmoticons;
+	NSString		*status;
+	
+	NSMutableAttributedString *output;
+	NSAttributedString *newlineAttributedString;
 	NSDictionary	*statusLookup;
-    NSAttributedString *newlineAttributedString;
 	AIHTMLDecoder	*htmlDecoder;
+
+	AINameFormat	nameFormat;
 }
 
 + (NSAttributedString *)readFile:(NSString *)filePath withOptions:(NSDictionary *)options;
+- (NSAttributedString *)readFile:(NSString *)filePath withOptions:(NSDictionary *)options;
 
 @end
