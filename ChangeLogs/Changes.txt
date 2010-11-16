@@ -42,7 +42,7 @@ Version 1.4.1 (XX/XX/2010)
   * Fixed minor issues in Adium Help documentation.
 
 Version 1.4 (10/31/2010)
- * Requires Mac OS X 10.5 or later
+ * Requires Mac OS X 10.5.8 or later
  * Added Twitter
  * Added IRC
  * Greatly improved group chats and group chat bookmarks
