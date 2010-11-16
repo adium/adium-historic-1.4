@@ -214,3 +214,7 @@
 - (void)chat:(AIChat *)inChat closedCustomEmoticon:(NSString *)inEmoticon;
 
 @end
+
+@interface CBPurpleAccount (ForSubclasses)
+- (void)continueConnectWithConfiguredPurpleAccoun;
+@end
