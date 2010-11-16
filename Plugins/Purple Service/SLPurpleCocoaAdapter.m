@@ -165,7 +165,7 @@ static void ZombieKiller_Signal(int i)
 
 - (void)debugLoggingIsEnabledDidChange:(NSNotification *)inNotification
 {
-	purple_debug_set_enabled(AIDebugLoggingIsEnabled());
+	configurePurpleDebugLogging();
 }
 
 - (void)initLibPurple
