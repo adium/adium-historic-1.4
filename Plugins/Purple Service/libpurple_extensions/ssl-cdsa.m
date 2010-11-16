@@ -114,6 +114,20 @@ static void query_cert_result(gboolean trusted, void *userdata) {
 	free(ud);
 }
 
+/*!
+ * @brief Return a human-readable, localized description for a given security error cde
+ *
+ * @result The string
+ */
+static const char *
+ssl_cdsa_stringForSecErrorCode(OSStatus err)
+{    
+    NSString *errString = [NSString stringWithFormat:@"%d", err];
+    return [[[NSBundle bundleWithIdentifier: @"com.apple.security"] localizedStringForKey:errString
+																					value:errString
+																					table:@"SecErrorMessages"] UTF8String];
+}
+
 /*
  * ssl_cdsa_handshake_cb
  */
@@ -134,8 +148,9 @@ ssl_cdsa_handshake_cb(gpointer data, gint source, PurpleInputCondition cond)
 	if(err != noErr) {
 		if(err == errSSLWouldBlock)
 			return;
-		fprintf(stderr,"cdsa: SSLHandshake failed with error %d\n",(int)err);
-		purple_debug_error("cdsa", "SSLHandshake failed with error %d\n",(int)err);
+		const char *errString = ssl_cdsa_stringForSecErrorCode(err);
+		fprintf(stderr,"cdsa: SSLHandshake failed with error %d (%s)\n",(int)err, errString);
+		purple_debug_error("cdsa", "SSLHandshake failed with error %d (%s)\n",(int)err, errString);
 		if (gsc->error_cb != NULL)
 			gsc->error_cb(gsc, PURPLE_SSL_HANDSHAKE_FAILED,
 						  gsc->connect_cb_data);
