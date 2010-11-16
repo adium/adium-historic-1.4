@@ -1,6 +1,6 @@
 				Adium Version History
 				-----------------------
-Version 1.4.1 (XX/XX/2010)
+Version 1.4.1 (11/15/2010)
  * Updated to libpurple 2.7.5. Highlights of applicable changes:
    * MSN
      * Support for MSN direct connections, enabling faster file transfers and faster retrieval of custom emoticons and buddy icons
@@ -40,6 +40,7 @@ Version 1.4.1 (XX/XX/2010)
   * PSD files and PDFs are now sent as files, not as 'images', where appliable.
   * Fixed alignment and clipping issues in the "About" box. (#13541)
   * Fixed minor issues in Adium Help documentation.
+
 
 Version 1.4 (10/31/2010)
  * Requires Mac OS X 10.5.8 or later
