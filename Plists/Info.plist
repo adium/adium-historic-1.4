@@ -469,11 +469,7 @@
 		</dict>
 	</array>
 	<key>CFBundleVersion</key>
-<<<<<<< local
-	<string>1.4.1</string>
-=======
 	<string>1.4.2hg</string>
->>>>>>> other
 	<key>LSMinimumSystemVersion</key>
 	<string>10.5.8</string>
 	<key>LSRequiresNativeExecution</key>
