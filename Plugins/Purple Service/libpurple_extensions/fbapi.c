@@ -29,7 +29,7 @@
 #define PACKAGE "pidgin"
 
 #define API_URL "http://api.facebook.com/restserver.php"
-#define API_SECRET "INSERT_SECRET_HERE"
+#define API_SECRET "5bc26e26557c4bda21d924bb527af4ba"
 #define MAX_CONNECTION_ATTEMPTS 3
 
 struct _PurpleFbApiCall {
