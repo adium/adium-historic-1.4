@@ -403,6 +403,10 @@
 		346BA33F0774C27400628F06 /* ESGlobalEventsPreferencesPlugin.m in Sources */ = {isa = PBXBuildFile; fileRef = 346BA33D0774C27400628F06 /* ESGlobalEventsPreferencesPlugin.m */; };
 		346BA3450774C2D200628F06 /* ESGlobalEventsPreferences.m in Sources */ = {isa = PBXBuildFile; fileRef = 346BA3430774C2D200628F06 /* ESGlobalEventsPreferences.m */; };
 		346BA3640774C35500628F06 /* GlobalEventsPreferences.nib in Resources */ = {isa = PBXBuildFile; fileRef = 346BA3630774C35400628F06 /* GlobalEventsPreferences.nib */; };
+		346CE8071294B53F00439BF2 /* fbapi.c in Sources */ = {isa = PBXBuildFile; fileRef = 346CE8051294B53F00439BF2 /* fbapi.c */; };
+		346CE8081294B53F00439BF2 /* fbapi.h in Headers */ = {isa = PBXBuildFile; fileRef = 346CE8061294B53F00439BF2 /* fbapi.h */; };
+		346CE80A1294B59900439BF2 /* auth_fb.c in Sources */ = {isa = PBXBuildFile; fileRef = 346CE8091294B59900439BF2 /* auth_fb.c */; };
+		346CE80E1294B5B000439BF2 /* auth_fb.h in Headers */ = {isa = PBXBuildFile; fileRef = 346CE80D1294B5B000439BF2 /* auth_fb.h */; };
 		346F5D3208A43E7B0055C610 /* CurrentTunes.scpt in Resources */ = {isa = PBXBuildFile; fileRef = 346F5CB308A418FB0055C610 /* CurrentTunes.scpt */; };
 		3470BF600BC6F18500388232 /* AIMessageHistoryPreferencesWindowController.h in Headers */ = {isa = PBXBuildFile; fileRef = 3470BF5E0BC6F18500388232 /* AIMessageHistoryPreferencesWindowController.h */; };
 		3470BF610BC6F18500388232 /* AIMessageHistoryPreferencesWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3470BF5F0BC6F18500388232 /* AIMessageHistoryPreferencesWindowController.m */; };
@@ -3072,6 +3076,10 @@
 		346C9C1E0E70E1F8002314EE /* hu */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = hu; path = Resources/hu.lproj/StatusPreferences.nib; sourceTree = "<group>"; };
 		346C9C1F0E70E1F8002314EE /* hu */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = hu; path = Resources/hu.lproj/StatusSortConfiguration.nib; sourceTree = "<group>"; };
 		346C9C200E70E1F8002314EE /* hu */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = hu; path = "Plugins/WebKit Message View/hu.lproj/WebKitPreferencesView.nib"; sourceTree = "<group>"; };
+		346CE8051294B53F00439BF2 /* fbapi.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = fbapi.c; sourceTree = "<group>"; };
+		346CE8061294B53F00439BF2 /* fbapi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = fbapi.h; sourceTree = "<group>"; };
+		346CE8091294B59900439BF2 /* auth_fb.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = auth_fb.c; sourceTree = "<group>"; };
+		346CE80D1294B5B000439BF2 /* auth_fb.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = auth_fb.h; sourceTree = "<group>"; };
 		346CFDC4087B7836009711C8 /* AdiumIdleManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AdiumIdleManager.h; path = Source/AdiumIdleManager.h; sourceTree = "<group>"; };
 		346CFDC5087B7836009711C8 /* AdiumIdleManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AdiumIdleManager.m; path = Source/AdiumIdleManager.m; sourceTree = "<group>"; };
 		346F5CB308A418FB0055C610 /* CurrentTunes.scpt */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.scpt; name = CurrentTunes.scpt; path = Resources/CurrentTunes.scpt; sourceTree = "<group>"; };
@@ -5089,6 +5097,10 @@
 		11EE1B480CDCFAF40097F246 /* libpurple_extensions */ = {
 			isa = PBXGroup;
 			children = (
+				346CE8091294B59900439BF2 /* auth_fb.c */,
+				346CE80D1294B5B000439BF2 /* auth_fb.h */,
+				346CE8051294B53F00439BF2 /* fbapi.c */,
+				346CE8061294B53F00439BF2 /* fbapi.h */,
 				11EE1B490CDCFAF40097F246 /* oscar-adium.c */,
 				11EE1B4A0CDCFAF40097F246 /* oscar-adium.h */,
 				811033500CDE170B00EC6038 /* ssl-cdsa.m */,
@@ -9131,6 +9143,8 @@
 				345D68A20F1FD59F002F2D01 /* PurpleFacebookService.h in Headers */,
 				345D68A80F1FD5AA002F2D01 /* PurpleFacebookAccount.h in Headers */,
 				34064D110F21B34200AA6FE3 /* PurpleFacebookAccountViewController.h in Headers */,
+				346CE8081294B53F00439BF2 /* fbapi.h in Headers */,
+				346CE80E1294B5B000439BF2 /* auth_fb.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -9529,6 +9543,7 @@
 			};
 			buildConfigurationList = DADE8E3A085507450062B664 /* Build configuration list for PBXProject "Adium" */;
 			compatibilityVersion = "Xcode 3.1";
+			developmentRegion = English;
 			hasScannedForEncodings = 1;
 			knownRegions = (
 				en,
@@ -10309,6 +10324,8 @@
 				345D68A30F1FD59F002F2D01 /* PurpleFacebookService.m in Sources */,
 				345D68A90F1FD5AA002F2D01 /* PurpleFacebookAccount.m in Sources */,
 				34064D100F21B34200AA6FE3 /* PurpleFacebookAccountViewController.m in Sources */,
+				346CE8071294B53F00439BF2 /* fbapi.c in Sources */,
+				346CE80A1294B59900439BF2 /* auth_fb.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
