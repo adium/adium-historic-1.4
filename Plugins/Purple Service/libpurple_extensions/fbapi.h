@@ -29,7 +29,7 @@ extern "C" {
 
 #include "connection.h"
 
-#define PURPLE_FBAPI_KEY "INSERT_KEY_HERE"
+#define PURPLE_FBAPI_KEY "819fd0b010d15eac1b36648f0126ece3"
 
 typedef struct _PurpleFbApiCall PurpleFbApiCall;
 
