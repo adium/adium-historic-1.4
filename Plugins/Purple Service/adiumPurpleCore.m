@@ -40,6 +40,7 @@
 
 #warning This include and the jabber_auth_add_mech() will be part of the FacebookXMPP account's initialization
 #import "auth.h"
+#import "auth_fb.h"
 
 
 #pragma mark Debug
