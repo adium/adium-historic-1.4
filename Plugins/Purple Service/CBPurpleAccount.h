@@ -216,5 +216,5 @@
 @end
 
 @interface CBPurpleAccount (ForSubclasses)
-- (void)continueConnectWithConfiguredPurpleAccoun;
+- (void)continueConnectWithConfiguredPurpleAccount;
 @end
