@@ -81,6 +81,7 @@ h3 {
 	font-weight:700;
 	margin-top:0px;
 	margin-bottom:0px;
+	padding: 4px 0 0 0;
 }
 
 p, td, th {
@@ -186,8 +187,8 @@ td {
 	-moz-border-radius: 10px 10px 0px 0px;
 	border-bottom: 1px solid #CCC;
 	background-color:#e6edff;
-	height: 20px;
-	text-indent: 20px;
+	height: 25px;
+	text-indent: 12px;
 }
 
 .taskboxtext {
@@ -241,6 +242,5 @@ code {
 }
 
 table {
-	border: 1px solid #CCC;
 	margin: 10px 0px;
 }
