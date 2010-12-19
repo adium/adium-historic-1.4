@@ -226,6 +226,9 @@
 		318EA69C0D7A659900EDB105 /* TestColorAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 318EA69B0D7A659900EDB105 /* TestColorAdditions.m */; };
 		319B29800CE8EC6F00C65398 /* TestDateAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 319B297F0CE8EC6E00C65398 /* TestDateAdditions.m */; };
 		31A764B90DA572B8000AC729 /* AutoHyperlinks.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3496A8EA07CE6CA30055BBAB /* AutoHyperlinks.framework */; };
+		31DDDA7012BDD5CE0048F6C0 /* scandate.m in Sources */ = {isa = PBXBuildFile; fileRef = 31DDDA6F12BDD5CE0048F6C0 /* scandate.m */; };
+		31DDDA7112BDD5CE0048F6C0 /* scandate.m in Sources */ = {isa = PBXBuildFile; fileRef = 31DDDA6F12BDD5CE0048F6C0 /* scandate.m */; };
+		31DDDA7A12BDD6E90048F6C0 /* TestScandate.m in Sources */ = {isa = PBXBuildFile; fileRef = 31DDDA7912BDD6E90048F6C0 /* TestScandate.m */; };
 		31E0CD810C5EEF5200271DB1 /* CoreAudio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 31E0CD800C5EEF5200271DB1 /* CoreAudio.framework */; };
 		31FA804C0D4A8EB200ABE634 /* Adium.sdef in Resources */ = {isa = PBXBuildFile; fileRef = 0CAC6A130C0C657A0090AE95 /* Adium.sdef */; };
 		3402D5A5080DBC91004E50B4 /* SortConfiguration.nib in Resources */ = {isa = PBXBuildFile; fileRef = 347E791D07CAA52300350507 /* SortConfiguration.nib */; };
@@ -2070,6 +2073,10 @@
 		318EA69B0D7A659900EDB105 /* TestColorAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TestColorAdditions.m; path = UnitTests/TestColorAdditions.m; sourceTree = "<group>"; };
 		319B29420CE8D28300C65398 /* TestDateAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TestDateAdditions.h; path = UnitTests/TestDateAdditions.h; sourceTree = "<group>"; };
 		319B297F0CE8EC6E00C65398 /* TestDateAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TestDateAdditions.m; path = UnitTests/TestDateAdditions.m; sourceTree = "<group>"; };
+		31DDDA6E12BDD5CE0048F6C0 /* scandate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = scandate.h; path = Source/scandate.h; sourceTree = "<group>"; };
+		31DDDA6F12BDD5CE0048F6C0 /* scandate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = scandate.m; path = Source/scandate.m; sourceTree = "<group>"; };
+		31DDDA7812BDD6E90048F6C0 /* TestScandate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TestScandate.h; path = UnitTests/TestScandate.h; sourceTree = "<group>"; };
+		31DDDA7912BDD6E90048F6C0 /* TestScandate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TestScandate.m; path = UnitTests/TestScandate.m; sourceTree = "<group>"; };
 		31E0CD800C5EEF5200271DB1 /* CoreAudio.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreAudio.framework; path = /System/Library/Frameworks/CoreAudio.framework; sourceTree = "<absolute>"; };
 		31E84DF10C7F387800674BCA /* AIUnitTestUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AIUnitTestUtilities.h; path = UnitTests/AIUnitTestUtilities.h; sourceTree = "<group>"; };
 		31FA7F0F0D4A75D000ABE634 /* TestRichTextCoercion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TestRichTextCoercion.h; path = UnitTests/TestRichTextCoercion.h; sourceTree = "<group>"; };
@@ -5211,6 +5218,8 @@
 				29B97323FDCFA39411CA2CEA /* Linked Frameworks */,
 				63C7E0280FAF9B7D00B310AC /* xcconfigs */,
 				19C28FACFE9D520D11CA2CBB /* Products */,
+				31DDDA7812BDD6E90048F6C0 /* TestScandate.h */,
+				31DDDA7912BDD6E90048F6C0 /* TestScandate.m */,
 			);
 			name = CocAIMe2;
 			sourceTree = "<group>";
@@ -7348,6 +7357,8 @@
 				349B359E0A5F2231008BE092 /* Views and Cells */,
 				3456231F0A3771E100E7FC97 /* AIChatLog.h */,
 				3456231E0A3771E100E7FC97 /* AIChatLog.m */,
+				31DDDA6E12BDD5CE0048F6C0 /* scandate.h */,
+				31DDDA6F12BDD5CE0048F6C0 /* scandate.m */,
 				345623250A3771F400E7FC97 /* AILogToGroup.h */,
 				345623240A3771F300E7FC97 /* AILogToGroup.m */,
 				345623270A3771F400E7FC97 /* AILogFromGroup.h */,
@@ -10204,6 +10215,8 @@
 				318EA69C0D7A659900EDB105 /* TestColorAdditions.m in Sources */,
 				634BCD1F0DDC1542005AF1C2 /* TestMutableStringAdditions.m in Sources */,
 				3107D5250F63134F0051DDD5 /* TestAttributedStringAdditions.m in Sources */,
+				31DDDA7112BDD5CE0048F6C0 /* scandate.m in Sources */,
+				31DDDA7A12BDD6E90048F6C0 /* TestScandate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -10688,6 +10701,7 @@
 				11D915720FFC100700B39713 /* AIGenericMultipartImageUploader.m in Sources */,
 				11000D041098863B0096A1E2 /* AIDefaultFontRemovalPlugin.m in Sources */,
 				34906190127F78F200FC313F /* AITemporaryIRCAccountWindowController.m in Sources */,
+				31DDDA7012BDD5CE0048F6C0 /* scandate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
