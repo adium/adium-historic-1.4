@@ -229,6 +229,7 @@
 		31DDDA7012BDD5CE0048F6C0 /* scandate.m in Sources */ = {isa = PBXBuildFile; fileRef = 31DDDA6F12BDD5CE0048F6C0 /* scandate.m */; };
 		31DDDA7112BDD5CE0048F6C0 /* scandate.m in Sources */ = {isa = PBXBuildFile; fileRef = 31DDDA6F12BDD5CE0048F6C0 /* scandate.m */; };
 		31DDDA7A12BDD6E90048F6C0 /* TestScandate.m in Sources */ = {isa = PBXBuildFile; fileRef = 31DDDA7912BDD6E90048F6C0 /* TestScandate.m */; };
+		31DDDB3A12BDE6FA0048F6C0 /* scandate.m in Sources */ = {isa = PBXBuildFile; fileRef = 31DDDA6F12BDD5CE0048F6C0 /* scandate.m */; };
 		31E0CD810C5EEF5200271DB1 /* CoreAudio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 31E0CD800C5EEF5200271DB1 /* CoreAudio.framework */; };
 		31FA804C0D4A8EB200ABE634 /* Adium.sdef in Resources */ = {isa = PBXBuildFile; fileRef = 0CAC6A130C0C657A0090AE95 /* Adium.sdef */; };
 		3402D5A5080DBC91004E50B4 /* SortConfiguration.nib in Resources */ = {isa = PBXBuildFile; fileRef = 347E791D07CAA52300350507 /* SortConfiguration.nib */; };
@@ -10925,6 +10926,7 @@
 				633D4FB80F9D30E3004F491E /* GetMetadataForHTMLLog.m in Sources */,
 				633D4FB90F9D30E3004F491E /* main.c in Sources */,
 				633D4FBE0F9D30FA004F491E /* NSCalendarDate+ISO8601Parsing.m in Sources */,
+				31DDDB3A12BDE6FA0048F6C0 /* scandate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
