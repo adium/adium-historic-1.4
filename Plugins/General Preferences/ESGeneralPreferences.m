@@ -32,6 +32,7 @@
 #import <AIUtilities/AIImageAdditions.h>
 #import <AIUtilities/AIMenuAdditions.h>
 #import <AIUtilities/AIPopUpButtonAdditions.h>
+#import "AILogByAccountWindowController.h"
 
 #define	PREF_GROUP_DUAL_WINDOW_INTERFACE	@"Dual Window Interface"
 #define KEY_TABBAR_POSITION					@"Tab Bar Position"
@@ -267,6 +268,23 @@
 	return [menu autorelease];		
 }
 
+- (IBAction)configureLogCertainAccounts:(id)sender
+{
+	AILogByAccountWindowController *windowController = [[AILogByAccountWindowController alloc] initWithWindowNibName:@"AILogByAccountWindow"];
+	
+	[NSApp beginSheet:windowController.window
+	   modalForWindow:self.view.window
+		modalDelegate:self
+	   didEndSelector:@selector(sheetDidEnd:returnCode:contextInfo:)
+		  contextInfo:nil];
+}
+
+- (void)sheetDidEnd:(NSWindow *)sheet returnCode:(NSInteger)returnCode contextInfo:(void *)contextInfo
+{
+	[sheet orderOut:nil];
+	[sheet.windowController release];
+}
+								
 - (NSMenu *)tabPositionMenu
 {
 	NSMenu		*menu = [[NSMenu allocWithZone:[NSMenu menuZone]] init];
@@ -309,6 +327,7 @@
 	 forKey:@"Display Message Context"
 	 group:@"Message Context Display"];
 }
+
 
 #pragma mark Message history
 - (IBAction)configureMessageHistory:(id)sender
