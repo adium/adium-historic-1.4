@@ -5048,14 +5048,14 @@
 			name = Laconica;
 			sourceTree = "<group>";
 		};
-		1154E66C12E12C3600B8CA27 /* General Preferences */ = {
+		1154E66C12E12C3600B8CA27 /* Log By Account */ = {
 			isa = PBXGroup;
 			children = (
 				1154E67812E12CB500B8CA27 /* AILogByAccountWindow.nib */,
 				1154E66D12E12C5F00B8CA27 /* AILogByAccountWindowController.h */,
 				1154E66E12E12C5F00B8CA27 /* AILogByAccountWindowController.m */,
 			);
-			name = "General Preferences";
+			name = "Log By Account";
 			path = "Plugins/General Preferences";
 			sourceTree = "<group>";
 		};
@@ -6349,7 +6349,7 @@
 		34C68B1C0778F9C200EB423C /* General Preferences */ = {
 			isa = PBXGroup;
 			children = (
-				1154E66C12E12C3600B8CA27 /* General Preferences */,
+				1154E66C12E12C3600B8CA27 /* Log By Account */,
 				3470BF520BC6F13700388232 /* Message History */,
 				83B920F809E70778008D8436 /* Hot Key */,
 				4B2E560406A33D85008866CF /* Chat Cycling */,
