@@ -126,6 +126,8 @@
 		114849BA0F7841C600EA5264 /* AIAuthorizationRequestsWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 114849B80F7841C600EA5264 /* AIAuthorizationRequestsWindowController.m */; };
 		114849BC0F78420300EA5264 /* AIAuthorizationRequestsWindow.nib in Resources */ = {isa = PBXBuildFile; fileRef = 114849BB0F78420300EA5264 /* AIAuthorizationRequestsWindow.nib */; };
 		1150A9960FBE48D600E0BD31 /* ESIRCAccountView.nib in Resources */ = {isa = PBXBuildFile; fileRef = 1150A9950FBE48D600E0BD31 /* ESIRCAccountView.nib */; };
+		1154E66F12E12C5F00B8CA27 /* AILogByAccountWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1154E66E12E12C5F00B8CA27 /* AILogByAccountWindowController.m */; };
+		1154E67912E12CB500B8CA27 /* AILogByAccountWindow.nib in Resources */ = {isa = PBXBuildFile; fileRef = 1154E67812E12CB500B8CA27 /* AILogByAccountWindow.nib */; };
 		1163F0EC0F6C7A8300F12F5D /* AIURLShortenerPlugin.m in Sources */ = {isa = PBXBuildFile; fileRef = 1163F0EB0F6C7A8300F12F5D /* AIURLShortenerPlugin.m */; };
 		1164A90D0F7AD4AB00110AE4 /* AIContentTopic.h in Headers */ = {isa = PBXBuildFile; fileRef = 1164A90B0F7AD4AB00110AE4 /* AIContentTopic.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		1164A9270F7AD70700110AE4 /* AIContentTopic.m in Sources */ = {isa = PBXBuildFile; fileRef = 1164A90C0F7AD4AB00110AE4 /* AIContentTopic.m */; };
@@ -1924,6 +1926,9 @@
 		1150A9AE0FBE491300E0BD31 /* tr */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = tr; path = "Plugins/Purple Service/tr.lproj/ESIRCAccountView.nib"; sourceTree = "<group>"; };
 		1150A9AF0FBE491500E0BD31 /* zh_CN */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = zh_CN; path = "Plugins/Purple Service/zh_CN.lproj/ESIRCAccountView.nib"; sourceTree = "<group>"; };
 		1150A9B00FBE491700E0BD31 /* zh_TW */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = zh_TW; path = "Plugins/Purple Service/zh_TW.lproj/ESIRCAccountView.nib"; sourceTree = "<group>"; };
+		1154E66D12E12C5F00B8CA27 /* AILogByAccountWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AILogByAccountWindowController.h; sourceTree = "<group>"; };
+		1154E66E12E12C5F00B8CA27 /* AILogByAccountWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AILogByAccountWindowController.m; sourceTree = "<group>"; };
+		1154E67812E12CB500B8CA27 /* AILogByAccountWindow.nib */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; path = AILogByAccountWindow.nib; sourceTree = "<group>"; };
 		1156F03D1049E83F002673FC /* AILeopardCompatibility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AILeopardCompatibility.h; path = "Frameworks/AIUtilities Framework/Source/AILeopardCompatibility.h"; sourceTree = "<group>"; };
 		1163F0EA0F6C7A8300F12F5D /* AIURLShortenerPlugin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AIURLShortenerPlugin.h; path = ../../Source/AIURLShortenerPlugin.h; sourceTree = "<group>"; };
 		1163F0EB0F6C7A8300F12F5D /* AIURLShortenerPlugin.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AIURLShortenerPlugin.m; path = ../../Source/AIURLShortenerPlugin.m; sourceTree = "<group>"; };
@@ -5043,6 +5048,17 @@
 			name = Laconica;
 			sourceTree = "<group>";
 		};
+		1154E66C12E12C3600B8CA27 /* General Preferences */ = {
+			isa = PBXGroup;
+			children = (
+				1154E67812E12CB500B8CA27 /* AILogByAccountWindow.nib */,
+				1154E66D12E12C5F00B8CA27 /* AILogByAccountWindowController.h */,
+				1154E66E12E12C5F00B8CA27 /* AILogByAccountWindowController.m */,
+			);
+			name = "General Preferences";
+			path = "Plugins/General Preferences";
+			sourceTree = "<group>";
+		};
 		1172FCA10CDAA8DE00B8E233 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -6333,6 +6349,7 @@
 		34C68B1C0778F9C200EB423C /* General Preferences */ = {
 			isa = PBXGroup;
 			children = (
+				1154E66C12E12C3600B8CA27 /* General Preferences */,
 				3470BF520BC6F13700388232 /* Message History */,
 				83B920F809E70778008D8436 /* Hot Key */,
 				4B2E560406A33D85008866CF /* Chat Cycling */,
@@ -9557,6 +9574,7 @@
 			};
 			buildConfigurationList = DADE8E3A085507450062B664 /* Build configuration list for PBXProject "Adium" */;
 			compatibilityVersion = "Xcode 3.1";
+			developmentRegion = English;
 			hasScannedForEncodings = 1;
 			knownRegions = (
 				en,
@@ -10036,6 +10054,7 @@
 				1130EA9E109B445D00FB3454 /* pref-messagealerts.png in Resources */,
 				11AE5555109CC88C0074BDC2 /* pref-confirmations.png in Resources */,
 				3490615D127F70B100FC313F /* TemporaryIRCAccountWindow.nib in Resources */,
+				1154E67912E12CB500B8CA27 /* AILogByAccountWindow.nib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -10705,6 +10724,7 @@
 				11000D041098863B0096A1E2 /* AIDefaultFontRemovalPlugin.m in Sources */,
 				34906190127F78F200FC313F /* AITemporaryIRCAccountWindowController.m in Sources */,
 				31DDDA7012BDD5CE0048F6C0 /* scandate.m in Sources */,
+				1154E66F12E12C5F00B8CA27 /* AILogByAccountWindowController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
