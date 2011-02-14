@@ -97,7 +97,7 @@ for ARCH in ppc i386; do
 	   --prefix=$TARGET_DIR \
 	   --with-libiconv \
 	   --disable-static --enable-shared \
-	   --host=$HOST >> $LOG_FILE 2>&1
+	   --build=$HOST >> $LOG_FILE 2>&1
 	echo '  make && make install'
 	make -j $NUMBER_OF_CORES >> $LOG_FILE 2>&1 && make install >> $LOG_FILE 2>&1
 	cd ..

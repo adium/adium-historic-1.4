@@ -13,6 +13,12 @@
 #define GLIB_HAVE_ALLOCA_H
 #define GLIB_HAVE_SYS_POLL_H
 
+/* Specifies that GLib's g_print*() functions wrap the
+ * system printf functions.  This is useful to know, for example,
+ * when using glibc's register_printf_function().
+ */
+#define GLIB_USING_SYSTEM_PRINTF
+
 G_BEGIN_DECLS
 
 #define G_MINFLOAT	FLT_MIN
@@ -70,12 +76,19 @@ typedef gint64 goffset;
 #define G_MINOFFSET	G_MININT64
 #define G_MAXOFFSET	G_MAXINT64
 
+#define G_GOFFSET_MODIFIER      G_GINT64_MODIFIER
+#define G_GOFFSET_FORMAT        G_GINT64_FORMAT
+#define G_GOFFSET_CONSTANT(val) G_GINT64_CONSTANT(val)
+
 
 #define GPOINTER_TO_INT(p)	((gint)   (p))
 #define GPOINTER_TO_UINT(p)	((guint)  (p))
 
 #define GINT_TO_POINTER(i)	((gpointer)  (i))
 #define GUINT_TO_POINTER(u)	((gpointer)  (u))
+
+typedef signed int gintptr;
+typedef unsigned int guintptr;
 
 #ifdef NeXT /* @#%@! NeXTStep */
 # define g_ATEXIT(proc)	(!atexit (proc))
@@ -86,10 +99,11 @@ typedef gint64 goffset;
 #define g_memmove(dest,src,len) G_STMT_START { memmove ((dest), (src), (len)); } G_STMT_END
 
 #define GLIB_MAJOR_VERSION 2
-#define GLIB_MINOR_VERSION 16
-#define GLIB_MICRO_VERSION 6
+#define GLIB_MINOR_VERSION 20
+#define GLIB_MICRO_VERSION 5
 
 #define G_OS_UNIX
+
 
 #define G_VA_COPY	va_copy
 
@@ -125,7 +139,9 @@ typedef gint64 goffset;
 #define G_HAVE_GNUC_VARARGS 1
 #define G_HAVE_GROWING_STACK 0
 
-#if defined(__SUNPRO_C) && (__SUNPRO_C >= 0x550)
+#if defined(__SUNPRO_C) && (__SUNPRO_C >= 0x590)
+#define G_GNUC_INTERNAL __attribute__((visibility("hidden")))
+#elif defined(__SUNPRO_C) && (__SUNPRO_C >= 0x550)
 #define G_GNUC_INTERNAL __hidden
 #elif defined (__GNUC__) && defined (G_HAVE_GNUC_VISIBILITY)
 #define G_GNUC_INTERNAL __attribute__((visibility("hidden")))
@@ -148,7 +164,7 @@ struct _GStaticMutex
 };
 #define	G_STATIC_MUTEX_INIT	{ NULL, { { 50,-86,-85,-89,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0} } }
 #define	g_static_mutex_get_mutex(mutex) \
-  (g_thread_use_default_impl ? ((GMutex*) ((mutex)->static_mutex.pad)) : \
+  (g_thread_use_default_impl ? ((GMutex*)(gpointer) ((mutex)->static_mutex.pad)) : \
    g_static_mutex_get_mutex_impl_shortcut (&((mutex)->runtime_mutex)))
 /* This represents a system thread as used by the implementation. An
  * alien implementaion, as loaded by g_thread_init can only count on
@@ -165,18 +181,18 @@ union _GSystemThread
 
 #define G_ATOMIC_OP_MEMORY_BARRIER_NEEDED 1
 
-#define GINT16_TO_BE(val)	((gint16) (val))
-#define GUINT16_TO_BE(val)	((guint16) (val))
-#define GINT16_TO_LE(val)	((gint16) GUINT16_SWAP_LE_BE (val))
-#define GUINT16_TO_LE(val)	(GUINT16_SWAP_LE_BE (val))
-#define GINT32_TO_BE(val)	((gint32) (val))
-#define GUINT32_TO_BE(val)	((guint32) (val))
-#define GINT32_TO_LE(val)	((gint32) GUINT32_SWAP_LE_BE (val))
-#define GUINT32_TO_LE(val)	(GUINT32_SWAP_LE_BE (val))
-#define GINT64_TO_BE(val)	((gint64) (val))
-#define GUINT64_TO_BE(val)	((guint64) (val))
-#define GINT64_TO_LE(val)	((gint64) GUINT64_SWAP_LE_BE (val))
-#define GUINT64_TO_LE(val)	(GUINT64_SWAP_LE_BE (val))
+#define GINT16_TO_LE(val)	((gint16) (val))
+#define GUINT16_TO_LE(val)	((guint16) (val))
+#define GINT16_TO_BE(val)	((gint16) GUINT16_SWAP_LE_BE (val))
+#define GUINT16_TO_BE(val)	(GUINT16_SWAP_LE_BE (val))
+#define GINT32_TO_LE(val)	((gint32) (val))
+#define GUINT32_TO_LE(val)	((guint32) (val))
+#define GINT32_TO_BE(val)	((gint32) GUINT32_SWAP_LE_BE (val))
+#define GUINT32_TO_BE(val)	(GUINT32_SWAP_LE_BE (val))
+#define GINT64_TO_LE(val)	((gint64) (val))
+#define GUINT64_TO_LE(val)	((guint64) (val))
+#define GINT64_TO_BE(val)	((gint64) GUINT64_SWAP_LE_BE (val))
+#define GUINT64_TO_BE(val)	(GUINT64_SWAP_LE_BE (val))
 #define GLONG_TO_LE(val)	((glong) GINT32_TO_LE (val))
 #define GULONG_TO_LE(val)	((gulong) GUINT32_TO_LE (val))
 #define GLONG_TO_BE(val)	((glong) GINT32_TO_BE (val))
@@ -185,7 +201,7 @@ union _GSystemThread
 #define GUINT_TO_LE(val)	((guint) GUINT32_TO_LE (val))
 #define GINT_TO_BE(val)		((gint) GINT32_TO_BE (val))
 #define GUINT_TO_BE(val)	((guint) GUINT32_TO_BE (val))
-#define G_BYTE_ORDER G_BIG_ENDIAN
+#define G_BYTE_ORDER G_LITTLE_ENDIAN
 
 #define GLIB_SYSDEF_POLLIN =1
 #define GLIB_SYSDEF_POLLOUT =4
@@ -196,6 +212,13 @@ union _GSystemThread
 
 #define G_MODULE_SUFFIX "so"
 
+/* A GPid is an abstraction for a process "handle". It is *not* an
+ * abstraction for a process identifier in general. GPid is used in
+ * GLib only for descendant processes spawned with the g_spawn*
+ * functions. On POSIX there is no "process handle" concept as such,
+ * but on Windows a GPid is a handle to a process, a kind of pointer,
+ * not a process identifier.
+ */
 typedef int GPid;
 
 G_END_DECLS
