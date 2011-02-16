@@ -5,8 +5,8 @@ Version 1.4.2 (X/X/201X)
    * 
 
  Logging
-  * Added a "Log only certain accounts" preference to Adium's "General" Preferences. (#8)
-  * Added a "Log secure chats" preferences Adium's "General" Preferences. (#94)
+  * Added a "Log only certain accounts" setting to Adium's "General" preferences. (#8)
+  * Added a "Log secure chats" setting to Adium's "General" preferences. (#94)
   * Renamed "Save opened chats when quitting" setting to "Reopen chats from last time on startup" for clarity. (#14651)
 
  Message View
