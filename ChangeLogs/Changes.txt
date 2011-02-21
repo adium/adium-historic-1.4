@@ -22,7 +22,7 @@ Version 1.4.2 (X/X/201X)
   * Fixed hang caused by reading badly formatted transcripts from ICQ. (#14627)
 
  IRC
-  * Fixed crash caused by wrongly-encoded characters in IRC. (#13351)
+  * Fixed a crash related to Cyrillic nicknames in IRC. (#13351)
 
  XMPP
   * Double confirmation is now required to delete and unregister an XMPP account. (#14357)
