@@ -23,6 +23,7 @@
 #import "AMPurpleTuneTooltip.h"
 #import "AIIRCServicesPasswordPlugin.h"
 #import "AIAnnoyingIRCMessagesHiderPlugin.h"
+#import "AIFacebookXMPPService.h"
 
 @implementation CBPurpleServicePlugin
 
@@ -58,6 +59,7 @@
 	[ESYahooJapanService registerService];	
 	//[ESZephyrService registerService];
 	[ESMeanwhileService registerService];
+    [AIFacebookXMPPService registerService];
 	
 	[SLPurpleCocoaAdapter pluginDidLoad];
 	
