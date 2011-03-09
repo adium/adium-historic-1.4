@@ -183,8 +183,8 @@
 	if (selectedIndex < [recentPictures count]) {
 		id		recentPicture = [recentPictures objectAtIndex:selectedIndex];
 		NSData	*imageData = nil;
-		if ([recentPicture respondsToSelector:@selector(editedImage)])
-			imageData = [[recentPicture editedImage] PNGRepresentation];
+		if ([recentPicture respondsToSelector:@selector(smallIcon)])
+			imageData = [[recentPicture smallIcon] PNGRepresentation];
 		else if ([recentPicture respondsToSelector:@selector(originalImagePath)])
 			imageData = [NSData dataWithContentsOfFile:[recentPicture originalImagePath]];
 

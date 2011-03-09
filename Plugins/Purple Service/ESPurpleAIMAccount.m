@@ -168,7 +168,7 @@
 		(listContact = [self contactWithUID:contactName])) {
 		
 		if (!namesAreCaseSensitive) {
-			[listContact setValue:contactName forProperty:@"FormattedUID" notify:NotifyNow];
+			[listContact setFormattedUID:contactName notify:NotifyNow];
 		}
 		
 		/* Purple incorrectly flags group chat participants as being on a mobile device... we're just going
