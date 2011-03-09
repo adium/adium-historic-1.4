@@ -310,9 +310,7 @@
 
 	//Set our formatted UID if necessary
 	if (![newProposedFormattedUID isEqualToString:self.formattedUID]) {
-		[self setPreference:newProposedFormattedUID
-					 forKey:@"FormattedUID"
-					  group:GROUP_ACCOUNT_STATUS];
+		[self setFormattedUID:newProposedFormattedUID notify:NotifyNow];
 	}
 	
 	if (didChangeUID) {
@@ -471,6 +469,22 @@
 }
 
 /*!
+ * @brief Set the way our UID is displayed to the user
+ *
+ * For accounts, this is stored as a preference in addition to being set as an in-memory property
+ */
+- (void)setFormattedUID:(NSString *)inFormattedUID notify:(NotifyTiming)notify
+{
+	[self setPreference:inFormattedUID
+				 forKey:KEY_FORMATTED_UID
+				  group:GROUP_ACCOUNT_STATUS];
+	
+	[self setValue:inFormattedUID
+	   forProperty:KEY_FORMATTED_UID
+			notify:notify];	
+}
+
+/*!
  * @brief Handle common account status updates
  *
  * We handle some common account status updates here for convenience.  Things that the majority of protocols will use
@@ -518,7 +532,7 @@
 		}
 
 	} else if ([key isEqualToString:@"FormattedUID"]) {
-		//Transfer formatted UID to status dictionary
+		//Transfer formatted UID from the stored preference to an in-memory property
 		[self setValue:[self preferenceForKey:@"FormattedUID" group:GROUP_ACCOUNT_STATUS]
 					   forProperty:@"FormattedUID"
 					   notify:NotifyNow];
