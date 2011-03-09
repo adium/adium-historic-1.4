@@ -1847,7 +1847,7 @@
 		0C27C8640C75A23A002AA363 /* NSStringScriptingAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NSStringScriptingAdditions.m; path = Source/NSStringScriptingAdditions.m; sourceTree = "<group>"; };
 		0C79A2D60C5E633F005AE6FA /* AIMoveCommand.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AIMoveCommand.h; path = Source/AIMoveCommand.h; sourceTree = "<group>"; };
 		0C79A2D70C5E633F005AE6FA /* AIMoveCommand.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AIMoveCommand.m; path = Source/AIMoveCommand.m; sourceTree = "<group>"; };
-		0CAC6A130C0C657A0090AE95 /* Adium.sdef */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = text.sdef; name = Adium.sdef; path = Resources/Adium.sdef; sourceTree = "<group>"; };
+		0CAC6A130C0C657A0090AE95 /* Adium.sdef */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = text.xml; name = Adium.sdef; path = Resources/Adium.sdef; sourceTree = "<group>"; };
 		0CD3C3AA0C43C8CC003E637C /* NSWindowScriptingAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NSWindowScriptingAdditions.h; path = Source/NSWindowScriptingAdditions.h; sourceTree = "<group>"; };
 		0CD3C3AB0C43C8CC003E637C /* NSWindowScriptingAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NSWindowScriptingAdditions.m; path = Source/NSWindowScriptingAdditions.m; sourceTree = "<group>"; };
 		0CD41C6E0C2776540082F83B /* AICreateCommand.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AICreateCommand.h; path = Source/AICreateCommand.h; sourceTree = "<group>"; };
@@ -3137,10 +3137,10 @@
 		346C9C1E0E70E1F8002314EE /* hu */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = hu; path = Resources/hu.lproj/StatusPreferences.nib; sourceTree = "<group>"; };
 		346C9C1F0E70E1F8002314EE /* hu */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = hu; path = Resources/hu.lproj/StatusSortConfiguration.nib; sourceTree = "<group>"; };
 		346C9C200E70E1F8002314EE /* hu */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = hu; path = "Plugins/WebKit Message View/hu.lproj/WebKitPreferencesView.nib"; sourceTree = "<group>"; };
-		346CE8051294B53F00439BF2 /* fbapi.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = fbapi.c; sourceTree = "<group>"; };
-		346CE8061294B53F00439BF2 /* fbapi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = fbapi.h; sourceTree = "<group>"; };
-		346CE8091294B59900439BF2 /* auth_fb.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = auth_fb.c; sourceTree = "<group>"; };
-		346CE80D1294B5B000439BF2 /* auth_fb.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = auth_fb.h; sourceTree = "<group>"; };
+		346CE8051294B53F00439BF2 /* fbapi.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = fbapi.c; path = "Plugins/Purple Service/libpurple_extensions/fbapi.c"; sourceTree = "<group>"; };
+		346CE8061294B53F00439BF2 /* fbapi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = fbapi.h; path = "Plugins/Purple Service/libpurple_extensions/fbapi.h"; sourceTree = "<group>"; };
+		346CE8091294B59900439BF2 /* auth_fb.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = auth_fb.c; path = "Plugins/Purple Service/libpurple_extensions/auth_fb.c"; sourceTree = "<group>"; };
+		346CE80D1294B5B000439BF2 /* auth_fb.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = auth_fb.h; path = "Plugins/Purple Service/libpurple_extensions/auth_fb.h"; sourceTree = "<group>"; };
 		346CFDC4087B7836009711C8 /* AdiumIdleManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AdiumIdleManager.h; path = Source/AdiumIdleManager.h; sourceTree = "<group>"; };
 		346CFDC5087B7836009711C8 /* AdiumIdleManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AdiumIdleManager.m; path = Source/AdiumIdleManager.m; sourceTree = "<group>"; };
 		346F5CB308A418FB0055C610 /* CurrentTunes.scpt */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.scpt; name = CurrentTunes.scpt; path = Resources/CurrentTunes.scpt; sourceTree = "<group>"; };
@@ -5184,10 +5184,6 @@
 		11EE1B480CDCFAF40097F246 /* libpurple_extensions */ = {
 			isa = PBXGroup;
 			children = (
-				346CE8091294B59900439BF2 /* auth_fb.c */,
-				346CE80D1294B5B000439BF2 /* auth_fb.h */,
-				346CE8051294B53F00439BF2 /* fbapi.c */,
-				346CE8061294B53F00439BF2 /* fbapi.h */,
 				11EE1B490CDCFAF40097F246 /* oscar-adium.c */,
 				11EE1B4A0CDCFAF40097F246 /* oscar-adium.h */,
 				811033500CDE170B00EC6038 /* ssl-cdsa.m */,
@@ -8770,6 +8766,10 @@
 		EFA39B5C1294F9FB00B36EBB /* FB XMPP */ = {
 			isa = PBXGroup;
 			children = (
+				346CE8091294B59900439BF2 /* auth_fb.c */,
+				346CE80D1294B5B000439BF2 /* auth_fb.h */,
+				346CE8051294B53F00439BF2 /* fbapi.c */,
+				346CE8061294B53F00439BF2 /* fbapi.h */,
 				5A5B62A2130714120039B155 /* f_logo_small.png */,
 				5A5B62A0130712520039B155 /* f_logo.png */,
 				EFA39C031296658B00B36EBB /* AIFacebookXMPPAccount.h */,
@@ -9665,7 +9665,7 @@
 		29B97313FDCFA39411CA2CEA /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				BuildIndependentTargetsInParallel = NO;
+				BuildIndependentTargetsInParallel = YES;
 			};
 			buildConfigurationList = DADE8E3A085507450062B664 /* Build configuration list for PBXProject "Adium" */;
 			compatibilityVersion = "Xcode 3.1";
@@ -12987,7 +12987,9 @@
 			buildSettings = {
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				GCC_WARN_ABOUT_MISSING_FIELD_INITIALIZERS = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.5;
 				RUN_CLANG_STATIC_ANALYZER = NO;
+				SDKROOT = macosx10.5;
 			};
 			name = Debug;
 		};
@@ -12998,6 +13000,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				MACOSX_DEPLOYMENT_TARGET = 10.5;
+				SDKROOT = macosx10.5;
 			};
 			name = Release;
 		};
@@ -13008,6 +13011,8 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				GCC_WARN_ABOUT_MISSING_FIELD_INITIALIZERS = YES;
 				IBC_STRIP_NIBS = NO;
+				MACOSX_DEPLOYMENT_TARGET = 10.5;
+				SDKROOT = macosx10.5;
 			};
 			name = "Release-Debug";
 		};
