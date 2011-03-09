@@ -13,3 +13,12 @@
  */
 - (void)loadLibpurplePlugin;
 @end
+
+/*!
+ * @brief Notification that libpurple did initialize.
+ *
+ * Posted on NSNotificationCenter's defaultCenter.
+ *
+ * All plugins which are going to be loaded will be loaded before this is posted.
+ */
+#define AILibpurpleDidInitialize @"AILibpurpleDidInitialize"

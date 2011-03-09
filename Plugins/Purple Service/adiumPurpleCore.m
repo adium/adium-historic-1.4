@@ -37,12 +37,6 @@
 #import <AIUtilities/AIFileManagerAdditions.h>
 #import <Adium/AIAccountControllerProtocol.h>
 
-
-#warning This include and the jabber_auth_add_mech() will be part of the FacebookXMPP account's initialization
-#import "auth.h"
-#import "auth_fb.h"
-
-
 #pragma mark Debug
 // Debug ------------------------------------------------------------------------------------------------------
 static void adiumPurpleDebugPrint(PurpleDebugLevel level, const char *category, const char *debug_msg)
@@ -237,7 +231,8 @@ static void adiumPurpleCoreUiInit(void)
 	
 	load_external_plugins();
 	
-	jabber_auth_add_mech(jabber_auth_get_fb_mech());
+	[[NSNotificationCenter defaultCenter] postNotificationName:AILibpurpleDidInitialize
+														object:nil];
 }
 
 static void adiumPurpleCoreQuit(void)
