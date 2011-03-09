@@ -78,7 +78,7 @@ for ARCH in ppc i386; do
 	
 	export PKG_CONFIG="$LOCAL_BIN_DIR/pkg-config"
 	export MSGFMT="$LOCAL_BIN_DIR/msgfmt"
-	
+
 	#Defining USE_LIBICONV_GNU here is a hack to avoid what *appears* to be a mistaken #error in gconvert.c
 	export CFLAGS="$LOCAL_FLAGS $BASE_CFLAGS -arch $ARCH -DUSE_LIBICONV_GNU"
 	export CPPFLAGS="$CFLAGS"
@@ -97,7 +97,7 @@ for ARCH in ppc i386; do
 	   --prefix=$TARGET_DIR \
 	   --with-libiconv \
 	   --disable-static --enable-shared \
-	   --build=$HOST >> $LOG_FILE 2>&1
+	   --host=$HOST >> $LOG_FILE 2>&1
 	echo '  make && make install'
 	make -j $NUMBER_OF_CORES >> $LOG_FILE 2>&1 && make install >> $LOG_FILE 2>&1
 	cd ..
