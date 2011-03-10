@@ -34,9 +34,10 @@ Version 1.4.2 (X/X/201X)
   * Fixed 1.4.1 regression of arrows not showing up in the Events tables of the Preference pane and the Get Info pane for active events. (#14629)
   * Fixed a hang that occurred when required parts of loaded message styles were missing. (#7438)
   * Fixed bookmark icons not updating when changing icon sets. (#13221)
+  * Fixed two memory leaks. (Adrian Godoroja) (#15047)
   * Fixed "Remove Link" showing up twice in the input box's context menu on 10.6. (Shawn Khan) (#14454)
   * Fixed 1.4 regression where selection of the active voice in the "Speak Event" and "Speak Text" contact alert actions failed. (#14574)
-  * Fixed positioning of selected icon in Recent Icons not being reapplied when icon is reselected. (#9908)
+  * Fixed positioning of selected icon in Recent Icons not being reapplied when icon is reselected. (Adrian Godoroja) (#9908)
 
  Localisation
   * Updated the Localizable.strings files, adding missing translatable strings/nibs. (#14588)
