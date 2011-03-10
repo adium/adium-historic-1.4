@@ -568,7 +568,7 @@
 						<object class="NSButtonCell" key="NSCell" id="944514373">
 							<int key="NSCellFlags">67239424</int>
 							<int key="NSCellFlags2">0</int>
-							<string key="NSContents">Status, wenn Bildschirmschoner aktiv:</string>
+							<string key="NSContents">Status wenn Bildschirmschoner aktiv:</string>
 							<reference key="NSSupport" ref="630899740"/>
 							<reference key="NSControlView" ref="977259032"/>
 							<int key="NSButtonFlags">1211912703</int>

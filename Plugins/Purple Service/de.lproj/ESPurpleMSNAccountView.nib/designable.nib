@@ -210,7 +210,7 @@
 						<object class="NSButtonCell" key="NSCell" id="104327137">
 							<int key="NSCellFlags">67239424</int>
 							<int key="NSCellFlags2">0</int>
-							<string key="NSContents">Via HTTP verbinden</string>
+							<string key="NSContents">Mittels HTTP verbinden</string>
 							<reference key="NSSupport" ref="465139"/>
 							<reference key="NSControlView" ref="492738745"/>
 							<int key="NSButtonFlags">1211912703</int>

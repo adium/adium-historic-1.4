@@ -234,7 +234,7 @@
 						<object class="NSTextFieldCell" key="NSCell" id="812021562">
 							<int key="NSCellFlags">67239424</int>
 							<int key="NSCellFlags2">71303168</int>
-							<string key="NSContents">Fensteranordnung</string>
+							<string key="NSContents">Fensteranordnung:</string>
 							<reference key="NSSupport" ref="26"/>
 							<reference key="NSControlView" ref="911559386"/>
 							<reference key="NSBackgroundColor" ref="662361071"/>
@@ -485,7 +485,7 @@
 											<object class="NSButtonCell" key="NSCell" id="174721704">
 												<int key="NSCellFlags">67239424</int>
 												<int key="NSCellFlags2">67239936</int>
-												<string key="NSContents">Eigenes Format anzeigen:</string>
+												<string key="NSContents">Eigenes Namensformat verwenden:</string>
 												<reference key="NSSupport" ref="26"/>
 												<reference key="NSControlView" ref="809714338"/>
 												<int key="NSButtonFlags">1211912703</int>
@@ -591,7 +591,7 @@
 									</array>
 									<string key="NSFrame">{{10, 33}, {334, 107}}</string>
 								</object>
-								<string key="NSLabel">Gruppen-Chat</string>
+								<string key="NSLabel">Gruppenchat</string>
 								<reference key="NSColor" ref="662361071"/>
 								<reference key="NSTabView" ref="9625290"/>
 							</object>
