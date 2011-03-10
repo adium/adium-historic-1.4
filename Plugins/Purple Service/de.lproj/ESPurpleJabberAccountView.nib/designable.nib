@@ -251,13 +251,13 @@
 					<object class="NSButton" id="767871570">
 						<reference key="NSNextResponder" ref="881248978"/>
 						<int key="NSvFlags">264</int>
-						<string key="NSFrame">{{180, 159}, {244, 18}}</string>
+						<string key="NSFrame">{{180, 159}, {317, 18}}</string>
 						<reference key="NSSuperview" ref="881248978"/>
 						<bool key="NSEnabled">YES</bool>
 						<object class="NSButtonCell" key="NSCell" id="355466928">
 							<int key="NSCellFlags">67239424</int>
 							<int key="NSCellFlags2">0</int>
-							<string key="NSContents">Nach neuen E-Mails suchen</string>
+							<string key="NSContents">Benachrichtigungen für neue E-Mails</string>
 							<reference key="NSSupport" ref="745543233"/>
 							<reference key="NSControlView" ref="767871570"/>
 							<int key="NSButtonFlags">1211912703</int>
@@ -362,7 +362,7 @@
 						<object class="NSTextFieldCell" key="NSCell" id="275398507">
 							<int key="NSCellFlags">67239424</int>
 							<int key="NSCellFlags2">71303168</int>
-							<string key="NSContents">Proxy für Datentransfer:</string>
+							<string key="NSContents">Proxy für Dateiübertragung:</string>
 							<reference key="NSSupport" ref="745543233"/>
 							<reference key="NSControlView" ref="1071692987"/>
 							<reference key="NSBackgroundColor" ref="701108434"/>
@@ -3400,7 +3400,7 @@
 					<bool key="EncodedWithXMLCoder">YES</bool>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<boolean value="YES"/>
-					<string>{{554, 153}, {422, 363}}</string>
+					<string>{{238, 153}, {422, 363}}</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<boolean value="YES"/>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>

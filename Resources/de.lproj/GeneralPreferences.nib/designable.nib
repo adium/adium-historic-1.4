@@ -21,6 +21,7 @@
 		</object>
 		<object class="NSMutableArray" key="IBDocument.EditedObjectIDs">
 			<bool key="EncodedWithXMLCoder">YES</bool>
+			<integer value="5"/>
 		</object>
 		<object class="NSArray" key="IBDocument.PluginDependencies">
 			<bool key="EncodedWithXMLCoder">YES</bool>
@@ -43,7 +44,7 @@
 				<string key="NSClassName">NSApplication</string>
 			</object>
 			<object class="NSCustomView" id="974184333">
-				<nil key="NSNextResponder"/>
+				<reference key="NSNextResponder"/>
 				<int key="NSvFlags">258</int>
 				<object class="NSMutableArray" key="NSSubviews">
 					<bool key="EncodedWithXMLCoder">YES</bool>
@@ -86,13 +87,13 @@
 					<object class="NSButton" id="866289369">
 						<reference key="NSNextResponder" ref="974184333"/>
 						<int key="NSvFlags">256</int>
-						<string key="NSFrame">{{178, 421}, {186, 18}}</string>
+						<string key="NSFrame">{{178, 421}, {201, 18}}</string>
 						<reference key="NSSuperview" ref="974184333"/>
 						<bool key="NSEnabled">YES</bool>
 						<object class="NSButtonCell" key="NSCell" id="64001217">
 							<int key="NSCellFlags">67239424</int>
 							<int key="NSCellFlags2">0</int>
-							<string key="NSContents">Unterhaltungen speichern</string>
+							<string key="NSContents">Unterhaltungen aufzeichnen</string>
 							<reference key="NSSupport" ref="679211629"/>
 							<reference key="NSControlView" ref="866289369"/>
 							<int key="NSButtonFlags">1211912703</int>
@@ -308,7 +309,7 @@
 						<object class="NSTextFieldCell" key="NSCell" id="169795752">
 							<int key="NSCellFlags">67239424</int>
 							<int key="NSCellFlags2">138412032</int>
-							<string key="NSContents">Sobald dieses Tastenkürzel gedrückt wurde, erscheint Adium im Vordergrund</string>
+							<string key="NSContents">Sobald dieses Tastenkürzel gedrückt wurde, wird Adium in den Vordergrund gesetzt</string>
 							<object class="NSFont" key="NSSupport">
 								<string key="NSName">LucidaGrande</string>
 								<double key="NSSize">11</double>
@@ -321,8 +322,8 @@
 					</object>
 					<object class="SRRecorderControl" id="863737933">
 						<reference key="NSNextResponder" ref="974184333"/>
-						<int key="NSvFlags">256</int>
-						<string key="NSFrame">{{180, 40}, {277, 22}}</string>
+						<int key="NSvFlags">258</int>
+						<string key="NSFrame">{{180, 40}, {223, 22}}</string>
 						<reference key="NSSuperview" ref="974184333"/>
 						<bool key="NSEnabled">YES</bool>
 						<object class="SRRecorderCell" key="NSCell" id="30851531">
@@ -369,7 +370,7 @@
 						<object class="NSButtonCell" key="NSCell" id="468254486">
 							<int key="NSCellFlags">67239424</int>
 							<int key="NSCellFlags2">0</int>
-							<string key="NSContents">Sichere Unterhaltungen aufzeichnen</string>
+							<string key="NSContents">Auch sichere Unterhaltungen</string>
 							<reference key="NSSupport" ref="679211629"/>
 							<reference key="NSControlView" ref="680415872"/>
 							<int key="NSButtonFlags">1211912703</int>
@@ -473,7 +474,7 @@
 					<object class="NSPopUpButton" id="838555988">
 						<reference key="NSNextResponder" ref="974184333"/>
 						<int key="NSvFlags">256</int>
-						<string key="NSFrame">{{294, 267}, {168, 26}}</string>
+						<string key="NSFrame">{{315, 267}, {147, 26}}</string>
 						<reference key="NSSuperview" ref="974184333"/>
 						<bool key="NSEnabled">YES</bool>
 						<object class="NSPopUpButtonCell" key="NSCell" id="156626493">
@@ -557,7 +558,7 @@
 					<object class="NSTextField" id="209177718">
 						<reference key="NSNextResponder" ref="974184333"/>
 						<int key="NSvFlags">256</int>
-						<string key="NSFrame">{{196, 274}, {96, 17}}</string>
+						<string key="NSFrame">{{196, 274}, {117, 17}}</string>
 						<reference key="NSSuperview" ref="974184333"/>
 						<bool key="NSEnabled">YES</bool>
 						<object class="NSTextFieldCell" key="NSCell" id="1046230780">
@@ -639,7 +640,7 @@
 						<object class="NSButtonCell" key="NSCell" id="839973176">
 							<int key="NSCellFlags">67239424</int>
 							<int key="NSCellFlags2">0</int>
-							<string key="NSContents">Auf Beta-Versionen aktualisieren, falls möglich</string>
+							<string key="NSContents">Auf Beta-Versionen aktualisieren falls möglich</string>
 							<reference key="NSSupport" ref="679211629"/>
 							<reference key="NSControlView" ref="876436028"/>
 							<int key="NSButtonFlags">1211912703</int>
@@ -739,6 +740,7 @@
 					</object>
 				</object>
 				<string key="NSFrameSize">{541, 459}</string>
+				<reference key="NSSuperview"/>
 				<string key="NSClassName">NSView</string>
 				<string key="NSExtension">NSResponder</string>
 			</object>

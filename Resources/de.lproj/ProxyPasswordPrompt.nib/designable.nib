@@ -33,7 +33,7 @@
 				<int key="NSWindowBacking">2</int>
 				<string key="NSWindowRect">{{218, 434}, {436, 196}}</string>
 				<int key="NSWTFlags">1886912512</int>
-				<string key="NSWindowTitle">Proxy Zugriff</string>
+				<string key="NSWindowTitle">Proxy-Zugriff</string>
 				<string key="NSWindowClass">NSWindow</string>
 				<object class="NSMutableString" key="NSViewClass">
 					<characters key="NS.bytes">View</characters>
