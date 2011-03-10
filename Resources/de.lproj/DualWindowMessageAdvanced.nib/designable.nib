@@ -2,13 +2,13 @@
 <archive type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="8.00">
 	<data>
 		<int key="IBDocument.SystemTarget">1050</int>
-		<string key="IBDocument.SystemVersion">10F569</string>
-		<string key="IBDocument.InterfaceBuilderVersion">804</string>
-		<string key="IBDocument.AppKitVersion">1038.29</string>
-		<string key="IBDocument.HIToolboxVersion">461.00</string>
+		<string key="IBDocument.SystemVersion">10J567</string>
+		<string key="IBDocument.InterfaceBuilderVersion">823</string>
+		<string key="IBDocument.AppKitVersion">1038.35</string>
+		<string key="IBDocument.HIToolboxVersion">462.00</string>
 		<object class="NSMutableDictionary" key="IBDocument.PluginVersions">
 			<string key="NS.key.0">com.apple.InterfaceBuilder.CocoaPlugin</string>
-			<string key="NS.object.0">804</string>
+			<string key="NS.object.0">823</string>
 		</object>
 		<array class="NSMutableArray" key="IBDocument.EditedObjectIDs"/>
 		<array key="IBDocument.PluginDependencies">
@@ -41,7 +41,7 @@
 						<object class="NSButtonCell" key="NSCell" id="148012616">
 							<int key="NSCellFlags">67239424</int>
 							<int key="NSCellFlags2">131072</int>
-							<string key="NSContents">Tableiste immer anzeigen</string>
+							<string key="NSContents">Reiterleiste immer anzeigen</string>
 							<object class="NSFont" key="NSSupport" id="26">
 								<string key="NSName">LucidaGrande</string>
 								<double key="NSSize">11</double>
@@ -106,7 +106,7 @@
 						<object class="NSTextFieldCell" key="NSCell" id="450567129">
 							<int key="NSCellFlags">67239424</int>
 							<int key="NSCellFlags2">4194304</int>
-							<string key="NSContents">Tabs</string>
+							<string key="NSContents">Reiter</string>
 							<object class="NSFont" key="NSSupport" id="27">
 								<string key="NSName">LucidaGrande-Bold</string>
 								<double key="NSSize">11</double>
@@ -119,7 +119,7 @@
 								<string key="NSColorName">controlColor</string>
 								<object class="NSColor" key="NSColor">
 									<int key="NSColorSpace">3</int>
-									<bytes key="NSWhite">MC42NjY2NjY2ODY1AA</bytes>
+									<bytes key="NSWhite">MC42NjY2NjY2NjY3AA</bytes>
 								</object>
 							</object>
 							<object class="NSColor" key="NSTextColor" id="362003623">
@@ -250,7 +250,7 @@
 						<object class="NSButtonCell" key="NSCell" id="129012332">
 							<int key="NSCellFlags">67239424</int>
 							<int key="NSCellFlags2">131072</int>
-							<string key="NSContents">Fenster ausblenden wenn Adium im Hintergrund ist</string>
+							<string key="NSContents">Fenster ausblenden, wenn Adium im Hintergrund ist</string>
 							<reference key="NSSupport" ref="26"/>
 							<reference key="NSControlView" ref="1018032570"/>
 							<int key="NSButtonFlags">1211912703</int>
@@ -272,7 +272,7 @@
 						<object class="NSButtonCell" key="NSCell" id="137708460">
 							<int key="NSCellFlags">67239424</int>
 							<int key="NSCellFlags2">131072</int>
-							<string key="NSContents">Chat öffnen sobald der Kontakt zu tippen beginnt</string>
+							<string key="NSContents">Unterhaltung öffnen sobald der Kontakt zu tippen beginnt</string>
 							<reference key="NSSupport" ref="26"/>
 							<reference key="NSControlView" ref="762599055"/>
 							<int key="NSButtonFlags">1211912703</int>
@@ -539,7 +539,7 @@
 											<object class="NSButtonCell" key="NSCell" id="94121549">
 												<int key="NSCellFlags">67239424</int>
 												<int key="NSCellFlags2">131072</int>
-												<string key="NSContents">Anzahl ungelesener Nachrichten im Tab anzeigen </string>
+												<string key="NSContents">Anzahl ungelesener Nachrichten im Reiter anzeigen </string>
 												<reference key="NSSupport" ref="26"/>
 												<reference key="NSControlView" ref="261775366"/>
 												<int key="NSButtonFlags">1211912703</int>
