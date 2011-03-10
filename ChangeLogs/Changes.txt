@@ -40,7 +40,8 @@ Version 1.4.2 (X/X/201X)
 
  Localisation
   * Updated the Localizable.strings files, adding missing translatable strings/nibs. (#14588)
-  * Updated Dutch localisation.
+  * Updated and improved German localisation.
+  * Updated and improved Dutch localisation.
   * Updated Swedish localisation. (#14993)
   * Fixed an issue in the Czech localisation. (#14586)
 
