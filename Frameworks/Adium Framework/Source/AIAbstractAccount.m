@@ -47,10 +47,6 @@
 
 #define ACCOUNT_STATUS_UPDATE_COALESCING_KEY	@"Account Status Update"
 
-@interface AIAccount (Abstract_PRIVATE)
-- (void)passwordReturnedForConnect:(NSString *)inPassword returnCode:(AIPasswordPromptReturn)returnCode context:(id)inContext;
-@end
-
 /*!
  * @class AIAbstractAccount
  * @brief Abstract AIAccount methods
