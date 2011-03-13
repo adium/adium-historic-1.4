@@ -31,9 +31,9 @@ Version 1.4.2 (X/X/2011)
 
  IRC
   * Fixed a crash related to Cyrillic nicknames in IRC. (#13351)
-  
-MSN
- * Added a preference to enable/disable MSN Direct Connections. (#14602)
+
+ MSN
+  * Added a preference to enable/disable MSN Direct Connections. (#14602)
 
  XMPP
   * Double confirmation is now required to delete and unregister an XMPP account. (#14357)
