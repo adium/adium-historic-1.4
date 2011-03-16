@@ -2,17 +2,15 @@
 <archive type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="8.00">
 	<data>
 		<int key="IBDocument.SystemTarget">1060</int>
-		<string key="IBDocument.SystemVersion">10B504</string>
-		<string key="IBDocument.InterfaceBuilderVersion">732</string>
-		<string key="IBDocument.AppKitVersion">1038.22</string>
-		<string key="IBDocument.HIToolboxVersion">457.00</string>
+		<string key="IBDocument.SystemVersion">10J567</string>
+		<string key="IBDocument.InterfaceBuilderVersion">762</string>
+		<string key="IBDocument.AppKitVersion">1038.35</string>
+		<string key="IBDocument.HIToolboxVersion">462.00</string>
 		<object class="NSMutableDictionary" key="IBDocument.PluginVersions">
 			<string key="NS.key.0">com.apple.InterfaceBuilder.CocoaPlugin</string>
-			<string key="NS.object.0">732</string>
+			<string key="NS.object.0">762</string>
 		</object>
-		<array class="NSMutableArray" key="IBDocument.EditedObjectIDs">
-			<integer value="5"/>
-		</array>
+		<array class="NSMutableArray" key="IBDocument.EditedObjectIDs"/>
 		<array key="IBDocument.PluginDependencies">
 			<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 		</array>
@@ -28,7 +26,7 @@
 				<string key="NSClassName">NSApplication</string>
 			</object>
 			<object class="NSCustomView" id="1000975314">
-				<reference key="NSNextResponder"/>
+				<nil key="NSNextResponder"/>
 				<int key="NSvFlags">256</int>
 				<array class="NSMutableArray" key="NSSubviews">
 					<object class="NSTextField" id="357977513">
@@ -40,7 +38,7 @@
 						<object class="NSTextFieldCell" key="NSCell" id="843918053">
 							<int key="NSCellFlags">67239424</int>
 							<int key="NSCellFlags2">71303168</int>
-							<string key="NSContents">Voorzieningen:</string>
+							<string key="NSContents">Voorziening-iconen:</string>
 							<object class="NSFont" key="NSSupport" id="360112181">
 								<string key="NSName">LucidaGrande</string>
 								<double key="NSSize">13</double>
@@ -53,7 +51,7 @@
 								<string key="NSColorName">controlColor</string>
 								<object class="NSColor" key="NSColor">
 									<int key="NSColorSpace">3</int>
-									<bytes key="NSWhite">MC42NjY2NjY2ODY1AA</bytes>
+									<bytes key="NSWhite">MC42NjY2NjY2NjY3AA</bytes>
 								</object>
 							</object>
 							<object class="NSColor" key="NSTextColor" id="87731005">
@@ -129,7 +127,7 @@
 						<object class="NSTextFieldCell" key="NSCell" id="664813186">
 							<int key="NSCellFlags">67239424</int>
 							<int key="NSCellFlags2">71303168</int>
-							<string key="NSContents">Status informatie:</string>
+							<string key="NSContents">Status-iconen:</string>
 							<reference key="NSSupport" ref="360112181"/>
 							<reference key="NSControlView" ref="170547383"/>
 							<reference key="NSBackgroundColor" ref="729258560"/>
@@ -239,7 +237,7 @@
 						<object class="NSTextFieldCell" key="NSCell" id="71089469">
 							<int key="NSCellFlags">67239424</int>
 							<int key="NSCellFlags2">71303168</int>
-							<string key="NSContents">Afbeelding in dock:</string>
+							<string key="NSContents">Dock-icoon:</string>
 							<reference key="NSSupport" ref="360112181"/>
 							<reference key="NSControlView" ref="166628194"/>
 							<reference key="NSBackgroundColor" ref="729258560"/>
@@ -397,7 +395,7 @@
 						<object class="NSButtonCell" key="NSCell" id="1003733858">
 							<int key="NSCellFlags">67239424</int>
 							<int key="NSCellFlags2">0</int>
-							<string key="NSContents">maak hoogte passend</string>
+							<string key="NSContents">Maak hoogte passend</string>
 							<reference key="NSSupport" ref="360112181"/>
 							<reference key="NSControlView" ref="204402045"/>
 							<int key="NSButtonFlags">1211912703</int>
@@ -424,7 +422,7 @@
 						<object class="NSButtonCell" key="NSCell" id="100667938">
 							<int key="NSCellFlags">67239424</int>
 							<int key="NSCellFlags2">0</int>
-							<string key="NSContents">maak breedte passend</string>
+							<string key="NSContents">Maak breedte passend</string>
 							<reference key="NSSupport" ref="360112181"/>
 							<reference key="NSControlView" ref="210146051"/>
 							<int key="NSButtonFlags">1211912703</int>
@@ -628,7 +626,7 @@
 						<object class="NSTextFieldCell" key="NSCell" id="502622134">
 							<int key="NSCellFlags">67239424</int>
 							<int key="NSCellFlags2">71303168</int>
-							<string key="NSContents">Emoticon pakket:</string>
+							<string key="NSContents">Emoticon-pakket:</string>
 							<reference key="NSSupport" ref="360112181"/>
 							<reference key="NSControlView" ref="410316359"/>
 							<reference key="NSBackgroundColor" ref="729258560"/>
@@ -834,7 +832,7 @@
 						<object class="NSTextFieldCell" key="NSCell" id="228433245">
 							<int key="NSCellFlags">67239424</int>
 							<int key="NSCellFlags2">71303168</int>
-							<string key="NSContents">Afbeelding in menubalk:</string>
+							<string key="NSContents">Menubalk-icoon:</string>
 							<reference key="NSSupport" ref="360112181"/>
 							<reference key="NSControlView" ref="792534199"/>
 							<reference key="NSBackgroundColor" ref="729258560"/>
@@ -890,7 +888,6 @@
 					</object>
 				</array>
 				<string key="NSFrameSize">{654, 400}</string>
-				<reference key="NSSuperview"/>
 				<string key="NSClassName">NSView</string>
 				<string key="NSExtension">NSResponder</string>
 			</object>
@@ -2038,6 +2035,7 @@
 			</array>
 		</object>
 		<int key="IBDocument.localizationMode">0</int>
+		<string key="IBDocument.TargetRuntimeIdentifier">IBCocoaFramework</string>
 		<object class="NSMutableDictionary" key="IBDocument.PluginDeclaredDependencies">
 			<string key="NS.key.0">com.apple.InterfaceBuilder.CocoaPlugin.macosx</string>
 			<integer value="1060" key="NS.object.0"/>
@@ -2045,5 +2043,10 @@
 		<bool key="IBDocument.PluginDeclaredDependenciesTrackSystemTargetVersion">YES</bool>
 		<nil key="IBDocument.LastKnownRelativeProjectPath"/>
 		<int key="IBDocument.defaultPropertyAccessControl">3</int>
+		<dictionary class="NSMutableDictionary" key="IBDocument.LastKnownImageSizes">
+			<string key="NSMenuCheckmark">{9, 8}</string>
+			<string key="NSMenuMixedState">{7, 2}</string>
+			<string key="NSSwitch">{15, 15}</string>
+		</dictionary>
 	</data>
 </archive>

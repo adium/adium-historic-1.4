@@ -95,6 +95,9 @@ found in the build subdirectories; look for config.log files.
 You will not need to run this part of the build process again unless the
 dependencies above (including general dependencies) are updated.
 
+libintl requires XML::Parser be installed in order to build. You can install it via CPAN if necessary with:
+
+$ sudo cpan install XML::Parser
 
 === LIBPURPLE ===
 
