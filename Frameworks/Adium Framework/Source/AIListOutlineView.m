@@ -88,6 +88,11 @@
 	
 	[backgroundImage release];
 	[backgroundColor release];
+	[_backgroundColorWithOpacity release];
+	[highlightColor release];
+	[rowColor release];
+	[_rowColorWithOpacity release];
+
 	[self unregisterDraggedTypes];
 	[[NSNotificationCenter defaultCenter] removeObserver:self];
 	

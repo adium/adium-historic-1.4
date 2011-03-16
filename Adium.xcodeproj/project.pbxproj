@@ -3693,7 +3693,6 @@
 		34D000C50957918000DCB678 /* ContactListRecentImages.nib */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = ContactListRecentImages.nib; path = Resources/ContactListRecentImages.nib; sourceTree = "<group>"; };
 		34D001E50958868000DCB678 /* AIMenuItemView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AIMenuItemView.h; path = Source/AIMenuItemView.h; sourceTree = "<group>"; };
 		34D001E60958868000DCB678 /* AIMenuItemView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AIMenuItemView.m; path = Source/AIMenuItemView.m; sourceTree = "<group>"; };
-		34D007B0095964EF00DCB678 /* NSIPRecentPicture.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NSIPRecentPicture.h; path = Source/NSIPRecentPicture.h; sourceTree = "<group>"; };
 		34D007D9095966E200DCB678 /* AIContactListRecentImagesWindowController.m */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.objc; name = AIContactListRecentImagesWindowController.m; path = Source/AIContactListRecentImagesWindowController.m; sourceTree = "<group>"; };
 		34D007DA095966E200DCB678 /* AIContactListRecentImagesWindowController.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = AIContactListRecentImagesWindowController.h; path = Source/AIContactListRecentImagesWindowController.h; sourceTree = "<group>"; };
 		34D0F9C80954E70100DCB678 /* AIContactListImagePicker.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = AIContactListImagePicker.h; path = Source/AIContactListImagePicker.h; sourceTree = "<group>"; };
@@ -5803,7 +5802,6 @@
 		34607EF209B22933000DB3D2 /* User Icon Changing */ = {
 			isa = PBXGroup;
 			children = (
-				34D007B0095964EF00DCB678 /* NSIPRecentPicture.h */,
 				3489506A0CDE0CC5002FEB4D /* IKRecentPicture.h */,
 				34D0F9C80954E70100DCB678 /* AIContactListImagePicker.h */,
 				34D0F9C90954E70100DCB678 /* AIContactListImagePicker.m */,
