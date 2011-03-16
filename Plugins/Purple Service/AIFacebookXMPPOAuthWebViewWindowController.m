@@ -103,33 +103,9 @@
 		NSDictionary *urlParamDict = [self parseURLParams:[[mutableRequest URL] fragment]];
 		
 		NSString *token = [urlParamDict objectForKey:@"access_token"];
-		NSAssert(token && ![token isEqualToString:@""], @"got bad token!");
-		
-		NSString *urlstring = [NSString stringWithFormat:@"https://graph.facebook.com/me?access_token=%@", token];
-		NSURL *url = [NSURL URLWithString:[urlstring stringByAddingPercentEscapesUsingEncoding: NSUTF8StringEncoding]];
-		NSURLRequest *request = [NSURLRequest requestWithURL:url];
-		NSURLResponse *response;
-		NSError *error;
-		
-		NSData *conn = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
-		NSDictionary *resp = [conn objectFromJSONDataWithParseOptions:JKParseOptionNone error:&error];
-		NSString *uuid = [resp objectForKey:@"id"];
-		NSString *name = [resp objectForKey:@"name"];
-		
-		NSString *sessionKey = [[token componentsSeparatedByString:@"|"] objectAtIndex:1];
-		
-		NSString *secretURLString = [NSString stringWithFormat:@"https://api.facebook.com/method/auth.promoteSession?access_token=%@&format=JSON", token];
-		NSURL *secretURL = [NSURL URLWithString:[secretURLString stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
-		NSURLRequest *secretRequest = [NSURLRequest requestWithURL:secretURL];
-		NSData *secretData = [NSURLConnection sendSynchronousRequest:secretRequest returningResponse:&response error:&error];
-		NSString *secret = [[[NSString alloc] initWithData:secretData encoding:NSUTF8StringEncoding] autorelease];
-		secret = [secret substringWithRange:NSMakeRange(1, [secret length] - 2)]; // strip off the quotes
+		NSAssert(token && ![token isEqualToString:@""], @"got bad token!");		
 
-		[self.account oAuthWebViewController:self
-						  didSucceedWithName:name
-										 UID:uuid
-								  sessionKey:sessionKey
-									  secret:secret];
+		[self.account oAuthWebViewController:self didSucceedWithToken:token];
 		[self closeWindow:nil];
 		return nil;
     }
