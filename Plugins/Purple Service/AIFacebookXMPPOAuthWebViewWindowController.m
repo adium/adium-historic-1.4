@@ -96,20 +96,20 @@
     NSMutableURLRequest *mutableRequest = [[request mutableCopy] autorelease];
     [mutableRequest setHTTPShouldHandleCookies:NO];
     [self addCookiesToRequest:mutableRequest];
-        
+	
     if ([[[mutableRequest URL] host] isEqual:@"www.facebook.com"] && [[[mutableRequest URL] path] isEqual:@"/connect/login_success.html"]) {
 		NSDictionary *urlParamDict = [self parseURLParams:[[mutableRequest URL] fragment]];
 		
 		NSString *token = [urlParamDict objectForKey:@"access_token"];
 		if (token && ![token isEqualToString:@""]) {
     		[self.account oAuthWebViewController:self didSucceedWithToken:token];
-         else {
+		} else {
 			/* Got a bad token, or the user canceled */
 		}		[self closeWindow:nil];
 		return nil;
-    }
-    
-    return mutableRequest;
+	}
+	
+	return mutableRequest;
 }
 
 - (void)webView:(WebView *)sender resource:(id)identifier didReceiveResponse:(NSURLResponse *)response fromDataSource:(WebDataSource *)dataSource;
