@@ -12,4 +12,6 @@
 
 }
 
+- (void)migrate;
+
 @end
