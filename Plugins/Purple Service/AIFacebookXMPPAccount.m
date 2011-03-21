@@ -27,12 +27,17 @@
 
 @interface AIFacebookXMPPAccount ()
 - (void)finishMigration;
+@property (nonatomic, copy) NSString *oAuthToken;
+
+- (void)meGraphAPIDidFinishLoading:(NSData *)accessTokenData response:(NSURLResponse *)response error:(NSError *)inError;
+- (void)promoteSessionDidFinishLoading:(NSData *)secretData response:(NSURLResponse *)response error:(NSError *)inError;
 @end
 
 @implementation AIFacebookXMPPAccount
 
 @synthesize oAuthWC;
 @synthesize migratingAccount;
+@synthesize oAuthToken;
 
 #pragma mark Connectivitiy
 
@@ -246,43 +251,58 @@
 
 - (void)oAuthWebViewController:(AIFacebookXMPPOAuthWebViewWindowController *)wc didSucceedWithToken:(NSString *)token
 {
-    NSString *urlstring = [NSString stringWithFormat:@"https://graph.facebook.com/me?access_token=%@", token];
+    [self setOAuthToken:token];
+    
+    NSError *error = nil;
+    NSURLResponse *response = nil;
+    NSString *urlstring = [NSString stringWithFormat:@"https://graph.facebook.com/me?access_token=%@", [self oAuthToken]];
     NSURL *url = [NSURL URLWithString:[urlstring stringByAddingPercentEscapesUsingEncoding: NSUTF8StringEncoding]];
     NSURLRequest *request = [NSURLRequest requestWithURL:url];
-    NSURLResponse *response;
-    NSError *error;
-    
-    NSData *conn = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
-    NSDictionary *resp = [conn objectFromJSONDataWithParseOptions:JKParseOptionNone error:&error];
+    NSData *meGraphData = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
+    [self meGraphAPIDidFinishLoading:meGraphData response:response error:error];
+
+    error = nil;
+    response = nil;
+    NSString *secretURLString = [NSString stringWithFormat:@"https://api.facebook.com/method/auth.promoteSession?access_token=%@&format=JSON", [self oAuthToken]];
+    NSURL *secretURL = [NSURL URLWithString:[secretURLString stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
+    NSURLRequest *secretRequest = [NSURLRequest requestWithURL:secretURL];
+    NSData *promoteSessionData = [NSURLConnection sendSynchronousRequest:secretRequest returningResponse:&response error:&error];
+    [self promoteSessionDidFinishLoading:promoteSessionData response:response error:error];    
+}
+
+- (void)meGraphAPIDidFinishLoading:(NSData *)accessTokenData response:(NSURLResponse *)response error:(NSError *)inError
+{
+    NSError *error = nil;
+    NSDictionary *resp = [accessTokenData objectFromJSONDataWithParseOptions:JKParseOptionNone error:&error];
     NSString *uuid = [resp objectForKey:@"id"];
     NSString *name = [resp objectForKey:@"name"];
     
-    NSString *sessionKey = [[token componentsSeparatedByString:@"|"] objectAtIndex:1];
-    
-    NSString *secretURLString = [NSString stringWithFormat:@"https://api.facebook.com/method/auth.promoteSession?access_token=%@&format=JSON", token];
-    NSURL *secretURL = [NSURL URLWithString:[secretURLString stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
-    NSURLRequest *secretRequest = [NSURLRequest requestWithURL:secretURL];
-    NSData *secretData = [NSURLConnection sendSynchronousRequest:secretRequest returningResponse:&response error:&error];
+    /* Passwords are keyed by UID, so we need to make this change before storing the password */
+	[self setName:name UID:uuid];
+}
+
+- (void)promoteSessionDidFinishLoading:(NSData *)secretData response:(NSURLResponse *)response error:(NSError *)inError
+{
     NSString *secret = [[[NSString alloc] initWithData:secretData encoding:NSUTF8StringEncoding] autorelease];
     secret = [secret substringWithRange:NSMakeRange(1, [secret length] - 2)]; // strip off the quotes    
-    
-	/* Passwords are keyed by UID, so we need to make this change before storing the password */
-	[self setName:name UID:uuid];
-	
+    NSString *sessionKey = [[[self oAuthToken] componentsSeparatedByString:@"|"] objectAtIndex:1];
+   	
 	[[adium accountController] setPassword:sessionKey forAccount:self];
 	[self setPasswordTemporarily:sessionKey];
 	
 	[self setPreference:secret
 				 forKey:@"FBSessionSecret"
 				  group:GROUP_ACCOUNT_STATUS];
-
+    
 	self.oAuthWC = nil;
-
+    self.oAuthToken = nil;
+    
 	/* When we're newly authorized, connect! */
 	[self connect];
 	
-	if (self.migratingAccount)
-		[self finishMigration];
+	if (self.migratingAccount) {
+		[self finishMigration];        
+    }
 }
 
 #pragma mark Migration
