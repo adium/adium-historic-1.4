@@ -19,17 +19,43 @@
 #import "CBPurpleOscarAccount.h"
 #import <Adium/AIAccount.h>
 
+@interface AIPurpleOscarAccountViewController (PRIVATE)
++ (NSArray *)encryptionTypes;
+@end
+
 @implementation AIPurpleOscarAccountViewController
+
++ (NSArray *)encryptionTypes
+{
+	static NSArray *encryptionTypes;
+	
+	if (!encryptionTypes) {
+		encryptionTypes = [[NSArray alloc] initWithObjects:PREFERENCE_ENCRYPTION_TYPE_NO,
+						   PREFERENCE_ENCRYPTION_TYPE_OPPORTUNISTIC, PREFERENCE_ENCRYPTION_TYPE_REQUIRED, nil];
+	}
+	
+	return encryptionTypes;
+}
 
 /*!
  * @brief Configure controls
  */
 - (void)configureForAccount:(AIAccount *)inAccount
 {
-    [super configureForAccount:inAccount];
+	[super configureForAccount:inAccount];
 	
 	[checkBox_proxyServer setState:[[account preferenceForKey:PREFERENCE_FT_PROXY_SERVER group:GROUP_ACCOUNT_STATUS] boolValue]];
-	[checkBox_SSL setState:[[account preferenceForKey:PREFERENCE_SSL_CONNECTION group:GROUP_ACCOUNT_STATUS] boolValue]];
+
+	for (NSButtonCell* cell in [radio_Encryption cells]) {
+		if ([[[AIPurpleOscarAccountViewController encryptionTypes] objectAtIndex:[cell tag]]
+			 isEqualToString:[account preferenceForKey:PREFERENCE_ENCRYPTION_TYPE
+												 group:GROUP_ACCOUNT_STATUS]]) {
+			[cell setState:NSOnState];
+		} else {
+			[cell setState:NSOffState];
+		}
+	}
+
 }
 
 /*!
@@ -43,9 +69,9 @@
 					forKey:PREFERENCE_FT_PROXY_SERVER
 					 group:GROUP_ACCOUNT_STATUS];
 	
-	[account setPreference:[NSNumber numberWithBool:[checkBox_SSL state]]
-					forKey:PREFERENCE_SSL_CONNECTION
-					 group:GROUP_ACCOUNT_STATUS];	
+	[account setPreference:[[AIPurpleOscarAccountViewController encryptionTypes] objectAtIndex:[radio_Encryption selectedTag]]
+			forKey:PREFERENCE_ENCRYPTION_TYPE
+			 group:GROUP_ACCOUNT_STATUS];	
 }
 
 @end
