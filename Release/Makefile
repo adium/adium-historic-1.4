@@ -17,7 +17,7 @@
 # - make all
 ###########
 
-VERSION=1.4.2hg
+VERSION=1.4.2b1
 BUILD_IN_DEBUG_MODE?=TRUE
 BETA?=TRUE
 OFFICIAL_BUILD?=TRUE
@@ -29,7 +29,7 @@ NIGHTLY?=FALSE
 # To release!
 # Releasing requires cachefly access and adiumx.com access.
 #
-# First upload to cachefly. If you don't have access and need to do a release, get with Evan or Chris (tick).
+# First upload to cachefly. If you don't have access and need to do a release, get with Evan or Eric.
 # Triggering the version checker once the release is up:
 # 1) Build Adium
 # 2) Get the number out of the 'buildnum' file in Adium.app/Contents/Resources
