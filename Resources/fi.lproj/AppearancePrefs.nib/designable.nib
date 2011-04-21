@@ -843,7 +843,7 @@
 						<object class="NSTextFieldCell" key="NSCell" id="693225416">
 							<int key="NSCellFlags">67239424</int>
 							<int key="NSCellFlags2">71303168</int>
-							<string key="NSContents">Valikon kuvakkeet:</string>
+							<string key="NSContents">Valikkokuvakkeet:</string>
 							<reference key="NSSupport" ref="660524431"/>
 							<reference key="NSControlView" ref="149164614"/>
 							<reference key="NSBackgroundColor" ref="1068957011"/>
