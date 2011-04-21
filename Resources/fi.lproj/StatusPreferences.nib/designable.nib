@@ -572,13 +572,13 @@
 					<object class="NSButton" id="327998800">
 						<reference key="NSNextResponder" ref="166831054"/>
 						<int key="NSvFlags">256</int>
-						<string key="NSFrame">{{20, 50}, {251, 18}}</string>
+						<string key="NSFrame">{{20, 50}, {257, 18}}</string>
 						<reference key="NSSuperview" ref="166831054"/>
 						<bool key="NSEnabled">YES</bool>
 						<object class="NSButtonCell" key="NSCell" id="416633737">
 							<int key="NSCellFlags">67239424</int>
 							<int key="NSCellFlags2">0</int>
-							<string key="NSContents">Kun näytönsäätäjä aktivoituu, aseta:</string>
+							<string key="NSContents">Kun näytönsäästäjä aktivoituu, aseta:</string>
 							<reference key="NSSupport" ref="660404866"/>
 							<reference key="NSControlView" ref="327998800"/>
 							<int key="NSButtonFlags">1211912703</int>
@@ -594,7 +594,7 @@
 					<object class="NSPopUpButton" id="212067330">
 						<reference key="NSNextResponder" ref="166831054"/>
 						<int key="NSvFlags">256</int>
-						<string key="NSFrame">{{274, 45}, {203, 26}}</string>
+						<string key="NSFrame">{{280, 45}, {203, 26}}</string>
 						<reference key="NSSuperview" ref="166831054"/>
 						<bool key="NSEnabled">YES</bool>
 						<object class="NSPopUpButtonCell" key="NSCell" id="945740934">
@@ -1090,9 +1090,9 @@
 							<reference ref="515799910"/>
 							<reference ref="155857708"/>
 							<reference ref="814943218"/>
-							<reference ref="212067330"/>
 							<reference ref="946855708"/>
 							<reference ref="617743134"/>
+							<reference ref="212067330"/>
 						</object>
 						<reference key="parent" ref="0"/>
 						<string key="objectName">View</string>
@@ -1586,7 +1586,7 @@
 					<boolean value="YES"/>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<object class="NSAffineTransform">
-						<bytes key="NSTransformStruct">P4AAAL+AAABDhoAAwooAAA</bytes>
+						<bytes key="NSTransformStruct">P4AAAL+AAABDiQAAwooAAA</bytes>
 					</object>
 					<boolean value="YES"/>
 					<string>{{876, 716}, {203, 63}}</string>

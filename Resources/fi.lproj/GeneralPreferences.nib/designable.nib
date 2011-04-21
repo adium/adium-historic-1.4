@@ -406,13 +406,13 @@
 					<object class="NSButton" id="1028402368">
 						<reference key="NSNextResponder" ref="974184333"/>
 						<int key="NSvFlags">256</int>
-						<string key="NSFrame">{{152, 402}, {205, 18}}</string>
+						<string key="NSFrame">{{152, 402}, {387, 18}}</string>
 						<reference key="NSSuperview" ref="974184333"/>
 						<bool key="NSEnabled">YES</bool>
 						<object class="NSButtonCell" key="NSCell" id="685173519">
 							<int key="NSCellFlags">67239424</int>
 							<int key="NSCellFlags2">0</int>
-							<string key="NSContents">Näytä uusissa keskusteluissa</string>
+							<string key="NSContents">Näytä uusissa keskusteluissa                viimeisintä viestiä</string>
 							<reference key="NSSupport" ref="679211629"/>
 							<reference key="NSControlView" ref="1028402368"/>
 							<int key="NSButtonFlags">1211912703</int>
@@ -638,7 +638,7 @@
 						<object class="NSButtonCell" key="NSCell" id="839973176">
 							<int key="NSCellFlags">67239424</int>
 							<int key="NSCellFlags2">0</int>
-							<string key="NSContents">Pävitä beta-versioihin jos mahdollista</string>
+							<string key="NSContents">Päivitä beta-versioihin jos mahdollista</string>
 							<reference key="NSSupport" ref="679211629"/>
 							<reference key="NSControlView" ref="876436028"/>
 							<int key="NSButtonFlags">1211912703</int>
@@ -696,22 +696,6 @@
 							<double key="NSIncrement">1</double>
 							<bool key="NSValueWraps">YES</bool>
 							<bool key="NSAutorepeat">YES</bool>
-						</object>
-					</object>
-					<object class="NSTextField" id="202374623">
-						<reference key="NSNextResponder" ref="974184333"/>
-						<int key="NSvFlags">256</int>
-						<string key="NSFrame">{{416, 399}, {120, 21}}</string>
-						<reference key="NSSuperview" ref="974184333"/>
-						<bool key="NSEnabled">YES</bool>
-						<object class="NSTextFieldCell" key="NSCell" id="9023852">
-							<int key="NSCellFlags">67239424</int>
-							<int key="NSCellFlags2">272629760</int>
-							<string key="NSContents">viimeisintä viestiä</string>
-							<reference key="NSSupport" ref="679211629"/>
-							<reference key="NSControlView" ref="202374623"/>
-							<reference key="NSBackgroundColor" ref="170402507"/>
-							<reference key="NSTextColor" ref="927266986"/>
 						</object>
 					</object>
 					<object class="NSButton" id="223591434">
@@ -1479,19 +1463,18 @@
 							<reference ref="379579225"/>
 							<reference ref="876436028"/>
 							<reference ref="223591434"/>
-							<reference ref="202374623"/>
 							<reference ref="149624680"/>
 							<reference ref="606751019"/>
 							<reference ref="209177718"/>
 							<reference ref="838555988"/>
 							<reference ref="9325956"/>
 							<reference ref="715645352"/>
-							<reference ref="1028402368"/>
 							<reference ref="958453719"/>
 							<reference ref="680415872"/>
 							<reference ref="147301537"/>
 							<reference ref="866289369"/>
 							<reference ref="666833680"/>
+							<reference ref="1028402368"/>
 						</object>
 						<reference key="parent" ref="0"/>
 						<string key="objectName">View</string>
@@ -1695,15 +1678,6 @@
 						<reference key="parent" ref="974184333"/>
 					</object>
 					<object class="IBObjectRecord">
-						<int key="objectID">215</int>
-						<reference key="object" ref="202374623"/>
-						<object class="NSMutableArray" key="children">
-							<bool key="EncodedWithXMLCoder">YES</bool>
-							<reference ref="9023852"/>
-						</object>
-						<reference key="parent" ref="974184333"/>
-					</object>
-					<object class="IBObjectRecord">
 						<int key="objectID">279</int>
 						<reference key="object" ref="223591434"/>
 						<object class="NSMutableArray" key="children">
@@ -1839,11 +1813,6 @@
 						<int key="objectID">361</int>
 						<reference key="object" ref="166405478"/>
 						<reference key="parent" ref="149624680"/>
-					</object>
-					<object class="IBObjectRecord">
-						<int key="objectID">362</int>
-						<reference key="object" ref="9023852"/>
-						<reference key="parent" ref="202374623"/>
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">363</int>
@@ -2043,9 +2012,6 @@
 					<string>212.IBPluginDependency</string>
 					<string>212.IBViewBoundsToFrameTransform</string>
 					<string>212.ImportedFromIB2</string>
-					<string>215.IBPluginDependency</string>
-					<string>215.IBViewBoundsToFrameTransform</string>
-					<string>215.ImportedFromIB2</string>
 					<string>217.IBPluginDependency</string>
 					<string>217.ImportedFromIB2</string>
 					<string>279.CustomClassName</string>
@@ -2121,7 +2087,7 @@
 					<string>AILocalizationButton</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<object class="NSAffineTransform">
-						<bytes key="NSTransformStruct">P4AAAL+AAABDHQAAw9EAAA</bytes>
+						<bytes key="NSTransformStruct">P4AAAL+AAABDGAAAw9EAAA</bytes>
 					</object>
 					<boolean value="YES"/>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
@@ -2169,11 +2135,6 @@
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<object class="NSAffineTransform">
 						<bytes key="NSTransformStruct">AUPIAABDxgAAA</bytes>
-					</object>
-					<boolean value="YES"/>
-					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
-					<object class="NSAffineTransform">
-						<bytes key="NSTransformStruct">P4AAAL+AAABD0oAAw9EAAA</bytes>
 					</object>
 					<boolean value="YES"/>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
