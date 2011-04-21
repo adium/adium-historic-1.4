@@ -28,9 +28,9 @@ Version 1.4.2 (XX/XX/2011)
     * Compact: Mentions in actions are no longer italicized. Sendercolor Adiumy is not displayed in IRC too. Fixed progressively increasing saturation of the sendercolor Adiumy on each consecutive message.
     * Classic: Fixed slight misalignment between sender and message. Lightened the on-click shadow. The per-message marks in the classic variant now grow to the left rather than to the right where it can overlap message text.
     * Dark: New variant!
-    * all variants: Improved the performance of all-by-sender-on-click javascript. Shifted the builtin buddy icons down a few pixels so they look more centered. Switched to more compact focus indicattion icons.
+    * all variants: Improved the performance of all-by-sender-on-click javascript. Shifted the builtin buddy icons down a few pixels so they look more centered. Switched to more compact focus indication icons.
   * Stockholm
-    * Reverted to pre-1.4 layout for per-message timestamps (#14361). Per-message timestamps now display on the left when the message text is RTL (#14361).
+    * Reverted to pre-1.4 layout for per-message timestamps (#14361). Per-message timestamps now display on the left when the message text is RTL (#10403).
   * yMous
     * Removed the per-message triangle, slimmed the area between the sender and message, and fixed more elements to scale with font-size. Improved the performance of all-by-sender-on-click javascript.
 
