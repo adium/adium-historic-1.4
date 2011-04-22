@@ -76,7 +76,7 @@
 							<object class="NSButtonCell" id="710384096">
 								<int key="NSCellFlags">67239424</int>
 								<int key="NSCellFlags2">0</int>
-								<string key="NSContents">Käytä salausta jos mahdollista</string>
+								<string key="NSContents">Jos mahdollista käytä salausta</string>
 								<reference key="NSSupport" ref="60042628"/>
 								<reference key="NSControlView" ref="197232858"/>
 								<int key="NSTag">1</int>
@@ -1180,7 +1180,7 @@
 					<bool key="EncodedWithXMLCoder">YES</bool>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<boolean value="YES"/>
-					<string>{{454, 732}, {422, 152}}</string>
+					<string>{{473, 622}, {422, 152}}</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<boolean value="YES"/>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>

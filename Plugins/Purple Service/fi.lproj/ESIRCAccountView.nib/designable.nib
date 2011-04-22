@@ -12,9 +12,9 @@
 		</object>
 		<object class="NSMutableArray" key="IBDocument.EditedObjectIDs">
 			<bool key="EncodedWithXMLCoder">YES</bool>
-			<integer value="264"/>
 			<integer value="121"/>
 			<integer value="130"/>
+			<integer value="264"/>
 		</object>
 		<object class="NSArray" key="IBDocument.PluginDependencies">
 			<bool key="EncodedWithXMLCoder">YES</bool>
@@ -577,7 +577,7 @@
 					<object class="NSTextField" id="726279126">
 						<reference key="NSNextResponder" ref="431331361"/>
 						<int key="NSvFlags">268</int>
-						<string key="NSFrame">{{135, 0}, {205, 22}}</string>
+						<string key="NSFrame">{{135, 2}, {205, 22}}</string>
 						<reference key="NSSuperview" ref="431331361"/>
 						<bool key="NSEnabled">YES</bool>
 						<object class="NSTextFieldCell" key="NSCell" id="915110810">
@@ -947,8 +947,8 @@
 							<bool key="EncodedWithXMLCoder">YES</bool>
 							<reference ref="986987369"/>
 							<reference ref="550887026"/>
-							<reference ref="726279126"/>
 							<reference ref="1011083221"/>
+							<reference ref="726279126"/>
 						</object>
 						<reference key="parent" ref="0"/>
 						<string key="objectName">Personal</string>
@@ -1179,6 +1179,7 @@
 					<string>253.IBPluginDependency</string>
 					<string>253.ImportedFromIB2</string>
 					<string>255.IBPluginDependency</string>
+					<string>255.IBViewBoundsToFrameTransform</string>
 					<string>255.ImportedFromIB2</string>
 					<string>257.IBPluginDependency</string>
 					<string>257.IBViewBoundsToFrameTransform</string>
@@ -1258,6 +1259,9 @@
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<boolean value="YES"/>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
+					<object class="NSAffineTransform">
+						<bytes key="NSTransformStruct">P4AAAL+AAABDBwAAwaAAAA</bytes>
+					</object>
 					<boolean value="YES"/>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<object class="NSAffineTransform">

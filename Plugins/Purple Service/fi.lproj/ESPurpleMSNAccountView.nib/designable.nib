@@ -278,7 +278,7 @@
 					<object class="NSTextField" id="729835644">
 						<reference key="NSNextResponder" ref="802764328"/>
 						<int key="NSvFlags">264</int>
-						<string key="NSFrame">{{0, 22}, {340, 59}}</string>
+						<string key="NSFrame">{{2, 26}, {336, 58}}</string>
 						<reference key="NSSuperview" ref="802764328"/>
 						<bool key="NSEnabled">YES</bool>
 						<object class="NSTextFieldCell" key="NSCell" id="1059906595">
@@ -295,7 +295,7 @@
 					<object class="NSTextField" id="376913715">
 						<reference key="NSNextResponder" ref="802764328"/>
 						<int key="NSvFlags">264</int>
-						<string key="NSFrame">{{-3, 89}, {97, 17}}</string>
+						<string key="NSFrame">{{0, 84}, {97, 17}}</string>
 						<reference key="NSSuperview" ref="802764328"/>
 						<bool key="NSEnabled">YES</bool>
 						<object class="NSTextFieldCell" key="NSCell" id="520883357">
@@ -309,7 +309,7 @@
 						</object>
 					</object>
 				</object>
-				<string key="NSFrameSize">{340, 106}</string>
+				<string key="NSFrameSize">{341, 104}</string>
 				<reference key="NSSuperview"/>
 				<string key="NSClassName">NSView</string>
 				<string key="NSExtension">NSResponder</string>
@@ -785,9 +785,9 @@
 							<reference ref="99130789"/>
 							<reference ref="980292388"/>
 							<reference ref="54419288"/>
-							<reference ref="40557616"/>
 							<reference ref="122912306"/>
 							<reference ref="28680691"/>
+							<reference ref="40557616"/>
 						</object>
 						<reference key="parent" ref="0"/>
 						<string key="objectName">Options</string>
@@ -1097,8 +1097,10 @@
 					<string>-3.IBPluginDependency</string>
 					<string>-3.ImportedFromIB2</string>
 					<string>183.IBPluginDependency</string>
+					<string>183.IBViewBoundsToFrameTransform</string>
 					<string>183.ImportedFromIB2</string>
 					<string>186.IBPluginDependency</string>
+					<string>186.IBViewBoundsToFrameTransform</string>
 					<string>186.ImportedFromIB2</string>
 					<string>187.IBEditorWindowLastContentRect</string>
 					<string>187.IBPluginDependency</string>
@@ -1146,6 +1148,7 @@
 					<string>225.IBPluginDependency</string>
 					<string>225.ImportedFromIB2</string>
 					<string>258.IBPluginDependency</string>
+					<string>258.IBViewBoundsToFrameTransform</string>
 					<string>258.ImportedFromIB2</string>
 					<string>260.IBPluginDependency</string>
 					<string>260.ImportedFromIB2</string>
@@ -1196,10 +1199,16 @@
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<boolean value="YES"/>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
+					<object class="NSAffineTransform">
+						<bytes key="NSTransformStruct">P4AAAL+AAAC/gAAAwtAAAA</bytes>
+					</object>
 					<boolean value="YES"/>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
+					<object class="NSAffineTransform">
+						<bytes key="NSTransformStruct">P4AAAL+AAABCkAAAwswAAA</bytes>
+					</object>
 					<boolean value="YES"/>
-					<string>{{357, 888}, {340, 106}}</string>
+					<string>{{1209, 854}, {341, 104}}</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<boolean value="YES"/>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
@@ -1251,6 +1260,9 @@
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<boolean value="YES"/>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
+					<object class="NSAffineTransform">
+						<bytes key="NSTransformStruct">P4AAAL+AAABCpgAAwbAAAA</bytes>
+					</object>
 					<boolean value="YES"/>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<boolean value="YES"/>

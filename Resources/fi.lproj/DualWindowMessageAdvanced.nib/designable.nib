@@ -12,7 +12,7 @@
 		</object>
 		<object class="NSMutableArray" key="IBDocument.EditedObjectIDs">
 			<bool key="EncodedWithXMLCoder">YES</bool>
-			<integer value="140"/>
+			<integer value="6"/>
 		</object>
 		<object class="NSArray" key="IBDocument.PluginDependencies">
 			<bool key="EncodedWithXMLCoder">YES</bool>
@@ -257,7 +257,7 @@
 						<object class="NSButtonCell" key="NSCell" id="182221145">
 							<int key="NSCellFlags">67239424</int>
 							<int key="NSCellFlags2">131072</int>
-							<string key="NSContents">Piilota kun Adium on taustalla</string>
+							<string key="NSContents">Piilota ikkunat kun Adium on taustalla</string>
 							<reference key="NSSupport" ref="26"/>
 							<reference key="NSControlView" ref="175235987"/>
 							<int key="NSButtonFlags">1211912703</int>
@@ -273,13 +273,13 @@
 					<object class="NSButton" id="168680073">
 						<reference key="NSNextResponder" ref="315687826"/>
 						<int key="NSvFlags">268</int>
-						<string key="NSFrame">{{7, 176}, {282, 18}}</string>
+						<string key="NSFrame">{{7, 176}, {285, 18}}</string>
 						<reference key="NSSuperview" ref="315687826"/>
 						<bool key="NSEnabled">YES</bool>
 						<object class="NSButtonCell" key="NSCell" id="851124367">
 							<int key="NSCellFlags">67239424</int>
 							<int key="NSCellFlags2">131072</int>
-							<string key="NSContents">Näytä lukemattomien viestien määrä välilehdissä</string>
+							<string key="NSContents">Näytä lukemattomien viestien määrä välilehdessä</string>
 							<reference key="NSSupport" ref="26"/>
 							<reference key="NSControlView" ref="168680073"/>
 							<int key="NSButtonFlags">1211912703</int>
@@ -295,13 +295,13 @@
 					<object class="NSButton" id="513075954">
 						<reference key="NSNextResponder" ref="315687826"/>
 						<int key="NSvFlags">268</int>
-						<string key="NSFrame">{{2, 43}, {262, 18}}</string>
+						<string key="NSFrame">{{2, 43}, {300, 18}}</string>
 						<reference key="NSSuperview" ref="315687826"/>
 						<bool key="NSEnabled">YES</bool>
 						<object class="NSButtonCell" key="NSCell" id="410640600">
 							<int key="NSCellFlags">67239424</int>
 							<int key="NSCellFlags2">131072</int>
-							<string key="NSContents">Avaa ikkuna heti kun ystäväsi alkaa kirjoittaa</string>
+							<string key="NSContents">Avaa ikkuna heti kun ystäväsi alkaa kirjoittaa viestiä</string>
 							<reference key="NSSupport" ref="26"/>
 							<reference key="NSControlView" ref="513075954"/>
 							<int key="NSButtonFlags">1211912703</int>

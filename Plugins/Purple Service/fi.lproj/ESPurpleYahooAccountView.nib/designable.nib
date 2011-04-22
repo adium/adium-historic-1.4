@@ -189,7 +189,7 @@
 						<object class="NSTextFieldCell" key="NSCell" id="617285461">
 							<int key="NSCellFlags">67239424</int>
 							<int key="NSCellFlags2">71303168</int>
-							<string key="NSContents">Huonepalvelin:</string>
+							<string key="NSContents">Huonelista:</string>
 							<reference key="NSSupport" ref="223670357"/>
 							<reference key="NSControlView" ref="315722957"/>
 							<reference key="NSBackgroundColor" ref="927912060"/>
