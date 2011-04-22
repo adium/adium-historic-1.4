@@ -269,7 +269,7 @@
 						<object class="NSButtonCell" key="NSCell" id="155130154">
 							<int key="NSCellFlags">-2080244224</int>
 							<int key="NSCellFlags2">0</int>
-							<string key="NSContents">Päivitä globaali-tila lähetettäessä tweet</string>
+							<string key="NSContents">Päivitä globaali-tila lähetettäessä tweetti</string>
 							<reference key="NSSupport" ref="102052516"/>
 							<reference key="NSControlView" ref="120473249"/>
 							<int key="NSButtonFlags">1211912703</int>

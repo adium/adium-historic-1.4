@@ -12,10 +12,10 @@
 		</object>
 		<object class="NSMutableArray" key="IBDocument.EditedObjectIDs">
 			<bool key="EncodedWithXMLCoder">YES</bool>
-			<integer value="39"/>
 			<integer value="332"/>
-			<integer value="376"/>
+			<integer value="39"/>
 			<integer value="146"/>
+			<integer value="376"/>
 		</object>
 		<object class="NSArray" key="IBDocument.PluginDependencies">
 			<bool key="EncodedWithXMLCoder">YES</bool>
@@ -638,7 +638,7 @@
 						<object class="NSTextFieldCell" key="NSCell" id="21353665">
 							<int key="NSCellFlags">67239424</int>
 							<int key="NSCellFlags2">71303168</int>
-							<string key="NSContents">Läsnäolo tilaukset:</string>
+							<string key="NSContents">Läsnäolotilaukset:</string>
 							<reference key="NSSupport" ref="745543233"/>
 							<reference key="NSControlView" ref="129057903"/>
 							<reference key="NSBackgroundColor" ref="701108434"/>
@@ -783,13 +783,13 @@
 					<object class="NSButton" id="1011876758">
 						<reference key="NSNextResponder" ref="881248978"/>
 						<int key="NSvFlags">264</int>
-						<string key="NSFrame">{{160, 88}, {244, 18}}</string>
+						<string key="NSFrame">{{160, 88}, {252, 18}}</string>
 						<reference key="NSSuperview" ref="881248978"/>
 						<bool key="NSEnabled">YES</bool>
 						<object class="NSButtonCell" key="NSCell" id="883625994">
 							<int key="NSCellFlags">67239424</int>
 							<int key="NSCellFlags2">0</int>
-							<string key="NSContents">Tee tarkat sertifikaatti tarkastukset</string>
+							<string key="NSContents">Tee tarkat sertifikaattin tarkastukset</string>
 							<reference key="NSSupport" ref="745543233"/>
 							<reference key="NSControlView" ref="1011876758"/>
 							<int key="NSButtonFlags">1211912703</int>
