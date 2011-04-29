@@ -20,7 +20,7 @@
 #define TOOLTIP_TITLE_BODY_MARGIN	10.0
 #define MAX_IMAGE_DIMENSION			96.0
 
-#define TOOLTIP_OPACITY				0.9
+#define TOOLTIP_OPACITY				1.0
 #define TOOLTIP_FADEOUT_INTERVAL	0.025
 #define TOOLTIP_FADOUT_STEP			0.1
 
@@ -193,7 +193,8 @@ static	NSColor					*titleAndBodyMarginLineColor = nil;
 													   defer:NO];
 		[tooltipWindow setHidesOnDeactivate:NO];
 		[tooltipWindow setIgnoresMouseEvents:YES];
-		[tooltipWindow setBackgroundColor:[NSColor whiteColor]];
+		[tooltipWindow setOpaque:NO]; 
+		[tooltipWindow setBackgroundColor:[[NSColor controlBackgroundColor] colorWithAlphaComponent:0.97f]];
 		[tooltipWindow setAlphaValue:TOOLTIP_OPACITY];
 		[tooltipWindow setHasShadow:YES];
 
