@@ -16,6 +16,7 @@ Version 1.4.2 (XX/XX/2011)
 
  Message View
   * Only display focus indication for group chats. (#14420)
+  * Enable %service% keyword in header.
   * Fixed issue where sections of conversations loaded from message history are repeated. (#13362)
   * Fixed iChat emoticons in Snow Leopard on case-sensitive file systems. (#14936)
   * minimal_mod
