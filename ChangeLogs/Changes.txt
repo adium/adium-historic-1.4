@@ -9,6 +9,9 @@ Version 1.4.2 (XX/XX/2011)
   * ICQ
     * Fixed a bug where some contacts from your contact list might not show up. Affected non-English users the most. (#14901)
 
+ Contact List
+  * Fixed tooltips not being updated when scrollwheeling through the contact list. (#3480)
+ 
  Logging
   * Added a "Log only certain accounts" setting to Adium's "General" preferences. (#8, #14522)
   * Added a "Log secure chats" setting to Adium's "General" preferences. (#94)
