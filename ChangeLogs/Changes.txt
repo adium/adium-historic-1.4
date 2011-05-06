@@ -65,7 +65,7 @@ Version 1.4.2 (XX/XX/2011)
 
  Localisation
   * Updated the Localizable.strings files, adding missing translatable strings/nibs. (#14588, #14582)
-  * Updated and improved localisations: British English (#15116), Catalan (#15141), Dutch, Finnish (#15130), German (#15159), Italian (#15146), Swedish (#14993).
+  * Updated and improved localisations: British English (#15116), Catalan (#15141), Danish (#15160), Dutch, Finnish (#15130), German (#15159), Italian (#15146), Swedish (#14993).
   * Fixed an issue in the Czech localisation. (#14586)
 
 
