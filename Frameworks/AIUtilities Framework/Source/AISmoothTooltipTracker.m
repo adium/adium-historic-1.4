@@ -26,6 +26,8 @@
 - (void)_startTrackingMouse;
 - (void)_stopTrackingMouse;
 - (void)_hideTooltip;
+
+- (void)contentViewBoundsDidChange;
 @end
 
 @interface NSWindow (SpacesDeterminationHackery)
@@ -46,6 +48,7 @@
 		delegate = inDelegate;
 		tooltipTrackingTag = -1;
 		tooltipLocation = NSZeroPoint;
+		mouseIsScrolling = NO;
 
 		//Reset cursor tracking when the view's frame changes
 		[[NSNotificationCenter defaultCenter] addObserver:self
@@ -56,6 +59,14 @@
 												 selector:@selector(resetCursorTracking)
 													 name:AIWindowToolbarDidToggleVisibility
 												   object:[view window]];
+		
+		// Track contentView bounds changes (useful to detect scrolling)
+		if ([view isKindOfClass:[NSScrollView class]]) {
+			[[NSNotificationCenter defaultCenter] addObserver:self
+													 selector:@selector(contentViewBoundsDidChange)
+														 name:NSViewBoundsDidChangeNotification
+													   object:[(NSScrollView *)view contentView]];
+		}
 
 		[self installCursorRect];
 	}
@@ -200,6 +211,12 @@
 	[self _stopTrackingMouse];
 }
 
+// Handle scrolling
+- (void)contentViewBoundsDidChange
+{
+	mouseIsScrolling = YES;
+}
+
 //Start tracking mouse movement
 - (void)_startTrackingMouse
 {
@@ -269,9 +286,12 @@
 		//the mouse is left still tooltipCount will eventually grow greater than TOOL_TIP_DELAY, and we will begin
 		//displaying the tooltips
 		if (tooltipCount > TOOL_TIP_DELAY) {
-			if (!NSEqualPoints(tooltipLocation, mouseLocation)) {
+			if (!NSEqualPoints(tooltipLocation, mouseLocation) || mouseIsScrolling) {
 				[delegate showTooltipAtPoint:mouseLocation];
 				tooltipLocation = mouseLocation;
+				
+				// Reset scrolling info
+				mouseIsScrolling = NO;
 			}
 			
 		} else {
