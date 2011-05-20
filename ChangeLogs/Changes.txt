@@ -11,6 +11,7 @@ Version 1.4.2 (XX/XX/2011)
 
  Contact List
   * Fixed tooltips not being updated when scrollwheeling through the contact list. (#3480)
+  * Improved readability of tooltips by making their contents opaque and only the background transparent. (#15050)
  
  Logging
   * Added a "Log only certain accounts" setting to Adium's "General" preferences. (#8, #14522)
