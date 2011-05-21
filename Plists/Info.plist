@@ -475,7 +475,7 @@
 	<key>LSMinimumSystemVersion</key>
 	<string>10.5.8</string>
 	<key>LSRequiresNativeExecution</key>
-	<true/>
+	<false/>
 	<key>NSAppleScriptEnabled</key>
 	<true/>
 	<key>NSMainNibFile</key>
