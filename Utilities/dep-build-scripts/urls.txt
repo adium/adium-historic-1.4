@@ -40,7 +40,7 @@ http://liboil.freedesktop.org/download/liboil-0.3.16.tar.gz
 http://gstreamer.freedesktop.org/src/gst-plugins-base/gst-plugins-base-0.10.22.tar.gz
 http://gstreamer.freedesktop.org/src/gst-plugins-good/gst-plugins-good-0.10.14.tar.gz
 http://gstreamer.freedesktop.org/src/gst-plugins-bad/gst-plugins-bad-0.10.11.tar.gz
-http://farsight.freedesktop.org/releases/gst-plugins-farsight/gst-plugins-farsight-0.12.11.tar.gz
+http://farsight.freedesktop.org/releases/obsolete/gst-plugins-farsight/gst-plugins-farsight-0.12.11.tar.gz
 ####
 # Farsight
 ####
