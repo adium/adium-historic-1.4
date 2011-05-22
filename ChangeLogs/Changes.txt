@@ -33,7 +33,7 @@ Version 1.4.2 (XX/XX/2011)
     * Compact: Mentions in actions are no longer italicized. Sendercolor Adiumy is not displayed in IRC too. Fixed progressively increasing saturation of the sendercolor Adiumy on each consecutive message.
     * Classic: Fixed slight misalignment between sender and message. Lightened the on-click shadow. The per-message marks in the classic variant now grow to the left rather than to the right where it can overlap message text.
     * Dark: New variant!
-    * all variants: Improved the performance of all-by-sender-on-click javascript. Shifted the builtin buddy icons down a few pixels so they look more centered. Switched to more compact focus indication icons.
+    * all variants: Improved the performance of all-by-sender-on-click javascript. Shifted the built-in buddy icons down a few pixels so they look more centered. Switched to more compact focus indication icons.
   * Stockholm
     * Reverted to pre-1.4 layout for per-message timestamps (#14361). Per-message timestamps now display on the left when the message text is RTL (#10403).
   * yMous
@@ -45,6 +45,7 @@ Version 1.4.2 (XX/XX/2011)
 
  IRC
   * Fixed a crash related to invalid UTF8 in nicknames on IRC. (#13351)
+  * Fixed a crash that occurred when opening irc://-links to new servers on ports other than 6667. (#15093)
 
  MSN
   * Added a preference to enable/disable MSN Direct Connections. (#14602)
