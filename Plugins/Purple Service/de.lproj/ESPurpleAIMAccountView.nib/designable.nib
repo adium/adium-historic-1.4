@@ -3,16 +3,15 @@
 	<data>
 		<int key="IBDocument.SystemTarget">1050</int>
 		<string key="IBDocument.SystemVersion">10J869</string>
-		<string key="IBDocument.InterfaceBuilderVersion">851</string>
+		<string key="IBDocument.InterfaceBuilderVersion">823</string>
 		<string key="IBDocument.AppKitVersion">1038.35</string>
 		<string key="IBDocument.HIToolboxVersion">461.00</string>
 		<object class="NSMutableDictionary" key="IBDocument.PluginVersions">
 			<string key="NS.key.0">com.apple.InterfaceBuilder.CocoaPlugin</string>
-			<string key="NS.object.0">851</string>
+			<string key="NS.object.0">823</string>
 		</object>
 		<object class="NSMutableArray" key="IBDocument.EditedObjectIDs">
 			<bool key="EncodedWithXMLCoder">YES</bool>
-			<integer value="130"/>
 		</object>
 		<object class="NSArray" key="IBDocument.PluginDependencies">
 			<bool key="EncodedWithXMLCoder">YES</bool>
@@ -93,7 +92,7 @@
 								<string key="NSColorName">controlColor</string>
 								<object class="NSColor" key="NSColor" id="1000586414">
 									<int key="NSColorSpace">3</int>
-									<bytes key="NSWhite">MC42NjY2NjY2ODY1AA</bytes>
+									<bytes key="NSWhite">MC42NjY2NjY2NjY3AA</bytes>
 								</object>
 							</object>
 							<object class="NSColor" key="NSTextColor" id="472059363">
@@ -213,6 +212,7 @@
 								</object>
 								<string key="NSFrame">{{1, 1}, {284, 115}}</string>
 								<reference key="NSSuperview" ref="297649227"/>
+								<reference key="NSNextKeyView" ref="59086928"/>
 								<reference key="NSDocView" ref="59086928"/>
 								<reference key="NSBGColor" ref="823092881"/>
 								<object class="NSCursor" key="NSCursor">
@@ -244,6 +244,7 @@
 						</object>
 						<string key="NSFrame">{{54, 0}, {286, 117}}</string>
 						<reference key="NSSuperview" ref="195259792"/>
+						<reference key="NSNextKeyView" ref="797077188"/>
 						<int key="NSsFlags">530</int>
 						<reference key="NSVScroller" ref="173304757"/>
 						<reference key="NSHScroller" ref="711347034"/>
@@ -257,7 +258,7 @@
 				<string key="NSExtension">NSResponder</string>
 			</object>
 			<object class="NSCustomView" id="81911371">
-				<reference key="NSNextResponder"/>
+				<nil key="NSNextResponder"/>
 				<int key="NSvFlags">256</int>
 				<object class="NSMutableArray" key="NSSubviews">
 					<bool key="EncodedWithXMLCoder">YES</bool>
@@ -396,7 +397,7 @@
 						<object class="NSButtonCell" key="NSCell" id="845596154">
 							<int key="NSCellFlags">67239424</int>
 							<int key="NSCellFlags2">0</int>
-							<string key="NSContents">Immer Proxy für Datentransfer und Direct IM benutzen</string>
+							<string key="NSContents">Immer Proxy für Dateiübertragungen und Direct IM benutzen</string>
 							<reference key="NSSupport" ref="999716075"/>
 							<reference key="NSControlView" ref="939098138"/>
 							<int key="NSButtonFlags">1211912703</int>
@@ -509,7 +510,6 @@
 					</object>
 				</object>
 				<string key="NSFrameSize">{514, 136}</string>
-				<reference key="NSSuperview"/>
 				<object class="NSMutableString" key="NSClassName">
 					<characters key="NS.bytes">NSView</characters>
 				</object>

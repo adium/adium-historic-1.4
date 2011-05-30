@@ -3,16 +3,15 @@
 	<data>
 		<int key="IBDocument.SystemTarget">1050</int>
 		<string key="IBDocument.SystemVersion">10J869</string>
-		<string key="IBDocument.InterfaceBuilderVersion">851</string>
+		<string key="IBDocument.InterfaceBuilderVersion">823</string>
 		<string key="IBDocument.AppKitVersion">1038.35</string>
 		<string key="IBDocument.HIToolboxVersion">461.00</string>
 		<object class="NSMutableDictionary" key="IBDocument.PluginVersions">
 			<string key="NS.key.0">com.apple.InterfaceBuilder.CocoaPlugin</string>
-			<string key="NS.object.0">851</string>
+			<string key="NS.object.0">823</string>
 		</object>
 		<object class="NSMutableArray" key="IBDocument.EditedObjectIDs">
 			<bool key="EncodedWithXMLCoder">YES</bool>
-			<integer value="141"/>
 		</object>
 		<object class="NSArray" key="IBDocument.PluginDependencies">
 			<bool key="EncodedWithXMLCoder">YES</bool>
@@ -34,7 +33,7 @@
 				<string key="NSClassName">NSApplication</string>
 			</object>
 			<object class="NSCustomView" id="478665167">
-				<reference key="NSNextResponder"/>
+				<nil key="NSNextResponder"/>
 				<int key="NSvFlags">256</int>
 				<object class="NSMutableArray" key="NSSubviews">
 					<bool key="EncodedWithXMLCoder">YES</bool>
@@ -127,7 +126,7 @@
 							<string key="NSColorName">controlColor</string>
 							<object class="NSColor" key="NSColor">
 								<int key="NSColorSpace">3</int>
-								<bytes key="NSWhite">MC42NjY2NjY2ODY1AA</bytes>
+								<bytes key="NSWhite">MC42NjY2NjY2NjY3AA</bytes>
 							</object>
 						</object>
 						<object class="NSColor" key="NSCellBackgroundColor" id="675882635">
@@ -319,7 +318,7 @@
 						<object class="NSButtonCell" key="NSCell" id="190735552">
 							<int key="NSCellFlags">67239424</int>
 							<int key="NSCellFlags2">0</int>
-							<string key="NSContents">Immer Proxy für Datentransfer benutzen</string>
+							<string key="NSContents">Immer Proxy für Dateiübertragungen benutzen</string>
 							<reference key="NSSupport" ref="485311539"/>
 							<reference key="NSControlView" ref="668418613"/>
 							<int key="NSButtonFlags">1211912703</int>
@@ -355,7 +354,6 @@
 					</object>
 				</object>
 				<string key="NSFrameSize">{443, 140}</string>
-				<reference key="NSSuperview"/>
 				<object class="NSMutableString" key="NSClassName">
 					<characters key="NS.bytes">NSView</characters>
 				</object>
