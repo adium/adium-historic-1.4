@@ -315,7 +315,7 @@
 																<string>WebURLsWithTitlesPboardType</string>
 															</object>
 														</object>
-														<string key="NSFrameSize">{410, 54}</string>
+														<string key="NSFrameSize">{410, 14}</string>
 														<reference key="NSSuperview" ref="810416394"/>
 														<object class="NSTextContainer" key="NSTextContainer" id="430498508">
 															<object class="NSLayoutManager" key="NSLayoutManager">
@@ -384,7 +384,7 @@
 															<nil key="NSDefaultParagraphStyle"/>
 														</object>
 														<int key="NSTVFlags">6</int>
-														<string key="NSMaxSize">{805, 1e+07}</string>
+														<string key="NSMaxSize">{837, 1e+07}</string>
 														<string key="NSMinize">{223, 0}</string>
 														<nil key="NSDelegate"/>
 													</object>
