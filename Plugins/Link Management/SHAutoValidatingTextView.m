@@ -16,6 +16,10 @@
 
 #import "SHAutoValidatingTextView.h"
 
+@interface SHAutoValidatingTextView ()
+- (void)revalidate;
+@end
+
 @implementation SHAutoValidatingTextView
 
 - (id)initWithFrame:(NSRect)frameRect
@@ -40,6 +44,10 @@
 {
     //set the validation BOOL, and immeditely reevaluate view
     continuousURLValidation = flag;
+	
+	if (continuousURLValidation) {
+		[self revalidate];
+	}
 }
 
 - (void)toggleContinuousURLValidationEnabled
@@ -72,14 +80,23 @@
 - (void)textDidChange:(NSNotification *)notification
 {
     if (continuousURLValidation) {//call the URL validatation if set
-		NSString			*linkURL = [self linkURL];
-
-        URLIsValid = [AHHyperlinkScanner isStringValidURI:linkURL
-											  usingStrict:YES
-												fromIndex:nil
-											   withStatus:&validStatus];
+	[self revalidate];
     }
 }
+
+- (void)revalidate
+{
+	NSString			*linkURL = [self linkURL];
+	
+	URLIsValid = [AHHyperlinkScanner isStringValidURI:linkURL
+										  usingStrict:YES
+											fromIndex:NULL
+										   withStatus:&validStatus
+										 schemeLength:NULL];
+}
+
+
+
 
 #pragma mark Retrieving URL
 /*!
