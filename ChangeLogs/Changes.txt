@@ -42,6 +42,8 @@ Version 1.4.2 (XX/XX/2011)
  ICQ
   * Fixed ICQ disconnections going unnoticed. (#14229)
   * Fixed hang caused by reading badly formatted transcripts from ICQ. (#14627)
+  * Switch to clientLogin authentication for ICQ and AIM, allowing SSL to be used if possible again. Change the options for encryption to "Require"/"Opportunistic"/"Disabled." (#15000)
+  * Use the clientLogin key of the official ICQ Mac client instead of the AIM key we had which got banned. (#15244)
 
  IRC
   * Fixed a crash related to invalid UTF8 in nicknames on IRC. (#13351)
