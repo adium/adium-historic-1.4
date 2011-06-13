@@ -18,8 +18,8 @@
 ###########
 
 VERSION=1.4.2
-BUILD_IN_DEBUG_MODE?=TRUE
-BETA?=TRUE
+BUILD_IN_DEBUG_MODE?=FALSE
+BETA?=FALSE
 OFFICIAL_BUILD?=TRUE
 
 # Always builds in debug mode.
