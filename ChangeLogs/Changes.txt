@@ -1,6 +1,6 @@
 				Adium Version History
 				-----------------------
-Version 1.4.2 (XX/XX/2011)
+Version 1.4.2 (06/13/2011)
  Updated to libpurple 2.7.11. Highlights of applicable changes:
   * MSN
     * Fixed bug that prevented adding contacts to your contact list in certain circumstances. (#14965)
