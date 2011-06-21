@@ -91,8 +91,7 @@
 	URLIsValid = [AHHyperlinkScanner isStringValidURI:linkURL
 										  usingStrict:YES
 											fromIndex:NULL
-										   withStatus:&validStatus
-										 schemeLength:NULL];
+										   withStatus:&validStatus];
 }
 
 
