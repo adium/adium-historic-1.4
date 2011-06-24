@@ -7,8 +7,9 @@
 //
 
 #import "PurpleService.h"
+#import "AIFacebookXMPPService.h"
 
-@interface PurpleFacebookService : PurpleService {
+@interface PurpleFacebookService : AIFacebookXMPPService {
 
 }
 
