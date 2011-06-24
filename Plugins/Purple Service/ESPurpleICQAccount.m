@@ -58,32 +58,14 @@
 	
 	//Defaults to NO - web_aware will cause lots of spam for many users!
 	purple_account_set_bool(account, "web_aware", [[self preferenceForKey:KEY_ICQ_WEB_AWARE group:GROUP_ACCOUNT_STATUS] boolValue]);
-
-#warning Remove when ICQ SSL support is fixed
-	purple_account_set_bool(account, "use_ssl", NO);
 }
 
-- (void)continueConnectWithConfiguredPurpleAccount
+- (void)migrateSSL
 {
-	if ([[self preferenceForKey:PREFERENCE_SSL_CONNECTION
-						  group:GROUP_ACCOUNT_STATUS] boolValue]) {
-		NSInteger ret = NSRunCriticalAlertPanel(@"Secure Connection to ICQ Not Available",
-												 @"Due to recent changes with the ICQ service, SSL connections to ICQ are not currently supported. Do you want to disable SSL and connect without encryption?",
-												 @"Connect Without Encryption",
-												 @"Disable Account",
-												 nil);
-		
-		if (ret == NSAlertDefaultReturn) {
-			[self setPreference:nil
-						 forKey:PREFERENCE_SSL_CONNECTION
-						  group:GROUP_ACCOUNT_STATUS];
-			[super continueConnectWithConfiguredPurpleAccount];
-		} else {
-			[self setEnabled:NO];
-		}
-	} else {
-		[super continueConnectWithConfiguredPurpleAccount];	
-	}
+	// SSL was forced off in the 1.4.1 update. Because "require SSL" will fail, migrate everyone to opportunistic encryption
+	[self setPreference:PREFERENCE_ENCRYPTION_TYPE_OPPORTUNISTIC
+				 forKey:PREFERENCE_ENCRYPTION_TYPE
+				  group:GROUP_ACCOUNT_STATUS];
 }
 
 #pragma mark Contact updates

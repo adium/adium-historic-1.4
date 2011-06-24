@@ -1,5 +1,5 @@
 Adium
-Copyright (C) 2001-2010 by the following:
+Copyright (C) 2001-2011 by the following:
 
 Thijs Alkemade
 Adam Atlas
@@ -17,7 +17,7 @@ Wesley Campaigne
 Ariel Chinn
 David Clark
 Felipe Contreras
-Jacobo Tarragón Cros
+Jacobo Tarrag√≥n Cros
 Brian Dickman
 Michael Dippery
 Frank Dowsett

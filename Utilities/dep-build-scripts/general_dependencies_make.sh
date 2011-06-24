@@ -86,8 +86,10 @@ for ARCH in ppc i386; do
 	export LDFLAGS="$LOCAL_FLAGS $BASE_LDFLAGS -arch $ARCH"
 	
 	case $ARCH in
-		ppc) HOST=powerpc-apple-darwin9;;
-		i386) HOST=i686-apple-darwin9;;
+		ppc) HOST=powerpc-apple-darwin9
+             export ac_cv_c_bigendian=yes;;
+		i386) HOST=i686-apple-darwin9
+              export ac_cv_c_bigendian=no;;
 	esac
 	
 	mkdir glib-$ARCH >/dev/null 2>&1 || true
