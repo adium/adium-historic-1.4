@@ -11,15 +11,4 @@
 
 @implementation PurpleFacebookAccountViewController
 
-- (NSString *)nibName
-{
-	return @"PurpleFacebookAccountView";
-}
-
-- (void)configureForAccount:(AIAccount *)inAccount
-{
-	[(PurpleFacebookAccount *)inAccount migrate];
-}
-
-
 @end
