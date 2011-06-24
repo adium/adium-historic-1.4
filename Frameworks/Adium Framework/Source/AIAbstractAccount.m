@@ -767,7 +767,7 @@
 					   forProperty:@"Prompt For Password On Next Connect"
 					   notify:NotifyNever];
 
-		if (![self boolValueForProperty:@"Online"] && ![self valueForProperty:@"Connecting"]) {
+		if (![self boolValueForProperty:@"Online"] && ![self boolValueForProperty:@"Connecting"]) {
 			[self setPasswordTemporarily:inPassword];
 
 			//Time to connect!
