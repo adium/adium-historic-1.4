@@ -17,9 +17,9 @@
 # - make all
 ###########
 
-VERSION=1.4.2hg
-BUILD_IN_DEBUG_MODE?=TRUE
-BETA?=TRUE
+VERSION=1.4.2
+BUILD_IN_DEBUG_MODE?=FALSE
+BETA?=FALSE
 OFFICIAL_BUILD?=TRUE
 
 # Always builds in debug mode.
@@ -29,7 +29,7 @@ NIGHTLY?=FALSE
 # To release!
 # Releasing requires cachefly access and adiumx.com access.
 #
-# First upload to cachefly. If you don't have access and need to do a release, get with Evan or Chris (tick).
+# First upload to cachefly. If you don't have access and need to do a release, get with Evan or Eric.
 # Triggering the version checker once the release is up:
 # 1) Build Adium
 # 2) Get the number out of the 'buildnum' file in Adium.app/Contents/Resources
@@ -117,7 +117,7 @@ assertnoconflicts:
 
 version:
 	@# update the plists
-	defaults write $(ADIUM_PLIST) CFBundleGetInfoString "$(VERSION), Copyright 2001-2010 The Adium Team"
+	defaults write $(ADIUM_PLIST) CFBundleGetInfoString "$(VERSION), Copyright 2001-2011 The Adium Team"
 	defaults write $(ADIUM_PLIST) CFBundleVersion "$(VERSION)"
 	defaults write $(ADIUM_PLIST) CFBundleShortVersionString "$(VERSION)"
 	plutil -convert xml1 $(ADIUM_PLIST).plist

@@ -43,7 +43,10 @@ if [ "x$PIDGIN_SOURCE" = "x" ] ; then
 fi
 
 # Compiler options
-export CC=/usr/bin/gcc-4.2
+export CC="/Developer-old/usr/bin/gcc"
+export CPP="/Developer-old/usr/bin/gcc -E"
+export CXX="/Developer-old/usr/bin/g++"
+
 TARGET_DIR_PPC="$BUILDDIR/root-ppc"
 TARGET_DIR_I386="$BUILDDIR/root-i386"
 TARGET_DIR_ARMV6="$BUILDDIR/root-armv6"
@@ -61,7 +64,7 @@ if [ "$1" = "-iphone" ]; then
     BASE_LDFLAGS="-miphoneos-version-min=2.2 -headerpad_max_install_names -Wl,-syslibroot,$SDK_ROOT"
 
 else
-    SDK_ROOT="/Developer/SDKs/MacOSX10.5.sdk"
+    SDK_ROOT="/Developer-old/SDKs/MacOSX10.5.sdk"
     BASE_CFLAGS="-mmacosx-version-min=10.5 -isysroot $SDK_ROOT"
     BASE_LDFLAGS="-mmacosx-version-min=10.5 -headerpad_max_install_names -Wl,-syslibroot,$SDK_ROOT"
 fi
