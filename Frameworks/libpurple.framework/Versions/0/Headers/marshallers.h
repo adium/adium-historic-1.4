@@ -6,7 +6,7 @@
 
 G_BEGIN_DECLS
 
-/* VOID:POINTER,POINTER,OBJECT (/Users/thijs/Projects/Checkouts/Adium/adium-1.4/Utilities/dep-build-scripts/source/im.pidgin.adium.1-4/libpurple/marshallers.list:1) */
+/* VOID:POINTER,POINTER,OBJECT (/Users/evands/coding/adium-1.4/Utilities/dep-build-scripts/source/im.pidgin.adium.1-4/libpurple/marshallers.list:1) */
 extern void purple_smarshal_VOID__POINTER_POINTER_OBJECT (GClosure     *closure,
                                                           GValue       *return_value,
                                                           guint         n_param_values,
@@ -14,7 +14,7 @@ extern void purple_smarshal_VOID__POINTER_POINTER_OBJECT (GClosure     *closure,
                                                           gpointer      invocation_hint,
                                                           gpointer      marshal_data);
 
-/* BOOLEAN:OBJECT,POINTER,STRING (/Users/thijs/Projects/Checkouts/Adium/adium-1.4/Utilities/dep-build-scripts/source/im.pidgin.adium.1-4/libpurple/marshallers.list:2) */
+/* BOOLEAN:OBJECT,POINTER,STRING (/Users/evands/coding/adium-1.4/Utilities/dep-build-scripts/source/im.pidgin.adium.1-4/libpurple/marshallers.list:2) */
 extern void purple_smarshal_BOOLEAN__OBJECT_POINTER_STRING (GClosure     *closure,
                                                             GValue       *return_value,
                                                             guint         n_param_values,
@@ -22,7 +22,7 @@ extern void purple_smarshal_BOOLEAN__OBJECT_POINTER_STRING (GClosure     *closur
                                                             gpointer      invocation_hint,
                                                             gpointer      marshal_data);
 
-/* VOID:STRING,STRING (/Users/thijs/Projects/Checkouts/Adium/adium-1.4/Utilities/dep-build-scripts/source/im.pidgin.adium.1-4/libpurple/marshallers.list:3) */
+/* VOID:STRING,STRING (/Users/evands/coding/adium-1.4/Utilities/dep-build-scripts/source/im.pidgin.adium.1-4/libpurple/marshallers.list:3) */
 extern void purple_smarshal_VOID__STRING_STRING (GClosure     *closure,
                                                  GValue       *return_value,
                                                  guint         n_param_values,
@@ -30,7 +30,7 @@ extern void purple_smarshal_VOID__STRING_STRING (GClosure     *closure,
                                                  gpointer      invocation_hint,
                                                  gpointer      marshal_data);
 
-/* VOID:STRING,STRING,DOUBLE (/Users/thijs/Projects/Checkouts/Adium/adium-1.4/Utilities/dep-build-scripts/source/im.pidgin.adium.1-4/libpurple/marshallers.list:4) */
+/* VOID:STRING,STRING,DOUBLE (/Users/evands/coding/adium-1.4/Utilities/dep-build-scripts/source/im.pidgin.adium.1-4/libpurple/marshallers.list:4) */
 extern void purple_smarshal_VOID__STRING_STRING_DOUBLE (GClosure     *closure,
                                                         GValue       *return_value,
                                                         guint         n_param_values,
@@ -38,7 +38,7 @@ extern void purple_smarshal_VOID__STRING_STRING_DOUBLE (GClosure     *closure,
                                                         gpointer      invocation_hint,
                                                         gpointer      marshal_data);
 
-/* VOID:ENUM,STRING,STRING (/Users/thijs/Projects/Checkouts/Adium/adium-1.4/Utilities/dep-build-scripts/source/im.pidgin.adium.1-4/libpurple/marshallers.list:5) */
+/* VOID:ENUM,STRING,STRING (/Users/evands/coding/adium-1.4/Utilities/dep-build-scripts/source/im.pidgin.adium.1-4/libpurple/marshallers.list:5) */
 extern void purple_smarshal_VOID__ENUM_STRING_STRING (GClosure     *closure,
                                                       GValue       *return_value,
                                                       guint         n_param_values,
@@ -46,7 +46,7 @@ extern void purple_smarshal_VOID__ENUM_STRING_STRING (GClosure     *closure,
                                                       gpointer      invocation_hint,
                                                       gpointer      marshal_data);
 
-/* VOID:ENUM,STRING,STRING,BOOLEAN (/Users/thijs/Projects/Checkouts/Adium/adium-1.4/Utilities/dep-build-scripts/source/im.pidgin.adium.1-4/libpurple/marshallers.list:6) */
+/* VOID:ENUM,STRING,STRING,BOOLEAN (/Users/evands/coding/adium-1.4/Utilities/dep-build-scripts/source/im.pidgin.adium.1-4/libpurple/marshallers.list:6) */
 extern void purple_smarshal_VOID__ENUM_STRING_STRING_BOOLEAN (GClosure     *closure,
                                                               GValue       *return_value,
                                                               guint         n_param_values,
@@ -54,7 +54,7 @@ extern void purple_smarshal_VOID__ENUM_STRING_STRING_BOOLEAN (GClosure     *clos
                                                               gpointer      invocation_hint,
                                                               gpointer      marshal_data);
 
-/* VOID:FLAGS,FLAGS (/Users/thijs/Projects/Checkouts/Adium/adium-1.4/Utilities/dep-build-scripts/source/im.pidgin.adium.1-4/libpurple/marshallers.list:7) */
+/* VOID:FLAGS,FLAGS (/Users/evands/coding/adium-1.4/Utilities/dep-build-scripts/source/im.pidgin.adium.1-4/libpurple/marshallers.list:7) */
 extern void purple_smarshal_VOID__FLAGS_FLAGS (GClosure     *closure,
                                                GValue       *return_value,
                                                guint         n_param_values,
@@ -62,7 +62,7 @@ extern void purple_smarshal_VOID__FLAGS_FLAGS (GClosure     *closure,
                                                gpointer      invocation_hint,
                                                gpointer      marshal_data);
 
-/* VOID:STRING,STRING,OBJECT,OBJECT (/Users/thijs/Projects/Checkouts/Adium/adium-1.4/Utilities/dep-build-scripts/source/im.pidgin.adium.1-4/libpurple/marshallers.list:8) */
+/* VOID:STRING,STRING,OBJECT,OBJECT (/Users/evands/coding/adium-1.4/Utilities/dep-build-scripts/source/im.pidgin.adium.1-4/libpurple/marshallers.list:8) */
 extern void purple_smarshal_VOID__STRING_STRING_OBJECT_OBJECT (GClosure     *closure,
                                                                GValue       *return_value,
                                                                guint         n_param_values,
