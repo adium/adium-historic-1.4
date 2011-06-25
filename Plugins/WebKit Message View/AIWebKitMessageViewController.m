@@ -1281,6 +1281,7 @@ static NSArray *draggedTypes = nil;
 			}
 		}
 
+		
 		AILogWithSignature(@"%@'s oldWebKitUserIconPath %@, webKitUserIconPath now %@", inObject, oldWebKitUserIconPath, webKitUserIconPath);
 
 		//Make sure it's known that this user has been handled
@@ -1295,6 +1296,10 @@ static NSArray *draggedTypes = nil;
 		
 		if (!webKitUserIconPath) webKitUserIconPath = @"";
 
+		/* We previously updated existing images with the below code.  There's a bug somewhere, and it results
+		 * in images being replaced with unknown-image question marks sometimes... though new images work fine.
+		 */
+#if 0
 		if ([webView mainFrameDocument]) {
 			//Update existing images if the webView has loaded and has a main frame
 			if (oldWebKitUserIconPath &&
@@ -1325,6 +1330,10 @@ static NSArray *draggedTypes = nil;
 					   afterDelay:1];
 		}
 	}
+#else
+	[objectIconPathDict setObject:webKitUserIconPath
+						   forKey:iconSourceObject.internalObjectID];
+#endif
 }
 
 - (void)updateServiceIcon
