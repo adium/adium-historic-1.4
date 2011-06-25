@@ -1329,11 +1329,11 @@ static NSArray *draggedTypes = nil;
 					   withObject:inObject
 					   afterDelay:1];
 		}
-	}
 #else
 	[objectIconPathDict setObject:webKitUserIconPath
 						   forKey:iconSourceObject.internalObjectID];
 #endif
+	}
 }
 
 - (void)updateServiceIcon
