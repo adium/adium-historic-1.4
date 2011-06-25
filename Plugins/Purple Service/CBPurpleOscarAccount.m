@@ -161,7 +161,7 @@ static AIHTMLDecoder	*encoderGroupChat = nil;
 																			  group:GROUP_ACCOUNT_STATUS] boolValue]);
 	
 		
-	// Always yes, so SSL on ICQ works again.
+	//Always yes, so SSL on ICQ works again. Note that we'll disable it if we're using a proxy server.
 	purple_account_set_bool(account, "use_clientlogin", TRUE);
 	
 	if ([[self preferenceForKey:PREFERENCE_ENCRYPTION_TYPE group:GROUP_ACCOUNT_STATUS] isEqualToString:PREFERENCE_ENCRYPTION_TYPE_OPPORTUNISTIC]) {
@@ -172,7 +172,23 @@ static AIHTMLDecoder	*encoderGroupChat = nil;
 		purple_account_set_string(account, "encryption", "no_encryption");
 	}
 }
-	
+
+- (void)continueConnectWithConfiguredProxy
+{
+	PurpleProxyInfo *proxy_info = purple_account_get_proxy_info(account);
+ 
+    if ((purple_proxy_info_get_type(proxy_info) != PURPLE_PROXY_NONE) && 
+        purple_proxy_info_get_host(proxy_info) && strlen(purple_proxy_info_get_host(proxy_info))) {
+        /* Proxy servers and client login don't currently get along.  This should be fixed in libpurple, but until then,
+         * just don't use it.
+         */
+        purple_account_set_bool(account, "use_clientlogin", FALSE);
+    }
+        
+    [super continueConnectWithConfiguredProxy];
+}
+
+
 - (void)migrateSSL
 {
 	// ICQ and AIM should override this
