@@ -71,7 +71,9 @@
 - (void)didBeginRegistration;
 - (void)usernameAndPasswordRegistered:(NSNotification*)notification;
 
-//For subclasses
-- (NSDictionary *)keyToKeyDict;
+@end
 
+@interface AIAccountViewController (ForSubclasses)
+- (void)localizeStrings;
+- (NSDictionary *)keyToKeyDict;
 @end

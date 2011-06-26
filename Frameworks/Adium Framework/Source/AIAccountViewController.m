@@ -28,10 +28,6 @@
 
 #define KEY_DISABLE_TYPING_NOTIFICATIONS		@"Disable Typing Notifications"
 
-@interface AIAccountViewController ()
-- (void)localizeStrings;
-@end
-
 /*!
  * @class AIAccountViewController
  * @brief Base account view controller
