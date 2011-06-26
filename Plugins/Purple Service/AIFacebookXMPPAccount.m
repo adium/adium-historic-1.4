@@ -262,7 +262,7 @@ enum {
 	NSString *displayUID = contact.UID;
 	displayUID = [displayUID stringByTrimmingCharactersInSet:[NSCharacterSet characterSetWithCharactersInString:@"-"]];
 	if ([displayUID hasSuffix:@"@chat.facebook.com"])
-		displayUID = [displayUID substringToIndex:(displayUID.length - @"@chat.facebook.com".length)];
+		displayUID = [displayUID substringToIndex:(displayUID.length - [@"@chat.facebook.com" length])];
 
 	[array addObject:[NSDictionary dictionaryWithObjectsAndKeys:
 					  AILocalizedString(@"Facebook ID", nil), KEY_KEY,
