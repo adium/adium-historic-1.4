@@ -105,10 +105,17 @@
 			DOMDocument *domDoc = [frame DOMDocument];
             
             if (self.isMigrating) {
-                NSString *text = domDoc.body.innerHTML;
-                text = [text stringByReplacingOccurrencesOfString:@"Log in to use your Facebook account"
-                                                       withString:@"The new version of Adium has a much more reliable Facebook Chat service. Log in to use your Facebook account"];
-                domDoc.body.innerHTML = text;
+				
+				/* 10.5.x doesn't get this nicety, I don't believe; compilation errors on domDoc.body, at least */
+				if ([domDoc respondsToSelector:@selector(body)]) {
+					DOMHTMLElement *body = [domDoc body];
+					if ([body respondsToSelector:@selector(innerHTML)]) {
+						NSString *text = [body innerHTML];
+						text = [text stringByReplacingOccurrencesOfString:@"Log in to use your Facebook account"
+															   withString:@"The new version of Adium has a much more reliable Facebook Chat service. Log in to use your Facebook account"];
+						[body setInnerHTML:text];
+					}
+				}
             }
 
             
