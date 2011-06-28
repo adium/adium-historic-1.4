@@ -38,7 +38,7 @@ done
 echo purple_make.sh: Compiling ${ARCHES[@]}
 
 DEBUG_SYMBOLS=TRUE
-PROTOCOLS="bonjour facebook gg irc jabber msn myspace novell oscar qq sametime simple yahoo zephyr"
+PROTOCOLS="bonjour gg irc jabber msn myspace novell oscar qq sametime simple yahoo zephyr"
 
 ###
 # These files are overwritten during each build, which prevents us from
