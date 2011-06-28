@@ -176,41 +176,41 @@
 - (void)addCookiesToRequest:(NSMutableURLRequest *)request
 {
     NSURL *requestURL = [request URL];
-    //NSLog(@"requestURL: %@", requestURL);
+    AILogWithSignature(@"requestURL: %@", request, requestURL);
     NSMutableArray *sentCookies = [NSMutableArray array];
     
     // same origin: domain, port, path.
     for (NSHTTPCookie *cookie in cookies) {
         if ([[cookie expiresDate] timeIntervalSinceNow] < 0) {
-            //NSLog(@"****** expired: %@", cookie);
+            AILogWithSignature(@"Skipping cookie: expired: %@", cookie);
             continue;
         }
         
         if ([cookie isSecure] && ![[requestURL scheme] isEqualToString:@"https"]) {
-            //NSLog(@"****** secure not https: %@", cookie);
+            AILogWithSignature(@"Skipping cookie: secure not https: %@", cookie);
             continue;
         }
         
         if ([[cookie domain] hasPrefix:@"."]) { // ".example.com" should match "foo.example.com" and "example.com"            
             if (!([[requestURL host] hasSuffix:[cookie domain]] ||
                   [[@"." stringByAppendingString:[requestURL host]] isEqualToString:[cookie domain]])) {
-                //NSLog(@"****** dot prefix host mismatch: %@", cookie);
+                AILogWithSignature(@"Skipping cookie: dot prefix host mismatch: %@", cookie);
                 continue;
             }
         } else {
             if (![[requestURL host] isEqualToString:[cookie domain]]) {
-                //NSLog(@"****** host mismatch: %@", cookie);
+                AILogWithSignature(@"Skipping cookie: host mismatch: %@", cookie);
                 continue;
             }
         }
         
         if ([cookie portList] && ![[cookie portList] containsObject:[requestURL port]]) {
-            //NSLog(@"****** port mismatch: %@", cookie);
+            AILogWithSignature(@"Skipping cookie: port mismatch: %@", cookie);
             continue;
         }
         
         if (![[requestURL path] hasPrefix:[cookie path]]) {
-            //NSLog(@"****** path mismatch: %@", cookie);
+            AILogWithSignature(@"Skipping cookie: path mismatch: %@", cookie);
             continue;
         }
         
@@ -218,9 +218,12 @@
         [sentCookies addObject:cookie];
     }
     
+	AILogWithSignature(@"Cookies: %@", sentCookies);
+	
     NSMutableDictionary *headers = [[[request allHTTPHeaderFields] mutableCopy] autorelease];
     [headers setValuesForKeysWithDictionary:[NSHTTPCookie requestHeaderFieldsWithCookies:sentCookies]];
     [request setAllHTTPHeaderFields:headers];
 }
+
 
 @end
