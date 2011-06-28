@@ -4,6 +4,8 @@
 # Bails out if any command exits with a non zero exit code
 # In all scripts if it doesn't matter what a return code is make sure to use cmd || true
 set -e
+
+DEVELOPER_DIR="/Developer"
 	
 # Package Versions - if a package is changed also update urls.txt
 PKGCONFIG=pkg-config-0.22
@@ -43,9 +45,9 @@ if [ "x$PIDGIN_SOURCE" = "x" ] ; then
 fi
 
 # Compiler options
-export CC="/Developer-old/usr/bin/gcc"
-export CPP="/Developer-old/usr/bin/gcc -E"
-export CXX="/Developer-old/usr/bin/g++"
+export CC="$DEVELOPER_DIR/usr/bin/gcc"
+export CPP="$DEVELOPER_DIR/usr/bin/gcc -E"
+export CXX="$DEVELOPER_DIR/usr/bin/g++"
 
 TARGET_DIR_PPC="$BUILDDIR/root-ppc"
 TARGET_DIR_I386="$BUILDDIR/root-i386"
@@ -64,7 +66,7 @@ if [ "$1" = "-iphone" ]; then
     BASE_LDFLAGS="-miphoneos-version-min=2.2 -headerpad_max_install_names -Wl,-syslibroot,$SDK_ROOT"
 
 else
-    SDK_ROOT="/Developer-old/SDKs/MacOSX10.5.sdk"
+    SDK_ROOT="$DEVELOPER_DIR/SDKs/MacOSX10.5.sdk"
     BASE_CFLAGS="-mmacosx-version-min=10.5 -isysroot $SDK_ROOT"
     BASE_LDFLAGS="-mmacosx-version-min=10.5 -headerpad_max_install_names -Wl,-syslibroot,$SDK_ROOT"
 fi
