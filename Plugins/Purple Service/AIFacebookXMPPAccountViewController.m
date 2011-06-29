@@ -16,7 +16,7 @@
 
 @implementation AIFacebookXMPPAccountViewController
 
-@synthesize spinner, textField_OAuthStatus, button_OAuthStart, button_help;
+@synthesize label_instructions, spinner, textField_OAuthStatus, button_OAuthStart, button_help;
 
 - (void)dealloc
 {
@@ -49,7 +49,7 @@
 	[super localizeStrings];
 
 
-	[label_instructions setLocalizedString:
+	[label_instructions setStringValue:
 	 AILocalizedString(@"To connect to Facebook Chat, you must give Adium permission. A secure Facebook login screen will be shown when you click Allow Access.",
 					   "Instructions in the Facebook account configuration window")];
 
