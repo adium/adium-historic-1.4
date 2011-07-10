@@ -326,8 +326,8 @@ typedef enum {
 	for (AIAccount *account in adium.accountController.accounts) {
 		AIStatus	*currentStatusState = account.statusState;
 		
-// Store the state of the account if there is no previous one saved
-		if (![previousStatus objectForKey:[NSNumber numberWithUnsignedInteger:[account hash]]]) {
+		// Store the state of the account if there is no previous one saved
+		if (![previousStatus objectForKey:[account UID]]) {
 			
 			// Don't modify or store the status of (originally!) non-available accounts
 			if (currentStatusState.statusType != AIAvailableStatusType) {
@@ -335,7 +335,7 @@ typedef enum {
 			}
 			
 			[previousStatus setObject:currentStatusState
-							   forKey:[NSNumber numberWithUnsignedInteger:[account hash]]];
+							   forKey:[account UID]];
  		}
 		
 		AILogWithSignature(@"Setting %@ to status %@", account, targetStatusState);
@@ -365,7 +365,7 @@ typedef enum {
 - (void)returnFromAutoAway
 {
 	for (AIAccount *account in adium.accountController.accounts) {
-		AIStatus *previousStatusState = [previousStatus objectForKey:[NSNumber numberWithUnsignedInt:[account hash]]];
+		AIStatus *previousStatusState = [previousStatus objectForKey:[account UID]];
 		
 		// Skip accounts without stored information.
 		if (!previousStatusState) {
