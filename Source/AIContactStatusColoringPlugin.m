@@ -146,6 +146,8 @@
     NSInteger				unviewedContent;
 	CGFloat			opacity = FULL_IMAGE_OPACITY;
 	BOOL			isEvent = NO;
+	// Only in the case the other contact is typing or has unread contact should we apply it to the meta contact as well
+	BOOL			applyToMetaToo = NO;
 
     //Prefetch the value for unviewed content, we need it multiple times below
     unviewedContent = [inContact integerValueForProperty:KEY_UNVIEWED_CONTENT];
@@ -160,6 +162,7 @@
             invertedColor = unviewedContentInvertedColor;
             labelColor = unviewedContentLabelColor;
 			isEvent = YES;
+			applyToMetaToo = YES;
         }
     }
 
@@ -189,7 +192,7 @@
             invertedColor = typingInvertedColor;
             labelColor = typingLabelColor;
 			isEvent = YES;
-			
+			applyToMetaToo = YES;
         }
     }
 
@@ -226,21 +229,40 @@
     }
 
     //Apply the color and opacity
-    [inContact setValue:color
-			forProperty:@"Text Color"
-				 notify:NotifyNever];
+	
+	[inContact setValue:color
+						  forProperty:@"Text Color"
+							   notify:NotifyNever];
     [inContact setValue:invertedColor
-			forProperty:@"Inverted Text Color"
-				 notify:NotifyNever];
+						  forProperty:@"Inverted Text Color"
+							   notify:NotifyNever];
     [inContact setValue:labelColor
-			forProperty:@"Label Color"
-				 notify:NotifyNever];
+						  forProperty:@"Label Color"
+							   notify:NotifyNever];
 	[inContact setValue:[NSNumber numberWithDouble:opacity]
-			forProperty:@"Image Opacity"
-				 notify:NotifyNever];
+						  forProperty:@"Image Opacity"
+							   notify:NotifyNever];
 	[inContact setValue:[NSNumber numberWithBool:isEvent]
-			forProperty:@"Is Event"
-				 notify:NotifyNever];
+						  forProperty:@"Is Event"
+							   notify:NotifyNever];
+	
+	if (applyToMetaToo && [inContact metaContact]) {
+		[[inContact metaContact] setValue:color
+							  forProperty:@"Text Color"
+								   notify:NotifyNever];
+		[[inContact metaContact] setValue:invertedColor
+							  forProperty:@"Inverted Text Color"
+								   notify:NotifyNever];
+		[[inContact metaContact] setValue:labelColor
+							  forProperty:@"Label Color"
+								   notify:NotifyNever];
+		[[inContact metaContact] setValue:[NSNumber numberWithDouble:opacity]
+							  forProperty:@"Image Opacity"
+								   notify:NotifyNever];
+		[[inContact metaContact] setValue:[NSNumber numberWithBool:isEvent]
+							  forProperty:@"Is Event"
+								   notify:NotifyNever];
+	}
 }
 
 //Flash all handles with unviewed content
