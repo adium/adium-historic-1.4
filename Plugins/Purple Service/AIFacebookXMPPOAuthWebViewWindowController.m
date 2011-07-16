@@ -204,7 +204,7 @@
             }
         }
         
-        if ([cookie portList] && ![[cookie portList] containsObject:[requestURL port]]) {
+        if ([[cookie portList] count] && ([requestURL port] != NULL) && ![[cookie portList] containsObject:[requestURL port]]) {
             AILogWithSignature(@"Skipping cookie: port mismatch: %@", cookie);
             continue;
         }
