@@ -1,4 +1,4 @@
-﻿				Adium Version History
+				Adium Version History
 				-----------------------
 Version 1.4.3
  * MSN: Fixed direct file transfers, user icons, and receiving custom emoticons, while disabling multiple points of presence (MPOP). We determined that this was the better trade-off based on user feedback.
@@ -8,6 +8,8 @@ Version 1.4.3
  * AIM/ICQ: Fixed connecting while using a proxy server
  * Twitter: Fixed loading the Following list.
  * Fixed the 'Add Link' function, which was broken in 1.4.2
+ * MessageView
+   * Inserted emoticon will replace the selected text (if any)
 
 Version 1.4.2 (06/13/2011)
  Updated to libpurple 2.7.11. Highlights of applicable changes:
