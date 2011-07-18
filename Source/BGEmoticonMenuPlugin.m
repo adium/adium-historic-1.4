@@ -233,10 +233,12 @@
 		NSResponder *responder = [[[NSApplication sharedApplication] keyWindow] firstResponder];
 		if (emoString && [responder isKindOfClass:[NSTextView class]] && [(NSTextView *)responder isEditable]) {
 			NSRange tmpRange = [(NSTextView *)responder selectedRange];
-			if (0 != tmpRange.length) {
-				[(NSTextView *)responder setSelectedRange:NSMakeRange((tmpRange.location + tmpRange.length),0)];
-			}
+			
 			[responder insertText:emoString];
+		
+			if (0 != tmpRange.length) {
+				[(NSTextView *)responder setSelectedRange:NSMakeRange((tmpRange.location + emoString.length),0)];
+			}
 		}
     }
 }
