@@ -123,9 +123,9 @@ version:
 	defaults write $(ADIUM_PLIST) CFBundleVersion "$(VERSION)"
 	defaults write $(ADIUM_PLIST) CFBundleShortVersionString "$(VERSION)"
 ifeq ($(NIGHTLY),TRUE)
-    defaults write $(ADIUM_PLIST) AINightlyRepo "$(NIGHTLY_REPO)"
-    defaults write $(ADIUM_PLIST) AINightlyBranch "$(NIGHTLY_BRANCH)"
-end
+	defaults write $(ADIUM_PLIST) AINightlyRepo "$(NIGHTLY_REPO)"
+	defaults write $(ADIUM_PLIST) AINightlyBranch "$(NIGHTLY_BRANCH)"
+endif
 	plutil -convert xml1 $(ADIUM_PLIST).plist
 
 compile:
