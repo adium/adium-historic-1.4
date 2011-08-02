@@ -11,7 +11,7 @@ Version 1.4.3
  * Fixed instances where contacts weren't being highlighted despite having been set to. (#14493).
  * MessageView
    * Inserted emoticon will replace the selected text (if any)
- * Updated the Greek localisation. (#15330)
+ * Updated localisations: German (#15374), Greek (#15330), Norwegian (Bokmål) (#15365), Portuguese (Portugal) #(15371).
 
 Version 1.4.2 (06/13/2011)
  Updated to libpurple 2.7.11. Highlights of applicable changes:
