@@ -13,12 +13,6 @@
 #define GLIB_HAVE_ALLOCA_H
 #define GLIB_HAVE_SYS_POLL_H
 
-/* Specifies that GLib's g_print*() functions wrap the
- * system printf functions.  This is useful to know, for example,
- * when using glibc's register_printf_function().
- */
-#define GLIB_USING_SYSTEM_PRINTF
-
 G_BEGIN_DECLS
 
 #define G_MINFLOAT	FLT_MIN
@@ -151,21 +145,10 @@ typedef unsigned int guintptr;
 
 #define G_THREADS_ENABLED
 #define G_THREADS_IMPL_POSIX
-typedef struct _GStaticMutex GStaticMutex;
-struct _GStaticMutex
-{
-  struct _GMutex *runtime_mutex;
-  union {
-    char   pad[44];
-    double dummy_double;
-    void  *dummy_pointer;
-    long   dummy_long;
-  } static_mutex;
-};
-#define	G_STATIC_MUTEX_INIT	{ NULL, { { 50,-86,-85,-89,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0} } }
-#define	g_static_mutex_get_mutex(mutex) \
-  (g_thread_use_default_impl ? ((GMutex*)(gpointer) ((mutex)->static_mutex.pad)) : \
-   g_static_mutex_get_mutex_impl_shortcut (&((mutex)->runtime_mutex)))
+typedef struct _GMutex* GStaticMutex;
+#define G_STATIC_MUTEX_INIT NULL
+#define g_static_mutex_get_mutex(mutex) \
+  (g_static_mutex_get_mutex_impl_shortcut (mutex))
 /* This represents a system thread as used by the implementation. An
  * alien implementaion, as loaded by g_thread_init can only count on
  * "sizeof (gpointer)" bytes to store their info. We however need more
