@@ -617,6 +617,10 @@
 		34D1AB700D693E2E00470520 /* Release-Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ARCHS = (
+					i386,
+					ppc,
+				);
 				INFOPLIST_FILE = "Palette/Palette-Info.plist";
 				LIBRARY_STYLE = BUNDLE;
 				WRAPPER_EXTENSION = palette;
@@ -626,6 +630,10 @@
 		34D1AB710D693E2E00470520 /* Release-Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ARCHS = (
+					i386,
+					ppc,
+				);
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				FRAMEWORK_VERSION = A;
@@ -638,6 +646,10 @@
 		34D1AB720D693E2E00470520 /* Release-Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ARCHS = (
+					i386,
+					ppc,
+				);
 				LIBRARY_STYLE = STATIC;
 			};
 			name = "Release-Debug";
@@ -645,6 +657,10 @@
 		34D1AB730D693E2E00470520 /* Release-Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ARCHS = (
+					i386,
+					ppc,
+				);
 				INFOPLIST_FILE = "Sample App/SampleApp-Info.plist";
 				PRODUCT_NAME = SampleApp;
 			};
@@ -660,6 +676,10 @@
 		D50F205D08A01A630073A261 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ARCHS = (
+					i386,
+					ppc,
+				);
 				LIBRARY_STYLE = STATIC;
 			};
 			name = Release;
@@ -676,6 +696,10 @@
 		D50F206108A01A630073A261 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ARCHS = (
+					i386,
+					ppc,
+				);
 				INFOPLIST_FILE = "Palette/Palette-Info.plist";
 				LIBRARY_STYLE = BUNDLE;
 				WRAPPER_EXTENSION = palette;
@@ -697,6 +721,10 @@
 		D50F206508A01A630073A261 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ARCHS = (
+					i386,
+					ppc,
+				);
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				FRAMEWORK_VERSION = A;
@@ -717,6 +745,10 @@
 		D50F206908A01A630073A261 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ARCHS = (
+					i386,
+					ppc,
+				);
 				INFOPLIST_FILE = "Sample App/SampleApp-Info.plist";
 				PRODUCT_NAME = SampleApp;
 			};
