@@ -13,7 +13,7 @@
 	AHHyperlinkScanner	*scanner = [AHHyperlinkScanner hyperlinkScannerWithString:testString];
 	AHMarkedHyperlink	*link = [scanner nextURI];
 	
-	STAssertNotNil(link, @"-[SHHyperlinkScanner nextURL] found no URI in \"%@\"", testString);
+	STAssertNotNil([link URL], @"-[SHHyperlinkScanner nextURL] found no URI in \"%@\"", testString);
 	STAssertEqualObjects([[link parentString] substringWithRange:[link range]], URIString, @"in context: '%@'", testString);
 }
 
@@ -230,6 +230,8 @@
 	[self testLaxContext:@"%@" withURI:[NSString stringWithFormat:@"%@",@"http://example.com/hi%uthere"]]; //#11160
 	
 	[self testURIEscaping:[NSString stringWithFormat:@"%@",@"http://www.google.com/search?q=foo%20bar"]]; //#12850
+	
+	[self testLaxContext:@"%@ doesn't link." withURI:@"http://developer.apple.com/library/iOS/#documentation/Cocoa/Conceptual/CocoaFundamentals/CocoaObjects/CocoaObjects.html#//apple_ref/doc/uid/TP40002974-CH4-SW3"];
 }
 
 - (void)testCompositeContext {
