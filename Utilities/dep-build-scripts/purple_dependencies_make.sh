@@ -31,9 +31,11 @@ for ARCH in ppc i386 ; do
     
 	case $ARCH in
 		ppc) TARGET_DIR="$TARGET_DIR_PPC"
+		         HOST=powerpc-apple-darwin9
 			 export PATH="$PATH_PPC"
 			 export PKG_CONFIG_PATH="$TARGET_DIR_PPC/lib/pkgconfig";;
 		i386) TARGET_DIR="$TARGET_DIR_I386"
+			  HOST=i686-apple-darwin9
 			  export PATH="$PATH_I386"
 			  export PKG_CONFIG_PATH="$TARGET_DIR_I386/lib/pkgconfig";;
 	esac
@@ -46,7 +48,8 @@ for ARCH in ppc i386 ; do
     	--prefix=$TARGET_DIR \
     	--enable-static --enable-shared \
     	--disable-doxygen \
-    	--disable-mailme >> $LOG_FILE 2>&1
+    	--disable-mailme \
+	--host=$HOST >> $LOG_FILE 2>&1
 
     # We edit libtool before we run make. This is evil and makes me sad.
     echo '  Editing libtool...'
@@ -95,21 +98,24 @@ for ARCH in ppc i386 ; do
 	export CFLAGS="$BASE_CFLAGS -arch $ARCH"
 	export CXXFLAGS="$CFLAGS"
 	export LDFLAGS="$BASE_LDFLAGS -arch $ARCH"
+	export NM="nm"
 
     mkdir json-glib-$ARCH || true
     cd json-glib-$ARCH
 
 	case $ARCH in
 		ppc) TARGET_DIR="$TARGET_DIR_PPC"
-    		export PATH="$PATH_PPC"
-            export PKG_CONFIG_PATH="$TARGET_DIR_PPC/lib/pkgconfig";;
+			HOST=powerpc-apple-darwin9
+    			export PATH="$PATH_PPC"
+			export PKG_CONFIG_PATH="$TARGET_DIR_PPC/lib/pkgconfig";;
 		i386) TARGET_DIR="$TARGET_DIR_I386"
-            export PATH="$PATH_I386"
-            export PKG_CONFIG_PATH="$TARGET_DIR_I386/lib/pkgconfig";;
+			HOST=i686-apple-darwin9
+			export PATH="$PATH_I386"
+			export PKG_CONFIG_PATH="$TARGET_DIR_I386/lib/pkgconfig";;
 	esac
 
 	echo '  Configuring...'   
-    "$SOURCEDIR/$JSONLIB/configure" --prefix=$TARGET_DIR #>> $LOG_FILE 2>&1
+    "$SOURCEDIR/$JSONLIB/configure" --prefix=$TARGET_DIR --host=$HOST #>> $LOG_FILE 2>&1
     
 	echo '  make && make install'
     make -j $NUMBER_OF_CORES && make install #>> $LOG_FILE 2>&1

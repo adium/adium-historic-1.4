@@ -86,10 +86,18 @@ for ARCH in ppc i386; do
 	export LDFLAGS="$LOCAL_FLAGS $BASE_LDFLAGS -arch $ARCH"
 	
 	case $ARCH in
-		ppc) HOST=powerpc-apple-darwin9
-             export ac_cv_c_bigendian=yes;;
-		i386) HOST=i686-apple-darwin9
-              export ac_cv_c_bigendian=no;;
+	ppc) HOST=powerpc-apple-darwin9
+		export glib_cv_uscore=no
+		export glib_cv_stack_grows=no
+		export ac_cv_func_posix_getpwuid_r=yes
+		export ac_cv_func_posix_getgrgid_r=yes
+		export ac_cv_func_printf_unix98=yes
+		export ac_cv_func_snprintf_c99=yes
+		export ac_cv_func_vsnprintf_c99=yes
+		export glib_cv_have_strlcpy=yes
+             	export ac_cv_c_bigendian=yes;;
+	i386) HOST=i686-apple-darwin9
+              	export ac_cv_c_bigendian=no;;
 	esac
 	
 	mkdir glib-$ARCH >/dev/null 2>&1 || true
