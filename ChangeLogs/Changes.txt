@@ -7,11 +7,11 @@ Version 1.4.3
    * Facebook will now connect via the officially-sanctioned mechanism.  You no longer have to provide Adium with your username and password; you will be prompted to authenticate via a facebook.com window when you first log in. Existing accounts are automatically upgraded.
  * AIM/ICQ: Fixed connecting while using a proxy server.
  * Twitter: Fixed loading the Following list. (#15239)
- * Fixed the 'Add Link' function, which was broken in 1.4.2. (#15259)
+ * Fixed the "Add Link" function, which was broken in 1.4.2. (#15259)
  * Fixed instances where contacts weren't being highlighted despite having been set to. (#14493).
  * MessageView
    * Inserted emoticon will replace the selected text (if any)
- * Updated localisations: German (#15374), Greek (#15330), Norwegian (Bokmål) (#15365), Portuguese (Portugal) #(15371).
+ * Updated localisations: German (#15374), Greek (#15330), Italian (15395), Norwegian (Bokmål) (#15365), Portuguese (Portugal) (#15371), Swedish (#15384).
 
 Version 1.4.2 (06/13/2011)
  Updated to libpurple 2.7.11. Highlights of applicable changes:
