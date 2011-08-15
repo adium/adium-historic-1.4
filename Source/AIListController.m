@@ -423,8 +423,12 @@
 	if (!object || (object == contactList)) {
 		[contactListView reloadData];
 	} else {
-		for (AIProxyListObject *proxyObject in object.proxyObjects)
-			[contactListView reloadItem:proxyObject reloadChildren:YES];
+		for (AIProxyListObject *proxyObject in object.proxyObjects) {
+            if ([proxyObject.listObject isExpanded])
+                [contactListView reloadItem:proxyObject reloadChildren:YES];
+            else
+                [contactListView reloadItem:proxyObject reloadChildren:NO];
+        }
 	}
 }
 
