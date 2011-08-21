@@ -135,7 +135,8 @@
 }
 - (int)cellWidth
 {
-	unsigned			width = [super cellWidth] + [self flippyIndent] + GROUP_COUNT_PADDING;
+	AIListObject    *listObject = [proxyObject listObject];
+	unsigned		width = [super cellWidth] + [self flippyIndent] + GROUP_COUNT_PADDING;
 	
 	//Get the size of our display name
 	width += ceil(self.displayNameSize.width) + 1;
@@ -173,6 +174,8 @@
 //Draw content of our cell
 - (void)drawContentWithFrame:(NSRect)rect
 {
+    AIListObject *listObject = [proxyObject listObject];
+    
 	//Draw flippy triangle (disclosure triangle)
 	[[self flippyColor] set];
 	
@@ -205,6 +208,8 @@
 
 - (NSRect)drawGroupCountWithFrame:(NSRect)inRect
 {
+	AIListObject *listObject = [proxyObject listObject];
+
 	if ([listObject valueForProperty:@"Count Text"]) {
 		NSAttributedString	*groupCount = [[NSAttributedString alloc] initWithString:[listObject valueForProperty:@"Count Text"]
 																		  attributes:[self labelAttributes]];
