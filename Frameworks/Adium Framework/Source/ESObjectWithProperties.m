@@ -328,15 +328,4 @@
 	[proxyObjects addObject:proxyObject];
 }
 
-/*!
- * @brief Notify that a proxy object has been removed for this object
- */
-- (void)removeProxyObject:(id)proxyObject
-{
-	if (proxyObject) {
-		[AIProxyListObject releaseProxyObject:proxyObject];
-		[proxyObjects removeObject:proxyObject];
-	}
-}
-
 @end
