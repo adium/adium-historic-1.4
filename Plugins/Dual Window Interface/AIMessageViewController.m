@@ -226,7 +226,7 @@
 	}
 	//release menuItem
 	[showHide release];
-	
+	[view_contents release]; view_contents = nil;
 	[undoManager release]; undoManager = nil;
 
     [super dealloc];
