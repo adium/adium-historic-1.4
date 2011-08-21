@@ -627,6 +627,14 @@
 		34A1B2C30DFDBA1200AC78CF /* AIStringDebug.m in Sources */ = {isa = PBXBuildFile; fileRef = 34A1B2C20DFDBA1200AC78CF /* AIStringDebug.m */; };
 		34A250B607E0F822009854E1 /* StatusDefaults.plist in Resources */ = {isa = PBXBuildFile; fileRef = 34A250B507E0F822009854E1 /* StatusDefaults.plist */; };
 		34A29DB706ED68C000E1366C /* Contact List in Copy Built-in Xtras */ = {isa = PBXBuildFile; fileRef = 34A29D9406ED68BF00E1366C /* Contact List */; };
+		34A2B5121401B45000B18729 /* MAWeakArray.h in Headers */ = {isa = PBXBuildFile; fileRef = 34A2B50A1401B45000B18729 /* MAWeakArray.h */; };
+		34A2B5131401B45000B18729 /* MAWeakArray.m in Sources */ = {isa = PBXBuildFile; fileRef = 34A2B50B1401B45000B18729 /* MAWeakArray.m */; };
+		34A2B5141401B45000B18729 /* MAWeakDictionary.h in Headers */ = {isa = PBXBuildFile; fileRef = 34A2B50C1401B45000B18729 /* MAWeakDictionary.h */; };
+		34A2B5151401B45000B18729 /* MAWeakDictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = 34A2B50D1401B45000B18729 /* MAWeakDictionary.m */; };
+		34A2B5161401B45000B18729 /* MAZeroingWeakProxy.h in Headers */ = {isa = PBXBuildFile; fileRef = 34A2B50E1401B45000B18729 /* MAZeroingWeakProxy.h */; };
+		34A2B5171401B45000B18729 /* MAZeroingWeakProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = 34A2B50F1401B45000B18729 /* MAZeroingWeakProxy.m */; };
+		34A2B5181401B45000B18729 /* MAZeroingWeakRef.h in Headers */ = {isa = PBXBuildFile; fileRef = 34A2B5101401B45000B18729 /* MAZeroingWeakRef.h */; };
+		34A2B5191401B45000B18729 /* MAZeroingWeakRef.m in Sources */ = {isa = PBXBuildFile; fileRef = 34A2B5111401B45000B18729 /* MAZeroingWeakRef.m */; };
 		34A489F306F64359002C7C5F /* AISCLViewPlugin.m in Sources */ = {isa = PBXBuildFile; fileRef = 34A489F106F64359002C7C5F /* AISCLViewPlugin.m */; };
 		34A48A0106F6436D002C7C5F /* AIStandardListWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 34A489FB06F6436D002C7C5F /* AIStandardListWindowController.m */; };
 		34A48A0406F6436D002C7C5F /* AIListWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 34A489FE06F6436D002C7C5F /* AIListWindowController.m */; };
@@ -3315,6 +3323,14 @@
 		34A1B59F0E03409F00AC78CF /* AIWebKitPreviewMessageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AIWebKitPreviewMessageViewController.m; path = "Plugins/WebKit Message View/AIWebKitPreviewMessageViewController.m"; sourceTree = "<group>"; };
 		34A250B507E0F822009854E1 /* StatusDefaults.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist; name = StatusDefaults.plist; path = Resources/StatusDefaults.plist; sourceTree = "<group>"; };
 		34A29D9406ED68BF00E1366C /* Contact List */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = folder; name = "Contact List"; path = "Resources/Contact List"; sourceTree = "<group>"; };
+		34A2B50A1401B45000B18729 /* MAWeakArray.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MAWeakArray.h; path = Frameworks/MAZeroingWeakRef/Source/MAWeakArray.h; sourceTree = "<group>"; };
+		34A2B50B1401B45000B18729 /* MAWeakArray.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MAWeakArray.m; path = Frameworks/MAZeroingWeakRef/Source/MAWeakArray.m; sourceTree = "<group>"; };
+		34A2B50C1401B45000B18729 /* MAWeakDictionary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MAWeakDictionary.h; path = Frameworks/MAZeroingWeakRef/Source/MAWeakDictionary.h; sourceTree = "<group>"; };
+		34A2B50D1401B45000B18729 /* MAWeakDictionary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MAWeakDictionary.m; path = Frameworks/MAZeroingWeakRef/Source/MAWeakDictionary.m; sourceTree = "<group>"; };
+		34A2B50E1401B45000B18729 /* MAZeroingWeakProxy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MAZeroingWeakProxy.h; path = Frameworks/MAZeroingWeakRef/Source/MAZeroingWeakProxy.h; sourceTree = "<group>"; };
+		34A2B50F1401B45000B18729 /* MAZeroingWeakProxy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MAZeroingWeakProxy.m; path = Frameworks/MAZeroingWeakRef/Source/MAZeroingWeakProxy.m; sourceTree = "<group>"; };
+		34A2B5101401B45000B18729 /* MAZeroingWeakRef.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MAZeroingWeakRef.h; path = Frameworks/MAZeroingWeakRef/Source/MAZeroingWeakRef.h; sourceTree = "<group>"; };
+		34A2B5111401B45000B18729 /* MAZeroingWeakRef.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MAZeroingWeakRef.m; path = Frameworks/MAZeroingWeakRef/Source/MAZeroingWeakRef.m; sourceTree = "<group>"; };
 		34A30E7508D8EE7800697644 /* es */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = es; path = Resources/es.lproj/AccountProxy.nib; sourceTree = "<group>"; };
 		34A30E7708D8EE7800697644 /* es */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = es; path = Resources/es.lproj/AppearancePrefs.nib; sourceTree = "<group>"; };
 		34A30E7808D8EE7800697644 /* es */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = es; path = "Plugins/Purple Service/es.lproj/DCPurpleJabberJoinChatView.nib"; sourceTree = "<group>"; };
@@ -6142,6 +6158,21 @@
 			name = "Contact List";
 			sourceTree = "<group>";
 		};
+		34A2B51C1401B45200B18729 /* MAZeroingWeakRef */ = {
+			isa = PBXGroup;
+			children = (
+				34A2B50A1401B45000B18729 /* MAWeakArray.h */,
+				34A2B50B1401B45000B18729 /* MAWeakArray.m */,
+				34A2B50C1401B45000B18729 /* MAWeakDictionary.h */,
+				34A2B50D1401B45000B18729 /* MAWeakDictionary.m */,
+				34A2B50E1401B45000B18729 /* MAZeroingWeakProxy.h */,
+				34A2B50F1401B45000B18729 /* MAZeroingWeakProxy.m */,
+				34A2B5101401B45000B18729 /* MAZeroingWeakRef.h */,
+				34A2B5111401B45000B18729 /* MAZeroingWeakRef.m */,
+			);
+			name = MAZeroingWeakRef;
+			sourceTree = "<group>";
+		};
 		34A65AF606A5A0C400898470 /* Safari Link Toolbar Item */ = {
 			isa = PBXGroup;
 			children = (
@@ -6415,6 +6446,7 @@
 		34D8342B07CBE6A4006466F2 /* External Sources */ = {
 			isa = PBXGroup;
 			children = (
+				34A2B51C1401B45200B18729 /* MAZeroingWeakRef */,
 				34D834CD07CBE7A3006466F2 /* Text field for previewing font preferences */,
 				34A6FE8007D7E07300972830 /* Type Select Table View */,
 				348B25C70A50FBF300B2B972 /* KNShelfSplitView.h */,
@@ -9328,6 +9360,10 @@
 				112B47670F82E0FC00690E84 /* AIXtraInfo.h in Headers */,
 				34F17FCE0F8EAC34009C5A39 /* AIListOutlineView+Drawing.h in Headers */,
 				63B0EC9D0F8FBB660062476B /* AIProxyListObject.h in Headers */,
+				34A2B5121401B45000B18729 /* MAWeakArray.h in Headers */,
+				34A2B5141401B45000B18729 /* MAWeakDictionary.h in Headers */,
+				34A2B5161401B45000B18729 /* MAZeroingWeakProxy.h in Headers */,
+				34A2B5181401B45000B18729 /* MAZeroingWeakRef.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -10863,6 +10899,10 @@
 				112B47680F82E0FC00690E84 /* AIXtraInfo.m in Sources */,
 				34F17FCF0F8EAC34009C5A39 /* AIListOutlineView+Drawing.m in Sources */,
 				63B0EC9C0F8FBB660062476B /* AIProxyListObject.m in Sources */,
+				34A2B5131401B45000B18729 /* MAWeakArray.m in Sources */,
+				34A2B5151401B45000B18729 /* MAWeakDictionary.m in Sources */,
+				34A2B5171401B45000B18729 /* MAZeroingWeakProxy.m in Sources */,
+				34A2B5191401B45000B18729 /* MAZeroingWeakRef.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
