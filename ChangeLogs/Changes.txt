@@ -1,13 +1,16 @@
 				Adium Version History
 				-----------------------
 Version 1.4.3
- * MSN: Fixed direct file transfers, user icons, and receiving custom emoticons, while disabling multiple points of presence (MPOP). We determined that this was the better trade-off based on user feedback. (reverted to MSNP15 support from MSNP16) (#15256)
+ * MSN: Fixed direct file transfers, user icons, and receiving custom emoticons, while disabling multiple points of presence (MPOP). We determined that this was the better trade-off based on user feedback. (reverted to libpurple's MSNP15 support from MSNP16) (#15256)
  * MSN: Fixed an issue involving the "Friendly name changes too often" error. (#15364)
+ * GoogleTalk: Worked around an issue where messages contained XML code. (#15419)
  * Facebook
    * Fixed connectivity.
    * Facebook will now connect via the officially-sanctioned mechanism.  You no longer have to provide Adium with your username and password; you will be prompted to authenticate via a facebook.com window when you first log in. Existing accounts are automatically upgraded.
  * AIM/ICQ: Fixed connecting while using a proxy server.
  * Twitter: Fixed loading the Following list. (#15239)
+ * Fixed a fairly common crash related to user lists. (#14294)
+ * Activated overlay scrollers on Mac OS X Lion. (#15394)
  * Fixed an issue where Adium was constantly writing with the computer screen off for a long time. (#15147)
  * Fixed the "Add Link" function, which was broken in 1.4.2. (#15259)
  * Fixed instances where contacts weren't being highlighted despite having been set to. (#14493).
