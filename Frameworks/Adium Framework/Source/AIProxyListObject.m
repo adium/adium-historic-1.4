@@ -9,7 +9,6 @@
 #import "AIProxyListObject.h"
 #import <Adium/ESObjectWithProperties.h>
 #import <Adium/AIListObject.h>
-#import <Adium/MAZeroingWeakRef.h>
 
 @interface NSObject (PublicAPIMissingFromHeadersAndDocsButInTheReleaseNotesGoshDarnit)
 - (id)forwardingTargetForSelector:(SEL)aSelector;
@@ -18,6 +17,7 @@
 @implementation AIProxyListObject
 
 @synthesize key, cachedDisplayName, cachedDisplayNameString, cachedLabelAttributes, cachedDisplayNameSize;
+@synthesize listObject, containingObject;
 
 static NSMutableDictionary *proxyDict;
 
@@ -92,34 +92,10 @@ static NSMutableDictionary *proxyDict;
 {
 	AILogWithSignature(@"%@", self);
 	self.key = nil;
-    [weakRef_listObject release];
-    [weakRef_containingObject release];
 
     [self flushCache];
 	
 	[super dealloc];
-}
-
-- (AIListObject *)listObject
-{
-    return [weakRef_listObject target];
-}
-
-- (void)setListObject:(AIListObject *)inListObject
-{
-    [weakRef_listObject release];
-    weakRef_listObject = [[MAZeroingWeakRef alloc] initWithTarget: inListObject];
-}
-
-- (ESObjectWithProperties<AIContainingObject> *)containingObject
-{
-    return (ESObjectWithProperties<AIContainingObject> *)[weakRef_listObject target];
-}
-
-- (void)setContainingObject:(ESObjectWithProperties<AIContainingObject> *)inContainingObject
-{
-    [weakRef_containingObject release];
-    weakRef_containingObject = [[MAZeroingWeakRef alloc] initWithTarget:(id)inContainingObject];
 }
 
 
