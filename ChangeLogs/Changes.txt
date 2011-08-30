@@ -3,7 +3,7 @@
 Version 1.4.3
  * Fixed a security vulnerability related to file transfers.
  * libpurple:
-   * Fixed a crash when remote users have certain characters in their nicknames. (Discovered by Djego Ibanez) (#14341)
+   * Fixed a crash when remote users have certain characters in their nicknames. (Discovered by Djego Ibanez) (#p14341)
    * MSN: Fixed direct file transfers, user icons, and receiving custom emoticons, while disabling multiple points of presence (MPOP). We determined that this was the better trade-off based on user feedback. (reverted to libpurple's MSNP15 support from MSNP16) (#15256)
  * MSN: Fixed an issue involving the "Friendly name changes too often" error. (#15364)
  * GoogleTalk: Worked around an issue where messages contained XML code. (#15419)
