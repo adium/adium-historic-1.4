@@ -1,3 +1,4 @@
+
 ###########
 # What to do before running this script:
 # - openUp needs to be installed.
@@ -17,7 +18,7 @@
 # - make all
 ###########
 
-VERSION=1.4.3rc1
+VERSION=1.4.3rc2
 BUILD_IN_DEBUG_MODE?=TRUE
 BETA?=TRUE
 OFFICIAL_BUILD?=TRUE
