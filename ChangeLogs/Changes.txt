@@ -1,6 +1,7 @@
 				Adium Version History
 				-----------------------
-Version 1.4.3
+
+Version 1.4.3 (09/04/2011)
  * Fixed a security vulnerability related to file transfers.
  * libpurple:
    * Fixed a crash when remote users have certain characters in their nicknames. (Discovered by Djego Ibanez) (#p14341)
