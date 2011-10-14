@@ -49,6 +49,10 @@ extern "C" {
 /* Defined if libgadu was compiled for bigendian machine. */
 #undef GG_CONFIG_BIGENDIAN
 
+#ifdef __ppc__ 
+# define GG_CONFIG_BIGENDIAN 
+#endif 
+
 /* Defined if this machine has gethostbyname_r(). */
 #undef GG_CONFIG_HAVE_GETHOSTBYNAME_R
 
