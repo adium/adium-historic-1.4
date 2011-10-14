@@ -6,6 +6,9 @@ Version 1.4.4
  * Gadu-Gadu
    * Fix logging in on PPC Macs.
 
+  Contact List
+   * Turned off rubber band scrolling for the contact list, as this looks bad when using a borderless window. (#15455)
+
 Version 1.4.3 (09/04/2011)
  * Fixed a security vulnerability related to file transfers.
  * libpurple:
