@@ -1,13 +1,13 @@
 				Adium Version History
 				-----------------------
-Version 1.4.4
- * Yahoo
-   * Fix avatars of contacts not updating correctly.
- * Gadu-Gadu
-   * Fix logging in on PPC Macs.
+Version 1.4.4 (X/X/X)
+ * Facebook: Fixed connectivity. (#15544)
+ * Yahoo: Fixed avatars of contacts not updating correctly.
+ * Gadu-Gadu: Fixed logging in on PPC Macs. (#15153)
 
   Contact List
    * Turned off rubber band scrolling for the contact list, as this looks bad when using a borderless window. (#15455)
+
 
 Version 1.4.3 (09/04/2011)
  * Fixed a security vulnerability related to file transfers.
@@ -29,6 +29,7 @@ Version 1.4.3 (09/04/2011)
  * Message View: Inserted emoticon will replace the selected text (if any).
  * Updated localisations: British English, Chinese (Traditional), Danish (#15431), Dutch (#15421), French (#15402), German (#15374), Greek (#15330), Italian (#15395), Norwegian (Bokmål) (#15365), Portuguese (Portugal) (#15371), Swedish (#15384).
  * Fixed a case of unfavourable wording in the German localisation. (#15393)
+
 
 Version 1.4.2 (06/13/2011)
  Updated to libpurple 2.7.11. Highlights of applicable changes:
