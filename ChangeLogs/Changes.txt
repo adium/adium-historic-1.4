@@ -1,12 +1,16 @@
 				Adium Version History
 				-----------------------
 Version 1.4.4 (X/X/X)
- * Facebook: Fixed connectivity. (#15544)
- * Yahoo: Fixed avatars of contacts not updating correctly.
- * Gadu-Gadu: Fixed logging in on PPC Macs. (#15153)
+ Services
+  * Facebook: Fixed connectivity. (#15544)
+  * Yahoo: Fixed avatars of contacts not updating correctly.
+  * Gadu-Gadu: Fixed logging in on PPC Macs. (#15153)
 
-  Contact List
-   * Turned off rubber band scrolling for the contact list, as this looks bad when using a borderless window. (#15455)
+ Chat Window
+ * Renamed the "Show Info" toolbar item to "Get Info" for consistency. (Ariel Chinn) (#14072)
+
+ Contact List
+  * Turned off rubber band scrolling for the contact list, as this looks bad when using a borderless window. (#15455)
 
 
 Version 1.4.3 (09/04/2011)

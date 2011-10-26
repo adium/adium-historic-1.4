@@ -18,9 +18,9 @@
 # - make all
 ###########
 
-VERSION=1.4.3
-BUILD_IN_DEBUG_MODE?=FALSE
-BETA?=FALSE
+VERSION=1.4.4b1
+BUILD_IN_DEBUG_MODE?=TRUE
+BETA?=TRUE
 OFFICIAL_BUILD?=TRUE
 
 # Always builds in debug mode.
