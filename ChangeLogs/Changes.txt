@@ -12,6 +12,9 @@ Version 1.4.4 (X/X/X)
  Contact List
   * Turned off rubber band scrolling for the contact list, as this looks bad when using a borderless window. (#15455)
 
+ Xtras
+  * Fixed a crash when installing an Xtra from the website. (#15581)
+
  Localisation
   * Updated German localisation. (#15477)
 
