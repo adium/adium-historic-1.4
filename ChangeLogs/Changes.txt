@@ -1,10 +1,16 @@
 				Adium Version History
 				-----------------------
-Version 1.4.4 (X/X/X)
+Version 1.4.4 (12/5/2011)
  Services
-  * Facebook: Fixed connectivity. (#15544)
+  * Facebook: Fixed connectivity. (#15544, #15583)
   * Yahoo: Fixed avatars of contacts not updating correctly.
   * Gadu-Gadu: Fixed logging in on PPC Macs. (#15153)
+ Miscellaneous
+  * Fixed a crash when installing an Xtra from the website. (#15581)
+  * Turned off rubber band scrolling for the contact list, as this looks bad when using a borderless window. (#15455)
+  * Renamed the "Show Info" toolbar item to "Get Info" for consistency. (Ariel Chinn) (#14072)
+  * Updated German localisation. (#15477, #15658)
+  * Fixed two small mistakes in the Brazilian Portuguese localisation. (#15511).
 
  Chat Window
  * Renamed the "Show Info" toolbar item to "Get Info" for consistency. (Ariel Chinn) (#14072)
