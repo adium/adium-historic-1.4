@@ -119,7 +119,7 @@
 			[chat setValue:invitationMessage forProperty:@"InitialInivitationMessage" notify:NotifyNever];
 		}
 		
-		[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(chatDidOpen:) name:Chat_DidOpen object:chat];
+		[[NSNotificationCenter defaultCenter] addObserver:[self retain] selector:@selector(chatDidOpen:) name:Chat_DidOpen object:chat];
 	}
 	
 }
@@ -154,6 +154,7 @@
 	
 	//We are no longer concerned with the opening of this chat.
 	[[NSNotificationCenter defaultCenter] removeObserver:self name:Chat_DidOpen object:chat];
+	[self release];
 }
 
 /*!
