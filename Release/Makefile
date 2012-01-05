@@ -215,4 +215,4 @@ tarballapp:
 	cd $(BUILD_DIR) && tar zcf $(RELEASE_NAME).tgz Adium*/ && cd ..
 
 tarball:
-	hg archive -t tgz ($TARBALL_DIR).tgz
+	hg archive -t tgz $(TARBALL_DIR).tgz
