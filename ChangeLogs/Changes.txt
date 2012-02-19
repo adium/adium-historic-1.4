@@ -1,7 +1,10 @@
 				Adium Version History
 				-----------------------
-Adium 1.4.5 (X/X/X)
- * Fixed crash when sending certain group chat requests. (#15674) 
+Version 1.4.5 (X/X/X)
+ * Fixed crash when starting certain group chat requests. (#15674) 
+ * Fixed not being able to delete Gadu-Gadu contacts disabling contact list synchronisation with the Gadu-Gadu servers (for now). (#9126)
+ * Fixed a leak. (#15484)
+ * Fixed some mistakes in the Russian localisation. (#15571, #15769)
 
 Version 1.4.4 (12/5/2011)
  Services
