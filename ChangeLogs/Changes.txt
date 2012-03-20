@@ -1,6 +1,6 @@
 				Adium Version History
 				-----------------------
-Version 1.4.5 (03/XX/2012)
+Version 1.4.5 (03/20/2012)
  * Fixed a crash on PPC Macs when logging in to ICQ. (#15881)
  * Fixed crash when starting certain group chat requests. (#15674) 
  * Fixed not being able to delete Gadu-Gadu contacts disabling contact list synchronisation with the Gadu-Gadu servers (for now). (#9126)
