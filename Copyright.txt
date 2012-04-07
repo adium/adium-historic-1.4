@@ -18,6 +18,7 @@ Ariel Chinn
 David Clark
 Felipe Contreras
 Jacobo Tarragón Cros
+James De Ricco
 Brian Dickman
 Michael Dippery
 Frank Dowsett
